@@ -1,4 +1,4 @@
-id;otp;email;phone;type;expiry_time;status;created_by;created_at;updated_by;updated_at
+id;otp_val;email;phone;type;expiry_time;status;created_by;created_at;updated_by;updated_at
 1;52741;Dudley_OConnell81@gmail.com;19430;Phone;2021-11-26;Init;Cloned;2021-11-26;vertical Oregon;2021-11-26
 2;16890;Genevieve.Bashirian@gmail.com;6485;Both;2021-11-26;Verified;Tasty Rubber transmit;2021-11-26;Reduced;2021-11-26
 3;79111;Kadin92@hotmail.com;65041;Both;2021-11-25;Verified;engineer Dirham;2021-11-26;microchip Loan input;2021-11-26

@@ -13,7 +13,7 @@ public class OTPDTO implements Serializable {
 
     private Long id;
 
-    private Integer otp;
+    private Integer otpVal;
 
     private String email;
 
@@ -43,12 +43,12 @@ public class OTPDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getOtp() {
-        return otp;
+    public Integer getOtpVal() {
+        return otpVal;
     }
 
-    public void setOtp(Integer otp) {
-        this.otp = otp;
+    public void setOtpVal(Integer otpVal) {
+        this.otpVal = otpVal;
     }
 
     public String getEmail() {
@@ -157,7 +157,7 @@ public class OTPDTO implements Serializable {
     public String toString() {
         return "OTPDTO{" +
             "id=" + getId() +
-            ", otp=" + getOtp() +
+            ", otpVal=" + getOtpVal() +
             ", email='" + getEmail() + "'" +
             ", phone=" + getPhone() +
             ", type='" + getType() + "'" +

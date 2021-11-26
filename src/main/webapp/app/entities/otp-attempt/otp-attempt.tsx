@@ -125,8 +125,8 @@ export const OTPAttempt = (props: RouteComponentProps<{ url: string }>) => {
                   <th className="hand" onClick={sort('id')}>
                     <Translate contentKey="mullyaApp.oTPAttempt.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={sort('otp')}>
-                    <Translate contentKey="mullyaApp.oTPAttempt.otp">Otp</Translate> <FontAwesomeIcon icon="sort" />
+                  <th className="hand" onClick={sort('otpVal')}>
+                    <Translate contentKey="mullyaApp.oTPAttempt.otpVal">Otp Val</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('email')}>
                     <Translate contentKey="mullyaApp.oTPAttempt.email">Email</Translate> <FontAwesomeIcon icon="sort" />
@@ -160,7 +160,7 @@ export const OTPAttempt = (props: RouteComponentProps<{ url: string }>) => {
                         {oTPAttempt.id}
                       </Button>
                     </td>
-                    <td>{oTPAttempt.otp}</td>
+                    <td>{oTPAttempt.otpVal}</td>
                     <td>{oTPAttempt.email}</td>
                     <td>{oTPAttempt.phone}</td>
                     <td>{oTPAttempt.ip}</td>

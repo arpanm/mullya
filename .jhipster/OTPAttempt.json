@@ -2,7 +2,7 @@
   "name": "OTPAttempt",
   "fields": [
     {
-      "fieldName": "otp",
+      "fieldName": "otpVal",
       "fieldType": "Integer"
     },
     {

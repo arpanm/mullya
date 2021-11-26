@@ -18,7 +18,7 @@
         "title": "OTP Attempt"
       },
       "id": "ID",
-      "otp": "Otp",
+      "otpVal": "Otp Val",
       "email": "Email",
       "phone": "Phone",
       "ip": "Ip",

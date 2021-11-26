@@ -26,8 +26,8 @@ public class OTP implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "otp")
-    private Integer otp;
+    @Column(name = "otp_val")
+    private Integer otpVal;
 
     @Column(name = "email")
     private String email;
@@ -85,17 +85,17 @@ public class OTP implements Serializable {
         this.id = id;
     }
 
-    public Integer getOtp() {
-        return this.otp;
+    public Integer getOtpVal() {
+        return this.otpVal;
     }
 
-    public OTP otp(Integer otp) {
-        this.setOtp(otp);
+    public OTP otpVal(Integer otpVal) {
+        this.setOtpVal(otpVal);
         return this;
     }
 
-    public void setOtp(Integer otp) {
-        this.otp = otp;
+    public void setOtpVal(Integer otpVal) {
+        this.otpVal = otpVal;
     }
 
     public String getEmail() {
@@ -283,7 +283,7 @@ public class OTP implements Serializable {
     public String toString() {
         return "OTP{" +
             "id=" + getId() +
-            ", otp=" + getOtp() +
+            ", otpVal=" + getOtpVal() +
             ", email='" + getEmail() + "'" +
             ", phone=" + getPhone() +
             ", type='" + getType() + "'" +

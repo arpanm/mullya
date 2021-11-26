@@ -110,7 +110,7 @@ relationship OneToMany {
 }
 
 entity OTP {
-	otp Integer,
+	otpVal Integer,
     email String,
     phone Integer,
     type OtpType,
@@ -123,7 +123,7 @@ entity OTP {
 }
 
 entity OTPAttempt {
-	otp Integer,
+	otpVal Integer,
     email String,
     phone Integer,
     ip String,

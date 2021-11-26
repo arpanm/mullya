@@ -30,11 +30,11 @@ export const OTPDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dt>
           <dd>{oTPEntity.id}</dd>
           <dt>
-            <span id="otp">
-              <Translate contentKey="mullyaApp.oTP.otp">Otp</Translate>
+            <span id="otpVal">
+              <Translate contentKey="mullyaApp.oTP.otpVal">Otp Val</Translate>
             </span>
           </dt>
-          <dd>{oTPEntity.otp}</dd>
+          <dd>{oTPEntity.otpVal}</dd>
           <dt>
             <span id="email">
               <Translate contentKey="mullyaApp.oTP.email">Email</Translate>

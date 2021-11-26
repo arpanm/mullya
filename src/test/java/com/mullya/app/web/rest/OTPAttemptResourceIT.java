@@ -33,8 +33,8 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class OTPAttemptResourceIT {
 
-    private static final Integer DEFAULT_OTP = 1;
-    private static final Integer UPDATED_OTP = 2;
+    private static final Integer DEFAULT_OTP_VAL = 1;
+    private static final Integer UPDATED_OTP_VAL = 2;
 
     private static final String DEFAULT_EMAIL = "AAAAAAAAAA";
     private static final String UPDATED_EMAIL = "BBBBBBBBBB";
@@ -82,7 +82,7 @@ class OTPAttemptResourceIT {
      */
     public static OTPAttempt createEntity(EntityManager em) {
         OTPAttempt oTPAttempt = new OTPAttempt()
-            .otp(DEFAULT_OTP)
+            .otpVal(DEFAULT_OTP_VAL)
             .email(DEFAULT_EMAIL)
             .phone(DEFAULT_PHONE)
             .ip(DEFAULT_IP)
@@ -100,7 +100,7 @@ class OTPAttemptResourceIT {
      */
     public static OTPAttempt createUpdatedEntity(EntityManager em) {
         OTPAttempt oTPAttempt = new OTPAttempt()
-            .otp(UPDATED_OTP)
+            .otpVal(UPDATED_OTP_VAL)
             .email(UPDATED_EMAIL)
             .phone(UPDATED_PHONE)
             .ip(UPDATED_IP)
@@ -129,7 +129,7 @@ class OTPAttemptResourceIT {
         List<OTPAttempt> oTPAttemptList = oTPAttemptRepository.findAll();
         assertThat(oTPAttemptList).hasSize(databaseSizeBeforeCreate + 1);
         OTPAttempt testOTPAttempt = oTPAttemptList.get(oTPAttemptList.size() - 1);
-        assertThat(testOTPAttempt.getOtp()).isEqualTo(DEFAULT_OTP);
+        assertThat(testOTPAttempt.getOtpVal()).isEqualTo(DEFAULT_OTP_VAL);
         assertThat(testOTPAttempt.getEmail()).isEqualTo(DEFAULT_EMAIL);
         assertThat(testOTPAttempt.getPhone()).isEqualTo(DEFAULT_PHONE);
         assertThat(testOTPAttempt.getIp()).isEqualTo(DEFAULT_IP);
@@ -169,7 +169,7 @@ class OTPAttemptResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(oTPAttempt.getId().intValue())))
-            .andExpect(jsonPath("$.[*].otp").value(hasItem(DEFAULT_OTP)))
+            .andExpect(jsonPath("$.[*].otpVal").value(hasItem(DEFAULT_OTP_VAL)))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)))
             .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE)))
             .andExpect(jsonPath("$.[*].ip").value(hasItem(DEFAULT_IP)))
@@ -190,7 +190,7 @@ class OTPAttemptResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(oTPAttempt.getId().intValue()))
-            .andExpect(jsonPath("$.otp").value(DEFAULT_OTP))
+            .andExpect(jsonPath("$.otpVal").value(DEFAULT_OTP_VAL))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL))
             .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE))
             .andExpect(jsonPath("$.ip").value(DEFAULT_IP))
@@ -219,7 +219,7 @@ class OTPAttemptResourceIT {
         // Disconnect from session so that the updates on updatedOTPAttempt are not directly saved in db
         em.detach(updatedOTPAttempt);
         updatedOTPAttempt
-            .otp(UPDATED_OTP)
+            .otpVal(UPDATED_OTP_VAL)
             .email(UPDATED_EMAIL)
             .phone(UPDATED_PHONE)
             .ip(UPDATED_IP)
@@ -240,7 +240,7 @@ class OTPAttemptResourceIT {
         List<OTPAttempt> oTPAttemptList = oTPAttemptRepository.findAll();
         assertThat(oTPAttemptList).hasSize(databaseSizeBeforeUpdate);
         OTPAttempt testOTPAttempt = oTPAttemptList.get(oTPAttemptList.size() - 1);
-        assertThat(testOTPAttempt.getOtp()).isEqualTo(UPDATED_OTP);
+        assertThat(testOTPAttempt.getOtpVal()).isEqualTo(UPDATED_OTP_VAL);
         assertThat(testOTPAttempt.getEmail()).isEqualTo(UPDATED_EMAIL);
         assertThat(testOTPAttempt.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testOTPAttempt.getIp()).isEqualTo(UPDATED_IP);
@@ -345,7 +345,7 @@ class OTPAttemptResourceIT {
         List<OTPAttempt> oTPAttemptList = oTPAttemptRepository.findAll();
         assertThat(oTPAttemptList).hasSize(databaseSizeBeforeUpdate);
         OTPAttempt testOTPAttempt = oTPAttemptList.get(oTPAttemptList.size() - 1);
-        assertThat(testOTPAttempt.getOtp()).isEqualTo(DEFAULT_OTP);
+        assertThat(testOTPAttempt.getOtpVal()).isEqualTo(DEFAULT_OTP_VAL);
         assertThat(testOTPAttempt.getEmail()).isEqualTo(UPDATED_EMAIL);
         assertThat(testOTPAttempt.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testOTPAttempt.getIp()).isEqualTo(UPDATED_IP);
@@ -367,7 +367,7 @@ class OTPAttemptResourceIT {
         partialUpdatedOTPAttempt.setId(oTPAttempt.getId());
 
         partialUpdatedOTPAttempt
-            .otp(UPDATED_OTP)
+            .otpVal(UPDATED_OTP_VAL)
             .email(UPDATED_EMAIL)
             .phone(UPDATED_PHONE)
             .ip(UPDATED_IP)
@@ -387,7 +387,7 @@ class OTPAttemptResourceIT {
         List<OTPAttempt> oTPAttemptList = oTPAttemptRepository.findAll();
         assertThat(oTPAttemptList).hasSize(databaseSizeBeforeUpdate);
         OTPAttempt testOTPAttempt = oTPAttemptList.get(oTPAttemptList.size() - 1);
-        assertThat(testOTPAttempt.getOtp()).isEqualTo(UPDATED_OTP);
+        assertThat(testOTPAttempt.getOtpVal()).isEqualTo(UPDATED_OTP_VAL);
         assertThat(testOTPAttempt.getEmail()).isEqualTo(UPDATED_EMAIL);
         assertThat(testOTPAttempt.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testOTPAttempt.getIp()).isEqualTo(UPDATED_IP);

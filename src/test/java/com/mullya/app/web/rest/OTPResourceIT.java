@@ -35,8 +35,8 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class OTPResourceIT {
 
-    private static final Integer DEFAULT_OTP = 1;
-    private static final Integer UPDATED_OTP = 2;
+    private static final Integer DEFAULT_OTP_VAL = 1;
+    private static final Integer UPDATED_OTP_VAL = 2;
 
     private static final String DEFAULT_EMAIL = "AAAAAAAAAA";
     private static final String UPDATED_EMAIL = "BBBBBBBBBB";
@@ -93,7 +93,7 @@ class OTPResourceIT {
      */
     public static OTP createEntity(EntityManager em) {
         OTP oTP = new OTP()
-            .otp(DEFAULT_OTP)
+            .otpVal(DEFAULT_OTP_VAL)
             .email(DEFAULT_EMAIL)
             .phone(DEFAULT_PHONE)
             .type(DEFAULT_TYPE)
@@ -114,7 +114,7 @@ class OTPResourceIT {
      */
     public static OTP createUpdatedEntity(EntityManager em) {
         OTP oTP = new OTP()
-            .otp(UPDATED_OTP)
+            .otpVal(UPDATED_OTP_VAL)
             .email(UPDATED_EMAIL)
             .phone(UPDATED_PHONE)
             .type(UPDATED_TYPE)
@@ -146,7 +146,7 @@ class OTPResourceIT {
         List<OTP> oTPList = oTPRepository.findAll();
         assertThat(oTPList).hasSize(databaseSizeBeforeCreate + 1);
         OTP testOTP = oTPList.get(oTPList.size() - 1);
-        assertThat(testOTP.getOtp()).isEqualTo(DEFAULT_OTP);
+        assertThat(testOTP.getOtpVal()).isEqualTo(DEFAULT_OTP_VAL);
         assertThat(testOTP.getEmail()).isEqualTo(DEFAULT_EMAIL);
         assertThat(testOTP.getPhone()).isEqualTo(DEFAULT_PHONE);
         assertThat(testOTP.getType()).isEqualTo(DEFAULT_TYPE);
@@ -189,7 +189,7 @@ class OTPResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(oTP.getId().intValue())))
-            .andExpect(jsonPath("$.[*].otp").value(hasItem(DEFAULT_OTP)))
+            .andExpect(jsonPath("$.[*].otpVal").value(hasItem(DEFAULT_OTP_VAL)))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)))
             .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE)))
             .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
@@ -213,7 +213,7 @@ class OTPResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(oTP.getId().intValue()))
-            .andExpect(jsonPath("$.otp").value(DEFAULT_OTP))
+            .andExpect(jsonPath("$.otpVal").value(DEFAULT_OTP_VAL))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL))
             .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE))
             .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
@@ -245,7 +245,7 @@ class OTPResourceIT {
         // Disconnect from session so that the updates on updatedOTP are not directly saved in db
         em.detach(updatedOTP);
         updatedOTP
-            .otp(UPDATED_OTP)
+            .otpVal(UPDATED_OTP_VAL)
             .email(UPDATED_EMAIL)
             .phone(UPDATED_PHONE)
             .type(UPDATED_TYPE)
@@ -269,7 +269,7 @@ class OTPResourceIT {
         List<OTP> oTPList = oTPRepository.findAll();
         assertThat(oTPList).hasSize(databaseSizeBeforeUpdate);
         OTP testOTP = oTPList.get(oTPList.size() - 1);
-        assertThat(testOTP.getOtp()).isEqualTo(UPDATED_OTP);
+        assertThat(testOTP.getOtpVal()).isEqualTo(UPDATED_OTP_VAL);
         assertThat(testOTP.getEmail()).isEqualTo(UPDATED_EMAIL);
         assertThat(testOTP.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testOTP.getType()).isEqualTo(UPDATED_TYPE);
@@ -372,7 +372,7 @@ class OTPResourceIT {
         List<OTP> oTPList = oTPRepository.findAll();
         assertThat(oTPList).hasSize(databaseSizeBeforeUpdate);
         OTP testOTP = oTPList.get(oTPList.size() - 1);
-        assertThat(testOTP.getOtp()).isEqualTo(DEFAULT_OTP);
+        assertThat(testOTP.getOtpVal()).isEqualTo(DEFAULT_OTP_VAL);
         assertThat(testOTP.getEmail()).isEqualTo(DEFAULT_EMAIL);
         assertThat(testOTP.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testOTP.getType()).isEqualTo(UPDATED_TYPE);
@@ -397,7 +397,7 @@ class OTPResourceIT {
         partialUpdatedOTP.setId(oTP.getId());
 
         partialUpdatedOTP
-            .otp(UPDATED_OTP)
+            .otpVal(UPDATED_OTP_VAL)
             .email(UPDATED_EMAIL)
             .phone(UPDATED_PHONE)
             .type(UPDATED_TYPE)
@@ -420,7 +420,7 @@ class OTPResourceIT {
         List<OTP> oTPList = oTPRepository.findAll();
         assertThat(oTPList).hasSize(databaseSizeBeforeUpdate);
         OTP testOTP = oTPList.get(oTPList.size() - 1);
-        assertThat(testOTP.getOtp()).isEqualTo(UPDATED_OTP);
+        assertThat(testOTP.getOtpVal()).isEqualTo(UPDATED_OTP_VAL);
         assertThat(testOTP.getEmail()).isEqualTo(UPDATED_EMAIL);
         assertThat(testOTP.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testOTP.getType()).isEqualTo(UPDATED_TYPE);
