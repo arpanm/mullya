@@ -1,0 +1,180 @@
+
+application {
+  config {
+    baseName mullya,
+    serverPort 8080,
+    applicationType monolith,
+    packageName com.mullya.app,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    clientFramework react,
+    clientPackageManager npm,
+    buildTool maven,
+    enableSwaggerCodegen true,
+    languages [en, bn, hi, ta, te]
+  }
+  entities *
+  dto * with mapstruct
+  paginate * with infinite-scroll
+  service all with serviceImpl
+}
+
+entity Actor {
+  	email String pattern(/^(.+)@(.+)$/),
+  	phone Long min(1000000000) max(9999999999),
+  	isEmailVerified Boolean,
+  	isPhoneVerified Boolean,
+  	isActive Boolean,
+  	password String,
+  	type ActorType
+  	createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String,
+}
+
+entity Requirement {
+	category StockCategory,
+    variant String,
+    subVariant String,
+    minPrice Float,
+    maxPrice Float,
+    acceptedPrice Float,
+    codAmount Float,
+    quantityKg Float,
+    neededBy String,
+    paymentDate String,
+    acceptedDeliveryDate String,
+    description String,
+    createdOn LocalDate,
+    createdBy String,
+    updatedOn LocalDate,
+    updatedBy String,
+    status RequirementStatus
+    paymentStatus PaymentStatus,
+    deliveryStatus DeliveryStatus,
+}
+
+enum ActorType {
+	Buyer,
+    Farmer,
+    Agent
+}
+
+enum StockCategory {
+	Rice,
+    Wheat,
+    Mustard,
+    Other
+}
+
+enum RequirementStatus {
+	New,
+    Accepted,
+    Rejected,
+    Paid,
+    Cancelled,
+    Refunded,
+    InTransit,
+    Delivered
+}
+
+enum PaymentStatus {
+	Pending,
+    Initiated,
+    Failed,
+    Success
+}
+
+enum DeliveryStatus {
+	PendingConfirmation,
+    Accepted,
+    Declined
+    InTransit,
+    Delivered,
+    ReturnInitiatedInTransit,
+    ReturnInitiatedAfterDelivery,
+    Returned
+}
+
+relationship OneToMany {
+  	Actor to Requirement{buyerActor}
+}
+
+relationship OneToMany {
+  	Actor to Requirement{acceptedAgentActor}
+}
+
+relationship OneToMany {
+  	Actor to Requirement{farmerActor}
+}
+
+entity OTP {
+	otp Integer,
+    email String,
+    phone Integer,
+    type OtpType,
+    expiryTime LocalDate,
+    status OtpStatus,
+    createdBy String,
+    createdAt LocalDate,
+    updatedBy String,
+    updatedAt LocalDate
+}
+
+entity OTPAttempt {
+	otp Integer,
+    email String,
+    phone Integer,
+    ip String,
+    coookie String,
+    createdBy String,
+    createdAt LocalDate
+}
+
+enum OtpType {
+    Email,
+    Phone,
+    Both
+}
+
+enum OtpStatus {
+    Init,
+    Verified,
+    Expired
+}
+
+relationship OneToMany {
+	OTP to OTPAttempt{otp}
+}
+
+relationship OneToMany {
+	Actor to OTP{actor}
+}
+
+entity Address {
+	streetAddress String,
+	postalCode Integer,
+	city String,
+	stateProvince String,
+    country String,
+    createdBy String,
+    lat Float,
+    lon Float,
+    mapLocation String,
+    createdAt LocalDate,
+    updatedBy String,
+    updatedAt LocalDate
+}
+
+relationship ManyToOne {
+	Requirement{buyerAddress} to Address
+}
+
+relationship ManyToOne {
+	Requirement{farmerAddress} to Address
+}
+
+relationship OneToMany {
+	Actor to Address{actor}
+}
