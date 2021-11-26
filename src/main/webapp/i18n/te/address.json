@@ -1,0 +1,36 @@
+{
+  "mullyaApp": {
+    "address": {
+      "home": {
+        "title": "Addresses",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Address  సృష్టించండి",
+        "createOrEditLabel": "Address సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Addresses found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Address సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Address సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Address తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Address {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Address"
+      },
+      "id": "ID",
+      "streetAddress": "Street Address",
+      "postalCode": "Postal Code",
+      "city": "City",
+      "stateProvince": "State Province",
+      "country": "Country",
+      "createdBy": "Created By",
+      "lat": "Lat",
+      "lon": "Lon",
+      "mapLocation": "Map Location",
+      "createdAt": "Created At",
+      "updatedBy": "Updated By",
+      "updatedAt": "Updated At",
+      "actor": "Actor"
+    }
+  }
+}

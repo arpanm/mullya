@@ -1,0 +1,15 @@
+{
+  "mullyaApp": {
+    "DeliveryStatus": {
+      "null": "",
+      "PendingConfirmation": "PendingConfirmation",
+      "Accepted": "Accepted",
+      "Declined": "Declined",
+      "InTransit": "InTransit",
+      "Delivered": "Delivered",
+      "ReturnInitiatedInTransit": "ReturnInitiatedInTransit",
+      "ReturnInitiatedAfterDelivery": "ReturnInitiatedAfterDelivery",
+      "Returned": "Returned"
+    }
+  }
+}

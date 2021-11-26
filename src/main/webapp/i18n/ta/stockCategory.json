@@ -1,0 +1,11 @@
+{
+  "mullyaApp": {
+    "StockCategory": {
+      "null": "",
+      "Rice": "Rice",
+      "Wheat": "Wheat",
+      "Mustard": "Mustard",
+      "Other": "Other"
+    }
+  }
+}

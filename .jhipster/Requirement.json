@@ -1,0 +1,93 @@
+{
+  "name": "Requirement",
+  "fields": [
+    {
+      "fieldName": "category",
+      "fieldType": "StockCategory",
+      "fieldValues": "Rice,Wheat,Mustard,Other"
+    },
+    {
+      "fieldName": "variant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "subVariant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "minPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "maxPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "quantityKg",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "neededBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "RequirementStatus",
+      "fieldValues": "New,Accepted,Rejected,Paid,Cancelled,Refunded,InTransit,Delivered"
+    },
+    {
+      "fieldName": "paymentStatus",
+      "fieldType": "PaymentStatus",
+      "fieldValues": "Pending,Initiated,Failed,Success"
+    },
+    {
+      "fieldName": "deliveryStatus",
+      "fieldType": "DeliveryStatus",
+      "fieldValues": "PendingConfirmation,Accepted,Declined,InTransit,Delivered,ReturnInitiatedInTransit,ReturnInitiatedAfterDelivery,Returned"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "requirement",
+      "relationshipName": "address"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "actor",
+      "otherEntityRelationshipName": "requirement",
+      "relationshipName": "actor"
+    }
+  ],
+  "entityTableName": "requirement",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["mullya"],
+  "changelogDate": "20211126181623"
+}
