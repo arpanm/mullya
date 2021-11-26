@@ -48,6 +48,13 @@ public class CacheConfiguration {
             createCache(cm, com.mullya.app.domain.User.class.getName());
             createCache(cm, com.mullya.app.domain.Authority.class.getName());
             createCache(cm, com.mullya.app.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.mullya.app.domain.Actor.class.getName());
+            createCache(cm, com.mullya.app.domain.Actor.class.getName() + ".requirements");
+            createCache(cm, com.mullya.app.domain.Actor.class.getName() + ".oTPS");
+            createCache(cm, com.mullya.app.domain.Requirement.class.getName());
+            createCache(cm, com.mullya.app.domain.OTP.class.getName());
+            createCache(cm, com.mullya.app.domain.OTP.class.getName() + ".oTPAttempts");
+            createCache(cm, com.mullya.app.domain.OTPAttempt.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
