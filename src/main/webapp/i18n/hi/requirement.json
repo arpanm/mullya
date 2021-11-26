@@ -1,0 +1,47 @@
+{
+  "mullyaApp": {
+    "requirement": {
+      "home": {
+        "title": "Requirements",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Requirement बनाएँ",
+        "createOrEditLabel": "Requirement बनाएँ या संपादित करें",
+        "notFound": "No Requirements found"
+      },
+      "created": "एक नया Requirement [identifier: {{ param }}] तैयार है",
+      "updated": "एक Requirement [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Requirement [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Requirement [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Requirement"
+      },
+      "id": "ID",
+      "category": "Category",
+      "variant": "Variant",
+      "subVariant": "Sub Variant",
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "acceptedPrice": "Accepted Price",
+      "codAmount": "Cod Amount",
+      "quantityKg": "Quantity Kg",
+      "neededBy": "Needed By",
+      "paymentDate": "Payment Date",
+      "acceptedDeliveryDate": "Accepted Delivery Date",
+      "description": "Description",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "status": "Status",
+      "paymentStatus": "Payment Status",
+      "deliveryStatus": "Delivery Status",
+      "buyerAddress": "Buyer Address",
+      "farmerAddress": "Farmer Address",
+      "buyerActor": "Buyer Actor",
+      "acceptedAgentActor": "Accepted Agent Actor",
+      "farmerActor": "Farmer Actor"
+    }
+  }
+}

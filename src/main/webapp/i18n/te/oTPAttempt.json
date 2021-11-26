@@ -1,0 +1,31 @@
+{
+  "mullyaApp": {
+    "oTPAttempt": {
+      "home": {
+        "title": "OTP Attempts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త OTP Attempt  సృష్టించండి",
+        "createOrEditLabel": "OTP Attempt సృష్టించండి లేదా సవరించండి",
+        "notFound": "No OTP Attempts found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త OTP Attempt సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త OTP Attempt సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త OTP Attempt తొలగించబడినది",
+      "delete": {
+        "question": "మీరు OTP Attempt {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "OTP Attempt"
+      },
+      "id": "ID",
+      "otp": "Otp",
+      "email": "Email",
+      "phone": "Phone",
+      "ip": "Ip",
+      "coookie": "Coookie",
+      "createdBy": "Created By",
+      "createdAt": "Created At",
+      "otp": "Otp"
+    }
+  }
+}

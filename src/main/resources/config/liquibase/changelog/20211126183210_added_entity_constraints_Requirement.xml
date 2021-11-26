@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Requirement.
+    -->
+    <changeSet id="20211126183210-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="buyer_address_id"
+                                 baseTableName="requirement"
+                                 constraintName="fk_requirement__buyer_address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="address"/>
+
+        <addForeignKeyConstraint baseColumnNames="farmer_address_id"
+                                 baseTableName="requirement"
+                                 constraintName="fk_requirement__farmer_address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="address"/>
+
+        <addForeignKeyConstraint baseColumnNames="buyer_actor_id"
+                                 baseTableName="requirement"
+                                 constraintName="fk_requirement__buyer_actor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="actor"/>
+
+        <addForeignKeyConstraint baseColumnNames="accepted_agent_actor_id"
+                                 baseTableName="requirement"
+                                 constraintName="fk_requirement__accepted_agent_actor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="actor"/>
+
+        <addForeignKeyConstraint baseColumnNames="farmer_actor_id"
+                                 baseTableName="requirement"
+                                 constraintName="fk_requirement__farmer_actor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="actor"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,51 @@
+{
+  "name": "OTPAttempt",
+  "fields": [
+    {
+      "fieldName": "otp",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ip",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "coookie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "oTP",
+      "otherEntityRelationshipName": "oTPAttempt",
+      "relationshipName": "otp"
+    }
+  ],
+  "entityTableName": "otp_attempt",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["mullya"],
+  "changelogDate": "20211126183212"
+}
