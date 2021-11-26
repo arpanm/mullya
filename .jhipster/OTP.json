@@ -1,0 +1,71 @@
+{
+  "name": "OTP",
+  "fields": [
+    {
+      "fieldName": "otp",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "OtpType",
+      "fieldValues": "Email,Phone,Both"
+    },
+    {
+      "fieldName": "expiryTime",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "OtpStatus",
+      "fieldValues": "Init,Verified,Expired"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "oTPAttempt",
+      "otherEntityRelationshipName": "otp",
+      "relationshipName": "oTPAttempt"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "actor",
+      "otherEntityRelationshipName": "oTP",
+      "relationshipName": "actor"
+    }
+  ],
+  "entityTableName": "otp",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["mullya"],
+  "changelogDate": "20211126180727"
+}

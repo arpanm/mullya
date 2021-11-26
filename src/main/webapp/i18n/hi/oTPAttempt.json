@@ -1,0 +1,31 @@
+{
+  "mullyaApp": {
+    "oTPAttempt": {
+      "home": {
+        "title": "OTPAttempts",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया OTP Attempt बनाएँ",
+        "createOrEditLabel": "OTP Attempt बनाएँ या संपादित करें",
+        "notFound": "No OTP Attempts found"
+      },
+      "created": "एक नया OTP Attempt [identifier: {{ param }}] तैयार है",
+      "updated": "एक OTP Attempt [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "OTP Attempt [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "OTP Attempt [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "OTP Attempt"
+      },
+      "id": "ID",
+      "otp": "Otp",
+      "email": "Email",
+      "phone": "Phone",
+      "ip": "Ip",
+      "coookie": "Coookie",
+      "createdBy": "Created By",
+      "createdAt": "Created At",
+      "otp": "Otp"
+    }
+  }
+}

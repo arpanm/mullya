@@ -1,0 +1,10 @@
+{
+  "mullyaApp": {
+    "OtpStatus": {
+      "null": "",
+      "Init": "Init",
+      "Verified": "Verified",
+      "Expired": "Expired"
+    }
+  }
+}

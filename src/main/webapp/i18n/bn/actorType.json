@@ -1,0 +1,10 @@
+{
+  "mullyaApp": {
+    "ActorType": {
+      "null": "",
+      "Buyer": "Buyer",
+      "Farmer": "Farmer",
+      "Agent": "Agent"
+    }
+  }
+}

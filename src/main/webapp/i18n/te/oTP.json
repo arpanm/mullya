@@ -1,0 +1,35 @@
+{
+  "mullyaApp": {
+    "oTP": {
+      "home": {
+        "title": "OTPS",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త OTP  సృష్టించండి",
+        "createOrEditLabel": "OTP సృష్టించండి లేదా సవరించండి",
+        "notFound": "No OTPS found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త OTP సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త OTP సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త OTP తొలగించబడినది",
+      "delete": {
+        "question": "మీరు OTP {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "OTP"
+      },
+      "id": "ID",
+      "otp": "Otp",
+      "email": "Email",
+      "phone": "Phone",
+      "type": "Type",
+      "expiryTime": "Expiry Time",
+      "status": "Status",
+      "createdBy": "Created By",
+      "createdAt": "Created At",
+      "updatedBy": "Updated By",
+      "updatedAt": "Updated At",
+      "oTPAttempt": "O TP Attempt",
+      "actor": "Actor"
+    }
+  }
+}
