@@ -87,7 +87,13 @@ export const OTPAttemptUpdate = (props: RouteComponentProps<{ id: string }>) => 
                   validate={{ required: true }}
                 />
               ) : null}
-              <ValidatedField label={translate('mullyaApp.oTPAttempt.otp')} id="otp-attempt-otp" name="otp" data-cy="otp" type="text" />
+              <ValidatedField
+                label={translate('mullyaApp.oTPAttempt.otpVal')}
+                id="otp-attempt-otpVal"
+                name="otpVal"
+                data-cy="otpVal"
+                type="text"
+              />
               <ValidatedField
                 label={translate('mullyaApp.oTPAttempt.email')}
                 id="otp-attempt-email"

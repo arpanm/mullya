@@ -14,7 +14,7 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="otp" type="integer">
+            <column name="otp_val" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="email" type="varchar(255)">
@@ -68,7 +68,7 @@
                   tableName="otp"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="otp" type="numeric"/>
+            <column name="otp_val" type="numeric"/>
             <column name="email" type="string"/>
             <column name="phone" type="numeric"/>
             <column name="type" type="string"/>

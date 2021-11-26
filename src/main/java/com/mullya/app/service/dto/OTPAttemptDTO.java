@@ -11,7 +11,7 @@ public class OTPAttemptDTO implements Serializable {
 
     private Long id;
 
-    private Integer otp;
+    private Integer otpVal;
 
     private String email;
 
@@ -35,12 +35,12 @@ public class OTPAttemptDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getOtp() {
-        return otp;
+    public Integer getOtpVal() {
+        return otpVal;
     }
 
-    public void setOtp(Integer otp) {
-        this.otp = otp;
+    public void setOtpVal(Integer otpVal) {
+        this.otpVal = otpVal;
     }
 
     public String getEmail() {
@@ -125,7 +125,7 @@ public class OTPAttemptDTO implements Serializable {
     public String toString() {
         return "OTPAttemptDTO{" +
             "id=" + getId() +
-            ", otp=" + getOtp() +
+            ", otpVal=" + getOtpVal() +
             ", email='" + getEmail() + "'" +
             ", phone=" + getPhone() +
             ", ip='" + getIp() + "'" +

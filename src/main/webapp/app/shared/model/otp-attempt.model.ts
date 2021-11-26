@@ -3,7 +3,7 @@ import { IOTP } from 'app/shared/model/otp.model';
 
 export interface IOTPAttempt {
   id?: number;
-  otp?: number | null;
+  otpVal?: number | null;
   email?: string | null;
   phone?: number | null;
   ip?: string | null;

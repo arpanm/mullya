@@ -2,7 +2,7 @@
   "name": "OTP",
   "fields": [
     {
-      "fieldName": "otp",
+      "fieldName": "otpVal",
       "fieldType": "Integer"
     },
     {

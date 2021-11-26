@@ -6,7 +6,7 @@ import { OtpStatus } from 'app/shared/model/enumerations/otp-status.model';
 
 export interface IOTP {
   id?: number;
-  otp?: number | null;
+  otpVal?: number | null;
   email?: string | null;
   phone?: number | null;
   type?: OtpType | null;
