@@ -1,0 +1,10 @@
+{
+  "mullyaApp": {
+    "OtpType": {
+      "null": "",
+      "Email": "Email",
+      "Phone": "Phone",
+      "Both": "Both"
+    }
+  }
+}

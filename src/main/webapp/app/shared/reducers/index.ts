@@ -11,6 +11,16 @@ import activate from 'app/modules/account/activate/activate.reducer';
 import password from 'app/modules/account/password/password.reducer';
 import settings from 'app/modules/account/settings/settings.reducer';
 import passwordReset from 'app/modules/account/password-reset/password-reset.reducer';
+// prettier-ignore
+import actor from 'app/entities/actor/actor.reducer';
+// prettier-ignore
+import requirement from 'app/entities/requirement/requirement.reducer';
+// prettier-ignore
+import oTP from 'app/entities/otp/otp.reducer';
+// prettier-ignore
+import oTPAttempt from 'app/entities/otp-attempt/otp-attempt.reducer';
+// prettier-ignore
+import address from 'app/entities/address/address.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const rootReducer = {
@@ -24,6 +34,11 @@ const rootReducer = {
   passwordReset,
   password,
   settings,
+  actor,
+  requirement,
+  oTP,
+  oTPAttempt,
+  address,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 };

@@ -1,0 +1,11 @@
+{
+  "mullyaApp": {
+    "PaymentStatus": {
+      "null": "",
+      "Pending": "Pending",
+      "Initiated": "Initiated",
+      "Failed": "Failed",
+      "Success": "Success"
+    }
+  }
+}

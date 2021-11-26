@@ -1,0 +1,39 @@
+{
+  "mullyaApp": {
+    "actor": {
+      "home": {
+        "title": "Actors",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Actor  సృష్టించండి",
+        "createOrEditLabel": "Actor సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Actors found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Actor సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Actor సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Actor తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Actor {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Actor"
+      },
+      "id": "ID",
+      "email": "Email",
+      "phone": "Phone",
+      "isEmailVerified": "Is Email Verified",
+      "isPhoneVerified": "Is Phone Verified",
+      "isActive": "Is Active",
+      "password": "Password",
+      "type": "Type",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "requirements": "Requirements",
+      "acceptedRequirements": "Accepted Requirements",
+      "assignedRequirements": "Assigned Requirements",
+      "oTP": "O TP",
+      "address": "Address"
+    }
+  }
+}
