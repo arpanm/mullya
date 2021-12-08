@@ -1,0 +1,34 @@
+{
+  "mullyaApp": {
+    "bids": {
+      "home": {
+        "title": "Bids",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Bids-ஐ உருவாக்கு",
+        "createOrEditLabel": "Bids -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Bids found"
+      },
+      "created": "Bids புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Bids மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Bids நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Bids {{ id }}?"
+      },
+      "detail": {
+        "title": "Bids"
+      },
+      "id": "ID",
+      "bidPrice": "Bid Price",
+      "quantityKg": "Quantity Kg",
+      "bidStatus": "Bid Status",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "order": "Order",
+      "buyerAddress": "Buyer Address",
+      "biddingDetails": "Bidding Details",
+      "buyer": "Buyer"
+    }
+  }
+}

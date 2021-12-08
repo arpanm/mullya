@@ -1,0 +1,101 @@
+{
+  "name": "Catalogue",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stockImageUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "landingUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "catalogue",
+      "otherEntityRelationshipName": "parent",
+      "relationshipName": "catalogue"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "stock",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "categoryStocks"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "stock",
+      "otherEntityRelationshipName": "variant",
+      "relationshipName": "variantStocks"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "stock",
+      "otherEntityRelationshipName": "subVariant",
+      "relationshipName": "subVariantStocks"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "requirement",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "categoryRequirements"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "requirement",
+      "otherEntityRelationshipName": "variant",
+      "relationshipName": "variantRequirements"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "requirement",
+      "otherEntityRelationshipName": "subVariant",
+      "relationshipName": "subVariantRequirements"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalogue",
+      "otherEntityRelationshipName": "catalogue",
+      "relationshipName": "parent"
+    }
+  ],
+  "entityTableName": "catalogue",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["mullya"],
+  "changelogDate": "20211208180326"
+}

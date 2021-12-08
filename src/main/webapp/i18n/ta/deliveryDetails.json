@@ -1,0 +1,39 @@
+{
+  "mullyaApp": {
+    "deliveryDetails": {
+      "home": {
+        "title": "Delivery Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Delivery Details-ஐ உருவாக்கு",
+        "createOrEditLabel": "Delivery Details -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Delivery Details found"
+      },
+      "created": "Delivery Details புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Delivery Details மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Delivery Details நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Delivery Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Delivery Details"
+      },
+      "id": "ID",
+      "deliveryType": "Delivery Type",
+      "pickupDate": "Pickup Date",
+      "deliveryDate": "Delivery Date",
+      "truckDetails": "Truck Details",
+      "deliveryAgentPhone": "Delivery Agent Phone",
+      "pickupTime": "Pickup Time",
+      "deliveryTime": "Delivery Time",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "deliveryStatus": "Delivery Status",
+      "fromAddress": "From Address",
+      "toAddress": "To Address",
+      "order": "Order",
+      "cancellation": "Cancellation"
+    }
+  }
+}

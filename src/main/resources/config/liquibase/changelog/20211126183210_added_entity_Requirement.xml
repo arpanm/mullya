@@ -14,37 +14,16 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="category" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="variant" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="sub_variant" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
             <column name="min_price" type="${floatType}">
                 <constraints nullable="true" />
             </column>
             <column name="max_price" type="${floatType}">
                 <constraints nullable="true" />
             </column>
-            <column name="accepted_price" type="${floatType}">
-                <constraints nullable="true" />
-            </column>
-            <column name="cod_amount" type="${floatType}">
-                <constraints nullable="true" />
-            </column>
             <column name="quantity_kg" type="${floatType}">
                 <constraints nullable="true" />
             </column>
             <column name="needed_by" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="payment_date" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="accepted_delivery_date" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="description" type="varchar(255)">
@@ -65,25 +44,19 @@
             <column name="status" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="payment_status" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="delivery_status" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
             <column name="buyer_address_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-            <column name="farmer_address_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="buyer_actor_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="accepted_agent_actor_id" type="bigint">
+            <column name="category_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="farmer_actor_id" type="bigint">
+            <column name="variant_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="sub_variant_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
@@ -107,25 +80,16 @@
                   tableName="requirement"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="category" type="string"/>
-            <column name="variant" type="string"/>
-            <column name="sub_variant" type="string"/>
             <column name="min_price" type="numeric"/>
             <column name="max_price" type="numeric"/>
-            <column name="accepted_price" type="numeric"/>
-            <column name="cod_amount" type="numeric"/>
             <column name="quantity_kg" type="numeric"/>
             <column name="needed_by" type="string"/>
-            <column name="payment_date" type="string"/>
-            <column name="accepted_delivery_date" type="string"/>
             <column name="description" type="string"/>
             <column name="created_on" type="date"/>
             <column name="created_by" type="string"/>
             <column name="updated_on" type="date"/>
             <column name="updated_by" type="string"/>
             <column name="status" type="string"/>
-            <column name="payment_status" type="string"/>
-            <column name="delivery_status" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

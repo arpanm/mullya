@@ -5,7 +5,8 @@
       "Pending": "Pending",
       "Initiated": "Initiated",
       "Failed": "Failed",
-      "Success": "Success"
+      "Success": "Success",
+      "Refunded": "Refunded"
     }
   }
 }

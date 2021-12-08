@@ -1,0 +1,11 @@
+{
+  "mullyaApp": {
+    "CancelationType": {
+      "null": "",
+      "ByFarmer": "ByFarmer",
+      "ByAgent": "ByAgent",
+      "ByBuyerBeforeDelivery": "ByBuyerBeforeDelivery",
+      "ByBuyerAfterDelivery": "ByBuyerAfterDelivery"
+    }
+  }
+}

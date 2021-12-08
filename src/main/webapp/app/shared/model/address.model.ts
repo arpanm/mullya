@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
+import { IHub } from 'app/shared/model/hub.model';
 import { IActor } from 'app/shared/model/actor.model';
-import { IRequirement } from 'app/shared/model/requirement.model';
 
 export interface IAddress {
   id?: number;
@@ -13,12 +13,11 @@ export interface IAddress {
   lat?: number | null;
   lon?: number | null;
   mapLocation?: string | null;
-  createdAt?: string | null;
+  createdOn?: string | null;
+  updatedOn?: string | null;
   updatedBy?: string | null;
-  updatedAt?: string | null;
+  hub?: IHub | null;
   actor?: IActor | null;
-  requirements?: IRequirement[] | null;
-  orderRequirements?: IRequirement[] | null;
 }
 
 export const defaultValue: Readonly<IAddress> = {};

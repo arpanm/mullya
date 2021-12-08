@@ -24,10 +24,10 @@
       "type": "Type",
       "expiryTime": "Expiry Time",
       "status": "Status",
+      "createdOn": "Created On",
       "createdBy": "Created By",
-      "createdAt": "Created At",
+      "updatedOn": "Updated On",
       "updatedBy": "Updated By",
-      "updatedAt": "Updated At",
       "oTPAttempt": "O TP Attempt",
       "actor": "Actor"
     }

@@ -37,11 +37,11 @@ public class OTPAttempt implements Serializable {
     @Column(name = "coookie")
     private String coookie;
 
+    @Column(name = "created_on")
+    private LocalDate createdOn;
+
     @Column(name = "created_by")
     private String createdBy;
-
-    @Column(name = "created_at")
-    private LocalDate createdAt;
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "oTPAttempts", "actor" }, allowSetters = true)
@@ -127,6 +127,19 @@ public class OTPAttempt implements Serializable {
         this.coookie = coookie;
     }
 
+    public LocalDate getCreatedOn() {
+        return this.createdOn;
+    }
+
+    public OTPAttempt createdOn(LocalDate createdOn) {
+        this.setCreatedOn(createdOn);
+        return this;
+    }
+
+    public void setCreatedOn(LocalDate createdOn) {
+        this.createdOn = createdOn;
+    }
+
     public String getCreatedBy() {
         return this.createdBy;
     }
@@ -138,19 +151,6 @@ public class OTPAttempt implements Serializable {
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
-    }
-
-    public LocalDate getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public OTPAttempt createdAt(LocalDate createdAt) {
-        this.setCreatedAt(createdAt);
-        return this;
-    }
-
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
     }
 
     public OTP getOtp() {
@@ -195,8 +195,8 @@ public class OTPAttempt implements Serializable {
             ", phone=" + getPhone() +
             ", ip='" + getIp() + "'" +
             ", coookie='" + getCoookie() + "'" +
+            ", createdOn='" + getCreatedOn() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
-            ", createdAt='" + getCreatedAt() + "'" +
             "}";
     }
 }

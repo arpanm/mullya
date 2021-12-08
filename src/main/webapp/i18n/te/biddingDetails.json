@@ -1,0 +1,37 @@
+{
+  "mullyaApp": {
+    "biddingDetails": {
+      "home": {
+        "title": "Bidding Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Bidding Details  సృష్టించండి",
+        "createOrEditLabel": "Bidding Details సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Bidding Details found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Bidding Details సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Bidding Details సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Bidding Details తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Bidding Details {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Bidding Details"
+      },
+      "id": "ID",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "biddingStatus": "Bidding Status",
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "minQuantityKg": "Min Quantity Kg",
+      "maxQuantityKg": "Max Quantity Kg",
+      "isActive": "Is Active",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "bids": "Bids",
+      "stock": "Stock"
+    }
+  }
+}

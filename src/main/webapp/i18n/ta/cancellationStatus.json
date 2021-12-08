@@ -1,0 +1,12 @@
+{
+  "mullyaApp": {
+    "CancellationStatus": {
+      "null": "",
+      "Init": "Init",
+      "Approved": "Approved",
+      "RefundInitited": "RefundInitited",
+      "RefundCompleted": "RefundCompleted",
+      "Rejected": "Rejected"
+    }
+  }
+}

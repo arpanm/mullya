@@ -1,0 +1,11 @@
+{
+  "mullyaApp": {
+    "BiddingStatus": {
+      "null": "",
+      "New": "New",
+      "InProgress": "InProgress",
+      "Completed": "Completed",
+      "Sold": "Sold"
+    }
+  }
+}

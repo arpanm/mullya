@@ -117,18 +117,18 @@ export const OTPAttemptUpdate = (props: RouteComponentProps<{ id: string }>) => 
                 type="text"
               />
               <ValidatedField
+                label={translate('mullyaApp.oTPAttempt.createdOn')}
+                id="otp-attempt-createdOn"
+                name="createdOn"
+                data-cy="createdOn"
+                type="date"
+              />
+              <ValidatedField
                 label={translate('mullyaApp.oTPAttempt.createdBy')}
                 id="otp-attempt-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
-              />
-              <ValidatedField
-                label={translate('mullyaApp.oTPAttempt.createdAt')}
-                id="otp-attempt-createdAt"
-                name="createdAt"
-                data-cy="createdAt"
-                type="date"
               />
               <ValidatedField id="otp-attempt-otp" name="otp" data-cy="otp" label={translate('mullyaApp.oTPAttempt.otp')} type="select">
                 <option value="" key="0" />

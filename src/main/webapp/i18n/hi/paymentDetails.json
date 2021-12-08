@@ -1,0 +1,41 @@
+{
+  "mullyaApp": {
+    "paymentDetails": {
+      "home": {
+        "title": "PaymentDetails",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Payment Details बनाएँ",
+        "createOrEditLabel": "Payment Details बनाएँ या संपादित करें",
+        "notFound": "No Payment Details found"
+      },
+      "created": "एक नया Payment Details [identifier: {{ param }}] तैयार है",
+      "updated": "एक Payment Details [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Payment Details [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Payment Details [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Payment Details"
+      },
+      "id": "ID",
+      "amount": "Amount",
+      "paymentType": "Payment Type",
+      "onlinePgType": "Online Pg Type",
+      "pgTxnId": "Pg Txn Id",
+      "pgStatus": "Pg Status",
+      "offlineTxnId": "Offline Txn Id",
+      "offlineTxnDetails": "Offline Txn Details",
+      "offlineTxnCollectedBy": "Offline Txn Collected By",
+      "offlineTxnClearingStatus": "Offline Txn Clearing Status",
+      "paymentDate": "Payment Date",
+      "paymentInitTime": "Payment Init Time",
+      "paymentUpdateTime": "Payment Update Time",
+      "paymentStatus": "Payment Status",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "order": "Order"
+    }
+  }
+}

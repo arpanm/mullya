@@ -1,0 +1,95 @@
+{
+  "name": "Order",
+  "fields": [
+    {
+      "fieldName": "acceptedPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "codAmount",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "quantityKg",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "neededBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "acceptedDeliveryDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "OrderStatus",
+      "fieldValues": "New,Paid,InTransit,Delivered,ReturnInitiatedInTransit,ReturnInitiatedAfterDelivery,Returned,Cancelled,Refunded"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "paymentDetails",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "paymentDetails"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "remittanceDetails",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "remittance",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "requirement",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "requirement"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "bids",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "bid"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "actor",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "assignedAgent"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "stock",
+      "otherEntityRelationshipName": "order",
+      "relationshipName": "stock"
+    }
+  ],
+  "entityTableName": "jhi_order",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["mullya"],
+  "changelogDate": "20211208180320"
+}

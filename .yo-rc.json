@@ -45,8 +45,25 @@
     "enableGradleEnterprise": false,
     "gradleEnterpriseHost": "",
     "applicationIndex": 0,
-    "entities": ["Actor", "Requirement", "OTP", "OTPAttempt", "Address"],
-    "lastLiquibaseTimestamp": 1637951533000
+    "entities": [
+      "Actor",
+      "Requirement",
+      "OTP",
+      "OTPAttempt",
+      "Address",
+      "Stock",
+      "BiddingDetails",
+      "Bids",
+      "Order",
+      "DeliveryDetails",
+      "CancellationDetails",
+      "PaymentDetails",
+      "RemittanceDetails",
+      "Hub",
+      "Catalogue",
+      "Banner"
+    ],
+    "lastLiquibaseTimestamp": 1638986607000
   },
   "git-provider": "GitHub",
   "git-company": "arpanm",

@@ -9,9 +9,7 @@ export enum DeliveryStatus {
 
   Delivered = 'Delivered',
 
-  ReturnInitiatedInTransit = 'ReturnInitiatedInTransit',
-
-  ReturnInitiatedAfterDelivery = 'ReturnInitiatedAfterDelivery',
+  ReturnInitiated = 'ReturnInitiated',
 
   Returned = 'Returned',
 }

@@ -1,0 +1,41 @@
+{
+  "mullyaApp": {
+    "paymentDetails": {
+      "home": {
+        "title": "Payment Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Payment Details",
+        "createOrEditLabel": "Create or edit a Payment Details",
+        "notFound": "No Payment Details found"
+      },
+      "created": "A new Payment Details is created with identifier {{ param }}",
+      "updated": "A Payment Details is updated with identifier {{ param }}",
+      "deleted": "A Payment Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Payment Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Payment Details"
+      },
+      "id": "ID",
+      "amount": "Amount",
+      "paymentType": "Payment Type",
+      "onlinePgType": "Online Pg Type",
+      "pgTxnId": "Pg Txn Id",
+      "pgStatus": "Pg Status",
+      "offlineTxnId": "Offline Txn Id",
+      "offlineTxnDetails": "Offline Txn Details",
+      "offlineTxnCollectedBy": "Offline Txn Collected By",
+      "offlineTxnClearingStatus": "Offline Txn Clearing Status",
+      "paymentDate": "Payment Date",
+      "paymentInitTime": "Payment Init Time",
+      "paymentUpdateTime": "Payment Update Time",
+      "paymentStatus": "Payment Status",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "order": "Order"
+    }
+  }
+}

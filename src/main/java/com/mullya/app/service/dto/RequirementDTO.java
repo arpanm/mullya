@@ -1,9 +1,6 @@
 package com.mullya.app.service.dto;
 
-import com.mullya.app.domain.enumeration.DeliveryStatus;
-import com.mullya.app.domain.enumeration.PaymentStatus;
 import com.mullya.app.domain.enumeration.RequirementStatus;
-import com.mullya.app.domain.enumeration.StockCategory;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -15,27 +12,13 @@ public class RequirementDTO implements Serializable {
 
     private Long id;
 
-    private StockCategory category;
-
-    private String variant;
-
-    private String subVariant;
-
     private Float minPrice;
 
     private Float maxPrice;
 
-    private Float acceptedPrice;
-
-    private Float codAmount;
-
     private Float quantityKg;
 
     private String neededBy;
-
-    private String paymentDate;
-
-    private String acceptedDeliveryDate;
 
     private String description;
 
@@ -49,19 +32,15 @@ public class RequirementDTO implements Serializable {
 
     private RequirementStatus status;
 
-    private PaymentStatus paymentStatus;
-
-    private DeliveryStatus deliveryStatus;
-
     private AddressDTO buyerAddress;
-
-    private AddressDTO farmerAddress;
 
     private ActorDTO buyerActor;
 
-    private ActorDTO acceptedAgentActor;
+    private CatalogueDTO category;
 
-    private ActorDTO farmerActor;
+    private CatalogueDTO variant;
+
+    private CatalogueDTO subVariant;
 
     public Long getId() {
         return id;
@@ -69,30 +48,6 @@ public class RequirementDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public StockCategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(StockCategory category) {
-        this.category = category;
-    }
-
-    public String getVariant() {
-        return variant;
-    }
-
-    public void setVariant(String variant) {
-        this.variant = variant;
-    }
-
-    public String getSubVariant() {
-        return subVariant;
-    }
-
-    public void setSubVariant(String subVariant) {
-        this.subVariant = subVariant;
     }
 
     public Float getMinPrice() {
@@ -111,22 +66,6 @@ public class RequirementDTO implements Serializable {
         this.maxPrice = maxPrice;
     }
 
-    public Float getAcceptedPrice() {
-        return acceptedPrice;
-    }
-
-    public void setAcceptedPrice(Float acceptedPrice) {
-        this.acceptedPrice = acceptedPrice;
-    }
-
-    public Float getCodAmount() {
-        return codAmount;
-    }
-
-    public void setCodAmount(Float codAmount) {
-        this.codAmount = codAmount;
-    }
-
     public Float getQuantityKg() {
         return quantityKg;
     }
@@ -141,22 +80,6 @@ public class RequirementDTO implements Serializable {
 
     public void setNeededBy(String neededBy) {
         this.neededBy = neededBy;
-    }
-
-    public String getPaymentDate() {
-        return paymentDate;
-    }
-
-    public void setPaymentDate(String paymentDate) {
-        this.paymentDate = paymentDate;
-    }
-
-    public String getAcceptedDeliveryDate() {
-        return acceptedDeliveryDate;
-    }
-
-    public void setAcceptedDeliveryDate(String acceptedDeliveryDate) {
-        this.acceptedDeliveryDate = acceptedDeliveryDate;
     }
 
     public String getDescription() {
@@ -207,36 +130,12 @@ public class RequirementDTO implements Serializable {
         this.status = status;
     }
 
-    public PaymentStatus getPaymentStatus() {
-        return paymentStatus;
-    }
-
-    public void setPaymentStatus(PaymentStatus paymentStatus) {
-        this.paymentStatus = paymentStatus;
-    }
-
-    public DeliveryStatus getDeliveryStatus() {
-        return deliveryStatus;
-    }
-
-    public void setDeliveryStatus(DeliveryStatus deliveryStatus) {
-        this.deliveryStatus = deliveryStatus;
-    }
-
     public AddressDTO getBuyerAddress() {
         return buyerAddress;
     }
 
     public void setBuyerAddress(AddressDTO buyerAddress) {
         this.buyerAddress = buyerAddress;
-    }
-
-    public AddressDTO getFarmerAddress() {
-        return farmerAddress;
-    }
-
-    public void setFarmerAddress(AddressDTO farmerAddress) {
-        this.farmerAddress = farmerAddress;
     }
 
     public ActorDTO getBuyerActor() {
@@ -247,20 +146,28 @@ public class RequirementDTO implements Serializable {
         this.buyerActor = buyerActor;
     }
 
-    public ActorDTO getAcceptedAgentActor() {
-        return acceptedAgentActor;
+    public CatalogueDTO getCategory() {
+        return category;
     }
 
-    public void setAcceptedAgentActor(ActorDTO acceptedAgentActor) {
-        this.acceptedAgentActor = acceptedAgentActor;
+    public void setCategory(CatalogueDTO category) {
+        this.category = category;
     }
 
-    public ActorDTO getFarmerActor() {
-        return farmerActor;
+    public CatalogueDTO getVariant() {
+        return variant;
     }
 
-    public void setFarmerActor(ActorDTO farmerActor) {
-        this.farmerActor = farmerActor;
+    public void setVariant(CatalogueDTO variant) {
+        this.variant = variant;
+    }
+
+    public CatalogueDTO getSubVariant() {
+        return subVariant;
+    }
+
+    public void setSubVariant(CatalogueDTO subVariant) {
+        this.subVariant = subVariant;
     }
 
     @Override
@@ -289,30 +196,21 @@ public class RequirementDTO implements Serializable {
     public String toString() {
         return "RequirementDTO{" +
             "id=" + getId() +
-            ", category='" + getCategory() + "'" +
-            ", variant='" + getVariant() + "'" +
-            ", subVariant='" + getSubVariant() + "'" +
             ", minPrice=" + getMinPrice() +
             ", maxPrice=" + getMaxPrice() +
-            ", acceptedPrice=" + getAcceptedPrice() +
-            ", codAmount=" + getCodAmount() +
             ", quantityKg=" + getQuantityKg() +
             ", neededBy='" + getNeededBy() + "'" +
-            ", paymentDate='" + getPaymentDate() + "'" +
-            ", acceptedDeliveryDate='" + getAcceptedDeliveryDate() + "'" +
             ", description='" + getDescription() + "'" +
             ", createdOn='" + getCreatedOn() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
             ", updatedOn='" + getUpdatedOn() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +
             ", status='" + getStatus() + "'" +
-            ", paymentStatus='" + getPaymentStatus() + "'" +
-            ", deliveryStatus='" + getDeliveryStatus() + "'" +
             ", buyerAddress=" + getBuyerAddress() +
-            ", farmerAddress=" + getFarmerAddress() +
             ", buyerActor=" + getBuyerActor() +
-            ", acceptedAgentActor=" + getAcceptedAgentActor() +
-            ", farmerActor=" + getFarmerActor() +
+            ", category=" + getCategory() +
+            ", variant=" + getVariant() +
+            ", subVariant=" + getSubVariant() +
             "}";
     }
 }

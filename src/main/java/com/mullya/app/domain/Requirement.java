@@ -1,12 +1,11 @@
 package com.mullya.app.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.mullya.app.domain.enumeration.DeliveryStatus;
-import com.mullya.app.domain.enumeration.PaymentStatus;
 import com.mullya.app.domain.enumeration.RequirementStatus;
-import com.mullya.app.domain.enumeration.StockCategory;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -26,39 +25,17 @@ public class Requirement implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "category")
-    private StockCategory category;
-
-    @Column(name = "variant")
-    private String variant;
-
-    @Column(name = "sub_variant")
-    private String subVariant;
-
     @Column(name = "min_price")
     private Float minPrice;
 
     @Column(name = "max_price")
     private Float maxPrice;
 
-    @Column(name = "accepted_price")
-    private Float acceptedPrice;
-
-    @Column(name = "cod_amount")
-    private Float codAmount;
-
     @Column(name = "quantity_kg")
     private Float quantityKg;
 
     @Column(name = "needed_by")
     private String neededBy;
-
-    @Column(name = "payment_date")
-    private String paymentDate;
-
-    @Column(name = "accepted_delivery_date")
-    private String acceptedDeliveryDate;
 
     @Column(name = "description")
     private String description;
@@ -79,42 +56,69 @@ public class Requirement implements Serializable {
     @Column(name = "status")
     private RequirementStatus status;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "payment_status")
-    private PaymentStatus paymentStatus;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "delivery_status")
-    private DeliveryStatus deliveryStatus;
+    @OneToMany(mappedBy = "requirement")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "paymentDetails", "remittances", "requirement", "bid", "assignedAgent", "stock" }, allowSetters = true)
+    private Set<Order> orders = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "actor", "requirements", "orderRequirements" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "hub", "actor" }, allowSetters = true)
     private Address buyerAddress;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "actor", "requirements", "orderRequirements" }, allowSetters = true)
-    private Address farmerAddress;
-
-    @ManyToOne
     @JsonIgnoreProperties(
-        value = { "requirements", "acceptedRequirements", "assignedRequirements", "oTPS", "addresses" },
+        value = { "requirements", "oTPS", "addresses", "stocks", "bids", "orders", "remittanceDetails" },
         allowSetters = true
     )
     private Actor buyerActor;
 
     @ManyToOne
     @JsonIgnoreProperties(
-        value = { "requirements", "acceptedRequirements", "assignedRequirements", "oTPS", "addresses" },
+        value = {
+            "catalogues",
+            "categoryStocks",
+            "variantStocks",
+            "subVariantStocks",
+            "categoryRequirements",
+            "variantRequirements",
+            "subVariantRequirements",
+            "parent",
+        },
         allowSetters = true
     )
-    private Actor acceptedAgentActor;
+    private Catalogue category;
 
     @ManyToOne
     @JsonIgnoreProperties(
-        value = { "requirements", "acceptedRequirements", "assignedRequirements", "oTPS", "addresses" },
+        value = {
+            "catalogues",
+            "categoryStocks",
+            "variantStocks",
+            "subVariantStocks",
+            "categoryRequirements",
+            "variantRequirements",
+            "subVariantRequirements",
+            "parent",
+        },
         allowSetters = true
     )
-    private Actor farmerActor;
+    private Catalogue variant;
+
+    @ManyToOne
+    @JsonIgnoreProperties(
+        value = {
+            "catalogues",
+            "categoryStocks",
+            "variantStocks",
+            "subVariantStocks",
+            "categoryRequirements",
+            "variantRequirements",
+            "subVariantRequirements",
+            "parent",
+        },
+        allowSetters = true
+    )
+    private Catalogue subVariant;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -129,45 +133,6 @@ public class Requirement implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public StockCategory getCategory() {
-        return this.category;
-    }
-
-    public Requirement category(StockCategory category) {
-        this.setCategory(category);
-        return this;
-    }
-
-    public void setCategory(StockCategory category) {
-        this.category = category;
-    }
-
-    public String getVariant() {
-        return this.variant;
-    }
-
-    public Requirement variant(String variant) {
-        this.setVariant(variant);
-        return this;
-    }
-
-    public void setVariant(String variant) {
-        this.variant = variant;
-    }
-
-    public String getSubVariant() {
-        return this.subVariant;
-    }
-
-    public Requirement subVariant(String subVariant) {
-        this.setSubVariant(subVariant);
-        return this;
-    }
-
-    public void setSubVariant(String subVariant) {
-        this.subVariant = subVariant;
     }
 
     public Float getMinPrice() {
@@ -196,32 +161,6 @@ public class Requirement implements Serializable {
         this.maxPrice = maxPrice;
     }
 
-    public Float getAcceptedPrice() {
-        return this.acceptedPrice;
-    }
-
-    public Requirement acceptedPrice(Float acceptedPrice) {
-        this.setAcceptedPrice(acceptedPrice);
-        return this;
-    }
-
-    public void setAcceptedPrice(Float acceptedPrice) {
-        this.acceptedPrice = acceptedPrice;
-    }
-
-    public Float getCodAmount() {
-        return this.codAmount;
-    }
-
-    public Requirement codAmount(Float codAmount) {
-        this.setCodAmount(codAmount);
-        return this;
-    }
-
-    public void setCodAmount(Float codAmount) {
-        this.codAmount = codAmount;
-    }
-
     public Float getQuantityKg() {
         return this.quantityKg;
     }
@@ -246,32 +185,6 @@ public class Requirement implements Serializable {
 
     public void setNeededBy(String neededBy) {
         this.neededBy = neededBy;
-    }
-
-    public String getPaymentDate() {
-        return this.paymentDate;
-    }
-
-    public Requirement paymentDate(String paymentDate) {
-        this.setPaymentDate(paymentDate);
-        return this;
-    }
-
-    public void setPaymentDate(String paymentDate) {
-        this.paymentDate = paymentDate;
-    }
-
-    public String getAcceptedDeliveryDate() {
-        return this.acceptedDeliveryDate;
-    }
-
-    public Requirement acceptedDeliveryDate(String acceptedDeliveryDate) {
-        this.setAcceptedDeliveryDate(acceptedDeliveryDate);
-        return this;
-    }
-
-    public void setAcceptedDeliveryDate(String acceptedDeliveryDate) {
-        this.acceptedDeliveryDate = acceptedDeliveryDate;
     }
 
     public String getDescription() {
@@ -352,30 +265,35 @@ public class Requirement implements Serializable {
         this.status = status;
     }
 
-    public PaymentStatus getPaymentStatus() {
-        return this.paymentStatus;
+    public Set<Order> getOrders() {
+        return this.orders;
     }
 
-    public Requirement paymentStatus(PaymentStatus paymentStatus) {
-        this.setPaymentStatus(paymentStatus);
+    public void setOrders(Set<Order> orders) {
+        if (this.orders != null) {
+            this.orders.forEach(i -> i.setRequirement(null));
+        }
+        if (orders != null) {
+            orders.forEach(i -> i.setRequirement(this));
+        }
+        this.orders = orders;
+    }
+
+    public Requirement orders(Set<Order> orders) {
+        this.setOrders(orders);
         return this;
     }
 
-    public void setPaymentStatus(PaymentStatus paymentStatus) {
-        this.paymentStatus = paymentStatus;
-    }
-
-    public DeliveryStatus getDeliveryStatus() {
-        return this.deliveryStatus;
-    }
-
-    public Requirement deliveryStatus(DeliveryStatus deliveryStatus) {
-        this.setDeliveryStatus(deliveryStatus);
+    public Requirement addOrder(Order order) {
+        this.orders.add(order);
+        order.setRequirement(this);
         return this;
     }
 
-    public void setDeliveryStatus(DeliveryStatus deliveryStatus) {
-        this.deliveryStatus = deliveryStatus;
+    public Requirement removeOrder(Order order) {
+        this.orders.remove(order);
+        order.setRequirement(null);
+        return this;
     }
 
     public Address getBuyerAddress() {
@@ -388,19 +306,6 @@ public class Requirement implements Serializable {
 
     public Requirement buyerAddress(Address address) {
         this.setBuyerAddress(address);
-        return this;
-    }
-
-    public Address getFarmerAddress() {
-        return this.farmerAddress;
-    }
-
-    public void setFarmerAddress(Address address) {
-        this.farmerAddress = address;
-    }
-
-    public Requirement farmerAddress(Address address) {
-        this.setFarmerAddress(address);
         return this;
     }
 
@@ -417,29 +322,42 @@ public class Requirement implements Serializable {
         return this;
     }
 
-    public Actor getAcceptedAgentActor() {
-        return this.acceptedAgentActor;
+    public Catalogue getCategory() {
+        return this.category;
     }
 
-    public void setAcceptedAgentActor(Actor actor) {
-        this.acceptedAgentActor = actor;
+    public void setCategory(Catalogue catalogue) {
+        this.category = catalogue;
     }
 
-    public Requirement acceptedAgentActor(Actor actor) {
-        this.setAcceptedAgentActor(actor);
+    public Requirement category(Catalogue catalogue) {
+        this.setCategory(catalogue);
         return this;
     }
 
-    public Actor getFarmerActor() {
-        return this.farmerActor;
+    public Catalogue getVariant() {
+        return this.variant;
     }
 
-    public void setFarmerActor(Actor actor) {
-        this.farmerActor = actor;
+    public void setVariant(Catalogue catalogue) {
+        this.variant = catalogue;
     }
 
-    public Requirement farmerActor(Actor actor) {
-        this.setFarmerActor(actor);
+    public Requirement variant(Catalogue catalogue) {
+        this.setVariant(catalogue);
+        return this;
+    }
+
+    public Catalogue getSubVariant() {
+        return this.subVariant;
+    }
+
+    public void setSubVariant(Catalogue catalogue) {
+        this.subVariant = catalogue;
+    }
+
+    public Requirement subVariant(Catalogue catalogue) {
+        this.setSubVariant(catalogue);
         return this;
     }
 
@@ -467,25 +385,16 @@ public class Requirement implements Serializable {
     public String toString() {
         return "Requirement{" +
             "id=" + getId() +
-            ", category='" + getCategory() + "'" +
-            ", variant='" + getVariant() + "'" +
-            ", subVariant='" + getSubVariant() + "'" +
             ", minPrice=" + getMinPrice() +
             ", maxPrice=" + getMaxPrice() +
-            ", acceptedPrice=" + getAcceptedPrice() +
-            ", codAmount=" + getCodAmount() +
             ", quantityKg=" + getQuantityKg() +
             ", neededBy='" + getNeededBy() + "'" +
-            ", paymentDate='" + getPaymentDate() + "'" +
-            ", acceptedDeliveryDate='" + getAcceptedDeliveryDate() + "'" +
             ", description='" + getDescription() + "'" +
             ", createdOn='" + getCreatedOn() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
             ", updatedOn='" + getUpdatedOn() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +
             ", status='" + getStatus() + "'" +
-            ", paymentStatus='" + getPaymentStatus() + "'" +
-            ", deliveryStatus='" + getDeliveryStatus() + "'" +
             "}";
     }
 }

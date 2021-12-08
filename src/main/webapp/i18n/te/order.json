@@ -1,0 +1,39 @@
+{
+  "mullyaApp": {
+    "order": {
+      "home": {
+        "title": "Orders",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Order  సృష్టించండి",
+        "createOrEditLabel": "Order సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Orders found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Order సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Order సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Order తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Order {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Order"
+      },
+      "id": "ID",
+      "acceptedPrice": "Accepted Price",
+      "codAmount": "Cod Amount",
+      "quantityKg": "Quantity Kg",
+      "neededBy": "Needed By",
+      "acceptedDeliveryDate": "Accepted Delivery Date",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "status": "Status",
+      "paymentDetails": "Payment Details",
+      "remittance": "Remittance",
+      "requirement": "Requirement",
+      "bid": "Bid",
+      "assignedAgent": "Assigned Agent",
+      "stock": "Stock"
+    }
+  }
+}

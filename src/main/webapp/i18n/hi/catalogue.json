@@ -1,0 +1,40 @@
+{
+  "mullyaApp": {
+    "catalogue": {
+      "home": {
+        "title": "Catalogues",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Catalogue बनाएँ",
+        "createOrEditLabel": "Catalogue बनाएँ या संपादित करें",
+        "notFound": "No Catalogues found"
+      },
+      "created": "एक नया Catalogue [identifier: {{ param }}] तैयार है",
+      "updated": "एक Catalogue [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Catalogue [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Catalogue [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Catalogue"
+      },
+      "id": "ID",
+      "name": "Name",
+      "stockImageUrl": "Stock Image Url",
+      "landingUrl": "Landing Url",
+      "description": "Description",
+      "isActive": "Is Active",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "catalogue": "Catalogue",
+      "categoryStocks": "Category Stocks",
+      "variantStocks": "Variant Stocks",
+      "subVariantStocks": "Sub Variant Stocks",
+      "categoryRequirements": "Category Requirements",
+      "variantRequirements": "Variant Requirements",
+      "subVariantRequirements": "Sub Variant Requirements",
+      "parent": "Parent"
+    }
+  }
+}

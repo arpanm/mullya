@@ -21,9 +21,9 @@ public class OTPAttemptDTO implements Serializable {
 
     private String coookie;
 
-    private String createdBy;
+    private LocalDate createdOn;
 
-    private LocalDate createdAt;
+    private String createdBy;
 
     private OTPDTO otp;
 
@@ -75,20 +75,20 @@ public class OTPAttemptDTO implements Serializable {
         this.coookie = coookie;
     }
 
+    public LocalDate getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(LocalDate createdOn) {
+        this.createdOn = createdOn;
+    }
+
     public String getCreatedBy() {
         return createdBy;
     }
 
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
-    }
-
-    public LocalDate getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
     }
 
     public OTPDTO getOtp() {
@@ -130,8 +130,8 @@ public class OTPAttemptDTO implements Serializable {
             ", phone=" + getPhone() +
             ", ip='" + getIp() + "'" +
             ", coookie='" + getCoookie() + "'" +
+            ", createdOn='" + getCreatedOn() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
-            ", createdAt='" + getCreatedAt() + "'" +
             ", otp=" + getOtp() +
             "}";
     }

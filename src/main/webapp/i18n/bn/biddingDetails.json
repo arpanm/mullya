@@ -1,0 +1,37 @@
+{
+  "mullyaApp": {
+    "biddingDetails": {
+      "home": {
+        "title": "Bidding Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bidding Details",
+        "createOrEditLabel": "Create or edit a Bidding Details",
+        "notFound": "No Bidding Details found"
+      },
+      "created": "A new Bidding Details is created with identifier {{ param }}",
+      "updated": "A Bidding Details is updated with identifier {{ param }}",
+      "deleted": "A Bidding Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bidding Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Bidding Details"
+      },
+      "id": "ID",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "biddingStatus": "Bidding Status",
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "minQuantityKg": "Min Quantity Kg",
+      "maxQuantityKg": "Max Quantity Kg",
+      "isActive": "Is Active",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "bids": "Bids",
+      "stock": "Stock"
+    }
+  }
+}

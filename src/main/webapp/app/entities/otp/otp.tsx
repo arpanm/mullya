@@ -143,17 +143,17 @@ export const OTP = (props: RouteComponentProps<{ url: string }>) => {
                   <th className="hand" onClick={sort('status')}>
                     <Translate contentKey="mullyaApp.oTP.status">Status</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th className="hand" onClick={sort('createdOn')}>
+                    <Translate contentKey="mullyaApp.oTP.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th className="hand" onClick={sort('createdBy')}>
                     <Translate contentKey="mullyaApp.oTP.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={sort('createdAt')}>
-                    <Translate contentKey="mullyaApp.oTP.createdAt">Created At</Translate> <FontAwesomeIcon icon="sort" />
+                  <th className="hand" onClick={sort('updatedOn')}>
+                    <Translate contentKey="mullyaApp.oTP.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedBy')}>
                     <Translate contentKey="mullyaApp.oTP.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={sort('updatedAt')}>
-                    <Translate contentKey="mullyaApp.oTP.updatedAt">Updated At</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
                     <Translate contentKey="mullyaApp.oTP.actor">Actor</Translate> <FontAwesomeIcon icon="sort" />
@@ -179,10 +179,10 @@ export const OTP = (props: RouteComponentProps<{ url: string }>) => {
                     <td>
                       <Translate contentKey={`mullyaApp.OtpStatus.${oTP.status}`} />
                     </td>
+                    <td>{oTP.createdOn ? <TextFormat type="date" value={oTP.createdOn} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                     <td>{oTP.createdBy}</td>
-                    <td>{oTP.createdAt ? <TextFormat type="date" value={oTP.createdAt} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
+                    <td>{oTP.updatedOn ? <TextFormat type="date" value={oTP.updatedOn} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                     <td>{oTP.updatedBy}</td>
-                    <td>{oTP.updatedAt ? <TextFormat type="date" value={oTP.updatedAt} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                     <td>{oTP.actor ? <Link to={`actor/${oTP.actor.id}`}>{oTP.actor.id}</Link> : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">

@@ -1,0 +1,11 @@
+{
+  "mullyaApp": {
+    "StockStatus": {
+      "null": "",
+      "New": "New",
+      "Expired": "Expired",
+      "Sold": "Sold",
+      "PartialSold": "PartialSold"
+    }
+  }
+}

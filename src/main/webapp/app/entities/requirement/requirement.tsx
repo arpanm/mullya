@@ -125,39 +125,17 @@ export const Requirement = (props: RouteComponentProps<{ url: string }>) => {
                   <th className="hand" onClick={sort('id')}>
                     <Translate contentKey="mullyaApp.requirement.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={sort('category')}>
-                    <Translate contentKey="mullyaApp.requirement.category">Category</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={sort('variant')}>
-                    <Translate contentKey="mullyaApp.requirement.variant">Variant</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={sort('subVariant')}>
-                    <Translate contentKey="mullyaApp.requirement.subVariant">Sub Variant</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
                   <th className="hand" onClick={sort('minPrice')}>
                     <Translate contentKey="mullyaApp.requirement.minPrice">Min Price</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('maxPrice')}>
                     <Translate contentKey="mullyaApp.requirement.maxPrice">Max Price</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={sort('acceptedPrice')}>
-                    <Translate contentKey="mullyaApp.requirement.acceptedPrice">Accepted Price</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={sort('codAmount')}>
-                    <Translate contentKey="mullyaApp.requirement.codAmount">Cod Amount</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
                   <th className="hand" onClick={sort('quantityKg')}>
                     <Translate contentKey="mullyaApp.requirement.quantityKg">Quantity Kg</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('neededBy')}>
                     <Translate contentKey="mullyaApp.requirement.neededBy">Needed By</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={sort('paymentDate')}>
-                    <Translate contentKey="mullyaApp.requirement.paymentDate">Payment Date</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={sort('acceptedDeliveryDate')}>
-                    <Translate contentKey="mullyaApp.requirement.acceptedDeliveryDate">Accepted Delivery Date</Translate>{' '}
-                    <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('description')}>
                     <Translate contentKey="mullyaApp.requirement.description">Description</Translate> <FontAwesomeIcon icon="sort" />
@@ -177,27 +155,20 @@ export const Requirement = (props: RouteComponentProps<{ url: string }>) => {
                   <th className="hand" onClick={sort('status')}>
                     <Translate contentKey="mullyaApp.requirement.status">Status</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={sort('paymentStatus')}>
-                    <Translate contentKey="mullyaApp.requirement.paymentStatus">Payment Status</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={sort('deliveryStatus')}>
-                    <Translate contentKey="mullyaApp.requirement.deliveryStatus">Delivery Status</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
                   <th>
                     <Translate contentKey="mullyaApp.requirement.buyerAddress">Buyer Address</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th>
-                    <Translate contentKey="mullyaApp.requirement.farmerAddress">Farmer Address</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
                     <Translate contentKey="mullyaApp.requirement.buyerActor">Buyer Actor</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.requirement.acceptedAgentActor">Accepted Agent Actor</Translate>{' '}
-                    <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mullyaApp.requirement.category">Category</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.requirement.farmerActor">Farmer Actor</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mullyaApp.requirement.variant">Variant</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th>
+                    <Translate contentKey="mullyaApp.requirement.subVariant">Sub Variant</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -210,19 +181,10 @@ export const Requirement = (props: RouteComponentProps<{ url: string }>) => {
                         {requirement.id}
                       </Button>
                     </td>
-                    <td>
-                      <Translate contentKey={`mullyaApp.StockCategory.${requirement.category}`} />
-                    </td>
-                    <td>{requirement.variant}</td>
-                    <td>{requirement.subVariant}</td>
                     <td>{requirement.minPrice}</td>
                     <td>{requirement.maxPrice}</td>
-                    <td>{requirement.acceptedPrice}</td>
-                    <td>{requirement.codAmount}</td>
                     <td>{requirement.quantityKg}</td>
                     <td>{requirement.neededBy}</td>
-                    <td>{requirement.paymentDate}</td>
-                    <td>{requirement.acceptedDeliveryDate}</td>
                     <td>{requirement.description}</td>
                     <td>
                       {requirement.createdOn ? (
@@ -240,21 +202,8 @@ export const Requirement = (props: RouteComponentProps<{ url: string }>) => {
                       <Translate contentKey={`mullyaApp.RequirementStatus.${requirement.status}`} />
                     </td>
                     <td>
-                      <Translate contentKey={`mullyaApp.PaymentStatus.${requirement.paymentStatus}`} />
-                    </td>
-                    <td>
-                      <Translate contentKey={`mullyaApp.DeliveryStatus.${requirement.deliveryStatus}`} />
-                    </td>
-                    <td>
                       {requirement.buyerAddress ? (
                         <Link to={`address/${requirement.buyerAddress.id}`}>{requirement.buyerAddress.id}</Link>
-                      ) : (
-                        ''
-                      )}
-                    </td>
-                    <td>
-                      {requirement.farmerAddress ? (
-                        <Link to={`address/${requirement.farmerAddress.id}`}>{requirement.farmerAddress.id}</Link>
                       ) : (
                         ''
                       )}
@@ -263,14 +212,11 @@ export const Requirement = (props: RouteComponentProps<{ url: string }>) => {
                       {requirement.buyerActor ? <Link to={`actor/${requirement.buyerActor.id}`}>{requirement.buyerActor.id}</Link> : ''}
                     </td>
                     <td>
-                      {requirement.acceptedAgentActor ? (
-                        <Link to={`actor/${requirement.acceptedAgentActor.id}`}>{requirement.acceptedAgentActor.id}</Link>
-                      ) : (
-                        ''
-                      )}
+                      {requirement.category ? <Link to={`catalogue/${requirement.category.id}`}>{requirement.category.id}</Link> : ''}
                     </td>
+                    <td>{requirement.variant ? <Link to={`catalogue/${requirement.variant.id}`}>{requirement.variant.id}</Link> : ''}</td>
                     <td>
-                      {requirement.farmerActor ? <Link to={`actor/${requirement.farmerActor.id}`}>{requirement.farmerActor.id}</Link> : ''}
+                      {requirement.subVariant ? <Link to={`catalogue/${requirement.subVariant.id}`}>{requirement.subVariant.id}</Link> : ''}
                     </td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">

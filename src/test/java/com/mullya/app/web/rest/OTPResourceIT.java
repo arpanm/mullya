@@ -53,17 +53,17 @@ class OTPResourceIT {
     private static final OtpStatus DEFAULT_STATUS = OtpStatus.Init;
     private static final OtpStatus UPDATED_STATUS = OtpStatus.Verified;
 
+    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
+
     private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_CREATED_AT = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_AT = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
 
     private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_AT = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_AT = LocalDate.now(ZoneId.systemDefault());
 
     private static final String ENTITY_API_URL = "/api/otps";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -99,10 +99,10 @@ class OTPResourceIT {
             .type(DEFAULT_TYPE)
             .expiryTime(DEFAULT_EXPIRY_TIME)
             .status(DEFAULT_STATUS)
+            .createdOn(DEFAULT_CREATED_ON)
             .createdBy(DEFAULT_CREATED_BY)
-            .createdAt(DEFAULT_CREATED_AT)
-            .updatedBy(DEFAULT_UPDATED_BY)
-            .updatedAt(DEFAULT_UPDATED_AT);
+            .updatedOn(DEFAULT_UPDATED_ON)
+            .updatedBy(DEFAULT_UPDATED_BY);
         return oTP;
     }
 
@@ -120,10 +120,10 @@ class OTPResourceIT {
             .type(UPDATED_TYPE)
             .expiryTime(UPDATED_EXPIRY_TIME)
             .status(UPDATED_STATUS)
+            .createdOn(UPDATED_CREATED_ON)
             .createdBy(UPDATED_CREATED_BY)
-            .createdAt(UPDATED_CREATED_AT)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedAt(UPDATED_UPDATED_AT);
+            .updatedOn(UPDATED_UPDATED_ON)
+            .updatedBy(UPDATED_UPDATED_BY);
         return oTP;
     }
 
@@ -152,10 +152,10 @@ class OTPResourceIT {
         assertThat(testOTP.getType()).isEqualTo(DEFAULT_TYPE);
         assertThat(testOTP.getExpiryTime()).isEqualTo(DEFAULT_EXPIRY_TIME);
         assertThat(testOTP.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testOTP.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
         assertThat(testOTP.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testOTP.getCreatedAt()).isEqualTo(DEFAULT_CREATED_AT);
+        assertThat(testOTP.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
         assertThat(testOTP.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
-        assertThat(testOTP.getUpdatedAt()).isEqualTo(DEFAULT_UPDATED_AT);
     }
 
     @Test
@@ -195,10 +195,10 @@ class OTPResourceIT {
             .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
             .andExpect(jsonPath("$.[*].expiryTime").value(hasItem(DEFAULT_EXPIRY_TIME.toString())))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
+            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
             .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].createdAt").value(hasItem(DEFAULT_CREATED_AT.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedAt").value(hasItem(DEFAULT_UPDATED_AT.toString())));
+            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
+            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
     }
 
     @Test
@@ -219,10 +219,10 @@ class OTPResourceIT {
             .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
             .andExpect(jsonPath("$.expiryTime").value(DEFAULT_EXPIRY_TIME.toString()))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
+            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
             .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.createdAt").value(DEFAULT_CREATED_AT.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
-            .andExpect(jsonPath("$.updatedAt").value(DEFAULT_UPDATED_AT.toString()));
+            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
+            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
     }
 
     @Test
@@ -251,10 +251,10 @@ class OTPResourceIT {
             .type(UPDATED_TYPE)
             .expiryTime(UPDATED_EXPIRY_TIME)
             .status(UPDATED_STATUS)
+            .createdOn(UPDATED_CREATED_ON)
             .createdBy(UPDATED_CREATED_BY)
-            .createdAt(UPDATED_CREATED_AT)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedAt(UPDATED_UPDATED_AT);
+            .updatedOn(UPDATED_UPDATED_ON)
+            .updatedBy(UPDATED_UPDATED_BY);
         OTPDTO oTPDTO = oTPMapper.toDto(updatedOTP);
 
         restOTPMockMvc
@@ -275,10 +275,10 @@ class OTPResourceIT {
         assertThat(testOTP.getType()).isEqualTo(UPDATED_TYPE);
         assertThat(testOTP.getExpiryTime()).isEqualTo(UPDATED_EXPIRY_TIME);
         assertThat(testOTP.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testOTP.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
         assertThat(testOTP.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testOTP.getCreatedAt()).isEqualTo(UPDATED_CREATED_AT);
+        assertThat(testOTP.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
         assertThat(testOTP.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
-        assertThat(testOTP.getUpdatedAt()).isEqualTo(UPDATED_UPDATED_AT);
     }
 
     @Test
@@ -358,7 +358,7 @@ class OTPResourceIT {
         OTP partialUpdatedOTP = new OTP();
         partialUpdatedOTP.setId(oTP.getId());
 
-        partialUpdatedOTP.phone(UPDATED_PHONE).type(UPDATED_TYPE).expiryTime(UPDATED_EXPIRY_TIME).updatedAt(UPDATED_UPDATED_AT);
+        partialUpdatedOTP.phone(UPDATED_PHONE).type(UPDATED_TYPE).expiryTime(UPDATED_EXPIRY_TIME).updatedBy(UPDATED_UPDATED_BY);
 
         restOTPMockMvc
             .perform(
@@ -378,10 +378,10 @@ class OTPResourceIT {
         assertThat(testOTP.getType()).isEqualTo(UPDATED_TYPE);
         assertThat(testOTP.getExpiryTime()).isEqualTo(UPDATED_EXPIRY_TIME);
         assertThat(testOTP.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testOTP.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
         assertThat(testOTP.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testOTP.getCreatedAt()).isEqualTo(DEFAULT_CREATED_AT);
-        assertThat(testOTP.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
-        assertThat(testOTP.getUpdatedAt()).isEqualTo(UPDATED_UPDATED_AT);
+        assertThat(testOTP.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
+        assertThat(testOTP.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -403,10 +403,10 @@ class OTPResourceIT {
             .type(UPDATED_TYPE)
             .expiryTime(UPDATED_EXPIRY_TIME)
             .status(UPDATED_STATUS)
+            .createdOn(UPDATED_CREATED_ON)
             .createdBy(UPDATED_CREATED_BY)
-            .createdAt(UPDATED_CREATED_AT)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedAt(UPDATED_UPDATED_AT);
+            .updatedOn(UPDATED_UPDATED_ON)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restOTPMockMvc
             .perform(
@@ -426,10 +426,10 @@ class OTPResourceIT {
         assertThat(testOTP.getType()).isEqualTo(UPDATED_TYPE);
         assertThat(testOTP.getExpiryTime()).isEqualTo(UPDATED_EXPIRY_TIME);
         assertThat(testOTP.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testOTP.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
         assertThat(testOTP.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testOTP.getCreatedAt()).isEqualTo(UPDATED_CREATED_AT);
+        assertThat(testOTP.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
         assertThat(testOTP.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
-        assertThat(testOTP.getUpdatedAt()).isEqualTo(UPDATED_UPDATED_AT);
     }
 
     @Test

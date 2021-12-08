@@ -1,0 +1,40 @@
+{
+  "mullyaApp": {
+    "catalogue": {
+      "home": {
+        "title": "Catalogues",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Catalogue-ஐ உருவாக்கு",
+        "createOrEditLabel": "Catalogue -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Catalogues found"
+      },
+      "created": "Catalogue புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Catalogue மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Catalogue நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Catalogue {{ id }}?"
+      },
+      "detail": {
+        "title": "Catalogue"
+      },
+      "id": "ID",
+      "name": "Name",
+      "stockImageUrl": "Stock Image Url",
+      "landingUrl": "Landing Url",
+      "description": "Description",
+      "isActive": "Is Active",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "catalogue": "Catalogue",
+      "categoryStocks": "Category Stocks",
+      "variantStocks": "Variant Stocks",
+      "subVariantStocks": "Sub Variant Stocks",
+      "categoryRequirements": "Category Requirements",
+      "variantRequirements": "Variant Requirements",
+      "subVariantRequirements": "Sub Variant Requirements",
+      "parent": "Parent"
+    }
+  }
+}

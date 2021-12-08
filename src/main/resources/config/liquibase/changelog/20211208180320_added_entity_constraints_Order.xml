@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Order.
+    -->
+    <changeSet id="20211208180320-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="jhi_order_id"
+                                 baseTableName="rel_jhi_order__remittance"
+                                 constraintName="fk_rel_jhi_order__remittance__jhi_order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_order"/>
+
+        <addForeignKeyConstraint baseColumnNames="remittance_id"
+                                 baseTableName="rel_jhi_order__remittance"
+                                 constraintName="fk_rel_jhi_order__remittance__remittance_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="remittance_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="requirement_id"
+                                 baseTableName="jhi_order"
+                                 constraintName="fk_jhi_order__requirement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="requirement"/>
+
+        <addForeignKeyConstraint baseColumnNames="bid_id"
+                                 baseTableName="jhi_order"
+                                 constraintName="fk_jhi_order__bid_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bids"/>
+
+        <addForeignKeyConstraint baseColumnNames="assigned_agent_id"
+                                 baseTableName="jhi_order"
+                                 constraintName="fk_jhi_order__assigned_agent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="actor"/>
+
+        <addForeignKeyConstraint baseColumnNames="stock_id"
+                                 baseTableName="jhi_order"
+                                 constraintName="fk_jhi_order__stock_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="stock"/>
+    </changeSet>
+</databaseChangeLog>

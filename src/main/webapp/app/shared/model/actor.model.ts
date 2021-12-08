@@ -2,6 +2,10 @@ import dayjs from 'dayjs';
 import { IRequirement } from 'app/shared/model/requirement.model';
 import { IOTP } from 'app/shared/model/otp.model';
 import { IAddress } from 'app/shared/model/address.model';
+import { IStock } from 'app/shared/model/stock.model';
+import { IBids } from 'app/shared/model/bids.model';
+import { IOrder } from 'app/shared/model/order.model';
+import { IRemittanceDetails } from 'app/shared/model/remittance-details.model';
 import { ActorType } from 'app/shared/model/enumerations/actor-type.model';
 
 export interface IActor {
@@ -18,10 +22,12 @@ export interface IActor {
   updatedOn?: string | null;
   updatedBy?: string | null;
   requirements?: IRequirement[] | null;
-  acceptedRequirements?: IRequirement[] | null;
-  assignedRequirements?: IRequirement[] | null;
   oTPS?: IOTP[] | null;
   addresses?: IAddress[] | null;
+  stocks?: IStock[] | null;
+  bids?: IBids[] | null;
+  orders?: IOrder[] | null;
+  remittanceDetails?: IRemittanceDetails[] | null;
 }
 
 export const defaultValue: Readonly<IActor> = {

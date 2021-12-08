@@ -1,0 +1,108 @@
+{
+  "name": "Stock",
+  "fields": [
+    {
+      "fieldName": "minPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "maxPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "quantityKg",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "expiry",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "avialableFrom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stockStatus",
+      "fieldType": "StockStatus",
+      "fieldValues": "New,Expired,Sold,PartialSold"
+    },
+    {
+      "fieldName": "isOpenForBidding",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "biddingDetails",
+      "otherEntityRelationshipName": "stock",
+      "relationshipName": "biddingDetails"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "stock",
+      "relationshipName": "order"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "stock",
+      "relationshipName": "farmerAddress"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "actor",
+      "otherEntityRelationshipName": "stock",
+      "relationshipName": "farmer"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalogue",
+      "otherEntityRelationshipName": "categoryStocks",
+      "relationshipName": "category"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalogue",
+      "otherEntityRelationshipName": "variantStocks",
+      "relationshipName": "variant"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalogue",
+      "otherEntityRelationshipName": "subVariantStocks",
+      "relationshipName": "subVariant"
+    }
+  ],
+  "entityTableName": "stock",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["mullya"],
+  "changelogDate": "20211208180317"
+}

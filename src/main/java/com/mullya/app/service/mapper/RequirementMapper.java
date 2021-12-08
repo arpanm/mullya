@@ -7,12 +7,17 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Requirement} and its DTO {@link RequirementDTO}.
  */
-@Mapper(componentModel = "spring", uses = { AddressMapper.class, ActorMapper.class })
+@Mapper(componentModel = "spring", uses = { AddressMapper.class, ActorMapper.class, CatalogueMapper.class })
 public interface RequirementMapper extends EntityMapper<RequirementDTO, Requirement> {
     @Mapping(target = "buyerAddress", source = "buyerAddress", qualifiedByName = "id")
-    @Mapping(target = "farmerAddress", source = "farmerAddress", qualifiedByName = "id")
     @Mapping(target = "buyerActor", source = "buyerActor", qualifiedByName = "id")
-    @Mapping(target = "acceptedAgentActor", source = "acceptedAgentActor", qualifiedByName = "id")
-    @Mapping(target = "farmerActor", source = "farmerActor", qualifiedByName = "id")
+    @Mapping(target = "category", source = "category", qualifiedByName = "id")
+    @Mapping(target = "variant", source = "variant", qualifiedByName = "id")
+    @Mapping(target = "subVariant", source = "subVariant", qualifiedByName = "id")
     RequirementDTO toDto(Requirement s);
+
+    @Named("id")
+    @BeanMapping(ignoreByDefault = true)
+    @Mapping(target = "id", source = "id")
+    RequirementDTO toDtoId(Requirement requirement);
 }

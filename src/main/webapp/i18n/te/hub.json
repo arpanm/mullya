@@ -1,0 +1,29 @@
+{
+  "mullyaApp": {
+    "hub": {
+      "home": {
+        "title": "Hubs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Hub  సృష్టించండి",
+        "createOrEditLabel": "Hub సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Hubs found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Hub సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Hub సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Hub తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Hub {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Hub"
+      },
+      "id": "ID",
+      "tag": "Tag",
+      "isActive": "Is Active",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By"
+    }
+  }
+}

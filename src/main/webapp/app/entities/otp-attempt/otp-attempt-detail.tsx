@@ -60,21 +60,21 @@ export const OTPAttemptDetail = (props: RouteComponentProps<{ id: string }>) => 
           </dt>
           <dd>{oTPAttemptEntity.coookie}</dd>
           <dt>
+            <span id="createdOn">
+              <Translate contentKey="mullyaApp.oTPAttempt.createdOn">Created On</Translate>
+            </span>
+          </dt>
+          <dd>
+            {oTPAttemptEntity.createdOn ? (
+              <TextFormat value={oTPAttemptEntity.createdOn} type="date" format={APP_LOCAL_DATE_FORMAT} />
+            ) : null}
+          </dd>
+          <dt>
             <span id="createdBy">
               <Translate contentKey="mullyaApp.oTPAttempt.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{oTPAttemptEntity.createdBy}</dd>
-          <dt>
-            <span id="createdAt">
-              <Translate contentKey="mullyaApp.oTPAttempt.createdAt">Created At</Translate>
-            </span>
-          </dt>
-          <dd>
-            {oTPAttemptEntity.createdAt ? (
-              <TextFormat value={oTPAttemptEntity.createdAt} type="date" format={APP_LOCAL_DATE_FORMAT} />
-            ) : null}
-          </dd>
           <dt>
             <Translate contentKey="mullyaApp.oTPAttempt.otp">Otp</Translate>
           </dt>

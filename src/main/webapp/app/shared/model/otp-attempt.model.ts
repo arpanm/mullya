@@ -8,8 +8,8 @@ export interface IOTPAttempt {
   phone?: number | null;
   ip?: string | null;
   coookie?: string | null;
+  createdOn?: string | null;
   createdBy?: string | null;
-  createdAt?: string | null;
   otp?: IOTP | null;
 }
 

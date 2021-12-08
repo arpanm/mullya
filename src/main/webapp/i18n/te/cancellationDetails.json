@@ -1,0 +1,37 @@
+{
+  "mullyaApp": {
+    "cancellationDetails": {
+      "home": {
+        "title": "Cancellation Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Cancellation Details  సృష్టించండి",
+        "createOrEditLabel": "Cancellation Details సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Cancellation Details found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Cancellation Details సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Cancellation Details సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Cancellation Details తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Cancellation Details {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Cancellation Details"
+      },
+      "id": "ID",
+      "cancelationType": "Cancelation Type",
+      "cancellationReason": "Cancellation Reason",
+      "cancellationDate": "Cancellation Date",
+      "cancellationTime": "Cancellation Time",
+      "refundId": "Refund Id",
+      "cancellationStatus": "Cancellation Status",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "order": "Order",
+      "approver": "Approver",
+      "initiator": "Initiator",
+      "deliveryDetails": "Delivery Details"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "mullyaApp": {
+    "banner": {
+      "home": {
+        "title": "Banners",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Banner बनाएँ",
+        "createOrEditLabel": "Banner बनाएँ या संपादित करें",
+        "notFound": "No Banners found"
+      },
+      "created": "एक नया Banner [identifier: {{ param }}] तैयार है",
+      "updated": "एक Banner [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Banner [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Banner [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Banner"
+      },
+      "id": "ID",
+      "name": "Name",
+      "imageUrl": "Image Url",
+      "mobileImageUrl": "Mobile Image Url",
+      "landingUrl": "Landing Url",
+      "description": "Description",
+      "html": "Html",
+      "mobileHtml": "Mobile Html",
+      "isActive": "Is Active",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By"
+    }
+  }
+}

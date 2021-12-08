@@ -2,19 +2,6 @@
   "name": "Requirement",
   "fields": [
     {
-      "fieldName": "category",
-      "fieldType": "StockCategory",
-      "fieldValues": "Rice,Wheat,Mustard,Other"
-    },
-    {
-      "fieldName": "variant",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "subVariant",
-      "fieldType": "String"
-    },
-    {
       "fieldName": "minPrice",
       "fieldType": "Float"
     },
@@ -23,27 +10,11 @@
       "fieldType": "Float"
     },
     {
-      "fieldName": "acceptedPrice",
-      "fieldType": "Float"
-    },
-    {
-      "fieldName": "codAmount",
-      "fieldType": "Float"
-    },
-    {
       "fieldName": "quantityKg",
       "fieldType": "Float"
     },
     {
       "fieldName": "neededBy",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "paymentDate",
-      "fieldType": "String"
-    },
-    {
-      "fieldName": "acceptedDeliveryDate",
       "fieldType": "String"
     },
     {
@@ -70,48 +41,44 @@
       "fieldName": "status",
       "fieldType": "RequirementStatus",
       "fieldValues": "New,Accepted,Rejected,Paid,Cancelled,Refunded,InTransit,Delivered"
-    },
-    {
-      "fieldName": "paymentStatus",
-      "fieldType": "PaymentStatus",
-      "fieldValues": "Pending,Initiated,Failed,Success"
-    },
-    {
-      "fieldName": "deliveryStatus",
-      "fieldType": "DeliveryStatus",
-      "fieldValues": "PendingConfirmation,Accepted,Declined,InTransit,Delivered,ReturnInitiatedInTransit,ReturnInitiatedAfterDelivery,Returned"
     }
   ],
   "relationships": [
     {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "requirement",
+      "relationshipName": "order"
+    },
+    {
       "relationshipType": "many-to-one",
       "otherEntityName": "address",
-      "otherEntityRelationshipName": "requirements",
+      "otherEntityRelationshipName": "requirement",
       "relationshipName": "buyerAddress"
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "address",
-      "otherEntityRelationshipName": "orderRequirements",
-      "relationshipName": "farmerAddress"
-    },
-    {
-      "relationshipType": "many-to-one",
       "otherEntityName": "actor",
-      "otherEntityRelationshipName": "requirements",
+      "otherEntityRelationshipName": "requirement",
       "relationshipName": "buyerActor"
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "actor",
-      "otherEntityRelationshipName": "acceptedRequirements",
-      "relationshipName": "acceptedAgentActor"
+      "otherEntityName": "catalogue",
+      "otherEntityRelationshipName": "categoryRequirements",
+      "relationshipName": "category"
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "actor",
-      "otherEntityRelationshipName": "assignedRequirements",
-      "relationshipName": "farmerActor"
+      "otherEntityName": "catalogue",
+      "otherEntityRelationshipName": "variantRequirements",
+      "relationshipName": "variant"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "catalogue",
+      "otherEntityRelationshipName": "subVariantRequirements",
+      "relationshipName": "subVariant"
     }
   ],
   "entityTableName": "requirement",

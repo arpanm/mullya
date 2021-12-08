@@ -1,0 +1,37 @@
+{
+  "mullyaApp": {
+    "cancellationDetails": {
+      "home": {
+        "title": "Cancellation Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Cancellation Details",
+        "createOrEditLabel": "Create or edit a Cancellation Details",
+        "notFound": "No Cancellation Details found"
+      },
+      "created": "A new Cancellation Details is created with identifier {{ param }}",
+      "updated": "A Cancellation Details is updated with identifier {{ param }}",
+      "deleted": "A Cancellation Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cancellation Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Cancellation Details"
+      },
+      "id": "ID",
+      "cancelationType": "Cancelation Type",
+      "cancellationReason": "Cancellation Reason",
+      "cancellationDate": "Cancellation Date",
+      "cancellationTime": "Cancellation Time",
+      "refundId": "Refund Id",
+      "cancellationStatus": "Cancellation Status",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "order": "Order",
+      "approver": "Approver",
+      "initiator": "Initiator",
+      "deliveryDetails": "Delivery Details"
+    }
+  }
+}

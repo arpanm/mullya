@@ -1,0 +1,78 @@
+{
+  "name": "BiddingDetails",
+  "fields": [
+    {
+      "fieldName": "startDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "biddingStatus",
+      "fieldType": "BiddingStatus",
+      "fieldValues": "New,InProgress,Completed,Sold"
+    },
+    {
+      "fieldName": "minPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "maxPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "minQuantityKg",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "maxQuantityKg",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "bids",
+      "otherEntityRelationshipName": "biddingDetails",
+      "relationshipName": "bids"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "stock",
+      "otherEntityRelationshipName": "biddingDetails",
+      "relationshipName": "stock"
+    }
+  ],
+  "entityTableName": "bidding_details",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["mullya"],
+  "changelogDate": "20211208180318"
+}

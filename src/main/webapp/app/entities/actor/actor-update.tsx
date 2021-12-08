@@ -90,7 +90,10 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 data-cy="email"
                 type="text"
                 validate={{
-                  pattern: { value: /^(.+)@(.+)$/, message: translate('entity.validation.pattern', { pattern: '^(.+)@(.+)$' }) },
+                  pattern: {
+                    value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/,
+                    message: translate('entity.validation.pattern', { pattern: '^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$' }),
+                  },
                 }}
               />
               <ValidatedField

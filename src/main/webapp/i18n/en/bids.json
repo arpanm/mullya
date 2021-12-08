@@ -1,0 +1,34 @@
+{
+  "mullyaApp": {
+    "bids": {
+      "home": {
+        "title": "Bids",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Bids",
+        "createOrEditLabel": "Create or edit a Bids",
+        "notFound": "No Bids found"
+      },
+      "created": "A new Bids is created with identifier {{ param }}",
+      "updated": "A Bids is updated with identifier {{ param }}",
+      "deleted": "A Bids is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bids {{ id }}?"
+      },
+      "detail": {
+        "title": "Bids"
+      },
+      "id": "ID",
+      "bidPrice": "Bid Price",
+      "quantityKg": "Quantity Kg",
+      "bidStatus": "Bid Status",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "order": "Order",
+      "buyerAddress": "Buyer Address",
+      "biddingDetails": "Bidding Details",
+      "buyer": "Buyer"
+    }
+  }
+}

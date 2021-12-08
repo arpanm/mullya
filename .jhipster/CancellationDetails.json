@@ -1,0 +1,86 @@
+{
+  "name": "CancellationDetails",
+  "fields": [
+    {
+      "fieldName": "cancelationType",
+      "fieldType": "CancelationType",
+      "fieldValues": "ByFarmer,ByAgent,ByBuyerBeforeDelivery,ByBuyerAfterDelivery"
+    },
+    {
+      "fieldName": "cancellationReason",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cancellationDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cancellationTime",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "refundId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cancellationStatus",
+      "fieldType": "CancellationStatus",
+      "fieldValues": "Init,Approved,RefundInitited,RefundCompleted,Rejected"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "cancellationDetails",
+      "relationshipName": "order",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "actor",
+      "otherEntityRelationshipName": "cancellationDetails",
+      "relationshipName": "approver",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "actor",
+      "otherEntityRelationshipName": "cancellationDetails",
+      "relationshipName": "initiator",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "deliveryDetails",
+      "otherEntityRelationshipName": "cancellation",
+      "relationshipName": "deliveryDetails"
+    }
+  ],
+  "entityTableName": "cancellation_details",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["mullya"],
+  "changelogDate": "20211208180322"
+}

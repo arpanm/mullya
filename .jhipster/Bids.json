@@ -1,0 +1,70 @@
+{
+  "name": "Bids",
+  "fields": [
+    {
+      "fieldName": "bidPrice",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "quantityKg",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "bidStatus",
+      "fieldType": "BidStatus",
+      "fieldValues": "New,Won,Lost,Withdrawn,Expired,Paid,Cancelled,Refunded,InTransit,Delivered"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "bid",
+      "relationshipName": "order"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "bids",
+      "relationshipName": "buyerAddress"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "biddingDetails",
+      "otherEntityRelationshipName": "bids",
+      "relationshipName": "biddingDetails"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "actor",
+      "otherEntityRelationshipName": "bids",
+      "relationshipName": "buyer"
+    }
+  ],
+  "entityTableName": "bids",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["mullya"],
+  "changelogDate": "20211208180319"
+}

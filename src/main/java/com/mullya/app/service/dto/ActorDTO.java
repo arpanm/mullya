@@ -13,7 +13,7 @@ public class ActorDTO implements Serializable {
 
     private Long id;
 
-    @Pattern(regexp = "^(.+)@(.+)$")
+    @Pattern(regexp = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$")
     private String email;
 
     @Min(value = 1000000000L)

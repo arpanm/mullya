@@ -26,7 +26,7 @@ public class Actor implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Pattern(regexp = "^(.+)@(.+)$")
+    @Pattern(regexp = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$")
     @Column(name = "email")
     private String email;
 
@@ -65,27 +65,8 @@ public class Actor implements Serializable {
 
     @OneToMany(mappedBy = "buyerActor")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(
-        value = { "buyerAddress", "farmerAddress", "buyerActor", "acceptedAgentActor", "farmerActor" },
-        allowSetters = true
-    )
+    @JsonIgnoreProperties(value = { "orders", "buyerAddress", "buyerActor", "category", "variant", "subVariant" }, allowSetters = true)
     private Set<Requirement> requirements = new HashSet<>();
-
-    @OneToMany(mappedBy = "acceptedAgentActor")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(
-        value = { "buyerAddress", "farmerAddress", "buyerActor", "acceptedAgentActor", "farmerActor" },
-        allowSetters = true
-    )
-    private Set<Requirement> acceptedRequirements = new HashSet<>();
-
-    @OneToMany(mappedBy = "farmerActor")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(
-        value = { "buyerAddress", "farmerAddress", "buyerActor", "acceptedAgentActor", "farmerActor" },
-        allowSetters = true
-    )
-    private Set<Requirement> assignedRequirements = new HashSet<>();
 
     @OneToMany(mappedBy = "actor")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -94,8 +75,31 @@ public class Actor implements Serializable {
 
     @OneToMany(mappedBy = "actor")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "actor", "requirements", "orderRequirements" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "hub", "actor" }, allowSetters = true)
     private Set<Address> addresses = new HashSet<>();
+
+    @OneToMany(mappedBy = "farmer")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(
+        value = { "biddingDetails", "orders", "farmerAddress", "farmer", "category", "variant", "subVariant" },
+        allowSetters = true
+    )
+    private Set<Stock> stocks = new HashSet<>();
+
+    @OneToMany(mappedBy = "buyer")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "orders", "buyerAddress", "biddingDetails", "buyer" }, allowSetters = true)
+    private Set<Bids> bids = new HashSet<>();
+
+    @OneToMany(mappedBy = "assignedAgent")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "paymentDetails", "remittances", "requirement", "bid", "assignedAgent", "stock" }, allowSetters = true)
+    private Set<Order> orders = new HashSet<>();
+
+    @OneToMany(mappedBy = "farmer")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "farmer", "orders" }, allowSetters = true)
+    private Set<RemittanceDetails> remittanceDetails = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -274,77 +278,15 @@ public class Actor implements Serializable {
         return this;
     }
 
-    public Actor addRequirements(Requirement requirement) {
+    public Actor addRequirement(Requirement requirement) {
         this.requirements.add(requirement);
         requirement.setBuyerActor(this);
         return this;
     }
 
-    public Actor removeRequirements(Requirement requirement) {
+    public Actor removeRequirement(Requirement requirement) {
         this.requirements.remove(requirement);
         requirement.setBuyerActor(null);
-        return this;
-    }
-
-    public Set<Requirement> getAcceptedRequirements() {
-        return this.acceptedRequirements;
-    }
-
-    public void setAcceptedRequirements(Set<Requirement> requirements) {
-        if (this.acceptedRequirements != null) {
-            this.acceptedRequirements.forEach(i -> i.setAcceptedAgentActor(null));
-        }
-        if (requirements != null) {
-            requirements.forEach(i -> i.setAcceptedAgentActor(this));
-        }
-        this.acceptedRequirements = requirements;
-    }
-
-    public Actor acceptedRequirements(Set<Requirement> requirements) {
-        this.setAcceptedRequirements(requirements);
-        return this;
-    }
-
-    public Actor addAcceptedRequirements(Requirement requirement) {
-        this.acceptedRequirements.add(requirement);
-        requirement.setAcceptedAgentActor(this);
-        return this;
-    }
-
-    public Actor removeAcceptedRequirements(Requirement requirement) {
-        this.acceptedRequirements.remove(requirement);
-        requirement.setAcceptedAgentActor(null);
-        return this;
-    }
-
-    public Set<Requirement> getAssignedRequirements() {
-        return this.assignedRequirements;
-    }
-
-    public void setAssignedRequirements(Set<Requirement> requirements) {
-        if (this.assignedRequirements != null) {
-            this.assignedRequirements.forEach(i -> i.setFarmerActor(null));
-        }
-        if (requirements != null) {
-            requirements.forEach(i -> i.setFarmerActor(this));
-        }
-        this.assignedRequirements = requirements;
-    }
-
-    public Actor assignedRequirements(Set<Requirement> requirements) {
-        this.setAssignedRequirements(requirements);
-        return this;
-    }
-
-    public Actor addAssignedRequirements(Requirement requirement) {
-        this.assignedRequirements.add(requirement);
-        requirement.setFarmerActor(this);
-        return this;
-    }
-
-    public Actor removeAssignedRequirements(Requirement requirement) {
-        this.assignedRequirements.remove(requirement);
-        requirement.setFarmerActor(null);
         return this;
     }
 
@@ -407,6 +349,130 @@ public class Actor implements Serializable {
     public Actor removeAddress(Address address) {
         this.addresses.remove(address);
         address.setActor(null);
+        return this;
+    }
+
+    public Set<Stock> getStocks() {
+        return this.stocks;
+    }
+
+    public void setStocks(Set<Stock> stocks) {
+        if (this.stocks != null) {
+            this.stocks.forEach(i -> i.setFarmer(null));
+        }
+        if (stocks != null) {
+            stocks.forEach(i -> i.setFarmer(this));
+        }
+        this.stocks = stocks;
+    }
+
+    public Actor stocks(Set<Stock> stocks) {
+        this.setStocks(stocks);
+        return this;
+    }
+
+    public Actor addStock(Stock stock) {
+        this.stocks.add(stock);
+        stock.setFarmer(this);
+        return this;
+    }
+
+    public Actor removeStock(Stock stock) {
+        this.stocks.remove(stock);
+        stock.setFarmer(null);
+        return this;
+    }
+
+    public Set<Bids> getBids() {
+        return this.bids;
+    }
+
+    public void setBids(Set<Bids> bids) {
+        if (this.bids != null) {
+            this.bids.forEach(i -> i.setBuyer(null));
+        }
+        if (bids != null) {
+            bids.forEach(i -> i.setBuyer(this));
+        }
+        this.bids = bids;
+    }
+
+    public Actor bids(Set<Bids> bids) {
+        this.setBids(bids);
+        return this;
+    }
+
+    public Actor addBids(Bids bids) {
+        this.bids.add(bids);
+        bids.setBuyer(this);
+        return this;
+    }
+
+    public Actor removeBids(Bids bids) {
+        this.bids.remove(bids);
+        bids.setBuyer(null);
+        return this;
+    }
+
+    public Set<Order> getOrders() {
+        return this.orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        if (this.orders != null) {
+            this.orders.forEach(i -> i.setAssignedAgent(null));
+        }
+        if (orders != null) {
+            orders.forEach(i -> i.setAssignedAgent(this));
+        }
+        this.orders = orders;
+    }
+
+    public Actor orders(Set<Order> orders) {
+        this.setOrders(orders);
+        return this;
+    }
+
+    public Actor addOrder(Order order) {
+        this.orders.add(order);
+        order.setAssignedAgent(this);
+        return this;
+    }
+
+    public Actor removeOrder(Order order) {
+        this.orders.remove(order);
+        order.setAssignedAgent(null);
+        return this;
+    }
+
+    public Set<RemittanceDetails> getRemittanceDetails() {
+        return this.remittanceDetails;
+    }
+
+    public void setRemittanceDetails(Set<RemittanceDetails> remittanceDetails) {
+        if (this.remittanceDetails != null) {
+            this.remittanceDetails.forEach(i -> i.setFarmer(null));
+        }
+        if (remittanceDetails != null) {
+            remittanceDetails.forEach(i -> i.setFarmer(this));
+        }
+        this.remittanceDetails = remittanceDetails;
+    }
+
+    public Actor remittanceDetails(Set<RemittanceDetails> remittanceDetails) {
+        this.setRemittanceDetails(remittanceDetails);
+        return this;
+    }
+
+    public Actor addRemittanceDetails(RemittanceDetails remittanceDetails) {
+        this.remittanceDetails.add(remittanceDetails);
+        remittanceDetails.setFarmer(this);
+        return this;
+    }
+
+    public Actor removeRemittanceDetails(RemittanceDetails remittanceDetails) {
+        this.remittanceDetails.remove(remittanceDetails);
+        remittanceDetails.setFarmer(null);
         return this;
     }
 

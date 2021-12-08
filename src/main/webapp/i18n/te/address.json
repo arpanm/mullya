@@ -27,12 +27,11 @@
       "lat": "Lat",
       "lon": "Lon",
       "mapLocation": "Map Location",
-      "createdAt": "Created At",
+      "createdOn": "Created On",
+      "updatedOn": "Updated On",
       "updatedBy": "Updated By",
-      "updatedAt": "Updated At",
-      "actor": "Actor",
-      "requirements": "Requirements",
-      "orderRequirements": "Order Requirements"
+      "hub": "Hub",
+      "actor": "Actor"
     }
   }
 }

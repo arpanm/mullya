@@ -84,12 +84,20 @@ export const AddressDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dt>
           <dd>{addressEntity.mapLocation}</dd>
           <dt>
-            <span id="createdAt">
-              <Translate contentKey="mullyaApp.address.createdAt">Created At</Translate>
+            <span id="createdOn">
+              <Translate contentKey="mullyaApp.address.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>
-            {addressEntity.createdAt ? <TextFormat value={addressEntity.createdAt} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}
+            {addressEntity.createdOn ? <TextFormat value={addressEntity.createdOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}
+          </dd>
+          <dt>
+            <span id="updatedOn">
+              <Translate contentKey="mullyaApp.address.updatedOn">Updated On</Translate>
+            </span>
+          </dt>
+          <dd>
+            {addressEntity.updatedOn ? <TextFormat value={addressEntity.updatedOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}
           </dd>
           <dt>
             <span id="updatedBy">
@@ -98,13 +106,9 @@ export const AddressDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dt>
           <dd>{addressEntity.updatedBy}</dd>
           <dt>
-            <span id="updatedAt">
-              <Translate contentKey="mullyaApp.address.updatedAt">Updated At</Translate>
-            </span>
+            <Translate contentKey="mullyaApp.address.hub">Hub</Translate>
           </dt>
-          <dd>
-            {addressEntity.updatedAt ? <TextFormat value={addressEntity.updatedAt} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}
-          </dd>
+          <dd>{addressEntity.hub ? addressEntity.hub.id : ''}</dd>
           <dt>
             <Translate contentKey="mullyaApp.address.actor">Actor</Translate>
           </dt>

@@ -22,12 +22,12 @@
       "fieldType": "String"
     },
     {
-      "fieldName": "createdBy",
-      "fieldType": "String"
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate"
     },
     {
-      "fieldName": "createdAt",
-      "fieldType": "LocalDate"
+      "fieldName": "createdBy",
+      "fieldType": "String"
     }
   ],
   "relationships": [

@@ -1,0 +1,42 @@
+{
+  "mullyaApp": {
+    "stock": {
+      "home": {
+        "title": "Stocks",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Stock-ஐ உருவாக்கு",
+        "createOrEditLabel": "Stock -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Stocks found"
+      },
+      "created": "Stock புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Stock மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Stock நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Stock {{ id }}?"
+      },
+      "detail": {
+        "title": "Stock"
+      },
+      "id": "ID",
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "quantityKg": "Quantity Kg",
+      "expiry": "Expiry",
+      "avialableFrom": "Avialable From",
+      "description": "Description",
+      "stockStatus": "Stock Status",
+      "isOpenForBidding": "Is Open For Bidding",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "biddingDetails": "Bidding Details",
+      "order": "Order",
+      "farmerAddress": "Farmer Address",
+      "farmer": "Farmer",
+      "category": "Category",
+      "variant": "Variant",
+      "subVariant": "Sub Variant"
+    }
+  }
+}
