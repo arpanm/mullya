@@ -20,7 +20,7 @@ application {
 }
 
 entity Actor {
-  	email String pattern(/^(.+)@(.+)$/),
+  	email String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),
   	phone Long min(1000000000) max(9999999999),
   	isEmailVerified Boolean,
   	isPhoneVerified Boolean,
@@ -30,29 +30,7 @@ entity Actor {
   	createdOn LocalDate,
   	createdBy String,
   	updatedOn LocalDate,
-  	updatedBy String,
-}
-
-entity Requirement {
-	category StockCategory,
-    variant String,
-    subVariant String,
-    minPrice Float,
-    maxPrice Float,
-    acceptedPrice Float,
-    codAmount Float,
-    quantityKg Float,
-    neededBy String,
-    paymentDate String,
-    acceptedDeliveryDate String,
-    description String,
-    createdOn LocalDate,
-    createdBy String,
-    updatedOn LocalDate,
-    updatedBy String,
-    status RequirementStatus
-    paymentStatus PaymentStatus,
-    deliveryStatus DeliveryStatus,
+  	updatedBy String
 }
 
 enum ActorType {
@@ -61,11 +39,17 @@ enum ActorType {
     Agent
 }
 
-enum StockCategory {
-	Rice,
-    Wheat,
-    Mustard,
-    Other
+entity Requirement {
+	minPrice Float,
+    maxPrice Float,
+    quantityKg Float,
+    neededBy String,
+    description String,
+    createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String,
+    status RequirementStatus
 }
 
 enum RequirementStatus {
@@ -79,34 +63,8 @@ enum RequirementStatus {
     Delivered
 }
 
-enum PaymentStatus {
-	Pending,
-    Initiated,
-    Failed,
-    Success
-}
-
-enum DeliveryStatus {
-	PendingConfirmation,
-    Accepted,
-    Declined
-    InTransit,
-    Delivered,
-    ReturnInitiatedInTransit,
-    ReturnInitiatedAfterDelivery,
-    Returned
-}
-
 relationship OneToMany {
-  	Actor{requirements} to Requirement{buyerActor}
-}
-
-relationship OneToMany {
-  	Actor{acceptedRequirements} to Requirement{acceptedAgentActor}
-}
-
-relationship OneToMany {
-  	Actor{assignedRequirements} to Requirement{farmerActor}
+  	Actor to Requirement{buyerActor}
 }
 
 entity OTP {
@@ -116,10 +74,10 @@ entity OTP {
     type OtpType,
     expiryTime LocalDate,
     status OtpStatus,
-    createdBy String,
-    createdAt LocalDate,
-    updatedBy String,
-    updatedAt LocalDate
+    createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String
 }
 
 entity OTPAttempt {
@@ -128,8 +86,8 @@ entity OTPAttempt {
     phone Integer,
     ip String,
     coookie String,
-    createdBy String,
-    createdAt LocalDate
+    createdOn LocalDate,
+  	createdBy String
 }
 
 enum OtpType {
@@ -162,19 +120,382 @@ entity Address {
     lat Float,
     lon Float,
     mapLocation String,
-    createdAt LocalDate,
-    updatedBy String,
-    updatedAt LocalDate
+    createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String
 }
 
 relationship ManyToOne {
-	Requirement{buyerAddress} to Address{requirements}
-}
-
-relationship ManyToOne {
-	Requirement{farmerAddress} to Address{orderRequirements}
+	Requirement{buyerAddress} to Address
 }
 
 relationship OneToMany {
 	Actor to Address{actor}
+}
+
+entity Stock {
+    minPrice Float,
+    maxPrice Float,
+    quantityKg Float,
+    expiry String,
+    avialableFrom String,
+    description String,
+    stockStatus StockStatus,
+    isOpenForBidding Boolean,
+    createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String
+}
+
+enum StockStatus {
+	New,
+    Expired,
+    Sold,
+    PartialSold
+}
+
+relationship OneToMany {
+	Actor to Stock{farmer}
+}
+
+entity BiddingDetails {
+	startDate String,
+    endDate String,
+    biddingStatus BiddingStatus,
+    minPrice Float,
+    maxPrice Float,
+    minQuantityKg Float,
+    maxQuantityKg Float,
+    isActive Boolean,
+    createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String
+}
+
+enum BiddingStatus {
+	New,
+    InProgress,
+    Completed,
+    Sold
+}
+
+relationship OneToMany {
+	Stock to BiddingDetails{stock}
+}
+
+relationship ManyToOne {
+	Stock{farmerAddress} to Address
+}
+
+entity Bids {
+	bidPrice Float,
+    quantityKg Float,
+    bidStatus BidStatus,
+    createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String
+}
+
+enum BidStatus {
+	New,
+    Won,
+    Lost,
+    Withdrawn,
+    Expired,
+    Paid,
+    Cancelled,
+    Refunded,
+    InTransit,
+    Delivered
+}
+
+relationship OneToMany {
+	BiddingDetails to Bids{biddingDetails}
+}
+
+relationship OneToMany {
+	Actor to Bid{buyer}
+}
+
+relationship ManyToOne {
+	Bid{buyerAddress} to Address
+}
+
+entity Order {
+	acceptedPrice Float,
+    codAmount Float,
+    quantityKg Float,
+    neededBy String,
+    acceptedDeliveryDate String,
+    createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String,
+    status OrderStatus
+}
+
+enum OrderStatus {
+	New,
+    Paid,
+    InTransit,
+    Delivered,
+    ReturnInitiatedInTransit,
+    ReturnInitiatedAfterDelivery,
+    Returned,
+    Cancelled,
+    Refunded
+}
+
+relationship OneToMany {
+  	Requirement to Order{requirement}
+}
+
+relationship OneToMany {
+  	Bids to Order{bid}
+}
+
+relationship OneToMany {
+  	Actor to Order{assignedAgent}
+}
+
+relationship OneToMany {
+  	Stock to Order{stock}
+}
+
+entity DeliveryDetails {
+    deliveryType DeliveryType,
+    pickupDate String,
+    deliveryDate String,
+    truckDetails String,
+    deliveryAgentPhone Long min(1000000000) max(9999999999),
+    pickupTime LocalDate,
+    deliveryTime LocalDate,
+  	createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String,
+    deliveryStatus DeliveryStatus
+}
+
+enum DeliveryType {
+     FarmerToBuyer,
+     FarmerToHub,
+     HubToBuyer,
+     HubToHub,
+     ReturnBuyerToFarmer,
+     ReturnBuyerToHub,
+     ReturnHubToFarmer
+}
+
+enum DeliveryStatus {
+	PendingConfirmation,
+    Accepted,
+    Declined
+    InTransit,
+    Delivered,
+    ReturnInitiated,
+    Returned
+}
+
+relationship ManyToOne {
+	DeliveryDetails{fromAddress} to Address
+}
+
+relationship ManyToOne {
+	DeliveryDetails{toAddress} to Address
+}
+
+relationship ManyToOne {
+	DeliveryDetails{order} to Order
+}
+
+entity CancellationDetails {
+    cancelationType CancelationType,
+    cancellationReason String,
+    cancellationDate String,
+    cancellationTime LocalDate,
+    refundId String,
+    cancellationStatus CancellationStatus,
+  	createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String
+}
+
+enum CancelationType {
+    ByFarmer,
+    ByAgent,
+    ByBuyerBeforeDelivery,
+    ByBuyerAfterDelivery
+}
+
+enum CancellationStatus {
+    Init,
+    Approved,
+    RefundInitited,
+    RefundCompleted,
+    Rejected
+}
+
+relationship OneToOne {
+	CancellationDetails{order} to Order
+}
+
+relationship OneToMany {
+	CancellationDetails to DeliveryDetails{cancellation}
+}
+
+relationship OneToOne {
+	Actor to CancellationDetails{approver}
+}
+
+relationship OneToOne {
+	Actor to CancellationDetails{initiator}
+}
+
+entity PaymentDetails {
+    amount Float,
+    paymentType PaymentType,
+    onlinePgType PGType,
+    pgTxnId String,
+    pgStatus String,
+    offlineTxnId String,
+    offlineTxnDetails String,
+    offlineTxnCollectedBy String,
+    offlineTxnClearingStatus String,
+    paymentDate String,
+    paymentInitTime LocalDate,
+    paymentUpdateTime LocalDate,
+    paymentStatus PaymentStatus,
+  	createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String
+}
+
+enum PaymentType {
+    Cheque,
+    Draft,
+    Cash,
+    UPI,
+    PayTM,
+    Online
+}
+
+enum PGType {
+     RazorPay,
+     PayTM
+}
+
+enum PaymentStatus {
+	Pending,
+    Initiated,
+    Failed,
+    Success,
+    Refunded
+}
+
+relationship OneToMany {
+	Order to PaymentDetails{order}
+}
+
+entity RemittanceDetails {
+    paymentType PaymentType,
+    onlinePgType PGType,
+    pgTxnId String,
+    pgStatus String,
+    offlineTxnId String,
+    offlineTxnDetails String,
+    offlineTxnGivenBy String,
+    offlineTxnClearingStatus String,
+    remittanceDate String,
+    remittanceInitTime LocalDate,
+    remittanceUpdateTime LocalDate,
+    paymentStatus PaymentStatus,
+  	createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String
+}
+
+relationship ManyToMany {
+	Order{remittance} to RemittanceDetails{order}
+}
+
+relationship OneToMany {
+	Actor to RemittanceDetails{farmer}
+}
+
+entity Hub {
+    tag String,
+    isActive Boolean,
+  	createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String
+}
+
+relationship OneToOne {
+    Hub to Address{hub}
+}
+
+entity Catalogue {
+    name String,
+    stockImageUrl String,
+    landingUrl String,
+    description String,
+    isActive Boolean,
+  	createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String
+}
+
+relationship OneToMany {
+    Catalogue to Catalogue{parent}
+}
+
+relationship OneToMany {
+    Catalogue to Stock{category}
+}
+
+relationship OneToMany {
+    Catalogue to Stock{variant}
+}
+
+relationship OneToMany {
+    Catalogue to Stock{subVariant}
+}
+
+relationship OneToMany {
+    Catalogue to Requirement{category}
+}
+
+relationship OneToMany {
+    Catalogue to Requirement{variant}
+}
+
+relationship OneToMany {
+    Catalogue to Requirement{subVariant}
+}
+
+entity Banner {
+    name String,
+    imageUrl String,
+    mobileImageUrl String,
+    landingUrl String,
+    description String,
+    html String,
+    mobileHtml String,
+    isActive Boolean,
+    startDate String,
+    endDate String,
+  	createdOn LocalDate,
+  	createdBy String,
+  	updatedOn LocalDate,
+  	updatedBy String
 }
