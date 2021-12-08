@@ -20,11 +20,31 @@
     <include file="config/liquibase/changelog/20211126183211_added_entity_OTP.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20211126183212_added_entity_OTPAttempt.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20211126183213_added_entity_Address.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180317_added_entity_Stock.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180318_added_entity_BiddingDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180319_added_entity_Bids.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180320_added_entity_Order.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180321_added_entity_DeliveryDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180322_added_entity_CancellationDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180323_added_entity_PaymentDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180324_added_entity_RemittanceDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180325_added_entity_Hub.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180326_added_entity_Catalogue.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180327_added_entity_Banner.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20211126183210_added_entity_constraints_Requirement.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20211126183211_added_entity_constraints_OTP.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20211126183212_added_entity_constraints_OTPAttempt.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20211126183213_added_entity_constraints_Address.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180317_added_entity_constraints_Stock.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180318_added_entity_constraints_BiddingDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180319_added_entity_constraints_Bids.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180320_added_entity_constraints_Order.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180321_added_entity_constraints_DeliveryDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180322_added_entity_constraints_CancellationDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180323_added_entity_constraints_PaymentDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180324_added_entity_constraints_RemittanceDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20211208180326_added_entity_constraints_Catalogue.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

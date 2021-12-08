@@ -3,8 +3,6 @@ package com.mullya.app.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -51,37 +49,25 @@ public class Address implements Serializable {
     @Column(name = "map_location")
     private String mapLocation;
 
-    @Column(name = "created_at")
-    private LocalDate createdAt;
+    @Column(name = "created_on")
+    private LocalDate createdOn;
+
+    @Column(name = "updated_on")
+    private LocalDate updatedOn;
 
     @Column(name = "updated_by")
     private String updatedBy;
 
-    @Column(name = "updated_at")
-    private LocalDate updatedAt;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Hub hub;
 
     @ManyToOne
     @JsonIgnoreProperties(
-        value = { "requirements", "acceptedRequirements", "assignedRequirements", "oTPS", "addresses" },
+        value = { "requirements", "oTPS", "addresses", "stocks", "bids", "orders", "remittanceDetails" },
         allowSetters = true
     )
     private Actor actor;
-
-    @OneToMany(mappedBy = "buyerAddress")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(
-        value = { "buyerAddress", "farmerAddress", "buyerActor", "acceptedAgentActor", "farmerActor" },
-        allowSetters = true
-    )
-    private Set<Requirement> requirements = new HashSet<>();
-
-    @OneToMany(mappedBy = "farmerAddress")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(
-        value = { "buyerAddress", "farmerAddress", "buyerActor", "acceptedAgentActor", "farmerActor" },
-        allowSetters = true
-    )
-    private Set<Requirement> orderRequirements = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -215,17 +201,30 @@ public class Address implements Serializable {
         this.mapLocation = mapLocation;
     }
 
-    public LocalDate getCreatedAt() {
-        return this.createdAt;
+    public LocalDate getCreatedOn() {
+        return this.createdOn;
     }
 
-    public Address createdAt(LocalDate createdAt) {
-        this.setCreatedAt(createdAt);
+    public Address createdOn(LocalDate createdOn) {
+        this.setCreatedOn(createdOn);
         return this;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
+    public void setCreatedOn(LocalDate createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public LocalDate getUpdatedOn() {
+        return this.updatedOn;
+    }
+
+    public Address updatedOn(LocalDate updatedOn) {
+        this.setUpdatedOn(updatedOn);
+        return this;
+    }
+
+    public void setUpdatedOn(LocalDate updatedOn) {
+        this.updatedOn = updatedOn;
     }
 
     public String getUpdatedBy() {
@@ -241,17 +240,17 @@ public class Address implements Serializable {
         this.updatedBy = updatedBy;
     }
 
-    public LocalDate getUpdatedAt() {
-        return this.updatedAt;
+    public Hub getHub() {
+        return this.hub;
     }
 
-    public Address updatedAt(LocalDate updatedAt) {
-        this.setUpdatedAt(updatedAt);
+    public void setHub(Hub hub) {
+        this.hub = hub;
+    }
+
+    public Address hub(Hub hub) {
+        this.setHub(hub);
         return this;
-    }
-
-    public void setUpdatedAt(LocalDate updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     public Actor getActor() {
@@ -264,68 +263,6 @@ public class Address implements Serializable {
 
     public Address actor(Actor actor) {
         this.setActor(actor);
-        return this;
-    }
-
-    public Set<Requirement> getRequirements() {
-        return this.requirements;
-    }
-
-    public void setRequirements(Set<Requirement> requirements) {
-        if (this.requirements != null) {
-            this.requirements.forEach(i -> i.setBuyerAddress(null));
-        }
-        if (requirements != null) {
-            requirements.forEach(i -> i.setBuyerAddress(this));
-        }
-        this.requirements = requirements;
-    }
-
-    public Address requirements(Set<Requirement> requirements) {
-        this.setRequirements(requirements);
-        return this;
-    }
-
-    public Address addRequirements(Requirement requirement) {
-        this.requirements.add(requirement);
-        requirement.setBuyerAddress(this);
-        return this;
-    }
-
-    public Address removeRequirements(Requirement requirement) {
-        this.requirements.remove(requirement);
-        requirement.setBuyerAddress(null);
-        return this;
-    }
-
-    public Set<Requirement> getOrderRequirements() {
-        return this.orderRequirements;
-    }
-
-    public void setOrderRequirements(Set<Requirement> requirements) {
-        if (this.orderRequirements != null) {
-            this.orderRequirements.forEach(i -> i.setFarmerAddress(null));
-        }
-        if (requirements != null) {
-            requirements.forEach(i -> i.setFarmerAddress(this));
-        }
-        this.orderRequirements = requirements;
-    }
-
-    public Address orderRequirements(Set<Requirement> requirements) {
-        this.setOrderRequirements(requirements);
-        return this;
-    }
-
-    public Address addOrderRequirements(Requirement requirement) {
-        this.orderRequirements.add(requirement);
-        requirement.setFarmerAddress(this);
-        return this;
-    }
-
-    public Address removeOrderRequirements(Requirement requirement) {
-        this.orderRequirements.remove(requirement);
-        requirement.setFarmerAddress(null);
         return this;
     }
 
@@ -362,9 +299,9 @@ public class Address implements Serializable {
             ", lat=" + getLat() +
             ", lon=" + getLon() +
             ", mapLocation='" + getMapLocation() + "'" +
-            ", createdAt='" + getCreatedAt() + "'" +
+            ", createdOn='" + getCreatedOn() + "'" +
+            ", updatedOn='" + getUpdatedOn() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +
-            ", updatedAt='" + getUpdatedAt() + "'" +
             "}";
     }
 }

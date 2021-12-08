@@ -4,6 +4,8 @@ import { Button, Row, Col, FormText } from 'reactstrap';
 import { isNumber, Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { IHub } from 'app/shared/model/hub.model';
+import { getEntities as getHubs } from 'app/entities/hub/hub.reducer';
 import { IActor } from 'app/shared/model/actor.model';
 import { getEntities as getActors } from 'app/entities/actor/actor.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './address.reducer';
@@ -17,6 +19,7 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
 
   const [isNew] = useState(!props.match.params || !props.match.params.id);
 
+  const hubs = useAppSelector(state => state.hub.entities);
   const actors = useAppSelector(state => state.actor.entities);
   const addressEntity = useAppSelector(state => state.address.entity);
   const loading = useAppSelector(state => state.address.loading);
@@ -31,6 +34,7 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
       dispatch(getEntity(props.match.params.id));
     }
 
+    dispatch(getHubs({}));
     dispatch(getActors({}));
   }, []);
 
@@ -44,6 +48,7 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
     const entity = {
       ...addressEntity,
       ...values,
+      hub: hubs.find(it => it.id.toString() === values.hub.toString()),
       actor: actors.find(it => it.id.toString() === values.actor.toString()),
     };
 
@@ -59,6 +64,7 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
       ? {}
       : {
           ...addressEntity,
+          hub: addressEntity?.hub?.id,
           actor: addressEntity?.actor?.id,
         };
 
@@ -133,10 +139,17 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.address.createdAt')}
-                id="address-createdAt"
-                name="createdAt"
-                data-cy="createdAt"
+                label={translate('mullyaApp.address.createdOn')}
+                id="address-createdOn"
+                name="createdOn"
+                data-cy="createdOn"
+                type="date"
+              />
+              <ValidatedField
+                label={translate('mullyaApp.address.updatedOn')}
+                id="address-updatedOn"
+                name="updatedOn"
+                data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
@@ -146,13 +159,16 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 data-cy="updatedBy"
                 type="text"
               />
-              <ValidatedField
-                label={translate('mullyaApp.address.updatedAt')}
-                id="address-updatedAt"
-                name="updatedAt"
-                data-cy="updatedAt"
-                type="date"
-              />
+              <ValidatedField id="address-hub" name="hub" data-cy="hub" label={translate('mullyaApp.address.hub')} type="select">
+                <option value="" key="0" />
+                {hubs
+                  ? hubs.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
               <ValidatedField id="address-actor" name="actor" data-cy="actor" label={translate('mullyaApp.address.actor')} type="select">
                 <option value="" key="0" />
                 {actors

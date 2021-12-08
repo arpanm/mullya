@@ -23,8 +23,8 @@
       "phone": "Phone",
       "ip": "Ip",
       "coookie": "Coookie",
+      "createdOn": "Created On",
       "createdBy": "Created By",
-      "createdAt": "Created At",
       "otp": "Otp"
     }
   }

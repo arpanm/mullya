@@ -28,20 +28,20 @@
       "fieldValues": "Init,Verified,Expired"
     },
     {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate"
+    },
+    {
       "fieldName": "createdBy",
       "fieldType": "String"
     },
     {
-      "fieldName": "createdAt",
+      "fieldName": "updatedOn",
       "fieldType": "LocalDate"
     },
     {
       "fieldName": "updatedBy",
       "fieldType": "String"
-    },
-    {
-      "fieldName": "updatedAt",
-      "fieldType": "LocalDate"
     }
   ],
   "relationships": [

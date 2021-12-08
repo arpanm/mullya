@@ -140,11 +140,11 @@ export const OTPAttempt = (props: RouteComponentProps<{ url: string }>) => {
                   <th className="hand" onClick={sort('coookie')}>
                     <Translate contentKey="mullyaApp.oTPAttempt.coookie">Coookie</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
+                  <th className="hand" onClick={sort('createdOn')}>
+                    <Translate contentKey="mullyaApp.oTPAttempt.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
                   <th className="hand" onClick={sort('createdBy')}>
                     <Translate contentKey="mullyaApp.oTPAttempt.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
-                  </th>
-                  <th className="hand" onClick={sort('createdAt')}>
-                    <Translate contentKey="mullyaApp.oTPAttempt.createdAt">Created At</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
                     <Translate contentKey="mullyaApp.oTPAttempt.otp">Otp</Translate> <FontAwesomeIcon icon="sort" />
@@ -165,10 +165,10 @@ export const OTPAttempt = (props: RouteComponentProps<{ url: string }>) => {
                     <td>{oTPAttempt.phone}</td>
                     <td>{oTPAttempt.ip}</td>
                     <td>{oTPAttempt.coookie}</td>
-                    <td>{oTPAttempt.createdBy}</td>
                     <td>
-                      {oTPAttempt.createdAt ? <TextFormat type="date" value={oTPAttempt.createdAt} format={APP_LOCAL_DATE_FORMAT} /> : null}
+                      {oTPAttempt.createdOn ? <TextFormat type="date" value={oTPAttempt.createdOn} format={APP_LOCAL_DATE_FORMAT} /> : null}
                     </td>
+                    <td>{oTPAttempt.createdBy}</td>
                     <td>{oTPAttempt.otp ? <Link to={`otp/${oTPAttempt.otp.id}`}>{oTPAttempt.otp.id}</Link> : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">

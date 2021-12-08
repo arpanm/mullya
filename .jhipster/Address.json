@@ -38,36 +38,31 @@
       "fieldType": "String"
     },
     {
-      "fieldName": "createdAt",
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedOn",
       "fieldType": "LocalDate"
     },
     {
       "fieldName": "updatedBy",
       "fieldType": "String"
-    },
-    {
-      "fieldName": "updatedAt",
-      "fieldType": "LocalDate"
     }
   ],
   "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "hub",
+      "otherEntityRelationshipName": "address",
+      "relationshipName": "hub",
+      "ownerSide": true
+    },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "actor",
       "otherEntityRelationshipName": "address",
       "relationshipName": "actor"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "requirement",
-      "otherEntityRelationshipName": "buyerAddress",
-      "relationshipName": "requirements"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "requirement",
-      "otherEntityRelationshipName": "farmerAddress",
-      "relationshipName": "orderRequirements"
     }
   ],
   "entityTableName": "address",

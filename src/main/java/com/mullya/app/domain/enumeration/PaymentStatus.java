@@ -8,4 +8,5 @@ public enum PaymentStatus {
     Initiated,
     Failed,
     Success,
+    Refunded,
 }

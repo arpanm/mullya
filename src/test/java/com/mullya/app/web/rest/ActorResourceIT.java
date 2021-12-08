@@ -34,8 +34,8 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class ActorResourceIT {
 
-    private static final String DEFAULT_EMAIL = "Fqjn|@,G";
-    private static final String UPDATED_EMAIL = "D@$_O";
+    private static final String DEFAULT_EMAIL = "Gqko|@-H.E";
+    private static final String UPDATED_EMAIL = "%_P@O|a&3.(tbh";
 
     private static final Long DEFAULT_PHONE = 1000000000L;
     private static final Long UPDATED_PHONE = 1000000001L;
@@ -369,12 +369,11 @@ class ActorResourceIT {
 
         partialUpdatedActor
             .email(UPDATED_EMAIL)
+            .phone(UPDATED_PHONE)
             .isEmailVerified(UPDATED_IS_EMAIL_VERIFIED)
             .isPhoneVerified(UPDATED_IS_PHONE_VERIFIED)
-            .type(UPDATED_TYPE)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .isActive(UPDATED_IS_ACTIVE)
+            .type(UPDATED_TYPE);
 
         restActorMockMvc
             .perform(
@@ -389,16 +388,16 @@ class ActorResourceIT {
         assertThat(actorList).hasSize(databaseSizeBeforeUpdate);
         Actor testActor = actorList.get(actorList.size() - 1);
         assertThat(testActor.getEmail()).isEqualTo(UPDATED_EMAIL);
-        assertThat(testActor.getPhone()).isEqualTo(DEFAULT_PHONE);
+        assertThat(testActor.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testActor.getIsEmailVerified()).isEqualTo(UPDATED_IS_EMAIL_VERIFIED);
         assertThat(testActor.getIsPhoneVerified()).isEqualTo(UPDATED_IS_PHONE_VERIFIED);
-        assertThat(testActor.getIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
+        assertThat(testActor.getIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
         assertThat(testActor.getPassword()).isEqualTo(DEFAULT_PASSWORD);
         assertThat(testActor.getType()).isEqualTo(UPDATED_TYPE);
         assertThat(testActor.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testActor.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testActor.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testActor.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
+        assertThat(testActor.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
+        assertThat(testActor.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
+        assertThat(testActor.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test

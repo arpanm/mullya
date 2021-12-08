@@ -21,6 +21,28 @@ import oTP from 'app/entities/otp/otp.reducer';
 import oTPAttempt from 'app/entities/otp-attempt/otp-attempt.reducer';
 // prettier-ignore
 import address from 'app/entities/address/address.reducer';
+// prettier-ignore
+import stock from 'app/entities/stock/stock.reducer';
+// prettier-ignore
+import biddingDetails from 'app/entities/bidding-details/bidding-details.reducer';
+// prettier-ignore
+import bids from 'app/entities/bids/bids.reducer';
+// prettier-ignore
+import order from 'app/entities/order/order.reducer';
+// prettier-ignore
+import deliveryDetails from 'app/entities/delivery-details/delivery-details.reducer';
+// prettier-ignore
+import cancellationDetails from 'app/entities/cancellation-details/cancellation-details.reducer';
+// prettier-ignore
+import paymentDetails from 'app/entities/payment-details/payment-details.reducer';
+// prettier-ignore
+import remittanceDetails from 'app/entities/remittance-details/remittance-details.reducer';
+// prettier-ignore
+import hub from 'app/entities/hub/hub.reducer';
+// prettier-ignore
+import catalogue from 'app/entities/catalogue/catalogue.reducer';
+// prettier-ignore
+import banner from 'app/entities/banner/banner.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const rootReducer = {
@@ -39,6 +61,17 @@ const rootReducer = {
   oTP,
   oTPAttempt,
   address,
+  stock,
+  biddingDetails,
+  bids,
+  order,
+  deliveryDetails,
+  cancellationDetails,
+  paymentDetails,
+  remittanceDetails,
+  hub,
+  catalogue,
+  banner,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 };

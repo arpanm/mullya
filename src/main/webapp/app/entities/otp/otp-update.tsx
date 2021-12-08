@@ -118,6 +118,13 @@ export const OTPUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 ))}
               </ValidatedField>
               <ValidatedField
+                label={translate('mullyaApp.oTP.createdOn')}
+                id="otp-createdOn"
+                name="createdOn"
+                data-cy="createdOn"
+                type="date"
+              />
+              <ValidatedField
                 label={translate('mullyaApp.oTP.createdBy')}
                 id="otp-createdBy"
                 name="createdBy"
@@ -125,10 +132,10 @@ export const OTPUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.oTP.createdAt')}
-                id="otp-createdAt"
-                name="createdAt"
-                data-cy="createdAt"
+                label={translate('mullyaApp.oTP.updatedOn')}
+                id="otp-updatedOn"
+                name="updatedOn"
+                data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
@@ -137,13 +144,6 @@ export const OTPUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 name="updatedBy"
                 data-cy="updatedBy"
                 type="text"
-              />
-              <ValidatedField
-                label={translate('mullyaApp.oTP.updatedAt')}
-                id="otp-updatedAt"
-                name="updatedAt"
-                data-cy="updatedAt"
-                type="date"
               />
               <ValidatedField id="otp-actor" name="actor" data-cy="actor" label={translate('mullyaApp.oTP.actor')} type="select">
                 <option value="" key="0" />

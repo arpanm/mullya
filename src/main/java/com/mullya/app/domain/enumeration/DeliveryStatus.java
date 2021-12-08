@@ -9,7 +9,6 @@ public enum DeliveryStatus {
     Declined,
     InTransit,
     Delivered,
-    ReturnInitiatedInTransit,
-    ReturnInitiatedAfterDelivery,
+    ReturnInitiated,
     Returned,
 }

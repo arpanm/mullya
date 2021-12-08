@@ -25,13 +25,13 @@ public class OTPDTO implements Serializable {
 
     private OtpStatus status;
 
+    private LocalDate createdOn;
+
     private String createdBy;
 
-    private LocalDate createdAt;
+    private LocalDate updatedOn;
 
     private String updatedBy;
-
-    private LocalDate updatedAt;
 
     private ActorDTO actor;
 
@@ -91,6 +91,14 @@ public class OTPDTO implements Serializable {
         this.status = status;
     }
 
+    public LocalDate getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(LocalDate createdOn) {
+        this.createdOn = createdOn;
+    }
+
     public String getCreatedBy() {
         return createdBy;
     }
@@ -99,12 +107,12 @@ public class OTPDTO implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public LocalDate getCreatedAt() {
-        return createdAt;
+    public LocalDate getUpdatedOn() {
+        return updatedOn;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
+    public void setUpdatedOn(LocalDate updatedOn) {
+        this.updatedOn = updatedOn;
     }
 
     public String getUpdatedBy() {
@@ -113,14 +121,6 @@ public class OTPDTO implements Serializable {
 
     public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
-    }
-
-    public LocalDate getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDate updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     public ActorDTO getActor() {
@@ -163,10 +163,10 @@ public class OTPDTO implements Serializable {
             ", type='" + getType() + "'" +
             ", expiryTime='" + getExpiryTime() + "'" +
             ", status='" + getStatus() + "'" +
+            ", createdOn='" + getCreatedOn() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
-            ", createdAt='" + getCreatedAt() + "'" +
+            ", updatedOn='" + getUpdatedOn() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +
-            ", updatedAt='" + getUpdatedAt() + "'" +
             ", actor=" + getActor() +
             "}";
     }

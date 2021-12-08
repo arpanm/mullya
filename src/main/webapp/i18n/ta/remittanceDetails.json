@@ -1,0 +1,41 @@
+{
+  "mullyaApp": {
+    "remittanceDetails": {
+      "home": {
+        "title": "Remittance Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Remittance Details-ஐ உருவாக்கு",
+        "createOrEditLabel": "Remittance Details -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Remittance Details found"
+      },
+      "created": "Remittance Details புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Remittance Details மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Remittance Details நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Remittance Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Remittance Details"
+      },
+      "id": "ID",
+      "paymentType": "Payment Type",
+      "onlinePgType": "Online Pg Type",
+      "pgTxnId": "Pg Txn Id",
+      "pgStatus": "Pg Status",
+      "offlineTxnId": "Offline Txn Id",
+      "offlineTxnDetails": "Offline Txn Details",
+      "offlineTxnGivenBy": "Offline Txn Given By",
+      "offlineTxnClearingStatus": "Offline Txn Clearing Status",
+      "remittanceDate": "Remittance Date",
+      "remittanceInitTime": "Remittance Init Time",
+      "remittanceUpdateTime": "Remittance Update Time",
+      "paymentStatus": "Payment Status",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "farmer": "Farmer",
+      "order": "Order"
+    }
+  }
+}

@@ -66,29 +66,29 @@ export const OTPDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dt>
           <dd>{oTPEntity.status}</dd>
           <dt>
+            <span id="createdOn">
+              <Translate contentKey="mullyaApp.oTP.createdOn">Created On</Translate>
+            </span>
+          </dt>
+          <dd>{oTPEntity.createdOn ? <TextFormat value={oTPEntity.createdOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
+          <dt>
             <span id="createdBy">
               <Translate contentKey="mullyaApp.oTP.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{oTPEntity.createdBy}</dd>
           <dt>
-            <span id="createdAt">
-              <Translate contentKey="mullyaApp.oTP.createdAt">Created At</Translate>
+            <span id="updatedOn">
+              <Translate contentKey="mullyaApp.oTP.updatedOn">Updated On</Translate>
             </span>
           </dt>
-          <dd>{oTPEntity.createdAt ? <TextFormat value={oTPEntity.createdAt} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
+          <dd>{oTPEntity.updatedOn ? <TextFormat value={oTPEntity.updatedOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="updatedBy">
               <Translate contentKey="mullyaApp.oTP.updatedBy">Updated By</Translate>
             </span>
           </dt>
           <dd>{oTPEntity.updatedBy}</dd>
-          <dt>
-            <span id="updatedAt">
-              <Translate contentKey="mullyaApp.oTP.updatedAt">Updated At</Translate>
-            </span>
-          </dt>
-          <dd>{oTPEntity.updatedAt ? <TextFormat value={oTPEntity.updatedAt} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <Translate contentKey="mullyaApp.oTP.actor">Actor</Translate>
           </dt>

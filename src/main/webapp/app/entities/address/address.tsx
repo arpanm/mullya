@@ -152,14 +152,17 @@ export const Address = (props: RouteComponentProps<{ url: string }>) => {
                   <th className="hand" onClick={sort('mapLocation')}>
                     <Translate contentKey="mullyaApp.address.mapLocation">Map Location</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={sort('createdAt')}>
-                    <Translate contentKey="mullyaApp.address.createdAt">Created At</Translate> <FontAwesomeIcon icon="sort" />
+                  <th className="hand" onClick={sort('createdOn')}>
+                    <Translate contentKey="mullyaApp.address.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
+                  </th>
+                  <th className="hand" onClick={sort('updatedOn')}>
+                    <Translate contentKey="mullyaApp.address.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedBy')}>
                     <Translate contentKey="mullyaApp.address.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={sort('updatedAt')}>
-                    <Translate contentKey="mullyaApp.address.updatedAt">Updated At</Translate> <FontAwesomeIcon icon="sort" />
+                  <th>
+                    <Translate contentKey="mullyaApp.address.hub">Hub</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
                     <Translate contentKey="mullyaApp.address.actor">Actor</Translate> <FontAwesomeIcon icon="sort" />
@@ -185,12 +188,13 @@ export const Address = (props: RouteComponentProps<{ url: string }>) => {
                     <td>{address.lon}</td>
                     <td>{address.mapLocation}</td>
                     <td>
-                      {address.createdAt ? <TextFormat type="date" value={address.createdAt} format={APP_LOCAL_DATE_FORMAT} /> : null}
+                      {address.createdOn ? <TextFormat type="date" value={address.createdOn} format={APP_LOCAL_DATE_FORMAT} /> : null}
+                    </td>
+                    <td>
+                      {address.updatedOn ? <TextFormat type="date" value={address.updatedOn} format={APP_LOCAL_DATE_FORMAT} /> : null}
                     </td>
                     <td>{address.updatedBy}</td>
-                    <td>
-                      {address.updatedAt ? <TextFormat type="date" value={address.updatedAt} format={APP_LOCAL_DATE_FORMAT} /> : null}
-                    </td>
+                    <td>{address.hub ? <Link to={`hub/${address.hub.id}`}>{address.hub.id}</Link> : ''}</td>
                     <td>{address.actor ? <Link to={`actor/${address.actor.id}`}>{address.actor.id}</Link> : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">

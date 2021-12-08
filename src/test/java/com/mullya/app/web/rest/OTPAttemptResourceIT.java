@@ -48,11 +48,11 @@ class OTPAttemptResourceIT {
     private static final String DEFAULT_COOOKIE = "AAAAAAAAAA";
     private static final String UPDATED_COOOKIE = "BBBBBBBBBB";
 
+    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
+
     private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_CREATED_AT = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_AT = LocalDate.now(ZoneId.systemDefault());
 
     private static final String ENTITY_API_URL = "/api/otp-attempts";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -87,8 +87,8 @@ class OTPAttemptResourceIT {
             .phone(DEFAULT_PHONE)
             .ip(DEFAULT_IP)
             .coookie(DEFAULT_COOOKIE)
-            .createdBy(DEFAULT_CREATED_BY)
-            .createdAt(DEFAULT_CREATED_AT);
+            .createdOn(DEFAULT_CREATED_ON)
+            .createdBy(DEFAULT_CREATED_BY);
         return oTPAttempt;
     }
 
@@ -105,8 +105,8 @@ class OTPAttemptResourceIT {
             .phone(UPDATED_PHONE)
             .ip(UPDATED_IP)
             .coookie(UPDATED_COOOKIE)
-            .createdBy(UPDATED_CREATED_BY)
-            .createdAt(UPDATED_CREATED_AT);
+            .createdOn(UPDATED_CREATED_ON)
+            .createdBy(UPDATED_CREATED_BY);
         return oTPAttempt;
     }
 
@@ -134,8 +134,8 @@ class OTPAttemptResourceIT {
         assertThat(testOTPAttempt.getPhone()).isEqualTo(DEFAULT_PHONE);
         assertThat(testOTPAttempt.getIp()).isEqualTo(DEFAULT_IP);
         assertThat(testOTPAttempt.getCoookie()).isEqualTo(DEFAULT_COOOKIE);
+        assertThat(testOTPAttempt.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
         assertThat(testOTPAttempt.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testOTPAttempt.getCreatedAt()).isEqualTo(DEFAULT_CREATED_AT);
     }
 
     @Test
@@ -174,8 +174,8 @@ class OTPAttemptResourceIT {
             .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE)))
             .andExpect(jsonPath("$.[*].ip").value(hasItem(DEFAULT_IP)))
             .andExpect(jsonPath("$.[*].coookie").value(hasItem(DEFAULT_COOOKIE)))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].createdAt").value(hasItem(DEFAULT_CREATED_AT.toString())));
+            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
+            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)));
     }
 
     @Test
@@ -195,8 +195,8 @@ class OTPAttemptResourceIT {
             .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE))
             .andExpect(jsonPath("$.ip").value(DEFAULT_IP))
             .andExpect(jsonPath("$.coookie").value(DEFAULT_COOOKIE))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.createdAt").value(DEFAULT_CREATED_AT.toString()));
+            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
+            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY));
     }
 
     @Test
@@ -224,8 +224,8 @@ class OTPAttemptResourceIT {
             .phone(UPDATED_PHONE)
             .ip(UPDATED_IP)
             .coookie(UPDATED_COOOKIE)
-            .createdBy(UPDATED_CREATED_BY)
-            .createdAt(UPDATED_CREATED_AT);
+            .createdOn(UPDATED_CREATED_ON)
+            .createdBy(UPDATED_CREATED_BY);
         OTPAttemptDTO oTPAttemptDTO = oTPAttemptMapper.toDto(updatedOTPAttempt);
 
         restOTPAttemptMockMvc
@@ -245,8 +245,8 @@ class OTPAttemptResourceIT {
         assertThat(testOTPAttempt.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testOTPAttempt.getIp()).isEqualTo(UPDATED_IP);
         assertThat(testOTPAttempt.getCoookie()).isEqualTo(UPDATED_COOOKIE);
+        assertThat(testOTPAttempt.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
         assertThat(testOTPAttempt.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testOTPAttempt.getCreatedAt()).isEqualTo(UPDATED_CREATED_AT);
     }
 
     @Test
@@ -331,7 +331,7 @@ class OTPAttemptResourceIT {
             .phone(UPDATED_PHONE)
             .ip(UPDATED_IP)
             .coookie(UPDATED_COOOKIE)
-            .createdAt(UPDATED_CREATED_AT);
+            .createdBy(UPDATED_CREATED_BY);
 
         restOTPAttemptMockMvc
             .perform(
@@ -350,8 +350,8 @@ class OTPAttemptResourceIT {
         assertThat(testOTPAttempt.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testOTPAttempt.getIp()).isEqualTo(UPDATED_IP);
         assertThat(testOTPAttempt.getCoookie()).isEqualTo(UPDATED_COOOKIE);
-        assertThat(testOTPAttempt.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testOTPAttempt.getCreatedAt()).isEqualTo(UPDATED_CREATED_AT);
+        assertThat(testOTPAttempt.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
+        assertThat(testOTPAttempt.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
     }
 
     @Test
@@ -372,8 +372,8 @@ class OTPAttemptResourceIT {
             .phone(UPDATED_PHONE)
             .ip(UPDATED_IP)
             .coookie(UPDATED_COOOKIE)
-            .createdBy(UPDATED_CREATED_BY)
-            .createdAt(UPDATED_CREATED_AT);
+            .createdOn(UPDATED_CREATED_ON)
+            .createdBy(UPDATED_CREATED_BY);
 
         restOTPAttemptMockMvc
             .perform(
@@ -392,8 +392,8 @@ class OTPAttemptResourceIT {
         assertThat(testOTPAttempt.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testOTPAttempt.getIp()).isEqualTo(UPDATED_IP);
         assertThat(testOTPAttempt.getCoookie()).isEqualTo(UPDATED_COOOKIE);
+        assertThat(testOTPAttempt.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
         assertThat(testOTPAttempt.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testOTPAttempt.getCreatedAt()).isEqualTo(UPDATED_CREATED_AT);
     }
 
     @Test

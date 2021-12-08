@@ -1,0 +1,39 @@
+{
+  "mullyaApp": {
+    "deliveryDetails": {
+      "home": {
+        "title": "Delivery Details",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Delivery Details",
+        "createOrEditLabel": "Create or edit a Delivery Details",
+        "notFound": "No Delivery Details found"
+      },
+      "created": "A new Delivery Details is created with identifier {{ param }}",
+      "updated": "A Delivery Details is updated with identifier {{ param }}",
+      "deleted": "A Delivery Details is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Delivery Details {{ id }}?"
+      },
+      "detail": {
+        "title": "Delivery Details"
+      },
+      "id": "ID",
+      "deliveryType": "Delivery Type",
+      "pickupDate": "Pickup Date",
+      "deliveryDate": "Delivery Date",
+      "truckDetails": "Truck Details",
+      "deliveryAgentPhone": "Delivery Agent Phone",
+      "pickupTime": "Pickup Time",
+      "deliveryTime": "Delivery Time",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "deliveryStatus": "Delivery Status",
+      "fromAddress": "From Address",
+      "toAddress": "To Address",
+      "order": "Order",
+      "cancellation": "Cancellation"
+    }
+  }
+}

@@ -7,8 +7,7 @@
       "Declined": "Declined",
       "InTransit": "InTransit",
       "Delivered": "Delivered",
-      "ReturnInitiatedInTransit": "ReturnInitiatedInTransit",
-      "ReturnInitiatedAfterDelivery": "ReturnInitiatedAfterDelivery",
+      "ReturnInitiated": "ReturnInitiated",
       "Returned": "Returned"
     }
   }

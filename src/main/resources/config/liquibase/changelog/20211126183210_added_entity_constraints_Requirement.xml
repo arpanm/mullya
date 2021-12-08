@@ -14,28 +14,28 @@
                                  referencedColumnNames="id"
                                  referencedTableName="address"/>
 
-        <addForeignKeyConstraint baseColumnNames="farmer_address_id"
-                                 baseTableName="requirement"
-                                 constraintName="fk_requirement__farmer_address_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="address"/>
-
         <addForeignKeyConstraint baseColumnNames="buyer_actor_id"
                                  baseTableName="requirement"
                                  constraintName="fk_requirement__buyer_actor_id"
                                  referencedColumnNames="id"
                                  referencedTableName="actor"/>
 
-        <addForeignKeyConstraint baseColumnNames="accepted_agent_actor_id"
+        <addForeignKeyConstraint baseColumnNames="category_id"
                                  baseTableName="requirement"
-                                 constraintName="fk_requirement__accepted_agent_actor_id"
+                                 constraintName="fk_requirement__category_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="actor"/>
+                                 referencedTableName="catalogue"/>
 
-        <addForeignKeyConstraint baseColumnNames="farmer_actor_id"
+        <addForeignKeyConstraint baseColumnNames="variant_id"
                                  baseTableName="requirement"
-                                 constraintName="fk_requirement__farmer_actor_id"
+                                 constraintName="fk_requirement__variant_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="actor"/>
+                                 referencedTableName="catalogue"/>
+
+        <addForeignKeyConstraint baseColumnNames="sub_variant_id"
+                                 baseTableName="requirement"
+                                 constraintName="fk_requirement__sub_variant_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="catalogue"/>
     </changeSet>
 </databaseChangeLog>

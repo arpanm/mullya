@@ -1,0 +1,29 @@
+{
+  "mullyaApp": {
+    "hub": {
+      "home": {
+        "title": "Hubs",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Hub-ஐ உருவாக்கு",
+        "createOrEditLabel": "Hub -ஐ மாற்று (அ) உருவாக்கு",
+        "notFound": "No Hubs found"
+      },
+      "created": "Hub புதிதாக உருவாக்கப்பட்டது, அடையாளம் {{ param }}",
+      "updated": "Hub மாற்றப்பட்டது, அடையாளம்  {{ param }}",
+      "deleted": "A Hub நீக்கப்பட்டது, அடையாளம {{ param }}",
+      "delete": {
+        "question": "நீக்குவதற்கு உறுதி செய் Hub {{ id }}?"
+      },
+      "detail": {
+        "title": "Hub"
+      },
+      "id": "ID",
+      "tag": "Tag",
+      "isActive": "Is Active",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By"
+    }
+  }
+}

@@ -18,30 +18,22 @@
         "title": "Requirement"
       },
       "id": "ID",
-      "category": "Category",
-      "variant": "Variant",
-      "subVariant": "Sub Variant",
       "minPrice": "Min Price",
       "maxPrice": "Max Price",
-      "acceptedPrice": "Accepted Price",
-      "codAmount": "Cod Amount",
       "quantityKg": "Quantity Kg",
       "neededBy": "Needed By",
-      "paymentDate": "Payment Date",
-      "acceptedDeliveryDate": "Accepted Delivery Date",
       "description": "Description",
       "createdOn": "Created On",
       "createdBy": "Created By",
       "updatedOn": "Updated On",
       "updatedBy": "Updated By",
       "status": "Status",
-      "paymentStatus": "Payment Status",
-      "deliveryStatus": "Delivery Status",
+      "order": "Order",
       "buyerAddress": "Buyer Address",
-      "farmerAddress": "Farmer Address",
       "buyerActor": "Buyer Actor",
-      "acceptedAgentActor": "Accepted Agent Actor",
-      "farmerActor": "Farmer Actor"
+      "category": "Category",
+      "variant": "Variant",
+      "subVariant": "Sub Variant"
     }
   }
 }

@@ -29,11 +29,13 @@ public class AddressDTO implements Serializable {
 
     private String mapLocation;
 
-    private LocalDate createdAt;
+    private LocalDate createdOn;
+
+    private LocalDate updatedOn;
 
     private String updatedBy;
 
-    private LocalDate updatedAt;
+    private HubDTO hub;
 
     private ActorDTO actor;
 
@@ -117,12 +119,20 @@ public class AddressDTO implements Serializable {
         this.mapLocation = mapLocation;
     }
 
-    public LocalDate getCreatedAt() {
-        return createdAt;
+    public LocalDate getCreatedOn() {
+        return createdOn;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
+    public void setCreatedOn(LocalDate createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public LocalDate getUpdatedOn() {
+        return updatedOn;
+    }
+
+    public void setUpdatedOn(LocalDate updatedOn) {
+        this.updatedOn = updatedOn;
     }
 
     public String getUpdatedBy() {
@@ -133,12 +143,12 @@ public class AddressDTO implements Serializable {
         this.updatedBy = updatedBy;
     }
 
-    public LocalDate getUpdatedAt() {
-        return updatedAt;
+    public HubDTO getHub() {
+        return hub;
     }
 
-    public void setUpdatedAt(LocalDate updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setHub(HubDTO hub) {
+        this.hub = hub;
     }
 
     public ActorDTO getActor() {
@@ -184,9 +194,10 @@ public class AddressDTO implements Serializable {
             ", lat=" + getLat() +
             ", lon=" + getLon() +
             ", mapLocation='" + getMapLocation() + "'" +
-            ", createdAt='" + getCreatedAt() + "'" +
+            ", createdOn='" + getCreatedOn() + "'" +
+            ", updatedOn='" + getUpdatedOn() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +
-            ", updatedAt='" + getUpdatedAt() + "'" +
+            ", hub=" + getHub() +
             ", actor=" + getActor() +
             "}";
     }

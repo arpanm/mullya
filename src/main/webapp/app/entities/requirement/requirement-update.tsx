@@ -8,15 +8,14 @@ import { IAddress } from 'app/shared/model/address.model';
 import { getEntities as getAddresses } from 'app/entities/address/address.reducer';
 import { IActor } from 'app/shared/model/actor.model';
 import { getEntities as getActors } from 'app/entities/actor/actor.reducer';
+import { ICatalogue } from 'app/shared/model/catalogue.model';
+import { getEntities as getCatalogues } from 'app/entities/catalogue/catalogue.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './requirement.reducer';
 import { IRequirement } from 'app/shared/model/requirement.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
-import { StockCategory } from 'app/shared/model/enumerations/stock-category.model';
 import { RequirementStatus } from 'app/shared/model/enumerations/requirement-status.model';
-import { PaymentStatus } from 'app/shared/model/enumerations/payment-status.model';
-import { DeliveryStatus } from 'app/shared/model/enumerations/delivery-status.model';
 
 export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) => {
   const dispatch = useAppDispatch();
@@ -25,14 +24,12 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
 
   const addresses = useAppSelector(state => state.address.entities);
   const actors = useAppSelector(state => state.actor.entities);
+  const catalogues = useAppSelector(state => state.catalogue.entities);
   const requirementEntity = useAppSelector(state => state.requirement.entity);
   const loading = useAppSelector(state => state.requirement.loading);
   const updating = useAppSelector(state => state.requirement.updating);
   const updateSuccess = useAppSelector(state => state.requirement.updateSuccess);
-  const stockCategoryValues = Object.keys(StockCategory);
   const requirementStatusValues = Object.keys(RequirementStatus);
-  const paymentStatusValues = Object.keys(PaymentStatus);
-  const deliveryStatusValues = Object.keys(DeliveryStatus);
   const handleClose = () => {
     props.history.push('/requirement');
   };
@@ -44,6 +41,7 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
 
     dispatch(getAddresses({}));
     dispatch(getActors({}));
+    dispatch(getCatalogues({}));
   }, []);
 
   useEffect(() => {
@@ -57,10 +55,10 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
       ...requirementEntity,
       ...values,
       buyerAddress: addresses.find(it => it.id.toString() === values.buyerAddress.toString()),
-      farmerAddress: addresses.find(it => it.id.toString() === values.farmerAddress.toString()),
       buyerActor: actors.find(it => it.id.toString() === values.buyerActor.toString()),
-      acceptedAgentActor: actors.find(it => it.id.toString() === values.acceptedAgentActor.toString()),
-      farmerActor: actors.find(it => it.id.toString() === values.farmerActor.toString()),
+      category: catalogues.find(it => it.id.toString() === values.category.toString()),
+      variant: catalogues.find(it => it.id.toString() === values.variant.toString()),
+      subVariant: catalogues.find(it => it.id.toString() === values.subVariant.toString()),
     };
 
     if (isNew) {
@@ -74,16 +72,13 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
     isNew
       ? {}
       : {
-          category: 'Rice',
           status: 'New',
-          paymentStatus: 'Pending',
-          deliveryStatus: 'PendingConfirmation',
           ...requirementEntity,
           buyerAddress: requirementEntity?.buyerAddress?.id,
-          farmerAddress: requirementEntity?.farmerAddress?.id,
           buyerActor: requirementEntity?.buyerActor?.id,
-          acceptedAgentActor: requirementEntity?.acceptedAgentActor?.id,
-          farmerActor: requirementEntity?.farmerActor?.id,
+          category: requirementEntity?.category?.id,
+          variant: requirementEntity?.variant?.id,
+          subVariant: requirementEntity?.subVariant?.id,
         };
 
   return (
@@ -112,33 +107,6 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                 />
               ) : null}
               <ValidatedField
-                label={translate('mullyaApp.requirement.category')}
-                id="requirement-category"
-                name="category"
-                data-cy="category"
-                type="select"
-              >
-                {stockCategoryValues.map(stockCategory => (
-                  <option value={stockCategory} key={stockCategory}>
-                    {translate('mullyaApp.StockCategory.' + stockCategory)}
-                  </option>
-                ))}
-              </ValidatedField>
-              <ValidatedField
-                label={translate('mullyaApp.requirement.variant')}
-                id="requirement-variant"
-                name="variant"
-                data-cy="variant"
-                type="text"
-              />
-              <ValidatedField
-                label={translate('mullyaApp.requirement.subVariant')}
-                id="requirement-subVariant"
-                name="subVariant"
-                data-cy="subVariant"
-                type="text"
-              />
-              <ValidatedField
                 label={translate('mullyaApp.requirement.minPrice')}
                 id="requirement-minPrice"
                 name="minPrice"
@@ -153,20 +121,6 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.requirement.acceptedPrice')}
-                id="requirement-acceptedPrice"
-                name="acceptedPrice"
-                data-cy="acceptedPrice"
-                type="text"
-              />
-              <ValidatedField
-                label={translate('mullyaApp.requirement.codAmount')}
-                id="requirement-codAmount"
-                name="codAmount"
-                data-cy="codAmount"
-                type="text"
-              />
-              <ValidatedField
                 label={translate('mullyaApp.requirement.quantityKg')}
                 id="requirement-quantityKg"
                 name="quantityKg"
@@ -178,20 +132,6 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                 id="requirement-neededBy"
                 name="neededBy"
                 data-cy="neededBy"
-                type="text"
-              />
-              <ValidatedField
-                label={translate('mullyaApp.requirement.paymentDate')}
-                id="requirement-paymentDate"
-                name="paymentDate"
-                data-cy="paymentDate"
-                type="text"
-              />
-              <ValidatedField
-                label={translate('mullyaApp.requirement.acceptedDeliveryDate')}
-                id="requirement-acceptedDeliveryDate"
-                name="acceptedDeliveryDate"
-                data-cy="acceptedDeliveryDate"
                 type="text"
               />
               <ValidatedField
@@ -243,52 +183,10 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.requirement.paymentStatus')}
-                id="requirement-paymentStatus"
-                name="paymentStatus"
-                data-cy="paymentStatus"
-                type="select"
-              >
-                {paymentStatusValues.map(paymentStatus => (
-                  <option value={paymentStatus} key={paymentStatus}>
-                    {translate('mullyaApp.PaymentStatus.' + paymentStatus)}
-                  </option>
-                ))}
-              </ValidatedField>
-              <ValidatedField
-                label={translate('mullyaApp.requirement.deliveryStatus')}
-                id="requirement-deliveryStatus"
-                name="deliveryStatus"
-                data-cy="deliveryStatus"
-                type="select"
-              >
-                {deliveryStatusValues.map(deliveryStatus => (
-                  <option value={deliveryStatus} key={deliveryStatus}>
-                    {translate('mullyaApp.DeliveryStatus.' + deliveryStatus)}
-                  </option>
-                ))}
-              </ValidatedField>
-              <ValidatedField
                 id="requirement-buyerAddress"
                 name="buyerAddress"
                 data-cy="buyerAddress"
                 label={translate('mullyaApp.requirement.buyerAddress')}
-                type="select"
-              >
-                <option value="" key="0" />
-                {addresses
-                  ? addresses.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.id}
-                      </option>
-                    ))
-                  : null}
-              </ValidatedField>
-              <ValidatedField
-                id="requirement-farmerAddress"
-                name="farmerAddress"
-                data-cy="farmerAddress"
-                label={translate('mullyaApp.requirement.farmerAddress')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -317,15 +215,15 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                   : null}
               </ValidatedField>
               <ValidatedField
-                id="requirement-acceptedAgentActor"
-                name="acceptedAgentActor"
-                data-cy="acceptedAgentActor"
-                label={translate('mullyaApp.requirement.acceptedAgentActor')}
+                id="requirement-category"
+                name="category"
+                data-cy="category"
+                label={translate('mullyaApp.requirement.category')}
                 type="select"
               >
                 <option value="" key="0" />
-                {actors
-                  ? actors.map(otherEntity => (
+                {catalogues
+                  ? catalogues.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>
@@ -333,15 +231,31 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                   : null}
               </ValidatedField>
               <ValidatedField
-                id="requirement-farmerActor"
-                name="farmerActor"
-                data-cy="farmerActor"
-                label={translate('mullyaApp.requirement.farmerActor')}
+                id="requirement-variant"
+                name="variant"
+                data-cy="variant"
+                label={translate('mullyaApp.requirement.variant')}
                 type="select"
               >
                 <option value="" key="0" />
-                {actors
-                  ? actors.map(otherEntity => (
+                {catalogues
+                  ? catalogues.map(otherEntity => (
+                      <option value={otherEntity.id} key={otherEntity.id}>
+                        {otherEntity.id}
+                      </option>
+                    ))
+                  : null}
+              </ValidatedField>
+              <ValidatedField
+                id="requirement-subVariant"
+                name="subVariant"
+                data-cy="subVariant"
+                label={translate('mullyaApp.requirement.subVariant')}
+                type="select"
+              >
+                <option value="" key="0" />
+                {catalogues
+                  ? catalogues.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

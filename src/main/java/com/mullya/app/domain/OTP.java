@@ -46,17 +46,17 @@ public class OTP implements Serializable {
     @Column(name = "status")
     private OtpStatus status;
 
+    @Column(name = "created_on")
+    private LocalDate createdOn;
+
     @Column(name = "created_by")
     private String createdBy;
 
-    @Column(name = "created_at")
-    private LocalDate createdAt;
+    @Column(name = "updated_on")
+    private LocalDate updatedOn;
 
     @Column(name = "updated_by")
     private String updatedBy;
-
-    @Column(name = "updated_at")
-    private LocalDate updatedAt;
 
     @OneToMany(mappedBy = "otp")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -65,7 +65,7 @@ public class OTP implements Serializable {
 
     @ManyToOne
     @JsonIgnoreProperties(
-        value = { "requirements", "acceptedRequirements", "assignedRequirements", "oTPS", "addresses" },
+        value = { "requirements", "oTPS", "addresses", "stocks", "bids", "orders", "remittanceDetails" },
         allowSetters = true
     )
     private Actor actor;
@@ -163,6 +163,19 @@ public class OTP implements Serializable {
         this.status = status;
     }
 
+    public LocalDate getCreatedOn() {
+        return this.createdOn;
+    }
+
+    public OTP createdOn(LocalDate createdOn) {
+        this.setCreatedOn(createdOn);
+        return this;
+    }
+
+    public void setCreatedOn(LocalDate createdOn) {
+        this.createdOn = createdOn;
+    }
+
     public String getCreatedBy() {
         return this.createdBy;
     }
@@ -176,17 +189,17 @@ public class OTP implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public LocalDate getCreatedAt() {
-        return this.createdAt;
+    public LocalDate getUpdatedOn() {
+        return this.updatedOn;
     }
 
-    public OTP createdAt(LocalDate createdAt) {
-        this.setCreatedAt(createdAt);
+    public OTP updatedOn(LocalDate updatedOn) {
+        this.setUpdatedOn(updatedOn);
         return this;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
+    public void setUpdatedOn(LocalDate updatedOn) {
+        this.updatedOn = updatedOn;
     }
 
     public String getUpdatedBy() {
@@ -200,19 +213,6 @@ public class OTP implements Serializable {
 
     public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
-    }
-
-    public LocalDate getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public OTP updatedAt(LocalDate updatedAt) {
-        this.setUpdatedAt(updatedAt);
-        return this;
-    }
-
-    public void setUpdatedAt(LocalDate updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     public Set<OTPAttempt> getOTPAttempts() {
@@ -289,10 +289,10 @@ public class OTP implements Serializable {
             ", type='" + getType() + "'" +
             ", expiryTime='" + getExpiryTime() + "'" +
             ", status='" + getStatus() + "'" +
+            ", createdOn='" + getCreatedOn() + "'" +
             ", createdBy='" + getCreatedBy() + "'" +
-            ", createdAt='" + getCreatedAt() + "'" +
+            ", updatedOn='" + getUpdatedOn() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +
-            ", updatedAt='" + getUpdatedAt() + "'" +
             "}";
     }
 }

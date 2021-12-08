@@ -1,0 +1,39 @@
+{
+  "mullyaApp": {
+    "deliveryDetails": {
+      "home": {
+        "title": "DeliveryDetails",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Delivery Details बनाएँ",
+        "createOrEditLabel": "Delivery Details बनाएँ या संपादित करें",
+        "notFound": "No Delivery Details found"
+      },
+      "created": "एक नया Delivery Details [identifier: {{ param }}] तैयार है",
+      "updated": "एक Delivery Details [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Delivery Details [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Delivery Details [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Delivery Details"
+      },
+      "id": "ID",
+      "deliveryType": "Delivery Type",
+      "pickupDate": "Pickup Date",
+      "deliveryDate": "Delivery Date",
+      "truckDetails": "Truck Details",
+      "deliveryAgentPhone": "Delivery Agent Phone",
+      "pickupTime": "Pickup Time",
+      "deliveryTime": "Delivery Time",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "deliveryStatus": "Delivery Status",
+      "fromAddress": "From Address",
+      "toAddress": "To Address",
+      "order": "Order",
+      "cancellation": "Cancellation"
+    }
+  }
+}

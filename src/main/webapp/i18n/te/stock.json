@@ -1,0 +1,42 @@
+{
+  "mullyaApp": {
+    "stock": {
+      "home": {
+        "title": "Stocks",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "కొత్త Stock  సృష్టించండి",
+        "createOrEditLabel": "Stock సృష్టించండి లేదా సవరించండి",
+        "notFound": "No Stocks found"
+      },
+      "created": "{{ param }} ఐడీ తో ఒక కొత్త Stock సృష్టించబడినది",
+      "updated": "{{ param }} ఐడీ తో ఒక కొత్త Stock సవరించబడినది",
+      "deleted": "{{ param }} ఐడీ తో ఒక కొత్త Stock తొలగించబడినది",
+      "delete": {
+        "question": "మీరు Stock {{ id }} ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?"
+      },
+      "detail": {
+        "title": "Stock"
+      },
+      "id": "ID",
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "quantityKg": "Quantity Kg",
+      "expiry": "Expiry",
+      "avialableFrom": "Avialable From",
+      "description": "Description",
+      "stockStatus": "Stock Status",
+      "isOpenForBidding": "Is Open For Bidding",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "biddingDetails": "Bidding Details",
+      "order": "Order",
+      "farmerAddress": "Farmer Address",
+      "farmer": "Farmer",
+      "category": "Category",
+      "variant": "Variant",
+      "subVariant": "Sub Variant"
+    }
+  }
+}

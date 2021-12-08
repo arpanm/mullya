@@ -1,0 +1,94 @@
+{
+  "name": "DeliveryDetails",
+  "fields": [
+    {
+      "fieldName": "deliveryType",
+      "fieldType": "DeliveryType",
+      "fieldValues": "FarmerToBuyer,FarmerToHub,HubToBuyer,HubToHub,ReturnBuyerToFarmer,ReturnBuyerToHub,ReturnHubToFarmer"
+    },
+    {
+      "fieldName": "pickupDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deliveryDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "truckDetails",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deliveryAgentPhone",
+      "fieldType": "Long",
+      "fieldValidateRules": ["min", "max"],
+      "fieldValidateRulesMin": "1000000000",
+      "fieldValidateRulesMax": "9999999999"
+    },
+    {
+      "fieldName": "pickupTime",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "deliveryTime",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deliveryStatus",
+      "fieldType": "DeliveryStatus",
+      "fieldValues": "PendingConfirmation,Accepted,Declined,InTransit,Delivered,ReturnInitiated,Returned"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "deliveryDetails",
+      "relationshipName": "fromAddress"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "deliveryDetails",
+      "relationshipName": "toAddress"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "deliveryDetails",
+      "relationshipName": "order"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "cancellationDetails",
+      "otherEntityRelationshipName": "deliveryDetails",
+      "relationshipName": "cancellation"
+    }
+  ],
+  "entityTableName": "delivery_details",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["mullya"],
+  "changelogDate": "20211208180321"
+}

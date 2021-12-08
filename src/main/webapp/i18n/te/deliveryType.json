@@ -1,0 +1,14 @@
+{
+  "mullyaApp": {
+    "DeliveryType": {
+      "null": "",
+      "FarmerToBuyer": "FarmerToBuyer",
+      "FarmerToHub": "FarmerToHub",
+      "HubToBuyer": "HubToBuyer",
+      "HubToHub": "HubToHub",
+      "ReturnBuyerToFarmer": "ReturnBuyerToFarmer",
+      "ReturnBuyerToHub": "ReturnBuyerToHub",
+      "ReturnHubToFarmer": "ReturnHubToFarmer"
+    }
+  }
+}

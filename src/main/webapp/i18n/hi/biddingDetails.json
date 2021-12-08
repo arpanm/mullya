@@ -1,0 +1,37 @@
+{
+  "mullyaApp": {
+    "biddingDetails": {
+      "home": {
+        "title": "BiddingDetails",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "नया Bidding Details बनाएँ",
+        "createOrEditLabel": "Bidding Details बनाएँ या संपादित करें",
+        "notFound": "No Bidding Details found"
+      },
+      "created": "एक नया Bidding Details [identifier: {{ param }}] तैयार है",
+      "updated": "एक Bidding Details [identifier: {{ param }}] का अद्यतन हुआ है",
+      "deleted": "Bidding Details [identifier: {{ param }}] हटा दिया है",
+      "delete": {
+        "question": "Bidding Details [id: {{ id }}] हटाने की पुष्टि करें"
+      },
+      "detail": {
+        "title": "Bidding Details"
+      },
+      "id": "ID",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "biddingStatus": "Bidding Status",
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "minQuantityKg": "Min Quantity Kg",
+      "maxQuantityKg": "Max Quantity Kg",
+      "isActive": "Is Active",
+      "createdOn": "Created On",
+      "createdBy": "Created By",
+      "updatedOn": "Updated On",
+      "updatedBy": "Updated By",
+      "bids": "Bids",
+      "stock": "Stock"
+    }
+  }
+}

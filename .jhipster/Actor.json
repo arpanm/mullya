@@ -5,7 +5,7 @@
       "fieldName": "email",
       "fieldType": "String",
       "fieldValidateRules": ["pattern"],
-      "fieldValidateRulesPattern": "^(.+)@(.+)$"
+      "fieldValidateRulesPattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
     },
     {
       "fieldName": "phone",
@@ -57,19 +57,7 @@
       "relationshipType": "one-to-many",
       "otherEntityName": "requirement",
       "otherEntityRelationshipName": "buyerActor",
-      "relationshipName": "requirements"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "requirement",
-      "otherEntityRelationshipName": "acceptedAgentActor",
-      "relationshipName": "acceptedRequirements"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "requirement",
-      "otherEntityRelationshipName": "farmerActor",
-      "relationshipName": "assignedRequirements"
+      "relationshipName": "requirement"
     },
     {
       "relationshipType": "one-to-many",
@@ -82,6 +70,30 @@
       "otherEntityName": "address",
       "otherEntityRelationshipName": "actor",
       "relationshipName": "address"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "stock",
+      "otherEntityRelationshipName": "farmer",
+      "relationshipName": "stock"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "bids",
+      "otherEntityRelationshipName": "buyer",
+      "relationshipName": "bids"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "assignedAgent",
+      "relationshipName": "order"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "remittanceDetails",
+      "otherEntityRelationshipName": "farmer",
+      "relationshipName": "remittanceDetails"
     }
   ],
   "entityTableName": "actor",

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity DeliveryDetails.
+    -->
+    <changeSet id="20211208180321-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="from_address_id"
+                                 baseTableName="delivery_details"
+                                 constraintName="fk_delivery_details__from_address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="address"/>
+
+        <addForeignKeyConstraint baseColumnNames="to_address_id"
+                                 baseTableName="delivery_details"
+                                 constraintName="fk_delivery_details__to_address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="address"/>
+
+        <addForeignKeyConstraint baseColumnNames="order_id"
+                                 baseTableName="delivery_details"
+                                 constraintName="fk_delivery_details__order_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_order"/>
+
+        <addForeignKeyConstraint baseColumnNames="cancellation_id"
+                                 baseTableName="delivery_details"
+                                 constraintName="fk_delivery_details__cancellation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cancellation_details"/>
+    </changeSet>
+</databaseChangeLog>

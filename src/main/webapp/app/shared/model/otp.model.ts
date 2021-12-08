@@ -12,10 +12,10 @@ export interface IOTP {
   type?: OtpType | null;
   expiryTime?: string | null;
   status?: OtpStatus | null;
+  createdOn?: string | null;
   createdBy?: string | null;
-  createdAt?: string | null;
+  updatedOn?: string | null;
   updatedBy?: string | null;
-  updatedAt?: string | null;
   oTPAttempts?: IOTPAttempt[] | null;
   actor?: IActor | null;
 }

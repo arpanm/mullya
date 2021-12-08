@@ -1,0 +1,11 @@
+id;payment_type;online_pg_type;pg_txn_id;pg_status;offline_txn_id;offline_txn_details;offline_txn_given_by;offline_txn_clearing_status;remittance_date;remittance_init_time;remittance_update_time;payment_status;created_on;created_by;updated_on;updated_by
+1;Draft;PayTM;front-end;Unbranded Avon;card;program;transmit;Cambridgeshire compressing;redundant;2021-12-07;2021-12-08;Initiated;2021-12-07;Baht;2021-12-08;gold Louisiana Pants
+2;Cheque;PayTM;Colorado;teal Awesome;Avon;Incredible;dedicated Investor;Handcrafted;Mouse;2021-12-08;2021-12-08;Success;2021-12-08;Executive port;2021-12-08;Direct markets
+3;UPI;RazorPay;Toys;primary Liaison;Cotton Gorgeous lime;Buckinghamshire;digital Grocery contextually-based;reboot Dominican orchid;synthesizing SMS Small;2021-12-08;2021-12-07;Pending;2021-12-08;interfaces Massachusetts;2021-12-07;haptic
+4;UPI;PayTM;COM;deploy expedite Cliffs;invoice Music Aruba;Metal Liaison Avon;Vanuatu;iterate;Web;2021-12-08;2021-12-08;Refunded;2021-12-08;hack;2021-12-08;Towels Fresh virtual
+5;Cheque;PayTM;Bike contextually-based Fantastic;synthesizing;Decentralized generating turquoise;Awesome;Markets;Assurance;hack Handmade Saint;2021-12-08;2021-12-08;Failed;2021-12-08;Pizza Leone invoice;2021-12-08;Ports
+6;Cash;RazorPay;Neck Books;tertiary robust user-facing;AI up;XSS haptic;human-resource copying Small;Account;orchid eco-centric SCSI;2021-12-08;2021-12-07;Refunded;2021-12-08;Metrics Place;2021-12-08;markets fuchsia tan
+7;Online;PayTM;leading-edge;Sleek;Practical;interactive Pass bypassing;Liaison;invoice;Bulgarian Direct SDD;2021-12-08;2021-12-08;Pending;2021-12-08;Freeway Supervisor up;2021-12-08;Usability motivating architect
+8;UPI;PayTM;Concrete Borders;drive;bricks-and-clicks;clicks-and-mortar International XML;Hawaii 1080p;Virginia Infrastructure Ethiopian;Grocery Associate;2021-12-08;2021-12-08;Success;2021-12-08;invoice utilize Movies;2021-12-08;HDD
+9;PayTM;PayTM;Shore reciprocal;magenta;deposit distributed;Frozen;bus neural deposit;Mouse back-end;RSS;2021-12-08;2021-12-08;Initiated;2021-12-08;Web Chief Borders;2021-12-08;contextually-based
+10;Cheque;PayTM;digital;transparent Ergonomic;Rupee deposit black;harness Coordinator;Customizable budgetary;indigo;payment;2021-12-07;2021-12-07;Failed;2021-12-07;Creative;2021-12-07;haptic firewall

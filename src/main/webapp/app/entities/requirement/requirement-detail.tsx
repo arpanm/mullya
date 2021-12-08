@@ -30,24 +30,6 @@ export const RequirementDetail = (props: RouteComponentProps<{ id: string }>) =>
           </dt>
           <dd>{requirementEntity.id}</dd>
           <dt>
-            <span id="category">
-              <Translate contentKey="mullyaApp.requirement.category">Category</Translate>
-            </span>
-          </dt>
-          <dd>{requirementEntity.category}</dd>
-          <dt>
-            <span id="variant">
-              <Translate contentKey="mullyaApp.requirement.variant">Variant</Translate>
-            </span>
-          </dt>
-          <dd>{requirementEntity.variant}</dd>
-          <dt>
-            <span id="subVariant">
-              <Translate contentKey="mullyaApp.requirement.subVariant">Sub Variant</Translate>
-            </span>
-          </dt>
-          <dd>{requirementEntity.subVariant}</dd>
-          <dt>
             <span id="minPrice">
               <Translate contentKey="mullyaApp.requirement.minPrice">Min Price</Translate>
             </span>
@@ -60,18 +42,6 @@ export const RequirementDetail = (props: RouteComponentProps<{ id: string }>) =>
           </dt>
           <dd>{requirementEntity.maxPrice}</dd>
           <dt>
-            <span id="acceptedPrice">
-              <Translate contentKey="mullyaApp.requirement.acceptedPrice">Accepted Price</Translate>
-            </span>
-          </dt>
-          <dd>{requirementEntity.acceptedPrice}</dd>
-          <dt>
-            <span id="codAmount">
-              <Translate contentKey="mullyaApp.requirement.codAmount">Cod Amount</Translate>
-            </span>
-          </dt>
-          <dd>{requirementEntity.codAmount}</dd>
-          <dt>
             <span id="quantityKg">
               <Translate contentKey="mullyaApp.requirement.quantityKg">Quantity Kg</Translate>
             </span>
@@ -83,18 +53,6 @@ export const RequirementDetail = (props: RouteComponentProps<{ id: string }>) =>
             </span>
           </dt>
           <dd>{requirementEntity.neededBy}</dd>
-          <dt>
-            <span id="paymentDate">
-              <Translate contentKey="mullyaApp.requirement.paymentDate">Payment Date</Translate>
-            </span>
-          </dt>
-          <dd>{requirementEntity.paymentDate}</dd>
-          <dt>
-            <span id="acceptedDeliveryDate">
-              <Translate contentKey="mullyaApp.requirement.acceptedDeliveryDate">Accepted Delivery Date</Translate>
-            </span>
-          </dt>
-          <dd>{requirementEntity.acceptedDeliveryDate}</dd>
           <dt>
             <span id="description">
               <Translate contentKey="mullyaApp.requirement.description">Description</Translate>
@@ -140,37 +98,25 @@ export const RequirementDetail = (props: RouteComponentProps<{ id: string }>) =>
           </dt>
           <dd>{requirementEntity.status}</dd>
           <dt>
-            <span id="paymentStatus">
-              <Translate contentKey="mullyaApp.requirement.paymentStatus">Payment Status</Translate>
-            </span>
-          </dt>
-          <dd>{requirementEntity.paymentStatus}</dd>
-          <dt>
-            <span id="deliveryStatus">
-              <Translate contentKey="mullyaApp.requirement.deliveryStatus">Delivery Status</Translate>
-            </span>
-          </dt>
-          <dd>{requirementEntity.deliveryStatus}</dd>
-          <dt>
             <Translate contentKey="mullyaApp.requirement.buyerAddress">Buyer Address</Translate>
           </dt>
           <dd>{requirementEntity.buyerAddress ? requirementEntity.buyerAddress.id : ''}</dd>
-          <dt>
-            <Translate contentKey="mullyaApp.requirement.farmerAddress">Farmer Address</Translate>
-          </dt>
-          <dd>{requirementEntity.farmerAddress ? requirementEntity.farmerAddress.id : ''}</dd>
           <dt>
             <Translate contentKey="mullyaApp.requirement.buyerActor">Buyer Actor</Translate>
           </dt>
           <dd>{requirementEntity.buyerActor ? requirementEntity.buyerActor.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.requirement.acceptedAgentActor">Accepted Agent Actor</Translate>
+            <Translate contentKey="mullyaApp.requirement.category">Category</Translate>
           </dt>
-          <dd>{requirementEntity.acceptedAgentActor ? requirementEntity.acceptedAgentActor.id : ''}</dd>
+          <dd>{requirementEntity.category ? requirementEntity.category.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.requirement.farmerActor">Farmer Actor</Translate>
+            <Translate contentKey="mullyaApp.requirement.variant">Variant</Translate>
           </dt>
-          <dd>{requirementEntity.farmerActor ? requirementEntity.farmerActor.id : ''}</dd>
+          <dd>{requirementEntity.variant ? requirementEntity.variant.id : ''}</dd>
+          <dt>
+            <Translate contentKey="mullyaApp.requirement.subVariant">Sub Variant</Translate>
+          </dt>
+          <dd>{requirementEntity.subVariant ? requirementEntity.subVariant.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/requirement" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

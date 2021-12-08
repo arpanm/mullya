@@ -1,0 +1,94 @@
+{
+  "name": "PaymentDetails",
+  "fields": [
+    {
+      "fieldName": "amount",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "paymentType",
+      "fieldType": "PaymentType",
+      "fieldValues": "Cheque,Draft,Cash,UPI,PayTM,Online"
+    },
+    {
+      "fieldName": "onlinePgType",
+      "fieldType": "PGType",
+      "fieldValues": "RazorPay,PayTM"
+    },
+    {
+      "fieldName": "pgTxnId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pgStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "offlineTxnId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "offlineTxnDetails",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "offlineTxnCollectedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "offlineTxnClearingStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentDate",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentInitTime",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "paymentUpdateTime",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "paymentStatus",
+      "fieldType": "PaymentStatus",
+      "fieldValues": "Pending,Initiated,Failed,Success,Refunded"
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "updatedBy",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "paymentDetails",
+      "relationshipName": "order"
+    }
+  ],
+  "entityTableName": "payment_details",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["mullya"],
+  "changelogDate": "20211208180323"
+}

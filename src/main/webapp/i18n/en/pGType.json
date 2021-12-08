@@ -1,0 +1,9 @@
+{
+  "mullyaApp": {
+    "PGType": {
+      "null": "",
+      "RazorPay": "RazorPay",
+      "PayTM": "PayTM"
+    }
+  }
+}

@@ -12,6 +12,17 @@
         "otp": "OTP",
         "otpAttempt": "OTP Attempt",
         "address": "Address",
+        "stock": "Stock",
+        "biddingDetails": "Bidding Details",
+        "bids": "Bids",
+        "order": "Order",
+        "deliveryDetails": "Delivery Details",
+        "cancellationDetails": "Cancellation Details",
+        "paymentDetails": "Payment Details",
+        "remittanceDetails": "Remittance Details",
+        "hub": "Hub",
+        "catalogue": "Catalogue",
+        "banner": "Banner",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

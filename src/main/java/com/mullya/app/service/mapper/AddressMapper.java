@@ -7,8 +7,9 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Address} and its DTO {@link AddressDTO}.
  */
-@Mapper(componentModel = "spring", uses = { ActorMapper.class })
+@Mapper(componentModel = "spring", uses = { HubMapper.class, ActorMapper.class })
 public interface AddressMapper extends EntityMapper<AddressDTO, Address> {
+    @Mapping(target = "hub", source = "hub", qualifiedByName = "id")
     @Mapping(target = "actor", source = "actor", qualifiedByName = "id")
     AddressDTO toDto(Address s);
 

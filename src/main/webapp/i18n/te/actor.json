@@ -29,11 +29,13 @@
       "createdBy": "Created By",
       "updatedOn": "Updated On",
       "updatedBy": "Updated By",
-      "requirements": "Requirements",
-      "acceptedRequirements": "Accepted Requirements",
-      "assignedRequirements": "Assigned Requirements",
+      "requirement": "Requirement",
       "oTP": "O TP",
-      "address": "Address"
+      "address": "Address",
+      "stock": "Stock",
+      "bids": "Bids",
+      "order": "Order",
+      "remittanceDetails": "Remittance Details"
     }
   }
 }

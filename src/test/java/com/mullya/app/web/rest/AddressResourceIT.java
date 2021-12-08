@@ -60,14 +60,14 @@ class AddressResourceIT {
     private static final String DEFAULT_MAP_LOCATION = "AAAAAAAAAA";
     private static final String UPDATED_MAP_LOCATION = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_CREATED_AT = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_AT = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
+
+    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
 
     private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_AT = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_AT = LocalDate.now(ZoneId.systemDefault());
 
     private static final String ENTITY_API_URL = "/api/addresses";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -106,9 +106,9 @@ class AddressResourceIT {
             .lat(DEFAULT_LAT)
             .lon(DEFAULT_LON)
             .mapLocation(DEFAULT_MAP_LOCATION)
-            .createdAt(DEFAULT_CREATED_AT)
-            .updatedBy(DEFAULT_UPDATED_BY)
-            .updatedAt(DEFAULT_UPDATED_AT);
+            .createdOn(DEFAULT_CREATED_ON)
+            .updatedOn(DEFAULT_UPDATED_ON)
+            .updatedBy(DEFAULT_UPDATED_BY);
         return address;
     }
 
@@ -129,9 +129,9 @@ class AddressResourceIT {
             .lat(UPDATED_LAT)
             .lon(UPDATED_LON)
             .mapLocation(UPDATED_MAP_LOCATION)
-            .createdAt(UPDATED_CREATED_AT)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedAt(UPDATED_UPDATED_AT);
+            .createdOn(UPDATED_CREATED_ON)
+            .updatedOn(UPDATED_UPDATED_ON)
+            .updatedBy(UPDATED_UPDATED_BY);
         return address;
     }
 
@@ -163,9 +163,9 @@ class AddressResourceIT {
         assertThat(testAddress.getLat()).isEqualTo(DEFAULT_LAT);
         assertThat(testAddress.getLon()).isEqualTo(DEFAULT_LON);
         assertThat(testAddress.getMapLocation()).isEqualTo(DEFAULT_MAP_LOCATION);
-        assertThat(testAddress.getCreatedAt()).isEqualTo(DEFAULT_CREATED_AT);
+        assertThat(testAddress.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
+        assertThat(testAddress.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
         assertThat(testAddress.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
-        assertThat(testAddress.getUpdatedAt()).isEqualTo(DEFAULT_UPDATED_AT);
     }
 
     @Test
@@ -208,9 +208,9 @@ class AddressResourceIT {
             .andExpect(jsonPath("$.[*].lat").value(hasItem(DEFAULT_LAT.doubleValue())))
             .andExpect(jsonPath("$.[*].lon").value(hasItem(DEFAULT_LON.doubleValue())))
             .andExpect(jsonPath("$.[*].mapLocation").value(hasItem(DEFAULT_MAP_LOCATION)))
-            .andExpect(jsonPath("$.[*].createdAt").value(hasItem(DEFAULT_CREATED_AT.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedAt").value(hasItem(DEFAULT_UPDATED_AT.toString())));
+            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
+            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
+            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
     }
 
     @Test
@@ -234,9 +234,9 @@ class AddressResourceIT {
             .andExpect(jsonPath("$.lat").value(DEFAULT_LAT.doubleValue()))
             .andExpect(jsonPath("$.lon").value(DEFAULT_LON.doubleValue()))
             .andExpect(jsonPath("$.mapLocation").value(DEFAULT_MAP_LOCATION))
-            .andExpect(jsonPath("$.createdAt").value(DEFAULT_CREATED_AT.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
-            .andExpect(jsonPath("$.updatedAt").value(DEFAULT_UPDATED_AT.toString()));
+            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
+            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
+            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
     }
 
     @Test
@@ -268,9 +268,9 @@ class AddressResourceIT {
             .lat(UPDATED_LAT)
             .lon(UPDATED_LON)
             .mapLocation(UPDATED_MAP_LOCATION)
-            .createdAt(UPDATED_CREATED_AT)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedAt(UPDATED_UPDATED_AT);
+            .createdOn(UPDATED_CREATED_ON)
+            .updatedOn(UPDATED_UPDATED_ON)
+            .updatedBy(UPDATED_UPDATED_BY);
         AddressDTO addressDTO = addressMapper.toDto(updatedAddress);
 
         restAddressMockMvc
@@ -294,9 +294,9 @@ class AddressResourceIT {
         assertThat(testAddress.getLat()).isEqualTo(UPDATED_LAT);
         assertThat(testAddress.getLon()).isEqualTo(UPDATED_LON);
         assertThat(testAddress.getMapLocation()).isEqualTo(UPDATED_MAP_LOCATION);
-        assertThat(testAddress.getCreatedAt()).isEqualTo(UPDATED_CREATED_AT);
+        assertThat(testAddress.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
+        assertThat(testAddress.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
         assertThat(testAddress.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
-        assertThat(testAddress.getUpdatedAt()).isEqualTo(UPDATED_UPDATED_AT);
     }
 
     @Test
@@ -383,7 +383,7 @@ class AddressResourceIT {
             .country(UPDATED_COUNTRY)
             .lat(UPDATED_LAT)
             .lon(UPDATED_LON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .updatedOn(UPDATED_UPDATED_ON);
 
         restAddressMockMvc
             .perform(
@@ -406,9 +406,9 @@ class AddressResourceIT {
         assertThat(testAddress.getLat()).isEqualTo(UPDATED_LAT);
         assertThat(testAddress.getLon()).isEqualTo(UPDATED_LON);
         assertThat(testAddress.getMapLocation()).isEqualTo(DEFAULT_MAP_LOCATION);
-        assertThat(testAddress.getCreatedAt()).isEqualTo(DEFAULT_CREATED_AT);
-        assertThat(testAddress.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
-        assertThat(testAddress.getUpdatedAt()).isEqualTo(DEFAULT_UPDATED_AT);
+        assertThat(testAddress.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
+        assertThat(testAddress.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
+        assertThat(testAddress.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -433,9 +433,9 @@ class AddressResourceIT {
             .lat(UPDATED_LAT)
             .lon(UPDATED_LON)
             .mapLocation(UPDATED_MAP_LOCATION)
-            .createdAt(UPDATED_CREATED_AT)
-            .updatedBy(UPDATED_UPDATED_BY)
-            .updatedAt(UPDATED_UPDATED_AT);
+            .createdOn(UPDATED_CREATED_ON)
+            .updatedOn(UPDATED_UPDATED_ON)
+            .updatedBy(UPDATED_UPDATED_BY);
 
         restAddressMockMvc
             .perform(
@@ -458,9 +458,9 @@ class AddressResourceIT {
         assertThat(testAddress.getLat()).isEqualTo(UPDATED_LAT);
         assertThat(testAddress.getLon()).isEqualTo(UPDATED_LON);
         assertThat(testAddress.getMapLocation()).isEqualTo(UPDATED_MAP_LOCATION);
-        assertThat(testAddress.getCreatedAt()).isEqualTo(UPDATED_CREATED_AT);
+        assertThat(testAddress.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
+        assertThat(testAddress.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
         assertThat(testAddress.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
-        assertThat(testAddress.getUpdatedAt()).isEqualTo(UPDATED_UPDATED_AT);
     }
 
     @Test
