@@ -63,7 +63,10 @@
       "Catalogue",
       "Banner"
     ],
-    "lastLiquibaseTimestamp": 1638986607000
+    "lastLiquibaseTimestamp": 1638986607000,
+    "herokuAppName": "mulyaa",
+    "herokuDeployType": "git",
+    "herokuJavaVersion": "11"
   },
   "git-provider": "GitHub",
   "git-company": "arpanm",
