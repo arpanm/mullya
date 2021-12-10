@@ -85,8 +85,8 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.requirement.home.createOrEditLabel" data-cy="RequirementCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.requirement.home.createOrEditLabel">Create or edit a Requirement</Translate>
+          <h2 id="mulyaaApp.requirement.home.createOrEditLabel" data-cy="RequirementCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.requirement.home.createOrEditLabel">Create or edit a Requirement</Translate>
           </h2>
         </Col>
       </Row>
@@ -107,70 +107,70 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                 />
               ) : null}
               <ValidatedField
-                label={translate('mullyaApp.requirement.minPrice')}
+                label={translate('mulyaaApp.requirement.minPrice')}
                 id="requirement-minPrice"
                 name="minPrice"
                 data-cy="minPrice"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.requirement.maxPrice')}
+                label={translate('mulyaaApp.requirement.maxPrice')}
                 id="requirement-maxPrice"
                 name="maxPrice"
                 data-cy="maxPrice"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.requirement.quantityKg')}
+                label={translate('mulyaaApp.requirement.quantityKg')}
                 id="requirement-quantityKg"
                 name="quantityKg"
                 data-cy="quantityKg"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.requirement.neededBy')}
+                label={translate('mulyaaApp.requirement.neededBy')}
                 id="requirement-neededBy"
                 name="neededBy"
                 data-cy="neededBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.requirement.description')}
+                label={translate('mulyaaApp.requirement.description')}
                 id="requirement-description"
                 name="description"
                 data-cy="description"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.requirement.createdOn')}
+                label={translate('mulyaaApp.requirement.createdOn')}
                 id="requirement-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.requirement.createdBy')}
+                label={translate('mulyaaApp.requirement.createdBy')}
                 id="requirement-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.requirement.updatedOn')}
+                label={translate('mulyaaApp.requirement.updatedOn')}
                 id="requirement-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.requirement.updatedBy')}
+                label={translate('mulyaaApp.requirement.updatedBy')}
                 id="requirement-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.requirement.status')}
+                label={translate('mulyaaApp.requirement.status')}
                 id="requirement-status"
                 name="status"
                 data-cy="status"
@@ -178,7 +178,7 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
               >
                 {requirementStatusValues.map(requirementStatus => (
                   <option value={requirementStatus} key={requirementStatus}>
-                    {translate('mullyaApp.RequirementStatus.' + requirementStatus)}
+                    {translate('mulyaaApp.RequirementStatus.' + requirementStatus)}
                   </option>
                 ))}
               </ValidatedField>
@@ -186,7 +186,7 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                 id="requirement-buyerAddress"
                 name="buyerAddress"
                 data-cy="buyerAddress"
-                label={translate('mullyaApp.requirement.buyerAddress')}
+                label={translate('mulyaaApp.requirement.buyerAddress')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -202,7 +202,7 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                 id="requirement-buyerActor"
                 name="buyerActor"
                 data-cy="buyerActor"
-                label={translate('mullyaApp.requirement.buyerActor')}
+                label={translate('mulyaaApp.requirement.buyerActor')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -218,7 +218,7 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                 id="requirement-category"
                 name="category"
                 data-cy="category"
-                label={translate('mullyaApp.requirement.category')}
+                label={translate('mulyaaApp.requirement.category')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -234,7 +234,7 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                 id="requirement-variant"
                 name="variant"
                 data-cy="variant"
-                label={translate('mullyaApp.requirement.variant')}
+                label={translate('mulyaaApp.requirement.variant')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -250,7 +250,7 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                 id="requirement-subVariant"
                 name="subVariant"
                 data-cy="subVariant"
-                label={translate('mullyaApp.requirement.subVariant')}
+                label={translate('mulyaaApp.requirement.subVariant')}
                 type="select"
               >
                 <option value="" key="0" />

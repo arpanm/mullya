@@ -1,4 +1,4 @@
-# mullya
+# mulyaa
 
 This application was generated using JHipster 7.4.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.4.0](https://www.jhipster.tech/documentation-archive/v7.4.0).
 
@@ -95,7 +95,7 @@ Refer to [Doing API-First development][] for more details.
 
 ### Packaging as jar
 
-To build the final jar and optimize the mullya application for production, run:
+To build the final jar and optimize the mulyaa application for production, run:
 
 ```
 ./mvnw -Pprod clean verify

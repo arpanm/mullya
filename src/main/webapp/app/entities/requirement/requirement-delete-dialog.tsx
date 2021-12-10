@@ -39,8 +39,8 @@ export const RequirementDeleteDialog = (props: RouteComponentProps<{ id: string 
       <ModalHeader toggle={handleClose} data-cy="requirementDeleteDialogHeading">
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
-      <ModalBody id="mullyaApp.requirement.delete.question">
-        <Translate contentKey="mullyaApp.requirement.delete.question" interpolate={{ id: requirementEntity.id }}>
+      <ModalBody id="mulyaaApp.requirement.delete.question">
+        <Translate contentKey="mulyaaApp.requirement.delete.question" interpolate={{ id: requirementEntity.id }}>
           Are you sure you want to delete this Requirement?
         </Translate>
       </ModalBody>

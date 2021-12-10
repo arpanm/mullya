@@ -72,8 +72,8 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.address.home.createOrEditLabel" data-cy="AddressCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.address.home.createOrEditLabel">Create or edit a Address</Translate>
+          <h2 id="mulyaaApp.address.home.createOrEditLabel" data-cy="AddressCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.address.home.createOrEditLabel">Create or edit a Address</Translate>
           </h2>
         </Col>
       </Row>
@@ -94,72 +94,72 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 />
               ) : null}
               <ValidatedField
-                label={translate('mullyaApp.address.streetAddress')}
+                label={translate('mulyaaApp.address.streetAddress')}
                 id="address-streetAddress"
                 name="streetAddress"
                 data-cy="streetAddress"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.address.postalCode')}
+                label={translate('mulyaaApp.address.postalCode')}
                 id="address-postalCode"
                 name="postalCode"
                 data-cy="postalCode"
                 type="text"
               />
-              <ValidatedField label={translate('mullyaApp.address.city')} id="address-city" name="city" data-cy="city" type="text" />
+              <ValidatedField label={translate('mulyaaApp.address.city')} id="address-city" name="city" data-cy="city" type="text" />
               <ValidatedField
-                label={translate('mullyaApp.address.stateProvince')}
+                label={translate('mulyaaApp.address.stateProvince')}
                 id="address-stateProvince"
                 name="stateProvince"
                 data-cy="stateProvince"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.address.country')}
+                label={translate('mulyaaApp.address.country')}
                 id="address-country"
                 name="country"
                 data-cy="country"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.address.createdBy')}
+                label={translate('mulyaaApp.address.createdBy')}
                 id="address-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
-              <ValidatedField label={translate('mullyaApp.address.lat')} id="address-lat" name="lat" data-cy="lat" type="text" />
-              <ValidatedField label={translate('mullyaApp.address.lon')} id="address-lon" name="lon" data-cy="lon" type="text" />
+              <ValidatedField label={translate('mulyaaApp.address.lat')} id="address-lat" name="lat" data-cy="lat" type="text" />
+              <ValidatedField label={translate('mulyaaApp.address.lon')} id="address-lon" name="lon" data-cy="lon" type="text" />
               <ValidatedField
-                label={translate('mullyaApp.address.mapLocation')}
+                label={translate('mulyaaApp.address.mapLocation')}
                 id="address-mapLocation"
                 name="mapLocation"
                 data-cy="mapLocation"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.address.createdOn')}
+                label={translate('mulyaaApp.address.createdOn')}
                 id="address-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.address.updatedOn')}
+                label={translate('mulyaaApp.address.updatedOn')}
                 id="address-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.address.updatedBy')}
+                label={translate('mulyaaApp.address.updatedBy')}
                 id="address-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"
                 type="text"
               />
-              <ValidatedField id="address-hub" name="hub" data-cy="hub" label={translate('mullyaApp.address.hub')} type="select">
+              <ValidatedField id="address-hub" name="hub" data-cy="hub" label={translate('mulyaaApp.address.hub')} type="select">
                 <option value="" key="0" />
                 {hubs
                   ? hubs.map(otherEntity => (
@@ -169,7 +169,7 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
                     ))
                   : null}
               </ValidatedField>
-              <ValidatedField id="address-actor" name="actor" data-cy="actor" label={translate('mullyaApp.address.actor')} type="select">
+              <ValidatedField id="address-actor" name="actor" data-cy="actor" label={translate('mulyaaApp.address.actor')} type="select">
                 <option value="" key="0" />
                 {actors
                   ? actors.map(otherEntity => (

@@ -20,7 +20,7 @@ export const RemittanceDetailsDetail = (props: RouteComponentProps<{ id: string 
     <Row>
       <Col md="8">
         <h2 data-cy="remittanceDetailsDetailsHeading">
-          <Translate contentKey="mullyaApp.remittanceDetails.detail.title">RemittanceDetails</Translate>
+          <Translate contentKey="mulyaaApp.remittanceDetails.detail.title">RemittanceDetails</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -31,61 +31,61 @@ export const RemittanceDetailsDetail = (props: RouteComponentProps<{ id: string 
           <dd>{remittanceDetailsEntity.id}</dd>
           <dt>
             <span id="paymentType">
-              <Translate contentKey="mullyaApp.remittanceDetails.paymentType">Payment Type</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.paymentType">Payment Type</Translate>
             </span>
           </dt>
           <dd>{remittanceDetailsEntity.paymentType}</dd>
           <dt>
             <span id="onlinePgType">
-              <Translate contentKey="mullyaApp.remittanceDetails.onlinePgType">Online Pg Type</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.onlinePgType">Online Pg Type</Translate>
             </span>
           </dt>
           <dd>{remittanceDetailsEntity.onlinePgType}</dd>
           <dt>
             <span id="pgTxnId">
-              <Translate contentKey="mullyaApp.remittanceDetails.pgTxnId">Pg Txn Id</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.pgTxnId">Pg Txn Id</Translate>
             </span>
           </dt>
           <dd>{remittanceDetailsEntity.pgTxnId}</dd>
           <dt>
             <span id="pgStatus">
-              <Translate contentKey="mullyaApp.remittanceDetails.pgStatus">Pg Status</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.pgStatus">Pg Status</Translate>
             </span>
           </dt>
           <dd>{remittanceDetailsEntity.pgStatus}</dd>
           <dt>
             <span id="offlineTxnId">
-              <Translate contentKey="mullyaApp.remittanceDetails.offlineTxnId">Offline Txn Id</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.offlineTxnId">Offline Txn Id</Translate>
             </span>
           </dt>
           <dd>{remittanceDetailsEntity.offlineTxnId}</dd>
           <dt>
             <span id="offlineTxnDetails">
-              <Translate contentKey="mullyaApp.remittanceDetails.offlineTxnDetails">Offline Txn Details</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.offlineTxnDetails">Offline Txn Details</Translate>
             </span>
           </dt>
           <dd>{remittanceDetailsEntity.offlineTxnDetails}</dd>
           <dt>
             <span id="offlineTxnGivenBy">
-              <Translate contentKey="mullyaApp.remittanceDetails.offlineTxnGivenBy">Offline Txn Given By</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.offlineTxnGivenBy">Offline Txn Given By</Translate>
             </span>
           </dt>
           <dd>{remittanceDetailsEntity.offlineTxnGivenBy}</dd>
           <dt>
             <span id="offlineTxnClearingStatus">
-              <Translate contentKey="mullyaApp.remittanceDetails.offlineTxnClearingStatus">Offline Txn Clearing Status</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.offlineTxnClearingStatus">Offline Txn Clearing Status</Translate>
             </span>
           </dt>
           <dd>{remittanceDetailsEntity.offlineTxnClearingStatus}</dd>
           <dt>
             <span id="remittanceDate">
-              <Translate contentKey="mullyaApp.remittanceDetails.remittanceDate">Remittance Date</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.remittanceDate">Remittance Date</Translate>
             </span>
           </dt>
           <dd>{remittanceDetailsEntity.remittanceDate}</dd>
           <dt>
             <span id="remittanceInitTime">
-              <Translate contentKey="mullyaApp.remittanceDetails.remittanceInitTime">Remittance Init Time</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.remittanceInitTime">Remittance Init Time</Translate>
             </span>
           </dt>
           <dd>
@@ -95,7 +95,7 @@ export const RemittanceDetailsDetail = (props: RouteComponentProps<{ id: string 
           </dd>
           <dt>
             <span id="remittanceUpdateTime">
-              <Translate contentKey="mullyaApp.remittanceDetails.remittanceUpdateTime">Remittance Update Time</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.remittanceUpdateTime">Remittance Update Time</Translate>
             </span>
           </dt>
           <dd>
@@ -105,13 +105,13 @@ export const RemittanceDetailsDetail = (props: RouteComponentProps<{ id: string 
           </dd>
           <dt>
             <span id="paymentStatus">
-              <Translate contentKey="mullyaApp.remittanceDetails.paymentStatus">Payment Status</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.paymentStatus">Payment Status</Translate>
             </span>
           </dt>
           <dd>{remittanceDetailsEntity.paymentStatus}</dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mullyaApp.remittanceDetails.createdOn">Created On</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>
@@ -121,13 +121,13 @@ export const RemittanceDetailsDetail = (props: RouteComponentProps<{ id: string 
           </dd>
           <dt>
             <span id="createdBy">
-              <Translate contentKey="mullyaApp.remittanceDetails.createdBy">Created By</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{remittanceDetailsEntity.createdBy}</dd>
           <dt>
             <span id="updatedOn">
-              <Translate contentKey="mullyaApp.remittanceDetails.updatedOn">Updated On</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.updatedOn">Updated On</Translate>
             </span>
           </dt>
           <dd>
@@ -137,12 +137,12 @@ export const RemittanceDetailsDetail = (props: RouteComponentProps<{ id: string 
           </dd>
           <dt>
             <span id="updatedBy">
-              <Translate contentKey="mullyaApp.remittanceDetails.updatedBy">Updated By</Translate>
+              <Translate contentKey="mulyaaApp.remittanceDetails.updatedBy">Updated By</Translate>
             </span>
           </dt>
           <dd>{remittanceDetailsEntity.updatedBy}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.remittanceDetails.farmer">Farmer</Translate>
+            <Translate contentKey="mulyaaApp.remittanceDetails.farmer">Farmer</Translate>
           </dt>
           <dd>{remittanceDetailsEntity.farmer ? remittanceDetailsEntity.farmer.id : ''}</dd>
         </dl>

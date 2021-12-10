@@ -20,7 +20,7 @@ export const HubDetail = (props: RouteComponentProps<{ id: string }>) => {
     <Row>
       <Col md="8">
         <h2 data-cy="hubDetailsHeading">
-          <Translate contentKey="mullyaApp.hub.detail.title">Hub</Translate>
+          <Translate contentKey="mulyaaApp.hub.detail.title">Hub</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -31,37 +31,37 @@ export const HubDetail = (props: RouteComponentProps<{ id: string }>) => {
           <dd>{hubEntity.id}</dd>
           <dt>
             <span id="tag">
-              <Translate contentKey="mullyaApp.hub.tag">Tag</Translate>
+              <Translate contentKey="mulyaaApp.hub.tag">Tag</Translate>
             </span>
           </dt>
           <dd>{hubEntity.tag}</dd>
           <dt>
             <span id="isActive">
-              <Translate contentKey="mullyaApp.hub.isActive">Is Active</Translate>
+              <Translate contentKey="mulyaaApp.hub.isActive">Is Active</Translate>
             </span>
           </dt>
           <dd>{hubEntity.isActive ? 'true' : 'false'}</dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mullyaApp.hub.createdOn">Created On</Translate>
+              <Translate contentKey="mulyaaApp.hub.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>{hubEntity.createdOn ? <TextFormat value={hubEntity.createdOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="createdBy">
-              <Translate contentKey="mullyaApp.hub.createdBy">Created By</Translate>
+              <Translate contentKey="mulyaaApp.hub.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{hubEntity.createdBy}</dd>
           <dt>
             <span id="updatedOn">
-              <Translate contentKey="mullyaApp.hub.updatedOn">Updated On</Translate>
+              <Translate contentKey="mulyaaApp.hub.updatedOn">Updated On</Translate>
             </span>
           </dt>
           <dd>{hubEntity.updatedOn ? <TextFormat value={hubEntity.updatedOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="updatedBy">
-              <Translate contentKey="mullyaApp.hub.updatedBy">Updated By</Translate>
+              <Translate contentKey="mulyaaApp.hub.updatedBy">Updated By</Translate>
             </span>
           </dt>
           <dd>{hubEntity.updatedBy}</dd>

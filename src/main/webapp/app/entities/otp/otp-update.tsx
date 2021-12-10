@@ -72,8 +72,8 @@ export const OTPUpdate = (props: RouteComponentProps<{ id: string }>) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.oTP.home.createOrEditLabel" data-cy="OTPCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.oTP.home.createOrEditLabel">Create or edit a OTP</Translate>
+          <h2 id="mulyaaApp.oTP.home.createOrEditLabel" data-cy="OTPCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.oTP.home.createOrEditLabel">Create or edit a OTP</Translate>
           </h2>
         </Col>
       </Row>
@@ -93,59 +93,59 @@ export const OTPUpdate = (props: RouteComponentProps<{ id: string }>) => {
                   validate={{ required: true }}
                 />
               ) : null}
-              <ValidatedField label={translate('mullyaApp.oTP.otpVal')} id="otp-otpVal" name="otpVal" data-cy="otpVal" type="text" />
-              <ValidatedField label={translate('mullyaApp.oTP.email')} id="otp-email" name="email" data-cy="email" type="text" />
-              <ValidatedField label={translate('mullyaApp.oTP.phone')} id="otp-phone" name="phone" data-cy="phone" type="text" />
-              <ValidatedField label={translate('mullyaApp.oTP.type')} id="otp-type" name="type" data-cy="type" type="select">
+              <ValidatedField label={translate('mulyaaApp.oTP.otpVal')} id="otp-otpVal" name="otpVal" data-cy="otpVal" type="text" />
+              <ValidatedField label={translate('mulyaaApp.oTP.email')} id="otp-email" name="email" data-cy="email" type="text" />
+              <ValidatedField label={translate('mulyaaApp.oTP.phone')} id="otp-phone" name="phone" data-cy="phone" type="text" />
+              <ValidatedField label={translate('mulyaaApp.oTP.type')} id="otp-type" name="type" data-cy="type" type="select">
                 {otpTypeValues.map(otpType => (
                   <option value={otpType} key={otpType}>
-                    {translate('mullyaApp.OtpType.' + otpType)}
+                    {translate('mulyaaApp.OtpType.' + otpType)}
                   </option>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.oTP.expiryTime')}
+                label={translate('mulyaaApp.oTP.expiryTime')}
                 id="otp-expiryTime"
                 name="expiryTime"
                 data-cy="expiryTime"
                 type="date"
               />
-              <ValidatedField label={translate('mullyaApp.oTP.status')} id="otp-status" name="status" data-cy="status" type="select">
+              <ValidatedField label={translate('mulyaaApp.oTP.status')} id="otp-status" name="status" data-cy="status" type="select">
                 {otpStatusValues.map(otpStatus => (
                   <option value={otpStatus} key={otpStatus}>
-                    {translate('mullyaApp.OtpStatus.' + otpStatus)}
+                    {translate('mulyaaApp.OtpStatus.' + otpStatus)}
                   </option>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.oTP.createdOn')}
+                label={translate('mulyaaApp.oTP.createdOn')}
                 id="otp-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.oTP.createdBy')}
+                label={translate('mulyaaApp.oTP.createdBy')}
                 id="otp-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.oTP.updatedOn')}
+                label={translate('mulyaaApp.oTP.updatedOn')}
                 id="otp-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.oTP.updatedBy')}
+                label={translate('mulyaaApp.oTP.updatedBy')}
                 id="otp-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"
                 type="text"
               />
-              <ValidatedField id="otp-actor" name="actor" data-cy="actor" label={translate('mullyaApp.oTP.actor')} type="select">
+              <ValidatedField id="otp-actor" name="actor" data-cy="actor" label={translate('mulyaaApp.oTP.actor')} type="select">
                 <option value="" key="0" />
                 {actors
                   ? actors.map(otherEntity => (

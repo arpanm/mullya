@@ -20,7 +20,7 @@ export const DeliveryDetailsDetail = (props: RouteComponentProps<{ id: string }>
     <Row>
       <Col md="8">
         <h2 data-cy="deliveryDetailsDetailsHeading">
-          <Translate contentKey="mullyaApp.deliveryDetails.detail.title">DeliveryDetails</Translate>
+          <Translate contentKey="mulyaaApp.deliveryDetails.detail.title">DeliveryDetails</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -31,37 +31,37 @@ export const DeliveryDetailsDetail = (props: RouteComponentProps<{ id: string }>
           <dd>{deliveryDetailsEntity.id}</dd>
           <dt>
             <span id="deliveryType">
-              <Translate contentKey="mullyaApp.deliveryDetails.deliveryType">Delivery Type</Translate>
+              <Translate contentKey="mulyaaApp.deliveryDetails.deliveryType">Delivery Type</Translate>
             </span>
           </dt>
           <dd>{deliveryDetailsEntity.deliveryType}</dd>
           <dt>
             <span id="pickupDate">
-              <Translate contentKey="mullyaApp.deliveryDetails.pickupDate">Pickup Date</Translate>
+              <Translate contentKey="mulyaaApp.deliveryDetails.pickupDate">Pickup Date</Translate>
             </span>
           </dt>
           <dd>{deliveryDetailsEntity.pickupDate}</dd>
           <dt>
             <span id="deliveryDate">
-              <Translate contentKey="mullyaApp.deliveryDetails.deliveryDate">Delivery Date</Translate>
+              <Translate contentKey="mulyaaApp.deliveryDetails.deliveryDate">Delivery Date</Translate>
             </span>
           </dt>
           <dd>{deliveryDetailsEntity.deliveryDate}</dd>
           <dt>
             <span id="truckDetails">
-              <Translate contentKey="mullyaApp.deliveryDetails.truckDetails">Truck Details</Translate>
+              <Translate contentKey="mulyaaApp.deliveryDetails.truckDetails">Truck Details</Translate>
             </span>
           </dt>
           <dd>{deliveryDetailsEntity.truckDetails}</dd>
           <dt>
             <span id="deliveryAgentPhone">
-              <Translate contentKey="mullyaApp.deliveryDetails.deliveryAgentPhone">Delivery Agent Phone</Translate>
+              <Translate contentKey="mulyaaApp.deliveryDetails.deliveryAgentPhone">Delivery Agent Phone</Translate>
             </span>
           </dt>
           <dd>{deliveryDetailsEntity.deliveryAgentPhone}</dd>
           <dt>
             <span id="pickupTime">
-              <Translate contentKey="mullyaApp.deliveryDetails.pickupTime">Pickup Time</Translate>
+              <Translate contentKey="mulyaaApp.deliveryDetails.pickupTime">Pickup Time</Translate>
             </span>
           </dt>
           <dd>
@@ -71,7 +71,7 @@ export const DeliveryDetailsDetail = (props: RouteComponentProps<{ id: string }>
           </dd>
           <dt>
             <span id="deliveryTime">
-              <Translate contentKey="mullyaApp.deliveryDetails.deliveryTime">Delivery Time</Translate>
+              <Translate contentKey="mulyaaApp.deliveryDetails.deliveryTime">Delivery Time</Translate>
             </span>
           </dt>
           <dd>
@@ -81,7 +81,7 @@ export const DeliveryDetailsDetail = (props: RouteComponentProps<{ id: string }>
           </dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mullyaApp.deliveryDetails.createdOn">Created On</Translate>
+              <Translate contentKey="mulyaaApp.deliveryDetails.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>
@@ -91,13 +91,13 @@ export const DeliveryDetailsDetail = (props: RouteComponentProps<{ id: string }>
           </dd>
           <dt>
             <span id="createdBy">
-              <Translate contentKey="mullyaApp.deliveryDetails.createdBy">Created By</Translate>
+              <Translate contentKey="mulyaaApp.deliveryDetails.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{deliveryDetailsEntity.createdBy}</dd>
           <dt>
             <span id="updatedOn">
-              <Translate contentKey="mullyaApp.deliveryDetails.updatedOn">Updated On</Translate>
+              <Translate contentKey="mulyaaApp.deliveryDetails.updatedOn">Updated On</Translate>
             </span>
           </dt>
           <dd>
@@ -107,30 +107,30 @@ export const DeliveryDetailsDetail = (props: RouteComponentProps<{ id: string }>
           </dd>
           <dt>
             <span id="updatedBy">
-              <Translate contentKey="mullyaApp.deliveryDetails.updatedBy">Updated By</Translate>
+              <Translate contentKey="mulyaaApp.deliveryDetails.updatedBy">Updated By</Translate>
             </span>
           </dt>
           <dd>{deliveryDetailsEntity.updatedBy}</dd>
           <dt>
             <span id="deliveryStatus">
-              <Translate contentKey="mullyaApp.deliveryDetails.deliveryStatus">Delivery Status</Translate>
+              <Translate contentKey="mulyaaApp.deliveryDetails.deliveryStatus">Delivery Status</Translate>
             </span>
           </dt>
           <dd>{deliveryDetailsEntity.deliveryStatus}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.deliveryDetails.fromAddress">From Address</Translate>
+            <Translate contentKey="mulyaaApp.deliveryDetails.fromAddress">From Address</Translate>
           </dt>
           <dd>{deliveryDetailsEntity.fromAddress ? deliveryDetailsEntity.fromAddress.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.deliveryDetails.toAddress">To Address</Translate>
+            <Translate contentKey="mulyaaApp.deliveryDetails.toAddress">To Address</Translate>
           </dt>
           <dd>{deliveryDetailsEntity.toAddress ? deliveryDetailsEntity.toAddress.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.deliveryDetails.order">Order</Translate>
+            <Translate contentKey="mulyaaApp.deliveryDetails.order">Order</Translate>
           </dt>
           <dd>{deliveryDetailsEntity.order ? deliveryDetailsEntity.order.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.deliveryDetails.cancellation">Cancellation</Translate>
+            <Translate contentKey="mulyaaApp.deliveryDetails.cancellation">Cancellation</Translate>
           </dt>
           <dd>{deliveryDetailsEntity.cancellation ? deliveryDetailsEntity.cancellation.id : ''}</dd>
         </dl>

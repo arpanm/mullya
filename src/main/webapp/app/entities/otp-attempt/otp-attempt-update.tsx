@@ -66,8 +66,8 @@ export const OTPAttemptUpdate = (props: RouteComponentProps<{ id: string }>) => 
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.oTPAttempt.home.createOrEditLabel" data-cy="OTPAttemptCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.oTPAttempt.home.createOrEditLabel">Create or edit a OTPAttempt</Translate>
+          <h2 id="mulyaaApp.oTPAttempt.home.createOrEditLabel" data-cy="OTPAttemptCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.oTPAttempt.home.createOrEditLabel">Create or edit a OTPAttempt</Translate>
           </h2>
         </Col>
       </Row>
@@ -88,49 +88,49 @@ export const OTPAttemptUpdate = (props: RouteComponentProps<{ id: string }>) => 
                 />
               ) : null}
               <ValidatedField
-                label={translate('mullyaApp.oTPAttempt.otpVal')}
+                label={translate('mulyaaApp.oTPAttempt.otpVal')}
                 id="otp-attempt-otpVal"
                 name="otpVal"
                 data-cy="otpVal"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.oTPAttempt.email')}
+                label={translate('mulyaaApp.oTPAttempt.email')}
                 id="otp-attempt-email"
                 name="email"
                 data-cy="email"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.oTPAttempt.phone')}
+                label={translate('mulyaaApp.oTPAttempt.phone')}
                 id="otp-attempt-phone"
                 name="phone"
                 data-cy="phone"
                 type="text"
               />
-              <ValidatedField label={translate('mullyaApp.oTPAttempt.ip')} id="otp-attempt-ip" name="ip" data-cy="ip" type="text" />
+              <ValidatedField label={translate('mulyaaApp.oTPAttempt.ip')} id="otp-attempt-ip" name="ip" data-cy="ip" type="text" />
               <ValidatedField
-                label={translate('mullyaApp.oTPAttempt.coookie')}
+                label={translate('mulyaaApp.oTPAttempt.coookie')}
                 id="otp-attempt-coookie"
                 name="coookie"
                 data-cy="coookie"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.oTPAttempt.createdOn')}
+                label={translate('mulyaaApp.oTPAttempt.createdOn')}
                 id="otp-attempt-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.oTPAttempt.createdBy')}
+                label={translate('mulyaaApp.oTPAttempt.createdBy')}
                 id="otp-attempt-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
-              <ValidatedField id="otp-attempt-otp" name="otp" data-cy="otp" label={translate('mullyaApp.oTPAttempt.otp')} type="select">
+              <ValidatedField id="otp-attempt-otp" name="otp" data-cy="otp" label={translate('mulyaaApp.oTPAttempt.otp')} type="select">
                 <option value="" key="0" />
                 {oTPS
                   ? oTPS.map(otherEntity => (

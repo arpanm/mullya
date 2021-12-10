@@ -96,16 +96,16 @@ export const OTP = (props: RouteComponentProps<{ url: string }>) => {
   return (
     <div>
       <h2 id="otp-heading" data-cy="OTPHeading">
-        <Translate contentKey="mullyaApp.oTP.home.title">OTPS</Translate>
+        <Translate contentKey="mulyaaApp.oTP.home.title">OTPS</Translate>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="mullyaApp.oTP.home.refreshListLabel">Refresh List</Translate>
+            <Translate contentKey="mulyaaApp.oTP.home.refreshListLabel">Refresh List</Translate>
           </Button>
           <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="mullyaApp.oTP.home.createLabel">Create new OTP</Translate>
+            <Translate contentKey="mulyaaApp.oTP.home.createLabel">Create new OTP</Translate>
           </Link>
         </div>
       </h2>
@@ -123,40 +123,40 @@ export const OTP = (props: RouteComponentProps<{ url: string }>) => {
               <thead>
                 <tr>
                   <th className="hand" onClick={sort('id')}>
-                    <Translate contentKey="mullyaApp.oTP.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('otpVal')}>
-                    <Translate contentKey="mullyaApp.oTP.otpVal">Otp Val</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.otpVal">Otp Val</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('email')}>
-                    <Translate contentKey="mullyaApp.oTP.email">Email</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.email">Email</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('phone')}>
-                    <Translate contentKey="mullyaApp.oTP.phone">Phone</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.phone">Phone</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('type')}>
-                    <Translate contentKey="mullyaApp.oTP.type">Type</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.type">Type</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('expiryTime')}>
-                    <Translate contentKey="mullyaApp.oTP.expiryTime">Expiry Time</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.expiryTime">Expiry Time</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('status')}>
-                    <Translate contentKey="mullyaApp.oTP.status">Status</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.status">Status</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdOn')}>
-                    <Translate contentKey="mullyaApp.oTP.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdBy')}>
-                    <Translate contentKey="mullyaApp.oTP.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedOn')}>
-                    <Translate contentKey="mullyaApp.oTP.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedBy')}>
-                    <Translate contentKey="mullyaApp.oTP.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.oTP.actor">Actor</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.actor">Actor</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -173,11 +173,11 @@ export const OTP = (props: RouteComponentProps<{ url: string }>) => {
                     <td>{oTP.email}</td>
                     <td>{oTP.phone}</td>
                     <td>
-                      <Translate contentKey={`mullyaApp.OtpType.${oTP.type}`} />
+                      <Translate contentKey={`mulyaaApp.OtpType.${oTP.type}`} />
                     </td>
                     <td>{oTP.expiryTime ? <TextFormat type="date" value={oTP.expiryTime} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                     <td>
-                      <Translate contentKey={`mullyaApp.OtpStatus.${oTP.status}`} />
+                      <Translate contentKey={`mulyaaApp.OtpStatus.${oTP.status}`} />
                     </td>
                     <td>{oTP.createdOn ? <TextFormat type="date" value={oTP.createdOn} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                     <td>{oTP.createdBy}</td>
@@ -213,7 +213,7 @@ export const OTP = (props: RouteComponentProps<{ url: string }>) => {
           ) : (
             !loading && (
               <div className="alert alert-warning">
-                <Translate contentKey="mullyaApp.oTP.home.notFound">No OTPS found</Translate>
+                <Translate contentKey="mulyaaApp.oTP.home.notFound">No OTPS found</Translate>
               </div>
             )
           )}

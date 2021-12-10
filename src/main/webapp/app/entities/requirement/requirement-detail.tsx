@@ -20,7 +20,7 @@ export const RequirementDetail = (props: RouteComponentProps<{ id: string }>) =>
     <Row>
       <Col md="8">
         <h2 data-cy="requirementDetailsHeading">
-          <Translate contentKey="mullyaApp.requirement.detail.title">Requirement</Translate>
+          <Translate contentKey="mulyaaApp.requirement.detail.title">Requirement</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -31,37 +31,37 @@ export const RequirementDetail = (props: RouteComponentProps<{ id: string }>) =>
           <dd>{requirementEntity.id}</dd>
           <dt>
             <span id="minPrice">
-              <Translate contentKey="mullyaApp.requirement.minPrice">Min Price</Translate>
+              <Translate contentKey="mulyaaApp.requirement.minPrice">Min Price</Translate>
             </span>
           </dt>
           <dd>{requirementEntity.minPrice}</dd>
           <dt>
             <span id="maxPrice">
-              <Translate contentKey="mullyaApp.requirement.maxPrice">Max Price</Translate>
+              <Translate contentKey="mulyaaApp.requirement.maxPrice">Max Price</Translate>
             </span>
           </dt>
           <dd>{requirementEntity.maxPrice}</dd>
           <dt>
             <span id="quantityKg">
-              <Translate contentKey="mullyaApp.requirement.quantityKg">Quantity Kg</Translate>
+              <Translate contentKey="mulyaaApp.requirement.quantityKg">Quantity Kg</Translate>
             </span>
           </dt>
           <dd>{requirementEntity.quantityKg}</dd>
           <dt>
             <span id="neededBy">
-              <Translate contentKey="mullyaApp.requirement.neededBy">Needed By</Translate>
+              <Translate contentKey="mulyaaApp.requirement.neededBy">Needed By</Translate>
             </span>
           </dt>
           <dd>{requirementEntity.neededBy}</dd>
           <dt>
             <span id="description">
-              <Translate contentKey="mullyaApp.requirement.description">Description</Translate>
+              <Translate contentKey="mulyaaApp.requirement.description">Description</Translate>
             </span>
           </dt>
           <dd>{requirementEntity.description}</dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mullyaApp.requirement.createdOn">Created On</Translate>
+              <Translate contentKey="mulyaaApp.requirement.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>
@@ -71,13 +71,13 @@ export const RequirementDetail = (props: RouteComponentProps<{ id: string }>) =>
           </dd>
           <dt>
             <span id="createdBy">
-              <Translate contentKey="mullyaApp.requirement.createdBy">Created By</Translate>
+              <Translate contentKey="mulyaaApp.requirement.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{requirementEntity.createdBy}</dd>
           <dt>
             <span id="updatedOn">
-              <Translate contentKey="mullyaApp.requirement.updatedOn">Updated On</Translate>
+              <Translate contentKey="mulyaaApp.requirement.updatedOn">Updated On</Translate>
             </span>
           </dt>
           <dd>
@@ -87,34 +87,34 @@ export const RequirementDetail = (props: RouteComponentProps<{ id: string }>) =>
           </dd>
           <dt>
             <span id="updatedBy">
-              <Translate contentKey="mullyaApp.requirement.updatedBy">Updated By</Translate>
+              <Translate contentKey="mulyaaApp.requirement.updatedBy">Updated By</Translate>
             </span>
           </dt>
           <dd>{requirementEntity.updatedBy}</dd>
           <dt>
             <span id="status">
-              <Translate contentKey="mullyaApp.requirement.status">Status</Translate>
+              <Translate contentKey="mulyaaApp.requirement.status">Status</Translate>
             </span>
           </dt>
           <dd>{requirementEntity.status}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.requirement.buyerAddress">Buyer Address</Translate>
+            <Translate contentKey="mulyaaApp.requirement.buyerAddress">Buyer Address</Translate>
           </dt>
           <dd>{requirementEntity.buyerAddress ? requirementEntity.buyerAddress.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.requirement.buyerActor">Buyer Actor</Translate>
+            <Translate contentKey="mulyaaApp.requirement.buyerActor">Buyer Actor</Translate>
           </dt>
           <dd>{requirementEntity.buyerActor ? requirementEntity.buyerActor.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.requirement.category">Category</Translate>
+            <Translate contentKey="mulyaaApp.requirement.category">Category</Translate>
           </dt>
           <dd>{requirementEntity.category ? requirementEntity.category.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.requirement.variant">Variant</Translate>
+            <Translate contentKey="mulyaaApp.requirement.variant">Variant</Translate>
           </dt>
           <dd>{requirementEntity.variant ? requirementEntity.variant.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.requirement.subVariant">Sub Variant</Translate>
+            <Translate contentKey="mulyaaApp.requirement.subVariant">Sub Variant</Translate>
           </dt>
           <dd>{requirementEntity.subVariant ? requirementEntity.subVariant.id : ''}</dd>
         </dl>
