@@ -86,8 +86,8 @@ export const DeliveryDetailsUpdate = (props: RouteComponentProps<{ id: string }>
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.deliveryDetails.home.createOrEditLabel" data-cy="DeliveryDetailsCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.deliveryDetails.home.createOrEditLabel">Create or edit a DeliveryDetails</Translate>
+          <h2 id="mulyaaApp.deliveryDetails.home.createOrEditLabel" data-cy="DeliveryDetailsCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.deliveryDetails.home.createOrEditLabel">Create or edit a DeliveryDetails</Translate>
           </h2>
         </Col>
       </Row>
@@ -108,7 +108,7 @@ export const DeliveryDetailsUpdate = (props: RouteComponentProps<{ id: string }>
                 />
               ) : null}
               <ValidatedField
-                label={translate('mullyaApp.deliveryDetails.deliveryType')}
+                label={translate('mulyaaApp.deliveryDetails.deliveryType')}
                 id="delivery-details-deliveryType"
                 name="deliveryType"
                 data-cy="deliveryType"
@@ -116,33 +116,33 @@ export const DeliveryDetailsUpdate = (props: RouteComponentProps<{ id: string }>
               >
                 {deliveryTypeValues.map(deliveryType => (
                   <option value={deliveryType} key={deliveryType}>
-                    {translate('mullyaApp.DeliveryType.' + deliveryType)}
+                    {translate('mulyaaApp.DeliveryType.' + deliveryType)}
                   </option>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.deliveryDetails.pickupDate')}
+                label={translate('mulyaaApp.deliveryDetails.pickupDate')}
                 id="delivery-details-pickupDate"
                 name="pickupDate"
                 data-cy="pickupDate"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.deliveryDetails.deliveryDate')}
+                label={translate('mulyaaApp.deliveryDetails.deliveryDate')}
                 id="delivery-details-deliveryDate"
                 name="deliveryDate"
                 data-cy="deliveryDate"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.deliveryDetails.truckDetails')}
+                label={translate('mulyaaApp.deliveryDetails.truckDetails')}
                 id="delivery-details-truckDetails"
                 name="truckDetails"
                 data-cy="truckDetails"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.deliveryDetails.deliveryAgentPhone')}
+                label={translate('mulyaaApp.deliveryDetails.deliveryAgentPhone')}
                 id="delivery-details-deliveryAgentPhone"
                 name="deliveryAgentPhone"
                 data-cy="deliveryAgentPhone"
@@ -154,49 +154,49 @@ export const DeliveryDetailsUpdate = (props: RouteComponentProps<{ id: string }>
                 }}
               />
               <ValidatedField
-                label={translate('mullyaApp.deliveryDetails.pickupTime')}
+                label={translate('mulyaaApp.deliveryDetails.pickupTime')}
                 id="delivery-details-pickupTime"
                 name="pickupTime"
                 data-cy="pickupTime"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.deliveryDetails.deliveryTime')}
+                label={translate('mulyaaApp.deliveryDetails.deliveryTime')}
                 id="delivery-details-deliveryTime"
                 name="deliveryTime"
                 data-cy="deliveryTime"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.deliveryDetails.createdOn')}
+                label={translate('mulyaaApp.deliveryDetails.createdOn')}
                 id="delivery-details-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.deliveryDetails.createdBy')}
+                label={translate('mulyaaApp.deliveryDetails.createdBy')}
                 id="delivery-details-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.deliveryDetails.updatedOn')}
+                label={translate('mulyaaApp.deliveryDetails.updatedOn')}
                 id="delivery-details-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.deliveryDetails.updatedBy')}
+                label={translate('mulyaaApp.deliveryDetails.updatedBy')}
                 id="delivery-details-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.deliveryDetails.deliveryStatus')}
+                label={translate('mulyaaApp.deliveryDetails.deliveryStatus')}
                 id="delivery-details-deliveryStatus"
                 name="deliveryStatus"
                 data-cy="deliveryStatus"
@@ -204,7 +204,7 @@ export const DeliveryDetailsUpdate = (props: RouteComponentProps<{ id: string }>
               >
                 {deliveryStatusValues.map(deliveryStatus => (
                   <option value={deliveryStatus} key={deliveryStatus}>
-                    {translate('mullyaApp.DeliveryStatus.' + deliveryStatus)}
+                    {translate('mulyaaApp.DeliveryStatus.' + deliveryStatus)}
                   </option>
                 ))}
               </ValidatedField>
@@ -212,7 +212,7 @@ export const DeliveryDetailsUpdate = (props: RouteComponentProps<{ id: string }>
                 id="delivery-details-fromAddress"
                 name="fromAddress"
                 data-cy="fromAddress"
-                label={translate('mullyaApp.deliveryDetails.fromAddress')}
+                label={translate('mulyaaApp.deliveryDetails.fromAddress')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -228,7 +228,7 @@ export const DeliveryDetailsUpdate = (props: RouteComponentProps<{ id: string }>
                 id="delivery-details-toAddress"
                 name="toAddress"
                 data-cy="toAddress"
-                label={translate('mullyaApp.deliveryDetails.toAddress')}
+                label={translate('mulyaaApp.deliveryDetails.toAddress')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -244,7 +244,7 @@ export const DeliveryDetailsUpdate = (props: RouteComponentProps<{ id: string }>
                 id="delivery-details-order"
                 name="order"
                 data-cy="order"
-                label={translate('mullyaApp.deliveryDetails.order')}
+                label={translate('mulyaaApp.deliveryDetails.order')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -260,7 +260,7 @@ export const DeliveryDetailsUpdate = (props: RouteComponentProps<{ id: string }>
                 id="delivery-details-cancellation"
                 name="cancellation"
                 data-cy="cancellation"
-                label={translate('mullyaApp.deliveryDetails.cancellation')}
+                label={translate('mulyaaApp.deliveryDetails.cancellation')}
                 type="select"
               >
                 <option value="" key="0" />

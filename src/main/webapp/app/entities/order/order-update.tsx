@@ -93,8 +93,8 @@ export const OrderUpdate = (props: RouteComponentProps<{ id: string }>) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.order.home.createOrEditLabel" data-cy="OrderCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.order.home.createOrEditLabel">Create or edit a Order</Translate>
+          <h2 id="mulyaaApp.order.home.createOrEditLabel" data-cy="OrderCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.order.home.createOrEditLabel">Create or edit a Order</Translate>
           </h2>
         </Col>
       </Row>
@@ -115,77 +115,77 @@ export const OrderUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 />
               ) : null}
               <ValidatedField
-                label={translate('mullyaApp.order.acceptedPrice')}
+                label={translate('mulyaaApp.order.acceptedPrice')}
                 id="order-acceptedPrice"
                 name="acceptedPrice"
                 data-cy="acceptedPrice"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.order.codAmount')}
+                label={translate('mulyaaApp.order.codAmount')}
                 id="order-codAmount"
                 name="codAmount"
                 data-cy="codAmount"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.order.quantityKg')}
+                label={translate('mulyaaApp.order.quantityKg')}
                 id="order-quantityKg"
                 name="quantityKg"
                 data-cy="quantityKg"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.order.neededBy')}
+                label={translate('mulyaaApp.order.neededBy')}
                 id="order-neededBy"
                 name="neededBy"
                 data-cy="neededBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.order.acceptedDeliveryDate')}
+                label={translate('mulyaaApp.order.acceptedDeliveryDate')}
                 id="order-acceptedDeliveryDate"
                 name="acceptedDeliveryDate"
                 data-cy="acceptedDeliveryDate"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.order.createdOn')}
+                label={translate('mulyaaApp.order.createdOn')}
                 id="order-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.order.createdBy')}
+                label={translate('mulyaaApp.order.createdBy')}
                 id="order-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.order.updatedOn')}
+                label={translate('mulyaaApp.order.updatedOn')}
                 id="order-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.order.updatedBy')}
+                label={translate('mulyaaApp.order.updatedBy')}
                 id="order-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"
                 type="text"
               />
-              <ValidatedField label={translate('mullyaApp.order.status')} id="order-status" name="status" data-cy="status" type="select">
+              <ValidatedField label={translate('mulyaaApp.order.status')} id="order-status" name="status" data-cy="status" type="select">
                 {orderStatusValues.map(orderStatus => (
                   <option value={orderStatus} key={orderStatus}>
-                    {translate('mullyaApp.OrderStatus.' + orderStatus)}
+                    {translate('mulyaaApp.OrderStatus.' + orderStatus)}
                   </option>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.order.remittance')}
+                label={translate('mulyaaApp.order.remittance')}
                 id="order-remittance"
                 data-cy="remittance"
                 type="select"
@@ -205,7 +205,7 @@ export const OrderUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 id="order-requirement"
                 name="requirement"
                 data-cy="requirement"
-                label={translate('mullyaApp.order.requirement')}
+                label={translate('mulyaaApp.order.requirement')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -217,7 +217,7 @@ export const OrderUpdate = (props: RouteComponentProps<{ id: string }>) => {
                     ))
                   : null}
               </ValidatedField>
-              <ValidatedField id="order-bid" name="bid" data-cy="bid" label={translate('mullyaApp.order.bid')} type="select">
+              <ValidatedField id="order-bid" name="bid" data-cy="bid" label={translate('mulyaaApp.order.bid')} type="select">
                 <option value="" key="0" />
                 {bids
                   ? bids.map(otherEntity => (
@@ -231,7 +231,7 @@ export const OrderUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 id="order-assignedAgent"
                 name="assignedAgent"
                 data-cy="assignedAgent"
-                label={translate('mullyaApp.order.assignedAgent')}
+                label={translate('mulyaaApp.order.assignedAgent')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -243,7 +243,7 @@ export const OrderUpdate = (props: RouteComponentProps<{ id: string }>) => {
                     ))
                   : null}
               </ValidatedField>
-              <ValidatedField id="order-stock" name="stock" data-cy="stock" label={translate('mullyaApp.order.stock')} type="select">
+              <ValidatedField id="order-stock" name="stock" data-cy="stock" label={translate('mulyaaApp.order.stock')} type="select">
                 <option value="" key="0" />
                 {stocks
                   ? stocks.map(otherEntity => (

@@ -20,7 +20,7 @@ export const BidsDetail = (props: RouteComponentProps<{ id: string }>) => {
     <Row>
       <Col md="8">
         <h2 data-cy="bidsDetailsHeading">
-          <Translate contentKey="mullyaApp.bids.detail.title">Bids</Translate>
+          <Translate contentKey="mulyaaApp.bids.detail.title">Bids</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -31,56 +31,56 @@ export const BidsDetail = (props: RouteComponentProps<{ id: string }>) => {
           <dd>{bidsEntity.id}</dd>
           <dt>
             <span id="bidPrice">
-              <Translate contentKey="mullyaApp.bids.bidPrice">Bid Price</Translate>
+              <Translate contentKey="mulyaaApp.bids.bidPrice">Bid Price</Translate>
             </span>
           </dt>
           <dd>{bidsEntity.bidPrice}</dd>
           <dt>
             <span id="quantityKg">
-              <Translate contentKey="mullyaApp.bids.quantityKg">Quantity Kg</Translate>
+              <Translate contentKey="mulyaaApp.bids.quantityKg">Quantity Kg</Translate>
             </span>
           </dt>
           <dd>{bidsEntity.quantityKg}</dd>
           <dt>
             <span id="bidStatus">
-              <Translate contentKey="mullyaApp.bids.bidStatus">Bid Status</Translate>
+              <Translate contentKey="mulyaaApp.bids.bidStatus">Bid Status</Translate>
             </span>
           </dt>
           <dd>{bidsEntity.bidStatus}</dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mullyaApp.bids.createdOn">Created On</Translate>
+              <Translate contentKey="mulyaaApp.bids.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>{bidsEntity.createdOn ? <TextFormat value={bidsEntity.createdOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="createdBy">
-              <Translate contentKey="mullyaApp.bids.createdBy">Created By</Translate>
+              <Translate contentKey="mulyaaApp.bids.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{bidsEntity.createdBy}</dd>
           <dt>
             <span id="updatedOn">
-              <Translate contentKey="mullyaApp.bids.updatedOn">Updated On</Translate>
+              <Translate contentKey="mulyaaApp.bids.updatedOn">Updated On</Translate>
             </span>
           </dt>
           <dd>{bidsEntity.updatedOn ? <TextFormat value={bidsEntity.updatedOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="updatedBy">
-              <Translate contentKey="mullyaApp.bids.updatedBy">Updated By</Translate>
+              <Translate contentKey="mulyaaApp.bids.updatedBy">Updated By</Translate>
             </span>
           </dt>
           <dd>{bidsEntity.updatedBy}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.bids.buyerAddress">Buyer Address</Translate>
+            <Translate contentKey="mulyaaApp.bids.buyerAddress">Buyer Address</Translate>
           </dt>
           <dd>{bidsEntity.buyerAddress ? bidsEntity.buyerAddress.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.bids.biddingDetails">Bidding Details</Translate>
+            <Translate contentKey="mulyaaApp.bids.biddingDetails">Bidding Details</Translate>
           </dt>
           <dd>{bidsEntity.biddingDetails ? bidsEntity.biddingDetails.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.bids.buyer">Buyer</Translate>
+            <Translate contentKey="mulyaaApp.bids.buyer">Buyer</Translate>
           </dt>
           <dd>{bidsEntity.buyer ? bidsEntity.buyer.id : ''}</dd>
         </dl>

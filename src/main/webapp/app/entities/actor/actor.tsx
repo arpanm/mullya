@@ -96,16 +96,16 @@ export const Actor = (props: RouteComponentProps<{ url: string }>) => {
   return (
     <div>
       <h2 id="actor-heading" data-cy="ActorHeading">
-        <Translate contentKey="mullyaApp.actor.home.title">Actors</Translate>
+        <Translate contentKey="mulyaaApp.actor.home.title">Actors</Translate>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="mullyaApp.actor.home.refreshListLabel">Refresh List</Translate>
+            <Translate contentKey="mulyaaApp.actor.home.refreshListLabel">Refresh List</Translate>
           </Button>
           <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="mullyaApp.actor.home.createLabel">Create new Actor</Translate>
+            <Translate contentKey="mulyaaApp.actor.home.createLabel">Create new Actor</Translate>
           </Link>
         </div>
       </h2>
@@ -123,40 +123,40 @@ export const Actor = (props: RouteComponentProps<{ url: string }>) => {
               <thead>
                 <tr>
                   <th className="hand" onClick={sort('id')}>
-                    <Translate contentKey="mullyaApp.actor.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.actor.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('email')}>
-                    <Translate contentKey="mullyaApp.actor.email">Email</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.actor.email">Email</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('phone')}>
-                    <Translate contentKey="mullyaApp.actor.phone">Phone</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.actor.phone">Phone</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('isEmailVerified')}>
-                    <Translate contentKey="mullyaApp.actor.isEmailVerified">Is Email Verified</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.actor.isEmailVerified">Is Email Verified</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('isPhoneVerified')}>
-                    <Translate contentKey="mullyaApp.actor.isPhoneVerified">Is Phone Verified</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.actor.isPhoneVerified">Is Phone Verified</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('isActive')}>
-                    <Translate contentKey="mullyaApp.actor.isActive">Is Active</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.actor.isActive">Is Active</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('password')}>
-                    <Translate contentKey="mullyaApp.actor.password">Password</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.actor.password">Password</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('type')}>
-                    <Translate contentKey="mullyaApp.actor.type">Type</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.actor.type">Type</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdOn')}>
-                    <Translate contentKey="mullyaApp.actor.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.actor.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdBy')}>
-                    <Translate contentKey="mullyaApp.actor.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.actor.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedOn')}>
-                    <Translate contentKey="mullyaApp.actor.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.actor.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedBy')}>
-                    <Translate contentKey="mullyaApp.actor.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.actor.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -176,7 +176,7 @@ export const Actor = (props: RouteComponentProps<{ url: string }>) => {
                     <td>{actor.isActive ? 'true' : 'false'}</td>
                     <td>{actor.password}</td>
                     <td>
-                      <Translate contentKey={`mullyaApp.ActorType.${actor.type}`} />
+                      <Translate contentKey={`mulyaaApp.ActorType.${actor.type}`} />
                     </td>
                     <td>{actor.createdOn ? <TextFormat type="date" value={actor.createdOn} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                     <td>{actor.createdBy}</td>
@@ -211,7 +211,7 @@ export const Actor = (props: RouteComponentProps<{ url: string }>) => {
           ) : (
             !loading && (
               <div className="alert alert-warning">
-                <Translate contentKey="mullyaApp.actor.home.notFound">No Actors found</Translate>
+                <Translate contentKey="mulyaaApp.actor.home.notFound">No Actors found</Translate>
               </div>
             )
           )}

@@ -62,8 +62,8 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.actor.home.createOrEditLabel" data-cy="ActorCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.actor.home.createOrEditLabel">Create or edit a Actor</Translate>
+          <h2 id="mulyaaApp.actor.home.createOrEditLabel" data-cy="ActorCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.actor.home.createOrEditLabel">Create or edit a Actor</Translate>
           </h2>
         </Col>
       </Row>
@@ -84,7 +84,7 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 />
               ) : null}
               <ValidatedField
-                label={translate('mullyaApp.actor.email')}
+                label={translate('mulyaaApp.actor.email')}
                 id="actor-email"
                 name="email"
                 data-cy="email"
@@ -97,7 +97,7 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 }}
               />
               <ValidatedField
-                label={translate('mullyaApp.actor.phone')}
+                label={translate('mulyaaApp.actor.phone')}
                 id="actor-phone"
                 name="phone"
                 data-cy="phone"
@@ -109,7 +109,7 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 }}
               />
               <ValidatedField
-                label={translate('mullyaApp.actor.isEmailVerified')}
+                label={translate('mulyaaApp.actor.isEmailVerified')}
                 id="actor-isEmailVerified"
                 name="isEmailVerified"
                 data-cy="isEmailVerified"
@@ -117,7 +117,7 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 type="checkbox"
               />
               <ValidatedField
-                label={translate('mullyaApp.actor.isPhoneVerified')}
+                label={translate('mulyaaApp.actor.isPhoneVerified')}
                 id="actor-isPhoneVerified"
                 name="isPhoneVerified"
                 data-cy="isPhoneVerified"
@@ -125,7 +125,7 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 type="checkbox"
               />
               <ValidatedField
-                label={translate('mullyaApp.actor.isActive')}
+                label={translate('mulyaaApp.actor.isActive')}
                 id="actor-isActive"
                 name="isActive"
                 data-cy="isActive"
@@ -133,42 +133,42 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 type="checkbox"
               />
               <ValidatedField
-                label={translate('mullyaApp.actor.password')}
+                label={translate('mulyaaApp.actor.password')}
                 id="actor-password"
                 name="password"
                 data-cy="password"
                 type="text"
               />
-              <ValidatedField label={translate('mullyaApp.actor.type')} id="actor-type" name="type" data-cy="type" type="select">
+              <ValidatedField label={translate('mulyaaApp.actor.type')} id="actor-type" name="type" data-cy="type" type="select">
                 {actorTypeValues.map(actorType => (
                   <option value={actorType} key={actorType}>
-                    {translate('mullyaApp.ActorType.' + actorType)}
+                    {translate('mulyaaApp.ActorType.' + actorType)}
                   </option>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.actor.createdOn')}
+                label={translate('mulyaaApp.actor.createdOn')}
                 id="actor-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.actor.createdBy')}
+                label={translate('mulyaaApp.actor.createdBy')}
                 id="actor-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.actor.updatedOn')}
+                label={translate('mulyaaApp.actor.updatedOn')}
                 id="actor-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.actor.updatedBy')}
+                label={translate('mulyaaApp.actor.updatedBy')}
                 id="actor-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"

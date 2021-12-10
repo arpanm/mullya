@@ -20,7 +20,7 @@ export const AddressDetail = (props: RouteComponentProps<{ id: string }>) => {
     <Row>
       <Col md="8">
         <h2 data-cy="addressDetailsHeading">
-          <Translate contentKey="mullyaApp.address.detail.title">Address</Translate>
+          <Translate contentKey="mulyaaApp.address.detail.title">Address</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -31,61 +31,61 @@ export const AddressDetail = (props: RouteComponentProps<{ id: string }>) => {
           <dd>{addressEntity.id}</dd>
           <dt>
             <span id="streetAddress">
-              <Translate contentKey="mullyaApp.address.streetAddress">Street Address</Translate>
+              <Translate contentKey="mulyaaApp.address.streetAddress">Street Address</Translate>
             </span>
           </dt>
           <dd>{addressEntity.streetAddress}</dd>
           <dt>
             <span id="postalCode">
-              <Translate contentKey="mullyaApp.address.postalCode">Postal Code</Translate>
+              <Translate contentKey="mulyaaApp.address.postalCode">Postal Code</Translate>
             </span>
           </dt>
           <dd>{addressEntity.postalCode}</dd>
           <dt>
             <span id="city">
-              <Translate contentKey="mullyaApp.address.city">City</Translate>
+              <Translate contentKey="mulyaaApp.address.city">City</Translate>
             </span>
           </dt>
           <dd>{addressEntity.city}</dd>
           <dt>
             <span id="stateProvince">
-              <Translate contentKey="mullyaApp.address.stateProvince">State Province</Translate>
+              <Translate contentKey="mulyaaApp.address.stateProvince">State Province</Translate>
             </span>
           </dt>
           <dd>{addressEntity.stateProvince}</dd>
           <dt>
             <span id="country">
-              <Translate contentKey="mullyaApp.address.country">Country</Translate>
+              <Translate contentKey="mulyaaApp.address.country">Country</Translate>
             </span>
           </dt>
           <dd>{addressEntity.country}</dd>
           <dt>
             <span id="createdBy">
-              <Translate contentKey="mullyaApp.address.createdBy">Created By</Translate>
+              <Translate contentKey="mulyaaApp.address.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{addressEntity.createdBy}</dd>
           <dt>
             <span id="lat">
-              <Translate contentKey="mullyaApp.address.lat">Lat</Translate>
+              <Translate contentKey="mulyaaApp.address.lat">Lat</Translate>
             </span>
           </dt>
           <dd>{addressEntity.lat}</dd>
           <dt>
             <span id="lon">
-              <Translate contentKey="mullyaApp.address.lon">Lon</Translate>
+              <Translate contentKey="mulyaaApp.address.lon">Lon</Translate>
             </span>
           </dt>
           <dd>{addressEntity.lon}</dd>
           <dt>
             <span id="mapLocation">
-              <Translate contentKey="mullyaApp.address.mapLocation">Map Location</Translate>
+              <Translate contentKey="mulyaaApp.address.mapLocation">Map Location</Translate>
             </span>
           </dt>
           <dd>{addressEntity.mapLocation}</dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mullyaApp.address.createdOn">Created On</Translate>
+              <Translate contentKey="mulyaaApp.address.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>
@@ -93,7 +93,7 @@ export const AddressDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dd>
           <dt>
             <span id="updatedOn">
-              <Translate contentKey="mullyaApp.address.updatedOn">Updated On</Translate>
+              <Translate contentKey="mulyaaApp.address.updatedOn">Updated On</Translate>
             </span>
           </dt>
           <dd>
@@ -101,16 +101,16 @@ export const AddressDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dd>
           <dt>
             <span id="updatedBy">
-              <Translate contentKey="mullyaApp.address.updatedBy">Updated By</Translate>
+              <Translate contentKey="mulyaaApp.address.updatedBy">Updated By</Translate>
             </span>
           </dt>
           <dd>{addressEntity.updatedBy}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.address.hub">Hub</Translate>
+            <Translate contentKey="mulyaaApp.address.hub">Hub</Translate>
           </dt>
           <dd>{addressEntity.hub ? addressEntity.hub.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.address.actor">Actor</Translate>
+            <Translate contentKey="mulyaaApp.address.actor">Actor</Translate>
           </dt>
           <dd>{addressEntity.actor ? addressEntity.actor.id : ''}</dd>
         </dl>

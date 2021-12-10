@@ -2,7 +2,7 @@
   "generator-jhipster": {
     "applicationType": "monolith",
     "gitCompany": "",
-    "baseName": "mullya",
+    "baseName": "mulyaa",
     "packageName": "com.mullya.app",
     "packageFolder": "com/mullya/app",
     "serverPort": "8080",

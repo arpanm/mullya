@@ -39,8 +39,8 @@ export const BiddingDetailsDeleteDialog = (props: RouteComponentProps<{ id: stri
       <ModalHeader toggle={handleClose} data-cy="biddingDetailsDeleteDialogHeading">
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
-      <ModalBody id="mullyaApp.biddingDetails.delete.question">
-        <Translate contentKey="mullyaApp.biddingDetails.delete.question" interpolate={{ id: biddingDetailsEntity.id }}>
+      <ModalBody id="mulyaaApp.biddingDetails.delete.question">
+        <Translate contentKey="mulyaaApp.biddingDetails.delete.question" interpolate={{ id: biddingDetailsEntity.id }}>
           Are you sure you want to delete this BiddingDetails?
         </Translate>
       </ModalBody>

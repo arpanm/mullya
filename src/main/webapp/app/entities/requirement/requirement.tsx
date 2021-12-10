@@ -96,16 +96,16 @@ export const Requirement = (props: RouteComponentProps<{ url: string }>) => {
   return (
     <div>
       <h2 id="requirement-heading" data-cy="RequirementHeading">
-        <Translate contentKey="mullyaApp.requirement.home.title">Requirements</Translate>
+        <Translate contentKey="mulyaaApp.requirement.home.title">Requirements</Translate>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="mullyaApp.requirement.home.refreshListLabel">Refresh List</Translate>
+            <Translate contentKey="mulyaaApp.requirement.home.refreshListLabel">Refresh List</Translate>
           </Button>
           <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="mullyaApp.requirement.home.createLabel">Create new Requirement</Translate>
+            <Translate contentKey="mulyaaApp.requirement.home.createLabel">Create new Requirement</Translate>
           </Link>
         </div>
       </h2>
@@ -123,52 +123,52 @@ export const Requirement = (props: RouteComponentProps<{ url: string }>) => {
               <thead>
                 <tr>
                   <th className="hand" onClick={sort('id')}>
-                    <Translate contentKey="mullyaApp.requirement.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('minPrice')}>
-                    <Translate contentKey="mullyaApp.requirement.minPrice">Min Price</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.minPrice">Min Price</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('maxPrice')}>
-                    <Translate contentKey="mullyaApp.requirement.maxPrice">Max Price</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.maxPrice">Max Price</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('quantityKg')}>
-                    <Translate contentKey="mullyaApp.requirement.quantityKg">Quantity Kg</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.quantityKg">Quantity Kg</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('neededBy')}>
-                    <Translate contentKey="mullyaApp.requirement.neededBy">Needed By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.neededBy">Needed By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('description')}>
-                    <Translate contentKey="mullyaApp.requirement.description">Description</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.description">Description</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdOn')}>
-                    <Translate contentKey="mullyaApp.requirement.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdBy')}>
-                    <Translate contentKey="mullyaApp.requirement.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedOn')}>
-                    <Translate contentKey="mullyaApp.requirement.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedBy')}>
-                    <Translate contentKey="mullyaApp.requirement.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('status')}>
-                    <Translate contentKey="mullyaApp.requirement.status">Status</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.status">Status</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.requirement.buyerAddress">Buyer Address</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.buyerAddress">Buyer Address</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.requirement.buyerActor">Buyer Actor</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.buyerActor">Buyer Actor</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.requirement.category">Category</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.category">Category</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.requirement.variant">Variant</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.variant">Variant</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.requirement.subVariant">Sub Variant</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.subVariant">Sub Variant</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -199,7 +199,7 @@ export const Requirement = (props: RouteComponentProps<{ url: string }>) => {
                     </td>
                     <td>{requirement.updatedBy}</td>
                     <td>
-                      <Translate contentKey={`mullyaApp.RequirementStatus.${requirement.status}`} />
+                      <Translate contentKey={`mulyaaApp.RequirementStatus.${requirement.status}`} />
                     </td>
                     <td>
                       {requirement.buyerAddress ? (
@@ -253,7 +253,7 @@ export const Requirement = (props: RouteComponentProps<{ url: string }>) => {
           ) : (
             !loading && (
               <div className="alert alert-warning">
-                <Translate contentKey="mullyaApp.requirement.home.notFound">No Requirements found</Translate>
+                <Translate contentKey="mulyaaApp.requirement.home.notFound">No Requirements found</Translate>
               </div>
             )
           )}

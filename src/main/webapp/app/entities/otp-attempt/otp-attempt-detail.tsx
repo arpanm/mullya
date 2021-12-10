@@ -20,7 +20,7 @@ export const OTPAttemptDetail = (props: RouteComponentProps<{ id: string }>) => 
     <Row>
       <Col md="8">
         <h2 data-cy="oTPAttemptDetailsHeading">
-          <Translate contentKey="mullyaApp.oTPAttempt.detail.title">OTPAttempt</Translate>
+          <Translate contentKey="mulyaaApp.oTPAttempt.detail.title">OTPAttempt</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -31,37 +31,37 @@ export const OTPAttemptDetail = (props: RouteComponentProps<{ id: string }>) => 
           <dd>{oTPAttemptEntity.id}</dd>
           <dt>
             <span id="otpVal">
-              <Translate contentKey="mullyaApp.oTPAttempt.otpVal">Otp Val</Translate>
+              <Translate contentKey="mulyaaApp.oTPAttempt.otpVal">Otp Val</Translate>
             </span>
           </dt>
           <dd>{oTPAttemptEntity.otpVal}</dd>
           <dt>
             <span id="email">
-              <Translate contentKey="mullyaApp.oTPAttempt.email">Email</Translate>
+              <Translate contentKey="mulyaaApp.oTPAttempt.email">Email</Translate>
             </span>
           </dt>
           <dd>{oTPAttemptEntity.email}</dd>
           <dt>
             <span id="phone">
-              <Translate contentKey="mullyaApp.oTPAttempt.phone">Phone</Translate>
+              <Translate contentKey="mulyaaApp.oTPAttempt.phone">Phone</Translate>
             </span>
           </dt>
           <dd>{oTPAttemptEntity.phone}</dd>
           <dt>
             <span id="ip">
-              <Translate contentKey="mullyaApp.oTPAttempt.ip">Ip</Translate>
+              <Translate contentKey="mulyaaApp.oTPAttempt.ip">Ip</Translate>
             </span>
           </dt>
           <dd>{oTPAttemptEntity.ip}</dd>
           <dt>
             <span id="coookie">
-              <Translate contentKey="mullyaApp.oTPAttempt.coookie">Coookie</Translate>
+              <Translate contentKey="mulyaaApp.oTPAttempt.coookie">Coookie</Translate>
             </span>
           </dt>
           <dd>{oTPAttemptEntity.coookie}</dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mullyaApp.oTPAttempt.createdOn">Created On</Translate>
+              <Translate contentKey="mulyaaApp.oTPAttempt.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>
@@ -71,12 +71,12 @@ export const OTPAttemptDetail = (props: RouteComponentProps<{ id: string }>) => 
           </dd>
           <dt>
             <span id="createdBy">
-              <Translate contentKey="mullyaApp.oTPAttempt.createdBy">Created By</Translate>
+              <Translate contentKey="mulyaaApp.oTPAttempt.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{oTPAttemptEntity.createdBy}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.oTPAttempt.otp">Otp</Translate>
+            <Translate contentKey="mulyaaApp.oTPAttempt.otp">Otp</Translate>
           </dt>
           <dd>{oTPAttemptEntity.otp ? oTPAttemptEntity.otp.id : ''}</dd>
         </dl>

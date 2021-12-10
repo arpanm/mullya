@@ -96,16 +96,16 @@ export const PaymentDetails = (props: RouteComponentProps<{ url: string }>) => {
   return (
     <div>
       <h2 id="payment-details-heading" data-cy="PaymentDetailsHeading">
-        <Translate contentKey="mullyaApp.paymentDetails.home.title">Payment Details</Translate>
+        <Translate contentKey="mulyaaApp.paymentDetails.home.title">Payment Details</Translate>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="mullyaApp.paymentDetails.home.refreshListLabel">Refresh List</Translate>
+            <Translate contentKey="mulyaaApp.paymentDetails.home.refreshListLabel">Refresh List</Translate>
           </Button>
           <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="mullyaApp.paymentDetails.home.createLabel">Create new Payment Details</Translate>
+            <Translate contentKey="mulyaaApp.paymentDetails.home.createLabel">Create new Payment Details</Translate>
           </Link>
         </div>
       </h2>
@@ -123,67 +123,67 @@ export const PaymentDetails = (props: RouteComponentProps<{ url: string }>) => {
               <thead>
                 <tr>
                   <th className="hand" onClick={sort('id')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('amount')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.amount">Amount</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.amount">Amount</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('paymentType')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.paymentType">Payment Type</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.paymentType">Payment Type</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('onlinePgType')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.onlinePgType">Online Pg Type</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.onlinePgType">Online Pg Type</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('pgTxnId')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.pgTxnId">Pg Txn Id</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.pgTxnId">Pg Txn Id</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('pgStatus')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.pgStatus">Pg Status</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.pgStatus">Pg Status</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('offlineTxnId')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.offlineTxnId">Offline Txn Id</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.offlineTxnId">Offline Txn Id</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('offlineTxnDetails')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.offlineTxnDetails">Offline Txn Details</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.paymentDetails.offlineTxnDetails">Offline Txn Details</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('offlineTxnCollectedBy')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.offlineTxnCollectedBy">Offline Txn Collected By</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.paymentDetails.offlineTxnCollectedBy">Offline Txn Collected By</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('offlineTxnClearingStatus')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.offlineTxnClearingStatus">Offline Txn Clearing Status</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.paymentDetails.offlineTxnClearingStatus">Offline Txn Clearing Status</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('paymentDate')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.paymentDate">Payment Date</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.paymentDate">Payment Date</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('paymentInitTime')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.paymentInitTime">Payment Init Time</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.paymentDetails.paymentInitTime">Payment Init Time</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('paymentUpdateTime')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.paymentUpdateTime">Payment Update Time</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.paymentDetails.paymentUpdateTime">Payment Update Time</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('paymentStatus')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.paymentStatus">Payment Status</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.paymentDetails.paymentStatus">Payment Status</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdOn')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdBy')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedOn')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedBy')}>
-                    <Translate contentKey="mullyaApp.paymentDetails.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.paymentDetails.order">Order</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.paymentDetails.order">Order</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -198,10 +198,10 @@ export const PaymentDetails = (props: RouteComponentProps<{ url: string }>) => {
                     </td>
                     <td>{paymentDetails.amount}</td>
                     <td>
-                      <Translate contentKey={`mullyaApp.PaymentType.${paymentDetails.paymentType}`} />
+                      <Translate contentKey={`mulyaaApp.PaymentType.${paymentDetails.paymentType}`} />
                     </td>
                     <td>
-                      <Translate contentKey={`mullyaApp.PGType.${paymentDetails.onlinePgType}`} />
+                      <Translate contentKey={`mulyaaApp.PGType.${paymentDetails.onlinePgType}`} />
                     </td>
                     <td>{paymentDetails.pgTxnId}</td>
                     <td>{paymentDetails.pgStatus}</td>
@@ -221,7 +221,7 @@ export const PaymentDetails = (props: RouteComponentProps<{ url: string }>) => {
                       ) : null}
                     </td>
                     <td>
-                      <Translate contentKey={`mullyaApp.PaymentStatus.${paymentDetails.paymentStatus}`} />
+                      <Translate contentKey={`mulyaaApp.PaymentStatus.${paymentDetails.paymentStatus}`} />
                     </td>
                     <td>
                       {paymentDetails.createdOn ? (
@@ -277,7 +277,7 @@ export const PaymentDetails = (props: RouteComponentProps<{ url: string }>) => {
           ) : (
             !loading && (
               <div className="alert alert-warning">
-                <Translate contentKey="mullyaApp.paymentDetails.home.notFound">No Payment Details found</Translate>
+                <Translate contentKey="mulyaaApp.paymentDetails.home.notFound">No Payment Details found</Translate>
               </div>
             )
           )}

@@ -20,7 +20,7 @@ export const OTPDetail = (props: RouteComponentProps<{ id: string }>) => {
     <Row>
       <Col md="8">
         <h2 data-cy="oTPDetailsHeading">
-          <Translate contentKey="mullyaApp.oTP.detail.title">OTP</Translate>
+          <Translate contentKey="mulyaaApp.oTP.detail.title">OTP</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -31,66 +31,66 @@ export const OTPDetail = (props: RouteComponentProps<{ id: string }>) => {
           <dd>{oTPEntity.id}</dd>
           <dt>
             <span id="otpVal">
-              <Translate contentKey="mullyaApp.oTP.otpVal">Otp Val</Translate>
+              <Translate contentKey="mulyaaApp.oTP.otpVal">Otp Val</Translate>
             </span>
           </dt>
           <dd>{oTPEntity.otpVal}</dd>
           <dt>
             <span id="email">
-              <Translate contentKey="mullyaApp.oTP.email">Email</Translate>
+              <Translate contentKey="mulyaaApp.oTP.email">Email</Translate>
             </span>
           </dt>
           <dd>{oTPEntity.email}</dd>
           <dt>
             <span id="phone">
-              <Translate contentKey="mullyaApp.oTP.phone">Phone</Translate>
+              <Translate contentKey="mulyaaApp.oTP.phone">Phone</Translate>
             </span>
           </dt>
           <dd>{oTPEntity.phone}</dd>
           <dt>
             <span id="type">
-              <Translate contentKey="mullyaApp.oTP.type">Type</Translate>
+              <Translate contentKey="mulyaaApp.oTP.type">Type</Translate>
             </span>
           </dt>
           <dd>{oTPEntity.type}</dd>
           <dt>
             <span id="expiryTime">
-              <Translate contentKey="mullyaApp.oTP.expiryTime">Expiry Time</Translate>
+              <Translate contentKey="mulyaaApp.oTP.expiryTime">Expiry Time</Translate>
             </span>
           </dt>
           <dd>{oTPEntity.expiryTime ? <TextFormat value={oTPEntity.expiryTime} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="status">
-              <Translate contentKey="mullyaApp.oTP.status">Status</Translate>
+              <Translate contentKey="mulyaaApp.oTP.status">Status</Translate>
             </span>
           </dt>
           <dd>{oTPEntity.status}</dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mullyaApp.oTP.createdOn">Created On</Translate>
+              <Translate contentKey="mulyaaApp.oTP.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>{oTPEntity.createdOn ? <TextFormat value={oTPEntity.createdOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="createdBy">
-              <Translate contentKey="mullyaApp.oTP.createdBy">Created By</Translate>
+              <Translate contentKey="mulyaaApp.oTP.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{oTPEntity.createdBy}</dd>
           <dt>
             <span id="updatedOn">
-              <Translate contentKey="mullyaApp.oTP.updatedOn">Updated On</Translate>
+              <Translate contentKey="mulyaaApp.oTP.updatedOn">Updated On</Translate>
             </span>
           </dt>
           <dd>{oTPEntity.updatedOn ? <TextFormat value={oTPEntity.updatedOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="updatedBy">
-              <Translate contentKey="mullyaApp.oTP.updatedBy">Updated By</Translate>
+              <Translate contentKey="mulyaaApp.oTP.updatedBy">Updated By</Translate>
             </span>
           </dt>
           <dd>{oTPEntity.updatedBy}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.oTP.actor">Actor</Translate>
+            <Translate contentKey="mulyaaApp.oTP.actor">Actor</Translate>
           </dt>
           <dd>{oTPEntity.actor ? oTPEntity.actor.id : ''}</dd>
         </dl>

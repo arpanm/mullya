@@ -1,6 +1,6 @@
 package com.mullya.app;
 
-import com.mullya.app.MullyaApp;
+import com.mullya.app.MulyaaApp;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -12,6 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@SpringBootTest(classes = MullyaApp.class)
+@SpringBootTest(classes = MulyaaApp.class)
 public @interface IntegrationTest {
 }

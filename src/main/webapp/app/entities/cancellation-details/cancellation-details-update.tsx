@@ -80,8 +80,8 @@ export const CancellationDetailsUpdate = (props: RouteComponentProps<{ id: strin
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.cancellationDetails.home.createOrEditLabel" data-cy="CancellationDetailsCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.cancellationDetails.home.createOrEditLabel">Create or edit a CancellationDetails</Translate>
+          <h2 id="mulyaaApp.cancellationDetails.home.createOrEditLabel" data-cy="CancellationDetailsCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.cancellationDetails.home.createOrEditLabel">Create or edit a CancellationDetails</Translate>
           </h2>
         </Col>
       </Row>
@@ -102,7 +102,7 @@ export const CancellationDetailsUpdate = (props: RouteComponentProps<{ id: strin
                 />
               ) : null}
               <ValidatedField
-                label={translate('mullyaApp.cancellationDetails.cancelationType')}
+                label={translate('mulyaaApp.cancellationDetails.cancelationType')}
                 id="cancellation-details-cancelationType"
                 name="cancelationType"
                 data-cy="cancelationType"
@@ -110,40 +110,40 @@ export const CancellationDetailsUpdate = (props: RouteComponentProps<{ id: strin
               >
                 {cancelationTypeValues.map(cancelationType => (
                   <option value={cancelationType} key={cancelationType}>
-                    {translate('mullyaApp.CancelationType.' + cancelationType)}
+                    {translate('mulyaaApp.CancelationType.' + cancelationType)}
                   </option>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.cancellationDetails.cancellationReason')}
+                label={translate('mulyaaApp.cancellationDetails.cancellationReason')}
                 id="cancellation-details-cancellationReason"
                 name="cancellationReason"
                 data-cy="cancellationReason"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.cancellationDetails.cancellationDate')}
+                label={translate('mulyaaApp.cancellationDetails.cancellationDate')}
                 id="cancellation-details-cancellationDate"
                 name="cancellationDate"
                 data-cy="cancellationDate"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.cancellationDetails.cancellationTime')}
+                label={translate('mulyaaApp.cancellationDetails.cancellationTime')}
                 id="cancellation-details-cancellationTime"
                 name="cancellationTime"
                 data-cy="cancellationTime"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.cancellationDetails.refundId')}
+                label={translate('mulyaaApp.cancellationDetails.refundId')}
                 id="cancellation-details-refundId"
                 name="refundId"
                 data-cy="refundId"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.cancellationDetails.cancellationStatus')}
+                label={translate('mulyaaApp.cancellationDetails.cancellationStatus')}
                 id="cancellation-details-cancellationStatus"
                 name="cancellationStatus"
                 data-cy="cancellationStatus"
@@ -151,33 +151,33 @@ export const CancellationDetailsUpdate = (props: RouteComponentProps<{ id: strin
               >
                 {cancellationStatusValues.map(cancellationStatus => (
                   <option value={cancellationStatus} key={cancellationStatus}>
-                    {translate('mullyaApp.CancellationStatus.' + cancellationStatus)}
+                    {translate('mulyaaApp.CancellationStatus.' + cancellationStatus)}
                   </option>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.cancellationDetails.createdOn')}
+                label={translate('mulyaaApp.cancellationDetails.createdOn')}
                 id="cancellation-details-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.cancellationDetails.createdBy')}
+                label={translate('mulyaaApp.cancellationDetails.createdBy')}
                 id="cancellation-details-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.cancellationDetails.updatedOn')}
+                label={translate('mulyaaApp.cancellationDetails.updatedOn')}
                 id="cancellation-details-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.cancellationDetails.updatedBy')}
+                label={translate('mulyaaApp.cancellationDetails.updatedBy')}
                 id="cancellation-details-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"
@@ -187,7 +187,7 @@ export const CancellationDetailsUpdate = (props: RouteComponentProps<{ id: strin
                 id="cancellation-details-order"
                 name="order"
                 data-cy="order"
-                label={translate('mullyaApp.cancellationDetails.order')}
+                label={translate('mulyaaApp.cancellationDetails.order')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -203,7 +203,7 @@ export const CancellationDetailsUpdate = (props: RouteComponentProps<{ id: strin
                 id="cancellation-details-approver"
                 name="approver"
                 data-cy="approver"
-                label={translate('mullyaApp.cancellationDetails.approver')}
+                label={translate('mulyaaApp.cancellationDetails.approver')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -219,7 +219,7 @@ export const CancellationDetailsUpdate = (props: RouteComponentProps<{ id: strin
                 id="cancellation-details-initiator"
                 name="initiator"
                 data-cy="initiator"
-                label={translate('mullyaApp.cancellationDetails.initiator')}
+                label={translate('mulyaaApp.cancellationDetails.initiator')}
                 type="select"
               >
                 <option value="" key="0" />

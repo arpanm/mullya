@@ -96,16 +96,16 @@ export const DeliveryDetails = (props: RouteComponentProps<{ url: string }>) => 
   return (
     <div>
       <h2 id="delivery-details-heading" data-cy="DeliveryDetailsHeading">
-        <Translate contentKey="mullyaApp.deliveryDetails.home.title">Delivery Details</Translate>
+        <Translate contentKey="mulyaaApp.deliveryDetails.home.title">Delivery Details</Translate>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="mullyaApp.deliveryDetails.home.refreshListLabel">Refresh List</Translate>
+            <Translate contentKey="mulyaaApp.deliveryDetails.home.refreshListLabel">Refresh List</Translate>
           </Button>
           <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="mullyaApp.deliveryDetails.home.createLabel">Create new Delivery Details</Translate>
+            <Translate contentKey="mulyaaApp.deliveryDetails.home.createLabel">Create new Delivery Details</Translate>
           </Link>
         </div>
       </h2>
@@ -123,57 +123,57 @@ export const DeliveryDetails = (props: RouteComponentProps<{ url: string }>) => 
               <thead>
                 <tr>
                   <th className="hand" onClick={sort('id')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('deliveryType')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.deliveryType">Delivery Type</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.deliveryType">Delivery Type</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('pickupDate')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.pickupDate">Pickup Date</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.pickupDate">Pickup Date</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('deliveryDate')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.deliveryDate">Delivery Date</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.deliveryDate">Delivery Date</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('truckDetails')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.truckDetails">Truck Details</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.truckDetails">Truck Details</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('deliveryAgentPhone')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.deliveryAgentPhone">Delivery Agent Phone</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.deliveryDetails.deliveryAgentPhone">Delivery Agent Phone</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('pickupTime')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.pickupTime">Pickup Time</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.pickupTime">Pickup Time</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('deliveryTime')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.deliveryTime">Delivery Time</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.deliveryTime">Delivery Time</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdOn')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdBy')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedOn')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedBy')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('deliveryStatus')}>
-                    <Translate contentKey="mullyaApp.deliveryDetails.deliveryStatus">Delivery Status</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.deliveryDetails.deliveryStatus">Delivery Status</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.deliveryDetails.fromAddress">From Address</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.fromAddress">From Address</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.deliveryDetails.toAddress">To Address</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.toAddress">To Address</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.deliveryDetails.order">Order</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.order">Order</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.deliveryDetails.cancellation">Cancellation</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.deliveryDetails.cancellation">Cancellation</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -187,7 +187,7 @@ export const DeliveryDetails = (props: RouteComponentProps<{ url: string }>) => 
                       </Button>
                     </td>
                     <td>
-                      <Translate contentKey={`mullyaApp.DeliveryType.${deliveryDetails.deliveryType}`} />
+                      <Translate contentKey={`mulyaaApp.DeliveryType.${deliveryDetails.deliveryType}`} />
                     </td>
                     <td>{deliveryDetails.pickupDate}</td>
                     <td>{deliveryDetails.deliveryDate}</td>
@@ -216,7 +216,7 @@ export const DeliveryDetails = (props: RouteComponentProps<{ url: string }>) => 
                     </td>
                     <td>{deliveryDetails.updatedBy}</td>
                     <td>
-                      <Translate contentKey={`mullyaApp.DeliveryStatus.${deliveryDetails.deliveryStatus}`} />
+                      <Translate contentKey={`mulyaaApp.DeliveryStatus.${deliveryDetails.deliveryStatus}`} />
                     </td>
                     <td>
                       {deliveryDetails.fromAddress ? (
@@ -281,7 +281,7 @@ export const DeliveryDetails = (props: RouteComponentProps<{ url: string }>) => 
           ) : (
             !loading && (
               <div className="alert alert-warning">
-                <Translate contentKey="mullyaApp.deliveryDetails.home.notFound">No Delivery Details found</Translate>
+                <Translate contentKey="mulyaaApp.deliveryDetails.home.notFound">No Delivery Details found</Translate>
               </div>
             )
           )}
