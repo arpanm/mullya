@@ -96,16 +96,16 @@ export const CancellationDetails = (props: RouteComponentProps<{ url: string }>)
   return (
     <div>
       <h2 id="cancellation-details-heading" data-cy="CancellationDetailsHeading">
-        <Translate contentKey="mullyaApp.cancellationDetails.home.title">Cancellation Details</Translate>
+        <Translate contentKey="mulyaaApp.cancellationDetails.home.title">Cancellation Details</Translate>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="mullyaApp.cancellationDetails.home.refreshListLabel">Refresh List</Translate>
+            <Translate contentKey="mulyaaApp.cancellationDetails.home.refreshListLabel">Refresh List</Translate>
           </Button>
           <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="mullyaApp.cancellationDetails.home.createLabel">Create new Cancellation Details</Translate>
+            <Translate contentKey="mulyaaApp.cancellationDetails.home.createLabel">Create new Cancellation Details</Translate>
           </Link>
         </div>
       </h2>
@@ -123,51 +123,51 @@ export const CancellationDetails = (props: RouteComponentProps<{ url: string }>)
               <thead>
                 <tr>
                   <th className="hand" onClick={sort('id')}>
-                    <Translate contentKey="mullyaApp.cancellationDetails.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.cancellationDetails.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('cancelationType')}>
-                    <Translate contentKey="mullyaApp.cancellationDetails.cancelationType">Cancelation Type</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.cancellationDetails.cancelationType">Cancelation Type</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('cancellationReason')}>
-                    <Translate contentKey="mullyaApp.cancellationDetails.cancellationReason">Cancellation Reason</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.cancellationDetails.cancellationReason">Cancellation Reason</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('cancellationDate')}>
-                    <Translate contentKey="mullyaApp.cancellationDetails.cancellationDate">Cancellation Date</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.cancellationDetails.cancellationDate">Cancellation Date</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('cancellationTime')}>
-                    <Translate contentKey="mullyaApp.cancellationDetails.cancellationTime">Cancellation Time</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.cancellationDetails.cancellationTime">Cancellation Time</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('refundId')}>
-                    <Translate contentKey="mullyaApp.cancellationDetails.refundId">Refund Id</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.cancellationDetails.refundId">Refund Id</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('cancellationStatus')}>
-                    <Translate contentKey="mullyaApp.cancellationDetails.cancellationStatus">Cancellation Status</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.cancellationDetails.cancellationStatus">Cancellation Status</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdOn')}>
-                    <Translate contentKey="mullyaApp.cancellationDetails.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.cancellationDetails.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdBy')}>
-                    <Translate contentKey="mullyaApp.cancellationDetails.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.cancellationDetails.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedOn')}>
-                    <Translate contentKey="mullyaApp.cancellationDetails.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.cancellationDetails.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedBy')}>
-                    <Translate contentKey="mullyaApp.cancellationDetails.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.cancellationDetails.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.cancellationDetails.order">Order</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.cancellationDetails.order">Order</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.cancellationDetails.approver">Approver</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.cancellationDetails.approver">Approver</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.cancellationDetails.initiator">Initiator</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.cancellationDetails.initiator">Initiator</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -181,7 +181,7 @@ export const CancellationDetails = (props: RouteComponentProps<{ url: string }>)
                       </Button>
                     </td>
                     <td>
-                      <Translate contentKey={`mullyaApp.CancelationType.${cancellationDetails.cancelationType}`} />
+                      <Translate contentKey={`mulyaaApp.CancelationType.${cancellationDetails.cancelationType}`} />
                     </td>
                     <td>{cancellationDetails.cancellationReason}</td>
                     <td>{cancellationDetails.cancellationDate}</td>
@@ -192,7 +192,7 @@ export const CancellationDetails = (props: RouteComponentProps<{ url: string }>)
                     </td>
                     <td>{cancellationDetails.refundId}</td>
                     <td>
-                      <Translate contentKey={`mullyaApp.CancellationStatus.${cancellationDetails.cancellationStatus}`} />
+                      <Translate contentKey={`mulyaaApp.CancellationStatus.${cancellationDetails.cancellationStatus}`} />
                     </td>
                     <td>
                       {cancellationDetails.createdOn ? (
@@ -274,7 +274,7 @@ export const CancellationDetails = (props: RouteComponentProps<{ url: string }>)
           ) : (
             !loading && (
               <div className="alert alert-warning">
-                <Translate contentKey="mullyaApp.cancellationDetails.home.notFound">No Cancellation Details found</Translate>
+                <Translate contentKey="mulyaaApp.cancellationDetails.home.notFound">No Cancellation Details found</Translate>
               </div>
             )
           )}

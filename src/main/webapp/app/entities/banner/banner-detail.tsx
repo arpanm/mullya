@@ -20,7 +20,7 @@ export const BannerDetail = (props: RouteComponentProps<{ id: string }>) => {
     <Row>
       <Col md="8">
         <h2 data-cy="bannerDetailsHeading">
-          <Translate contentKey="mullyaApp.banner.detail.title">Banner</Translate>
+          <Translate contentKey="mulyaaApp.banner.detail.title">Banner</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -31,67 +31,67 @@ export const BannerDetail = (props: RouteComponentProps<{ id: string }>) => {
           <dd>{bannerEntity.id}</dd>
           <dt>
             <span id="name">
-              <Translate contentKey="mullyaApp.banner.name">Name</Translate>
+              <Translate contentKey="mulyaaApp.banner.name">Name</Translate>
             </span>
           </dt>
           <dd>{bannerEntity.name}</dd>
           <dt>
             <span id="imageUrl">
-              <Translate contentKey="mullyaApp.banner.imageUrl">Image Url</Translate>
+              <Translate contentKey="mulyaaApp.banner.imageUrl">Image Url</Translate>
             </span>
           </dt>
           <dd>{bannerEntity.imageUrl}</dd>
           <dt>
             <span id="mobileImageUrl">
-              <Translate contentKey="mullyaApp.banner.mobileImageUrl">Mobile Image Url</Translate>
+              <Translate contentKey="mulyaaApp.banner.mobileImageUrl">Mobile Image Url</Translate>
             </span>
           </dt>
           <dd>{bannerEntity.mobileImageUrl}</dd>
           <dt>
             <span id="landingUrl">
-              <Translate contentKey="mullyaApp.banner.landingUrl">Landing Url</Translate>
+              <Translate contentKey="mulyaaApp.banner.landingUrl">Landing Url</Translate>
             </span>
           </dt>
           <dd>{bannerEntity.landingUrl}</dd>
           <dt>
             <span id="description">
-              <Translate contentKey="mullyaApp.banner.description">Description</Translate>
+              <Translate contentKey="mulyaaApp.banner.description">Description</Translate>
             </span>
           </dt>
           <dd>{bannerEntity.description}</dd>
           <dt>
             <span id="html">
-              <Translate contentKey="mullyaApp.banner.html">Html</Translate>
+              <Translate contentKey="mulyaaApp.banner.html">Html</Translate>
             </span>
           </dt>
           <dd>{bannerEntity.html}</dd>
           <dt>
             <span id="mobileHtml">
-              <Translate contentKey="mullyaApp.banner.mobileHtml">Mobile Html</Translate>
+              <Translate contentKey="mulyaaApp.banner.mobileHtml">Mobile Html</Translate>
             </span>
           </dt>
           <dd>{bannerEntity.mobileHtml}</dd>
           <dt>
             <span id="isActive">
-              <Translate contentKey="mullyaApp.banner.isActive">Is Active</Translate>
+              <Translate contentKey="mulyaaApp.banner.isActive">Is Active</Translate>
             </span>
           </dt>
           <dd>{bannerEntity.isActive ? 'true' : 'false'}</dd>
           <dt>
             <span id="startDate">
-              <Translate contentKey="mullyaApp.banner.startDate">Start Date</Translate>
+              <Translate contentKey="mulyaaApp.banner.startDate">Start Date</Translate>
             </span>
           </dt>
           <dd>{bannerEntity.startDate}</dd>
           <dt>
             <span id="endDate">
-              <Translate contentKey="mullyaApp.banner.endDate">End Date</Translate>
+              <Translate contentKey="mulyaaApp.banner.endDate">End Date</Translate>
             </span>
           </dt>
           <dd>{bannerEntity.endDate}</dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mullyaApp.banner.createdOn">Created On</Translate>
+              <Translate contentKey="mulyaaApp.banner.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>
@@ -99,13 +99,13 @@ export const BannerDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dd>
           <dt>
             <span id="createdBy">
-              <Translate contentKey="mullyaApp.banner.createdBy">Created By</Translate>
+              <Translate contentKey="mulyaaApp.banner.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{bannerEntity.createdBy}</dd>
           <dt>
             <span id="updatedOn">
-              <Translate contentKey="mullyaApp.banner.updatedOn">Updated On</Translate>
+              <Translate contentKey="mulyaaApp.banner.updatedOn">Updated On</Translate>
             </span>
           </dt>
           <dd>
@@ -113,7 +113,7 @@ export const BannerDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dd>
           <dt>
             <span id="updatedBy">
-              <Translate contentKey="mullyaApp.banner.updatedBy">Updated By</Translate>
+              <Translate contentKey="mulyaaApp.banner.updatedBy">Updated By</Translate>
             </span>
           </dt>
           <dd>{bannerEntity.updatedBy}</dd>

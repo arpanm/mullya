@@ -59,8 +59,8 @@ export const BannerUpdate = (props: RouteComponentProps<{ id: string }>) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.banner.home.createOrEditLabel" data-cy="BannerCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.banner.home.createOrEditLabel">Create or edit a Banner</Translate>
+          <h2 id="mulyaaApp.banner.home.createOrEditLabel" data-cy="BannerCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.banner.home.createOrEditLabel">Create or edit a Banner</Translate>
           </h2>
         </Col>
       </Row>
@@ -80,45 +80,45 @@ export const BannerUpdate = (props: RouteComponentProps<{ id: string }>) => {
                   validate={{ required: true }}
                 />
               ) : null}
-              <ValidatedField label={translate('mullyaApp.banner.name')} id="banner-name" name="name" data-cy="name" type="text" />
+              <ValidatedField label={translate('mulyaaApp.banner.name')} id="banner-name" name="name" data-cy="name" type="text" />
               <ValidatedField
-                label={translate('mullyaApp.banner.imageUrl')}
+                label={translate('mulyaaApp.banner.imageUrl')}
                 id="banner-imageUrl"
                 name="imageUrl"
                 data-cy="imageUrl"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.banner.mobileImageUrl')}
+                label={translate('mulyaaApp.banner.mobileImageUrl')}
                 id="banner-mobileImageUrl"
                 name="mobileImageUrl"
                 data-cy="mobileImageUrl"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.banner.landingUrl')}
+                label={translate('mulyaaApp.banner.landingUrl')}
                 id="banner-landingUrl"
                 name="landingUrl"
                 data-cy="landingUrl"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.banner.description')}
+                label={translate('mulyaaApp.banner.description')}
                 id="banner-description"
                 name="description"
                 data-cy="description"
                 type="text"
               />
-              <ValidatedField label={translate('mullyaApp.banner.html')} id="banner-html" name="html" data-cy="html" type="text" />
+              <ValidatedField label={translate('mulyaaApp.banner.html')} id="banner-html" name="html" data-cy="html" type="text" />
               <ValidatedField
-                label={translate('mullyaApp.banner.mobileHtml')}
+                label={translate('mulyaaApp.banner.mobileHtml')}
                 id="banner-mobileHtml"
                 name="mobileHtml"
                 data-cy="mobileHtml"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.banner.isActive')}
+                label={translate('mulyaaApp.banner.isActive')}
                 id="banner-isActive"
                 name="isActive"
                 data-cy="isActive"
@@ -126,42 +126,42 @@ export const BannerUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 type="checkbox"
               />
               <ValidatedField
-                label={translate('mullyaApp.banner.startDate')}
+                label={translate('mulyaaApp.banner.startDate')}
                 id="banner-startDate"
                 name="startDate"
                 data-cy="startDate"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.banner.endDate')}
+                label={translate('mulyaaApp.banner.endDate')}
                 id="banner-endDate"
                 name="endDate"
                 data-cy="endDate"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.banner.createdOn')}
+                label={translate('mulyaaApp.banner.createdOn')}
                 id="banner-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.banner.createdBy')}
+                label={translate('mulyaaApp.banner.createdBy')}
                 id="banner-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.banner.updatedOn')}
+                label={translate('mulyaaApp.banner.updatedOn')}
                 id="banner-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.banner.updatedBy')}
+                label={translate('mulyaaApp.banner.updatedBy')}
                 id="banner-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"

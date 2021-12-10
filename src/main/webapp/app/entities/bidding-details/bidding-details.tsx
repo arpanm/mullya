@@ -96,16 +96,16 @@ export const BiddingDetails = (props: RouteComponentProps<{ url: string }>) => {
   return (
     <div>
       <h2 id="bidding-details-heading" data-cy="BiddingDetailsHeading">
-        <Translate contentKey="mullyaApp.biddingDetails.home.title">Bidding Details</Translate>
+        <Translate contentKey="mulyaaApp.biddingDetails.home.title">Bidding Details</Translate>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="mullyaApp.biddingDetails.home.refreshListLabel">Refresh List</Translate>
+            <Translate contentKey="mulyaaApp.biddingDetails.home.refreshListLabel">Refresh List</Translate>
           </Button>
           <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="mullyaApp.biddingDetails.home.createLabel">Create new Bidding Details</Translate>
+            <Translate contentKey="mulyaaApp.biddingDetails.home.createLabel">Create new Bidding Details</Translate>
           </Link>
         </div>
       </h2>
@@ -123,49 +123,49 @@ export const BiddingDetails = (props: RouteComponentProps<{ url: string }>) => {
               <thead>
                 <tr>
                   <th className="hand" onClick={sort('id')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.biddingDetails.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('startDate')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.startDate">Start Date</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.biddingDetails.startDate">Start Date</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('endDate')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.endDate">End Date</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.biddingDetails.endDate">End Date</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('biddingStatus')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.biddingStatus">Bidding Status</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.biddingDetails.biddingStatus">Bidding Status</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('minPrice')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.minPrice">Min Price</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.biddingDetails.minPrice">Min Price</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('maxPrice')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.maxPrice">Max Price</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.biddingDetails.maxPrice">Max Price</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('minQuantityKg')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.minQuantityKg">Min Quantity Kg</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.biddingDetails.minQuantityKg">Min Quantity Kg</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('maxQuantityKg')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.maxQuantityKg">Max Quantity Kg</Translate>{' '}
+                    <Translate contentKey="mulyaaApp.biddingDetails.maxQuantityKg">Max Quantity Kg</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('isActive')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.isActive">Is Active</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.biddingDetails.isActive">Is Active</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdOn')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.biddingDetails.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdBy')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.biddingDetails.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedOn')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.biddingDetails.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedBy')}>
-                    <Translate contentKey="mullyaApp.biddingDetails.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.biddingDetails.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.biddingDetails.stock">Stock</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.biddingDetails.stock">Stock</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -181,7 +181,7 @@ export const BiddingDetails = (props: RouteComponentProps<{ url: string }>) => {
                     <td>{biddingDetails.startDate}</td>
                     <td>{biddingDetails.endDate}</td>
                     <td>
-                      <Translate contentKey={`mullyaApp.BiddingStatus.${biddingDetails.biddingStatus}`} />
+                      <Translate contentKey={`mulyaaApp.BiddingStatus.${biddingDetails.biddingStatus}`} />
                     </td>
                     <td>{biddingDetails.minPrice}</td>
                     <td>{biddingDetails.maxPrice}</td>
@@ -242,7 +242,7 @@ export const BiddingDetails = (props: RouteComponentProps<{ url: string }>) => {
           ) : (
             !loading && (
               <div className="alert alert-warning">
-                <Translate contentKey="mullyaApp.biddingDetails.home.notFound">No Bidding Details found</Translate>
+                <Translate contentKey="mulyaaApp.biddingDetails.home.notFound">No Bidding Details found</Translate>
               </div>
             )
           )}

@@ -65,8 +65,8 @@ export const CatalogueUpdate = (props: RouteComponentProps<{ id: string }>) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.catalogue.home.createOrEditLabel" data-cy="CatalogueCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.catalogue.home.createOrEditLabel">Create or edit a Catalogue</Translate>
+          <h2 id="mulyaaApp.catalogue.home.createOrEditLabel" data-cy="CatalogueCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.catalogue.home.createOrEditLabel">Create or edit a Catalogue</Translate>
           </h2>
         </Col>
       </Row>
@@ -86,30 +86,30 @@ export const CatalogueUpdate = (props: RouteComponentProps<{ id: string }>) => {
                   validate={{ required: true }}
                 />
               ) : null}
-              <ValidatedField label={translate('mullyaApp.catalogue.name')} id="catalogue-name" name="name" data-cy="name" type="text" />
+              <ValidatedField label={translate('mulyaaApp.catalogue.name')} id="catalogue-name" name="name" data-cy="name" type="text" />
               <ValidatedField
-                label={translate('mullyaApp.catalogue.stockImageUrl')}
+                label={translate('mulyaaApp.catalogue.stockImageUrl')}
                 id="catalogue-stockImageUrl"
                 name="stockImageUrl"
                 data-cy="stockImageUrl"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.catalogue.landingUrl')}
+                label={translate('mulyaaApp.catalogue.landingUrl')}
                 id="catalogue-landingUrl"
                 name="landingUrl"
                 data-cy="landingUrl"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.catalogue.description')}
+                label={translate('mulyaaApp.catalogue.description')}
                 id="catalogue-description"
                 name="description"
                 data-cy="description"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.catalogue.isActive')}
+                label={translate('mulyaaApp.catalogue.isActive')}
                 id="catalogue-isActive"
                 name="isActive"
                 data-cy="isActive"
@@ -117,28 +117,28 @@ export const CatalogueUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 type="checkbox"
               />
               <ValidatedField
-                label={translate('mullyaApp.catalogue.createdOn')}
+                label={translate('mulyaaApp.catalogue.createdOn')}
                 id="catalogue-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.catalogue.createdBy')}
+                label={translate('mulyaaApp.catalogue.createdBy')}
                 id="catalogue-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.catalogue.updatedOn')}
+                label={translate('mulyaaApp.catalogue.updatedOn')}
                 id="catalogue-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.catalogue.updatedBy')}
+                label={translate('mulyaaApp.catalogue.updatedBy')}
                 id="catalogue-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"
@@ -148,7 +148,7 @@ export const CatalogueUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 id="catalogue-parent"
                 name="parent"
                 data-cy="parent"
-                label={translate('mullyaApp.catalogue.parent')}
+                label={translate('mulyaaApp.catalogue.parent')}
                 type="select"
               >
                 <option value="" key="0" />

@@ -81,8 +81,8 @@ export const BidsUpdate = (props: RouteComponentProps<{ id: string }>) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.bids.home.createOrEditLabel" data-cy="BidsCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.bids.home.createOrEditLabel">Create or edit a Bids</Translate>
+          <h2 id="mulyaaApp.bids.home.createOrEditLabel" data-cy="BidsCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.bids.home.createOrEditLabel">Create or edit a Bids</Translate>
           </h2>
         </Col>
       </Row>
@@ -103,21 +103,21 @@ export const BidsUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 />
               ) : null}
               <ValidatedField
-                label={translate('mullyaApp.bids.bidPrice')}
+                label={translate('mulyaaApp.bids.bidPrice')}
                 id="bids-bidPrice"
                 name="bidPrice"
                 data-cy="bidPrice"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.bids.quantityKg')}
+                label={translate('mulyaaApp.bids.quantityKg')}
                 id="bids-quantityKg"
                 name="quantityKg"
                 data-cy="quantityKg"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.bids.bidStatus')}
+                label={translate('mulyaaApp.bids.bidStatus')}
                 id="bids-bidStatus"
                 name="bidStatus"
                 data-cy="bidStatus"
@@ -125,33 +125,33 @@ export const BidsUpdate = (props: RouteComponentProps<{ id: string }>) => {
               >
                 {bidStatusValues.map(bidStatus => (
                   <option value={bidStatus} key={bidStatus}>
-                    {translate('mullyaApp.BidStatus.' + bidStatus)}
+                    {translate('mulyaaApp.BidStatus.' + bidStatus)}
                   </option>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.bids.createdOn')}
+                label={translate('mulyaaApp.bids.createdOn')}
                 id="bids-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.bids.createdBy')}
+                label={translate('mulyaaApp.bids.createdBy')}
                 id="bids-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.bids.updatedOn')}
+                label={translate('mulyaaApp.bids.updatedOn')}
                 id="bids-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.bids.updatedBy')}
+                label={translate('mulyaaApp.bids.updatedBy')}
                 id="bids-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"
@@ -161,7 +161,7 @@ export const BidsUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 id="bids-buyerAddress"
                 name="buyerAddress"
                 data-cy="buyerAddress"
-                label={translate('mullyaApp.bids.buyerAddress')}
+                label={translate('mulyaaApp.bids.buyerAddress')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -177,7 +177,7 @@ export const BidsUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 id="bids-biddingDetails"
                 name="biddingDetails"
                 data-cy="biddingDetails"
-                label={translate('mullyaApp.bids.biddingDetails')}
+                label={translate('mulyaaApp.bids.biddingDetails')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -189,7 +189,7 @@ export const BidsUpdate = (props: RouteComponentProps<{ id: string }>) => {
                     ))
                   : null}
               </ValidatedField>
-              <ValidatedField id="bids-buyer" name="buyer" data-cy="buyer" label={translate('mullyaApp.bids.buyer')} type="select">
+              <ValidatedField id="bids-buyer" name="buyer" data-cy="buyer" label={translate('mulyaaApp.bids.buyer')} type="select">
                 <option value="" key="0" />
                 {actors
                   ? actors.map(otherEntity => (

@@ -90,6 +90,6 @@
   "fluentMethods": true,
   "readOnly": false,
   "embedded": false,
-  "applications": ["mullya"],
+  "applications": ["mulyaa"],
   "changelogDate": "20211208180320"
 }

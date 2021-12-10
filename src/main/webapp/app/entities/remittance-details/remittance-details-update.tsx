@@ -79,8 +79,8 @@ export const RemittanceDetailsUpdate = (props: RouteComponentProps<{ id: string 
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.remittanceDetails.home.createOrEditLabel" data-cy="RemittanceDetailsCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.remittanceDetails.home.createOrEditLabel">Create or edit a RemittanceDetails</Translate>
+          <h2 id="mulyaaApp.remittanceDetails.home.createOrEditLabel" data-cy="RemittanceDetailsCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.remittanceDetails.home.createOrEditLabel">Create or edit a RemittanceDetails</Translate>
           </h2>
         </Col>
       </Row>
@@ -101,7 +101,7 @@ export const RemittanceDetailsUpdate = (props: RouteComponentProps<{ id: string 
                 />
               ) : null}
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.paymentType')}
+                label={translate('mulyaaApp.remittanceDetails.paymentType')}
                 id="remittance-details-paymentType"
                 name="paymentType"
                 data-cy="paymentType"
@@ -109,12 +109,12 @@ export const RemittanceDetailsUpdate = (props: RouteComponentProps<{ id: string 
               >
                 {paymentTypeValues.map(paymentType => (
                   <option value={paymentType} key={paymentType}>
-                    {translate('mullyaApp.PaymentType.' + paymentType)}
+                    {translate('mulyaaApp.PaymentType.' + paymentType)}
                   </option>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.onlinePgType')}
+                label={translate('mulyaaApp.remittanceDetails.onlinePgType')}
                 id="remittance-details-onlinePgType"
                 name="onlinePgType"
                 data-cy="onlinePgType"
@@ -122,75 +122,75 @@ export const RemittanceDetailsUpdate = (props: RouteComponentProps<{ id: string 
               >
                 {pGTypeValues.map(pGType => (
                   <option value={pGType} key={pGType}>
-                    {translate('mullyaApp.PGType.' + pGType)}
+                    {translate('mulyaaApp.PGType.' + pGType)}
                   </option>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.pgTxnId')}
+                label={translate('mulyaaApp.remittanceDetails.pgTxnId')}
                 id="remittance-details-pgTxnId"
                 name="pgTxnId"
                 data-cy="pgTxnId"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.pgStatus')}
+                label={translate('mulyaaApp.remittanceDetails.pgStatus')}
                 id="remittance-details-pgStatus"
                 name="pgStatus"
                 data-cy="pgStatus"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.offlineTxnId')}
+                label={translate('mulyaaApp.remittanceDetails.offlineTxnId')}
                 id="remittance-details-offlineTxnId"
                 name="offlineTxnId"
                 data-cy="offlineTxnId"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.offlineTxnDetails')}
+                label={translate('mulyaaApp.remittanceDetails.offlineTxnDetails')}
                 id="remittance-details-offlineTxnDetails"
                 name="offlineTxnDetails"
                 data-cy="offlineTxnDetails"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.offlineTxnGivenBy')}
+                label={translate('mulyaaApp.remittanceDetails.offlineTxnGivenBy')}
                 id="remittance-details-offlineTxnGivenBy"
                 name="offlineTxnGivenBy"
                 data-cy="offlineTxnGivenBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.offlineTxnClearingStatus')}
+                label={translate('mulyaaApp.remittanceDetails.offlineTxnClearingStatus')}
                 id="remittance-details-offlineTxnClearingStatus"
                 name="offlineTxnClearingStatus"
                 data-cy="offlineTxnClearingStatus"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.remittanceDate')}
+                label={translate('mulyaaApp.remittanceDetails.remittanceDate')}
                 id="remittance-details-remittanceDate"
                 name="remittanceDate"
                 data-cy="remittanceDate"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.remittanceInitTime')}
+                label={translate('mulyaaApp.remittanceDetails.remittanceInitTime')}
                 id="remittance-details-remittanceInitTime"
                 name="remittanceInitTime"
                 data-cy="remittanceInitTime"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.remittanceUpdateTime')}
+                label={translate('mulyaaApp.remittanceDetails.remittanceUpdateTime')}
                 id="remittance-details-remittanceUpdateTime"
                 name="remittanceUpdateTime"
                 data-cy="remittanceUpdateTime"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.paymentStatus')}
+                label={translate('mulyaaApp.remittanceDetails.paymentStatus')}
                 id="remittance-details-paymentStatus"
                 name="paymentStatus"
                 data-cy="paymentStatus"
@@ -198,33 +198,33 @@ export const RemittanceDetailsUpdate = (props: RouteComponentProps<{ id: string 
               >
                 {paymentStatusValues.map(paymentStatus => (
                   <option value={paymentStatus} key={paymentStatus}>
-                    {translate('mullyaApp.PaymentStatus.' + paymentStatus)}
+                    {translate('mulyaaApp.PaymentStatus.' + paymentStatus)}
                   </option>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.createdOn')}
+                label={translate('mulyaaApp.remittanceDetails.createdOn')}
                 id="remittance-details-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.createdBy')}
+                label={translate('mulyaaApp.remittanceDetails.createdBy')}
                 id="remittance-details-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.updatedOn')}
+                label={translate('mulyaaApp.remittanceDetails.updatedOn')}
                 id="remittance-details-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.remittanceDetails.updatedBy')}
+                label={translate('mulyaaApp.remittanceDetails.updatedBy')}
                 id="remittance-details-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"
@@ -234,7 +234,7 @@ export const RemittanceDetailsUpdate = (props: RouteComponentProps<{ id: string 
                 id="remittance-details-farmer"
                 name="farmer"
                 data-cy="farmer"
-                label={translate('mullyaApp.remittanceDetails.farmer')}
+                label={translate('mulyaaApp.remittanceDetails.farmer')}
                 type="select"
               >
                 <option value="" key="0" />

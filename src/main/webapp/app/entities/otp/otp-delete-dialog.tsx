@@ -39,8 +39,8 @@ export const OTPDeleteDialog = (props: RouteComponentProps<{ id: string }>) => {
       <ModalHeader toggle={handleClose} data-cy="oTPDeleteDialogHeading">
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
-      <ModalBody id="mullyaApp.oTP.delete.question">
-        <Translate contentKey="mullyaApp.oTP.delete.question" interpolate={{ id: oTPEntity.id }}>
+      <ModalBody id="mulyaaApp.oTP.delete.question">
+        <Translate contentKey="mulyaaApp.oTP.delete.question" interpolate={{ id: oTPEntity.id }}>
           Are you sure you want to delete this OTP?
         </Translate>
       </ModalBody>

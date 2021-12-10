@@ -20,7 +20,7 @@ export const ActorDetail = (props: RouteComponentProps<{ id: string }>) => {
     <Row>
       <Col md="8">
         <h2 data-cy="actorDetailsHeading">
-          <Translate contentKey="mullyaApp.actor.detail.title">Actor</Translate>
+          <Translate contentKey="mulyaaApp.actor.detail.title">Actor</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -31,67 +31,67 @@ export const ActorDetail = (props: RouteComponentProps<{ id: string }>) => {
           <dd>{actorEntity.id}</dd>
           <dt>
             <span id="email">
-              <Translate contentKey="mullyaApp.actor.email">Email</Translate>
+              <Translate contentKey="mulyaaApp.actor.email">Email</Translate>
             </span>
           </dt>
           <dd>{actorEntity.email}</dd>
           <dt>
             <span id="phone">
-              <Translate contentKey="mullyaApp.actor.phone">Phone</Translate>
+              <Translate contentKey="mulyaaApp.actor.phone">Phone</Translate>
             </span>
           </dt>
           <dd>{actorEntity.phone}</dd>
           <dt>
             <span id="isEmailVerified">
-              <Translate contentKey="mullyaApp.actor.isEmailVerified">Is Email Verified</Translate>
+              <Translate contentKey="mulyaaApp.actor.isEmailVerified">Is Email Verified</Translate>
             </span>
           </dt>
           <dd>{actorEntity.isEmailVerified ? 'true' : 'false'}</dd>
           <dt>
             <span id="isPhoneVerified">
-              <Translate contentKey="mullyaApp.actor.isPhoneVerified">Is Phone Verified</Translate>
+              <Translate contentKey="mulyaaApp.actor.isPhoneVerified">Is Phone Verified</Translate>
             </span>
           </dt>
           <dd>{actorEntity.isPhoneVerified ? 'true' : 'false'}</dd>
           <dt>
             <span id="isActive">
-              <Translate contentKey="mullyaApp.actor.isActive">Is Active</Translate>
+              <Translate contentKey="mulyaaApp.actor.isActive">Is Active</Translate>
             </span>
           </dt>
           <dd>{actorEntity.isActive ? 'true' : 'false'}</dd>
           <dt>
             <span id="password">
-              <Translate contentKey="mullyaApp.actor.password">Password</Translate>
+              <Translate contentKey="mulyaaApp.actor.password">Password</Translate>
             </span>
           </dt>
           <dd>{actorEntity.password}</dd>
           <dt>
             <span id="type">
-              <Translate contentKey="mullyaApp.actor.type">Type</Translate>
+              <Translate contentKey="mulyaaApp.actor.type">Type</Translate>
             </span>
           </dt>
           <dd>{actorEntity.type}</dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mullyaApp.actor.createdOn">Created On</Translate>
+              <Translate contentKey="mulyaaApp.actor.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>{actorEntity.createdOn ? <TextFormat value={actorEntity.createdOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="createdBy">
-              <Translate contentKey="mullyaApp.actor.createdBy">Created By</Translate>
+              <Translate contentKey="mulyaaApp.actor.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{actorEntity.createdBy}</dd>
           <dt>
             <span id="updatedOn">
-              <Translate contentKey="mullyaApp.actor.updatedOn">Updated On</Translate>
+              <Translate contentKey="mulyaaApp.actor.updatedOn">Updated On</Translate>
             </span>
           </dt>
           <dd>{actorEntity.updatedOn ? <TextFormat value={actorEntity.updatedOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="updatedBy">
-              <Translate contentKey="mullyaApp.actor.updatedBy">Updated By</Translate>
+              <Translate contentKey="mulyaaApp.actor.updatedBy">Updated By</Translate>
             </span>
           </dt>
           <dd>{actorEntity.updatedBy}</dd>

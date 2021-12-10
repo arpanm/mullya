@@ -85,8 +85,8 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.stock.home.createOrEditLabel" data-cy="StockCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.stock.home.createOrEditLabel">Create or edit a Stock</Translate>
+          <h2 id="mulyaaApp.stock.home.createOrEditLabel" data-cy="StockCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.stock.home.createOrEditLabel">Create or edit a Stock</Translate>
           </h2>
         </Col>
       </Row>
@@ -107,43 +107,43 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 />
               ) : null}
               <ValidatedField
-                label={translate('mullyaApp.stock.minPrice')}
+                label={translate('mulyaaApp.stock.minPrice')}
                 id="stock-minPrice"
                 name="minPrice"
                 data-cy="minPrice"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.stock.maxPrice')}
+                label={translate('mulyaaApp.stock.maxPrice')}
                 id="stock-maxPrice"
                 name="maxPrice"
                 data-cy="maxPrice"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.stock.quantityKg')}
+                label={translate('mulyaaApp.stock.quantityKg')}
                 id="stock-quantityKg"
                 name="quantityKg"
                 data-cy="quantityKg"
                 type="text"
               />
-              <ValidatedField label={translate('mullyaApp.stock.expiry')} id="stock-expiry" name="expiry" data-cy="expiry" type="text" />
+              <ValidatedField label={translate('mulyaaApp.stock.expiry')} id="stock-expiry" name="expiry" data-cy="expiry" type="text" />
               <ValidatedField
-                label={translate('mullyaApp.stock.avialableFrom')}
+                label={translate('mulyaaApp.stock.avialableFrom')}
                 id="stock-avialableFrom"
                 name="avialableFrom"
                 data-cy="avialableFrom"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.stock.description')}
+                label={translate('mulyaaApp.stock.description')}
                 id="stock-description"
                 name="description"
                 data-cy="description"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.stock.stockStatus')}
+                label={translate('mulyaaApp.stock.stockStatus')}
                 id="stock-stockStatus"
                 name="stockStatus"
                 data-cy="stockStatus"
@@ -151,12 +151,12 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
               >
                 {stockStatusValues.map(stockStatus => (
                   <option value={stockStatus} key={stockStatus}>
-                    {translate('mullyaApp.StockStatus.' + stockStatus)}
+                    {translate('mulyaaApp.StockStatus.' + stockStatus)}
                   </option>
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mullyaApp.stock.isOpenForBidding')}
+                label={translate('mulyaaApp.stock.isOpenForBidding')}
                 id="stock-isOpenForBidding"
                 name="isOpenForBidding"
                 data-cy="isOpenForBidding"
@@ -164,28 +164,28 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 type="checkbox"
               />
               <ValidatedField
-                label={translate('mullyaApp.stock.createdOn')}
+                label={translate('mulyaaApp.stock.createdOn')}
                 id="stock-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.stock.createdBy')}
+                label={translate('mulyaaApp.stock.createdBy')}
                 id="stock-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.stock.updatedOn')}
+                label={translate('mulyaaApp.stock.updatedOn')}
                 id="stock-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.stock.updatedBy')}
+                label={translate('mulyaaApp.stock.updatedBy')}
                 id="stock-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"
@@ -195,7 +195,7 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 id="stock-farmerAddress"
                 name="farmerAddress"
                 data-cy="farmerAddress"
-                label={translate('mullyaApp.stock.farmerAddress')}
+                label={translate('mulyaaApp.stock.farmerAddress')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -207,7 +207,7 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
                     ))
                   : null}
               </ValidatedField>
-              <ValidatedField id="stock-farmer" name="farmer" data-cy="farmer" label={translate('mullyaApp.stock.farmer')} type="select">
+              <ValidatedField id="stock-farmer" name="farmer" data-cy="farmer" label={translate('mulyaaApp.stock.farmer')} type="select">
                 <option value="" key="0" />
                 {actors
                   ? actors.map(otherEntity => (
@@ -221,7 +221,7 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 id="stock-category"
                 name="category"
                 data-cy="category"
-                label={translate('mullyaApp.stock.category')}
+                label={translate('mulyaaApp.stock.category')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -237,7 +237,7 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 id="stock-variant"
                 name="variant"
                 data-cy="variant"
-                label={translate('mullyaApp.stock.variant')}
+                label={translate('mulyaaApp.stock.variant')}
                 type="select"
               >
                 <option value="" key="0" />
@@ -253,7 +253,7 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 id="stock-subVariant"
                 name="subVariant"
                 data-cy="subVariant"
-                label={translate('mullyaApp.stock.subVariant')}
+                label={translate('mulyaaApp.stock.subVariant')}
                 type="select"
               >
                 <option value="" key="0" />

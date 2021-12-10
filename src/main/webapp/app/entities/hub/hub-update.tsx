@@ -59,8 +59,8 @@ export const HubUpdate = (props: RouteComponentProps<{ id: string }>) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mullyaApp.hub.home.createOrEditLabel" data-cy="HubCreateUpdateHeading">
-            <Translate contentKey="mullyaApp.hub.home.createOrEditLabel">Create or edit a Hub</Translate>
+          <h2 id="mulyaaApp.hub.home.createOrEditLabel" data-cy="HubCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.hub.home.createOrEditLabel">Create or edit a Hub</Translate>
           </h2>
         </Col>
       </Row>
@@ -80,9 +80,9 @@ export const HubUpdate = (props: RouteComponentProps<{ id: string }>) => {
                   validate={{ required: true }}
                 />
               ) : null}
-              <ValidatedField label={translate('mullyaApp.hub.tag')} id="hub-tag" name="tag" data-cy="tag" type="text" />
+              <ValidatedField label={translate('mulyaaApp.hub.tag')} id="hub-tag" name="tag" data-cy="tag" type="text" />
               <ValidatedField
-                label={translate('mullyaApp.hub.isActive')}
+                label={translate('mulyaaApp.hub.isActive')}
                 id="hub-isActive"
                 name="isActive"
                 data-cy="isActive"
@@ -90,28 +90,28 @@ export const HubUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 type="checkbox"
               />
               <ValidatedField
-                label={translate('mullyaApp.hub.createdOn')}
+                label={translate('mulyaaApp.hub.createdOn')}
                 id="hub-createdOn"
                 name="createdOn"
                 data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.hub.createdBy')}
+                label={translate('mulyaaApp.hub.createdBy')}
                 id="hub-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mullyaApp.hub.updatedOn')}
+                label={translate('mulyaaApp.hub.updatedOn')}
                 id="hub-updatedOn"
                 name="updatedOn"
                 data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mullyaApp.hub.updatedBy')}
+                label={translate('mulyaaApp.hub.updatedBy')}
                 id="hub-updatedBy"
                 name="updatedBy"
                 data-cy="updatedBy"

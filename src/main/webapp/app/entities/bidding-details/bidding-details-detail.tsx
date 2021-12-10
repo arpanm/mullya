@@ -20,7 +20,7 @@ export const BiddingDetailsDetail = (props: RouteComponentProps<{ id: string }>)
     <Row>
       <Col md="8">
         <h2 data-cy="biddingDetailsDetailsHeading">
-          <Translate contentKey="mullyaApp.biddingDetails.detail.title">BiddingDetails</Translate>
+          <Translate contentKey="mulyaaApp.biddingDetails.detail.title">BiddingDetails</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -31,55 +31,55 @@ export const BiddingDetailsDetail = (props: RouteComponentProps<{ id: string }>)
           <dd>{biddingDetailsEntity.id}</dd>
           <dt>
             <span id="startDate">
-              <Translate contentKey="mullyaApp.biddingDetails.startDate">Start Date</Translate>
+              <Translate contentKey="mulyaaApp.biddingDetails.startDate">Start Date</Translate>
             </span>
           </dt>
           <dd>{biddingDetailsEntity.startDate}</dd>
           <dt>
             <span id="endDate">
-              <Translate contentKey="mullyaApp.biddingDetails.endDate">End Date</Translate>
+              <Translate contentKey="mulyaaApp.biddingDetails.endDate">End Date</Translate>
             </span>
           </dt>
           <dd>{biddingDetailsEntity.endDate}</dd>
           <dt>
             <span id="biddingStatus">
-              <Translate contentKey="mullyaApp.biddingDetails.biddingStatus">Bidding Status</Translate>
+              <Translate contentKey="mulyaaApp.biddingDetails.biddingStatus">Bidding Status</Translate>
             </span>
           </dt>
           <dd>{biddingDetailsEntity.biddingStatus}</dd>
           <dt>
             <span id="minPrice">
-              <Translate contentKey="mullyaApp.biddingDetails.minPrice">Min Price</Translate>
+              <Translate contentKey="mulyaaApp.biddingDetails.minPrice">Min Price</Translate>
             </span>
           </dt>
           <dd>{biddingDetailsEntity.minPrice}</dd>
           <dt>
             <span id="maxPrice">
-              <Translate contentKey="mullyaApp.biddingDetails.maxPrice">Max Price</Translate>
+              <Translate contentKey="mulyaaApp.biddingDetails.maxPrice">Max Price</Translate>
             </span>
           </dt>
           <dd>{biddingDetailsEntity.maxPrice}</dd>
           <dt>
             <span id="minQuantityKg">
-              <Translate contentKey="mullyaApp.biddingDetails.minQuantityKg">Min Quantity Kg</Translate>
+              <Translate contentKey="mulyaaApp.biddingDetails.minQuantityKg">Min Quantity Kg</Translate>
             </span>
           </dt>
           <dd>{biddingDetailsEntity.minQuantityKg}</dd>
           <dt>
             <span id="maxQuantityKg">
-              <Translate contentKey="mullyaApp.biddingDetails.maxQuantityKg">Max Quantity Kg</Translate>
+              <Translate contentKey="mulyaaApp.biddingDetails.maxQuantityKg">Max Quantity Kg</Translate>
             </span>
           </dt>
           <dd>{biddingDetailsEntity.maxQuantityKg}</dd>
           <dt>
             <span id="isActive">
-              <Translate contentKey="mullyaApp.biddingDetails.isActive">Is Active</Translate>
+              <Translate contentKey="mulyaaApp.biddingDetails.isActive">Is Active</Translate>
             </span>
           </dt>
           <dd>{biddingDetailsEntity.isActive ? 'true' : 'false'}</dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mullyaApp.biddingDetails.createdOn">Created On</Translate>
+              <Translate contentKey="mulyaaApp.biddingDetails.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>
@@ -89,13 +89,13 @@ export const BiddingDetailsDetail = (props: RouteComponentProps<{ id: string }>)
           </dd>
           <dt>
             <span id="createdBy">
-              <Translate contentKey="mullyaApp.biddingDetails.createdBy">Created By</Translate>
+              <Translate contentKey="mulyaaApp.biddingDetails.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{biddingDetailsEntity.createdBy}</dd>
           <dt>
             <span id="updatedOn">
-              <Translate contentKey="mullyaApp.biddingDetails.updatedOn">Updated On</Translate>
+              <Translate contentKey="mulyaaApp.biddingDetails.updatedOn">Updated On</Translate>
             </span>
           </dt>
           <dd>
@@ -105,12 +105,12 @@ export const BiddingDetailsDetail = (props: RouteComponentProps<{ id: string }>)
           </dd>
           <dt>
             <span id="updatedBy">
-              <Translate contentKey="mullyaApp.biddingDetails.updatedBy">Updated By</Translate>
+              <Translate contentKey="mulyaaApp.biddingDetails.updatedBy">Updated By</Translate>
             </span>
           </dt>
           <dd>{biddingDetailsEntity.updatedBy}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.biddingDetails.stock">Stock</Translate>
+            <Translate contentKey="mulyaaApp.biddingDetails.stock">Stock</Translate>
           </dt>
           <dd>{biddingDetailsEntity.stock ? biddingDetailsEntity.stock.id : ''}</dd>
         </dl>

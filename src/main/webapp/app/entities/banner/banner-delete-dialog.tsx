@@ -39,8 +39,8 @@ export const BannerDeleteDialog = (props: RouteComponentProps<{ id: string }>) =
       <ModalHeader toggle={handleClose} data-cy="bannerDeleteDialogHeading">
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
-      <ModalBody id="mullyaApp.banner.delete.question">
-        <Translate contentKey="mullyaApp.banner.delete.question" interpolate={{ id: bannerEntity.id }}>
+      <ModalBody id="mulyaaApp.banner.delete.question">
+        <Translate contentKey="mulyaaApp.banner.delete.question" interpolate={{ id: bannerEntity.id }}>
           Are you sure you want to delete this Banner?
         </Translate>
       </ModalBody>

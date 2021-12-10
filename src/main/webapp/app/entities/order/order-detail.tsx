@@ -20,7 +20,7 @@ export const OrderDetail = (props: RouteComponentProps<{ id: string }>) => {
     <Row>
       <Col md="8">
         <h2 data-cy="orderDetailsHeading">
-          <Translate contentKey="mullyaApp.order.detail.title">Order</Translate>
+          <Translate contentKey="mulyaaApp.order.detail.title">Order</Translate>
         </h2>
         <dl className="jh-entity-details">
           <dt>
@@ -31,66 +31,66 @@ export const OrderDetail = (props: RouteComponentProps<{ id: string }>) => {
           <dd>{orderEntity.id}</dd>
           <dt>
             <span id="acceptedPrice">
-              <Translate contentKey="mullyaApp.order.acceptedPrice">Accepted Price</Translate>
+              <Translate contentKey="mulyaaApp.order.acceptedPrice">Accepted Price</Translate>
             </span>
           </dt>
           <dd>{orderEntity.acceptedPrice}</dd>
           <dt>
             <span id="codAmount">
-              <Translate contentKey="mullyaApp.order.codAmount">Cod Amount</Translate>
+              <Translate contentKey="mulyaaApp.order.codAmount">Cod Amount</Translate>
             </span>
           </dt>
           <dd>{orderEntity.codAmount}</dd>
           <dt>
             <span id="quantityKg">
-              <Translate contentKey="mullyaApp.order.quantityKg">Quantity Kg</Translate>
+              <Translate contentKey="mulyaaApp.order.quantityKg">Quantity Kg</Translate>
             </span>
           </dt>
           <dd>{orderEntity.quantityKg}</dd>
           <dt>
             <span id="neededBy">
-              <Translate contentKey="mullyaApp.order.neededBy">Needed By</Translate>
+              <Translate contentKey="mulyaaApp.order.neededBy">Needed By</Translate>
             </span>
           </dt>
           <dd>{orderEntity.neededBy}</dd>
           <dt>
             <span id="acceptedDeliveryDate">
-              <Translate contentKey="mullyaApp.order.acceptedDeliveryDate">Accepted Delivery Date</Translate>
+              <Translate contentKey="mulyaaApp.order.acceptedDeliveryDate">Accepted Delivery Date</Translate>
             </span>
           </dt>
           <dd>{orderEntity.acceptedDeliveryDate}</dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mullyaApp.order.createdOn">Created On</Translate>
+              <Translate contentKey="mulyaaApp.order.createdOn">Created On</Translate>
             </span>
           </dt>
           <dd>{orderEntity.createdOn ? <TextFormat value={orderEntity.createdOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="createdBy">
-              <Translate contentKey="mullyaApp.order.createdBy">Created By</Translate>
+              <Translate contentKey="mulyaaApp.order.createdBy">Created By</Translate>
             </span>
           </dt>
           <dd>{orderEntity.createdBy}</dd>
           <dt>
             <span id="updatedOn">
-              <Translate contentKey="mullyaApp.order.updatedOn">Updated On</Translate>
+              <Translate contentKey="mulyaaApp.order.updatedOn">Updated On</Translate>
             </span>
           </dt>
           <dd>{orderEntity.updatedOn ? <TextFormat value={orderEntity.updatedOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="updatedBy">
-              <Translate contentKey="mullyaApp.order.updatedBy">Updated By</Translate>
+              <Translate contentKey="mulyaaApp.order.updatedBy">Updated By</Translate>
             </span>
           </dt>
           <dd>{orderEntity.updatedBy}</dd>
           <dt>
             <span id="status">
-              <Translate contentKey="mullyaApp.order.status">Status</Translate>
+              <Translate contentKey="mulyaaApp.order.status">Status</Translate>
             </span>
           </dt>
           <dd>{orderEntity.status}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.order.remittance">Remittance</Translate>
+            <Translate contentKey="mulyaaApp.order.remittance">Remittance</Translate>
           </dt>
           <dd>
             {orderEntity.remittances
@@ -103,19 +103,19 @@ export const OrderDetail = (props: RouteComponentProps<{ id: string }>) => {
               : null}
           </dd>
           <dt>
-            <Translate contentKey="mullyaApp.order.requirement">Requirement</Translate>
+            <Translate contentKey="mulyaaApp.order.requirement">Requirement</Translate>
           </dt>
           <dd>{orderEntity.requirement ? orderEntity.requirement.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.order.bid">Bid</Translate>
+            <Translate contentKey="mulyaaApp.order.bid">Bid</Translate>
           </dt>
           <dd>{orderEntity.bid ? orderEntity.bid.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.order.assignedAgent">Assigned Agent</Translate>
+            <Translate contentKey="mulyaaApp.order.assignedAgent">Assigned Agent</Translate>
           </dt>
           <dd>{orderEntity.assignedAgent ? orderEntity.assignedAgent.id : ''}</dd>
           <dt>
-            <Translate contentKey="mullyaApp.order.stock">Stock</Translate>
+            <Translate contentKey="mulyaaApp.order.stock">Stock</Translate>
           </dt>
           <dd>{orderEntity.stock ? orderEntity.stock.id : ''}</dd>
         </dl>

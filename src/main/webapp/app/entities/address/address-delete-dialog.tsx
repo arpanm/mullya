@@ -39,8 +39,8 @@ export const AddressDeleteDialog = (props: RouteComponentProps<{ id: string }>) 
       <ModalHeader toggle={handleClose} data-cy="addressDeleteDialogHeading">
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
-      <ModalBody id="mullyaApp.address.delete.question">
-        <Translate contentKey="mullyaApp.address.delete.question" interpolate={{ id: addressEntity.id }}>
+      <ModalBody id="mulyaaApp.address.delete.question">
+        <Translate contentKey="mulyaaApp.address.delete.question" interpolate={{ id: addressEntity.id }}>
           Are you sure you want to delete this Address?
         </Translate>
       </ModalBody>

@@ -96,16 +96,16 @@ export const OTPAttempt = (props: RouteComponentProps<{ url: string }>) => {
   return (
     <div>
       <h2 id="otp-attempt-heading" data-cy="OTPAttemptHeading">
-        <Translate contentKey="mullyaApp.oTPAttempt.home.title">OTP Attempts</Translate>
+        <Translate contentKey="mulyaaApp.oTPAttempt.home.title">OTP Attempts</Translate>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="mullyaApp.oTPAttempt.home.refreshListLabel">Refresh List</Translate>
+            <Translate contentKey="mulyaaApp.oTPAttempt.home.refreshListLabel">Refresh List</Translate>
           </Button>
           <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="mullyaApp.oTPAttempt.home.createLabel">Create new OTP Attempt</Translate>
+            <Translate contentKey="mulyaaApp.oTPAttempt.home.createLabel">Create new OTP Attempt</Translate>
           </Link>
         </div>
       </h2>
@@ -123,31 +123,31 @@ export const OTPAttempt = (props: RouteComponentProps<{ url: string }>) => {
               <thead>
                 <tr>
                   <th className="hand" onClick={sort('id')}>
-                    <Translate contentKey="mullyaApp.oTPAttempt.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTPAttempt.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('otpVal')}>
-                    <Translate contentKey="mullyaApp.oTPAttempt.otpVal">Otp Val</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTPAttempt.otpVal">Otp Val</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('email')}>
-                    <Translate contentKey="mullyaApp.oTPAttempt.email">Email</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTPAttempt.email">Email</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('phone')}>
-                    <Translate contentKey="mullyaApp.oTPAttempt.phone">Phone</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTPAttempt.phone">Phone</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('ip')}>
-                    <Translate contentKey="mullyaApp.oTPAttempt.ip">Ip</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTPAttempt.ip">Ip</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('coookie')}>
-                    <Translate contentKey="mullyaApp.oTPAttempt.coookie">Coookie</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTPAttempt.coookie">Coookie</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdOn')}>
-                    <Translate contentKey="mullyaApp.oTPAttempt.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTPAttempt.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdBy')}>
-                    <Translate contentKey="mullyaApp.oTPAttempt.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTPAttempt.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.oTPAttempt.otp">Otp</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTPAttempt.otp">Otp</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -205,7 +205,7 @@ export const OTPAttempt = (props: RouteComponentProps<{ url: string }>) => {
           ) : (
             !loading && (
               <div className="alert alert-warning">
-                <Translate contentKey="mullyaApp.oTPAttempt.home.notFound">No OTP Attempts found</Translate>
+                <Translate contentKey="mulyaaApp.oTPAttempt.home.notFound">No OTP Attempts found</Translate>
               </div>
             )
           )}

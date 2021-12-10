@@ -96,16 +96,16 @@ export const Address = (props: RouteComponentProps<{ url: string }>) => {
   return (
     <div>
       <h2 id="address-heading" data-cy="AddressHeading">
-        <Translate contentKey="mullyaApp.address.home.title">Addresses</Translate>
+        <Translate contentKey="mulyaaApp.address.home.title">Addresses</Translate>
         <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
-            <Translate contentKey="mullyaApp.address.home.refreshListLabel">Refresh List</Translate>
+            <Translate contentKey="mulyaaApp.address.home.refreshListLabel">Refresh List</Translate>
           </Button>
           <Link to={`${match.url}/new`} className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp;
-            <Translate contentKey="mullyaApp.address.home.createLabel">Create new Address</Translate>
+            <Translate contentKey="mulyaaApp.address.home.createLabel">Create new Address</Translate>
           </Link>
         </div>
       </h2>
@@ -123,49 +123,49 @@ export const Address = (props: RouteComponentProps<{ url: string }>) => {
               <thead>
                 <tr>
                   <th className="hand" onClick={sort('id')}>
-                    <Translate contentKey="mullyaApp.address.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('streetAddress')}>
-                    <Translate contentKey="mullyaApp.address.streetAddress">Street Address</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.streetAddress">Street Address</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('postalCode')}>
-                    <Translate contentKey="mullyaApp.address.postalCode">Postal Code</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.postalCode">Postal Code</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('city')}>
-                    <Translate contentKey="mullyaApp.address.city">City</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.city">City</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('stateProvince')}>
-                    <Translate contentKey="mullyaApp.address.stateProvince">State Province</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.stateProvince">State Province</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('country')}>
-                    <Translate contentKey="mullyaApp.address.country">Country</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.country">Country</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdBy')}>
-                    <Translate contentKey="mullyaApp.address.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('lat')}>
-                    <Translate contentKey="mullyaApp.address.lat">Lat</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.lat">Lat</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('lon')}>
-                    <Translate contentKey="mullyaApp.address.lon">Lon</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.lon">Lon</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('mapLocation')}>
-                    <Translate contentKey="mullyaApp.address.mapLocation">Map Location</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.mapLocation">Map Location</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdOn')}>
-                    <Translate contentKey="mullyaApp.address.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedOn')}>
-                    <Translate contentKey="mullyaApp.address.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updatedBy')}>
-                    <Translate contentKey="mullyaApp.address.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.address.hub">Hub</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.hub">Hub</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mullyaApp.address.actor">Actor</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.actor">Actor</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -225,7 +225,7 @@ export const Address = (props: RouteComponentProps<{ url: string }>) => {
           ) : (
             !loading && (
               <div className="alert alert-warning">
-                <Translate contentKey="mullyaApp.address.home.notFound">No Addresses found</Translate>
+                <Translate contentKey="mulyaaApp.address.home.notFound">No Addresses found</Translate>
               </div>
             )
           )}
