@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Xmx256m -jar --server.port=$PORT --spring.profiles.active=dev target/*.jar
+web: java $JAVA_OPTS -Xmx256m -jar --port=$PORT --spring.profiles.active=dev target/*.jar
