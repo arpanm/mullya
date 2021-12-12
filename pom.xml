@@ -1104,6 +1104,11 @@
                                 <goals>
                                     <goal>build-info</goal>
                                 </goals>
+                                <configuration>
+                                    <embeddedLaunchScriptProperties>
+                                        <mode>service</mode>
+                                    </embeddedLaunchScriptProperties>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
