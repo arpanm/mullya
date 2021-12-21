@@ -83,7 +83,7 @@ public class RemittanceDetails implements Serializable {
         value = { "requirements", "oTPS", "addresses", "stocks", "bids", "orders", "remittanceDetails" },
         allowSetters = true
     )
-    private Actor farmer;
+    private User farmer;
 
     @ManyToMany(mappedBy = "remittances")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -313,16 +313,16 @@ public class RemittanceDetails implements Serializable {
         this.updatedBy = updatedBy;
     }
 
-    public Actor getFarmer() {
+    public User getFarmer() {
         return this.farmer;
     }
 
-    public void setFarmer(Actor actor) {
-        this.farmer = actor;
+    public void setFarmer(User user) {
+        this.farmer = user;
     }
 
-    public RemittanceDetails farmer(Actor actor) {
-        this.setFarmer(actor);
+    public RemittanceDetails farmer(User user) {
+        this.setFarmer(user);
         return this;
     }
 

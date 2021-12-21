@@ -15,10 +15,17 @@
     "detail": {
       "title": "User"
     },
+    "id": "id",
     "login": "Login",
     "firstName": "First name",
     "lastName": "Last name",
     "email": "Email",
+    "phone": "Phone",
+    "isEmailVerified": "Is Email Verified",
+    "isPhoneVerified": "Is Phone Verified",
+    "isActive": "Is Active",
+    "password": "Password",
+    "type": "Type",
     "activated": "Activated",
     "deactivated": "Deactivated",
     "profiles": "Profiles",
@@ -26,6 +33,13 @@
     "createdBy": "Created by",
     "createdDate": "Created date",
     "lastModifiedBy": "Modified by",
-    "lastModifiedDate": "Modified date"
+    "lastModifiedDate": "Modified date",
+    "requirement": "Requirement",
+    "oTP": "O TP",
+    "address": "Address",
+    "stock": "Stock",
+    "bids": "Bids",
+    "order": "Order",
+    "remittanceDetails": "Remittance Details"
   }
 }

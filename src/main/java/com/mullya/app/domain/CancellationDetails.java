@@ -69,7 +69,7 @@ public class CancellationDetails implements Serializable {
     )
     @OneToOne
     @JoinColumn(unique = true)
-    private Actor approver;
+    private User approver;
 
     @JsonIgnoreProperties(
         value = { "requirements", "oTPS", "addresses", "stocks", "bids", "orders", "remittanceDetails" },
@@ -77,7 +77,7 @@ public class CancellationDetails implements Serializable {
     )
     @OneToOne
     @JoinColumn(unique = true)
-    private Actor initiator;
+    private User initiator;
 
     @OneToMany(mappedBy = "cancellation")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -242,29 +242,29 @@ public class CancellationDetails implements Serializable {
         return this;
     }
 
-    public Actor getApprover() {
+    public User getApprover() {
         return this.approver;
     }
 
-    public void setApprover(Actor actor) {
-        this.approver = actor;
+    public void setApprover(User user) {
+        this.approver = user;
     }
 
-    public CancellationDetails approver(Actor actor) {
-        this.setApprover(actor);
+    public CancellationDetails approver(User user) {
+        this.setApprover(user);
         return this;
     }
 
-    public Actor getInitiator() {
+    public User getInitiator() {
         return this.initiator;
     }
 
-    public void setInitiator(Actor actor) {
-        this.initiator = actor;
+    public void setInitiator(User user) {
+        this.initiator = user;
     }
 
-    public CancellationDetails initiator(Actor actor) {
-        this.setInitiator(actor);
+    public CancellationDetails initiator(User user) {
+        this.setInitiator(user);
         return this;
     }
 

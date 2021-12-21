@@ -31,7 +31,7 @@
       "updatedOn": "Updated On",
       "updatedBy": "Updated By",
       "hub": "Hub",
-      "actor": "Actor"
+      "user": "User"
     }
   }
 }

@@ -8,7 +8,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link RemittanceDetails} and its DTO {@link RemittanceDetailsDTO}.
  */
-@Mapper(componentModel = "spring", uses = { ActorMapper.class })
+@Mapper(componentModel = "spring", uses = { UserMapper.class })
 public interface RemittanceDetailsMapper extends EntityMapper<RemittanceDetailsDTO, RemittanceDetails> {
     @Mapping(target = "farmer", source = "farmer", qualifiedByName = "id")
     RemittanceDetailsDTO toDto(RemittanceDetails s);

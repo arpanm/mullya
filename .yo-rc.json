@@ -46,7 +46,6 @@
     "gradleEnterpriseHost": "",
     "applicationIndex": 0,
     "entities": [
-      "Actor",
       "Requirement",
       "OTP",
       "OTPAttempt",

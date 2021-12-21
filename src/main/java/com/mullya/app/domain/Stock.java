@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -43,12 +44,14 @@ public class Stock implements Serializable {
     @Column(name = "description")
     private String description;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "stock_status")
-    private StockStatus stockStatus;
+    private StockStatus stockStatus = StockStatus.New;
 
+    @NotNull
     @Column(name = "is_open_for_bidding")
-    private Boolean isOpenForBidding;
+    private Boolean isOpenForBidding = false;
 
     @Column(name = "created_on")
     private LocalDate createdOn;
@@ -73,7 +76,7 @@ public class Stock implements Serializable {
     private Set<Order> orders = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "hub", "actor" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "hub", "user" }, allowSetters = true)
     private Address farmerAddress;
 
     @ManyToOne
@@ -81,7 +84,7 @@ public class Stock implements Serializable {
         value = { "requirements", "oTPS", "addresses", "stocks", "bids", "orders", "remittanceDetails" },
         allowSetters = true
     )
-    private Actor farmer;
+    private User farmer;
 
     @ManyToOne
     @JsonIgnoreProperties(
@@ -234,7 +237,9 @@ public class Stock implements Serializable {
     }
 
     public void setStockStatus(StockStatus stockStatus) {
-        this.stockStatus = stockStatus;
+        if (stockStatus != null) {
+            this.stockStatus = stockStatus;
+        }
     }
 
     public Boolean getIsOpenForBidding() {
@@ -377,16 +382,16 @@ public class Stock implements Serializable {
         return this;
     }
 
-    public Actor getFarmer() {
+    public User getFarmer() {
         return this.farmer;
     }
 
-    public void setFarmer(Actor actor) {
-        this.farmer = actor;
+    public void setFarmer(User user) {
+        this.farmer = user;
     }
 
-    public Stock farmer(Actor actor) {
-        this.setFarmer(actor);
+    public Stock farmer(User user) {
+        this.setFarmer(user);
         return this;
     }
 

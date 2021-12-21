@@ -1,0 +1,48 @@
+{
+  "mulyaaApp": {
+    "user": {
+      "home": {
+        "title": "Users",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new User",
+        "createOrEditLabel": "Create or edit a User",
+        "notFound": "No Users found"
+      },
+      "created": "A new User is created with identifier {{ param }}",
+      "updated": "A User is updated with identifier {{ param }}",
+      "deleted": "A User is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete User {{ id }}?"
+      },
+      "detail": {
+        "title": "User"
+      },
+      "id": "id",
+      "login": "Login",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "isEmailVerified": "Is Email Verified",
+      "isPhoneVerified": "Is Phone Verified",
+      "isActive": "Is Active",
+      "password": "Password",
+      "type": "Type",
+      "activated": "Activated",
+      "deactivated": "Deactivated",
+      "profiles": "Profiles",
+      "langKey": "Language",
+      "createdBy": "Created by",
+      "createdDate": "Created date",
+      "lastModifiedBy": "Modified by",
+      "lastModifiedDate": "Modified date",
+      "requirement": "Requirement",
+      "oTP": "O TP",
+      "address": "Address",
+      "stock": "Stock",
+      "bids": "Bids",
+      "order": "Order",
+      "remittanceDetails": "Remittance Details"
+    }
+  }
+}

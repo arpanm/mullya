@@ -67,7 +67,7 @@ public class Address implements Serializable {
         value = { "requirements", "oTPS", "addresses", "stocks", "bids", "orders", "remittanceDetails" },
         allowSetters = true
     )
-    private Actor actor;
+    private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -253,16 +253,16 @@ public class Address implements Serializable {
         return this;
     }
 
-    public Actor getActor() {
-        return this.actor;
+    public User getUser() {
+        return this.user;
     }
 
-    public void setActor(Actor actor) {
-        this.actor = actor;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Address actor(Actor actor) {
-        this.setActor(actor);
+    public Address user(User user) {
+        this.setUser(user);
         return this;
     }
 

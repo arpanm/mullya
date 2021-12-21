@@ -90,9 +90,9 @@ export const OTPDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dt>
           <dd>{oTPEntity.updatedBy}</dd>
           <dt>
-            <Translate contentKey="mulyaaApp.oTP.actor">Actor</Translate>
+            <Translate contentKey="mulyaaApp.oTP.user">User</Translate>
           </dt>
-          <dd>{oTPEntity.actor ? oTPEntity.actor.id : ''}</dd>
+          <dd>{oTPEntity.user ? oTPEntity.user.id : ''}</dd>
         </dl>
         <Button tag={Link} to="/otp" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

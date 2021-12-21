@@ -10,8 +10,8 @@ import { IRequirement } from 'app/shared/model/requirement.model';
 import { getEntities as getRequirements } from 'app/entities/requirement/requirement.reducer';
 import { IBids } from 'app/shared/model/bids.model';
 import { getEntities as getBids } from 'app/entities/bids/bids.reducer';
-import { IActor } from 'app/shared/model/actor.model';
-import { getEntities as getActors } from 'app/entities/actor/actor.reducer';
+import { IUser } from 'app/shared/model/user.model';
+import { getEntities as getUsers } from 'app/entities/user/user.reducer';
 import { IStock } from 'app/shared/model/stock.model';
 import { getEntities as getStocks } from 'app/entities/stock/stock.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './order.reducer';
@@ -29,7 +29,7 @@ export const OrderUpdate = (props: RouteComponentProps<{ id: string }>) => {
   const remittanceDetails = useAppSelector(state => state.remittanceDetails.entities);
   const requirements = useAppSelector(state => state.requirement.entities);
   const bids = useAppSelector(state => state.bids.entities);
-  const actors = useAppSelector(state => state.actor.entities);
+  const users = useAppSelector(state => state.user.entities);
   const stocks = useAppSelector(state => state.stock.entities);
   const orderEntity = useAppSelector(state => state.order.entity);
   const loading = useAppSelector(state => state.order.loading);
@@ -48,7 +48,7 @@ export const OrderUpdate = (props: RouteComponentProps<{ id: string }>) => {
     dispatch(getRemittanceDetails({}));
     dispatch(getRequirements({}));
     dispatch(getBids({}));
-    dispatch(getActors({}));
+    dispatch(getUsers({}));
     dispatch(getStocks({}));
   }, []);
 
@@ -65,7 +65,7 @@ export const OrderUpdate = (props: RouteComponentProps<{ id: string }>) => {
       remittances: mapIdList(values.remittances),
       requirement: requirements.find(it => it.id.toString() === values.requirement.toString()),
       bid: bids.find(it => it.id.toString() === values.bid.toString()),
-      assignedAgent: actors.find(it => it.id.toString() === values.assignedAgent.toString()),
+      assignedAgent: users.find(it => it.id.toString() === values.assignedAgent.toString()),
       stock: stocks.find(it => it.id.toString() === values.stock.toString()),
     };
 
@@ -235,8 +235,8 @@ export const OrderUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 type="select"
               >
                 <option value="" key="0" />
-                {actors
-                  ? actors.map(otherEntity => (
+                {users
+                  ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

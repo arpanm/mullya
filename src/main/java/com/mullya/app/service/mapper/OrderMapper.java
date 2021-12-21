@@ -10,7 +10,7 @@ import org.mapstruct.*;
  */
 @Mapper(
     componentModel = "spring",
-    uses = { RemittanceDetailsMapper.class, RequirementMapper.class, BidsMapper.class, ActorMapper.class, StockMapper.class }
+    uses = { RemittanceDetailsMapper.class, RequirementMapper.class, BidsMapper.class, UserMapper.class, StockMapper.class }
 )
 public interface OrderMapper extends EntityMapper<OrderDTO, Order> {
     @Mapping(target = "remittances", source = "remittances", qualifiedByName = "idSet")

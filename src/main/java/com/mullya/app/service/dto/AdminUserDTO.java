@@ -1,9 +1,12 @@
 package com.mullya.app.service.dto;
 
 import com.mullya.app.config.Constants;
+import com.mullya.app.domain.Address;
 import com.mullya.app.domain.Authority;
 import com.mullya.app.domain.User;
+import com.mullya.app.domain.enumeration.ActorType;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.validation.constraints.*;
@@ -28,6 +31,7 @@ public class AdminUserDTO {
 
     @Email
     @Size(min = 5, max = 254)
+    @Pattern(regexp = "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$")
     private String email;
 
     @Size(max = 256)
@@ -48,6 +52,18 @@ public class AdminUserDTO {
 
     private Set<String> authorities;
 
+    @Min(value = 1000000000L)
+    @Max(value = 9999999999L)
+    private Long phone;
+
+    private Boolean isEmailVerified;
+
+    private Boolean isPhoneVerified;
+
+    private Boolean isActive;
+
+    private ActorType type;
+
     public AdminUserDTO() {
         // Empty constructor needed for Jackson.
     }
@@ -61,6 +77,11 @@ public class AdminUserDTO {
         this.activated = user.isActivated();
         this.imageUrl = user.getImageUrl();
         this.langKey = user.getLangKey();
+        this.phone = user.getPhone();
+        this.isEmailVerified = user.getIsEmailVerified();
+        this.isPhoneVerified = user.getIsPhoneVerified();
+        this.isActive = user.getIsActive();
+        this.type = user.getType();
         this.createdBy = user.getCreatedBy();
         this.createdDate = user.getCreatedDate();
         this.lastModifiedBy = user.getLastModifiedBy();
@@ -172,6 +193,46 @@ public class AdminUserDTO {
         this.authorities = authorities;
     }
 
+    public Long getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Long phone) {
+        this.phone = phone;
+    }
+
+    public Boolean getIsEmailVerified() {
+        return isEmailVerified;
+    }
+
+    public void setIsEmailVerified(Boolean isEmailVerified) {
+        this.isEmailVerified = isEmailVerified;
+    }
+
+    public Boolean getIsPhoneVerified() {
+        return isPhoneVerified;
+    }
+
+    public void setIsPhoneVerified(Boolean isPhoneVerified) {
+        this.isPhoneVerified = isPhoneVerified;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
+
+    public ActorType getType() {
+        return type;
+    }
+
+    public void setType(ActorType type) {
+        this.type = type;
+    }
+
     // prettier-ignore
     @Override
     public String toString() {
@@ -183,6 +244,11 @@ public class AdminUserDTO {
             ", imageUrl='" + imageUrl + '\'' +
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +
+            ", phone=" + getPhone() +
+            ", isEmailVerified='" + getIsEmailVerified() + "'" +
+            ", isPhoneVerified='" + getIsPhoneVerified() + "'" +
+            ", isActive='" + getIsActive() + "'" +
+            ", type='" + getType() + "'" +
             ", createdBy=" + createdBy +
             ", createdDate=" + createdDate +
             ", lastModifiedBy='" + lastModifiedBy + '\'' +

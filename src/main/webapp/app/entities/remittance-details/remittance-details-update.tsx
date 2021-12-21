@@ -4,8 +4,8 @@ import { Button, Row, Col, FormText } from 'reactstrap';
 import { isNumber, Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { IActor } from 'app/shared/model/actor.model';
-import { getEntities as getActors } from 'app/entities/actor/actor.reducer';
+import { IUser } from 'app/shared/model/user.model';
+import { getEntities as getUsers } from 'app/entities/user/user.reducer';
 import { IOrder } from 'app/shared/model/order.model';
 import { getEntities as getOrders } from 'app/entities/order/order.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './remittance-details.reducer';
@@ -22,7 +22,7 @@ export const RemittanceDetailsUpdate = (props: RouteComponentProps<{ id: string 
 
   const [isNew] = useState(!props.match.params || !props.match.params.id);
 
-  const actors = useAppSelector(state => state.actor.entities);
+  const users = useAppSelector(state => state.user.entities);
   const orders = useAppSelector(state => state.order.entities);
   const remittanceDetailsEntity = useAppSelector(state => state.remittanceDetails.entity);
   const loading = useAppSelector(state => state.remittanceDetails.loading);
@@ -40,7 +40,7 @@ export const RemittanceDetailsUpdate = (props: RouteComponentProps<{ id: string 
       dispatch(getEntity(props.match.params.id));
     }
 
-    dispatch(getActors({}));
+    dispatch(getUsers({}));
     dispatch(getOrders({}));
   }, []);
 
@@ -54,7 +54,7 @@ export const RemittanceDetailsUpdate = (props: RouteComponentProps<{ id: string 
     const entity = {
       ...remittanceDetailsEntity,
       ...values,
-      farmer: actors.find(it => it.id.toString() === values.farmer.toString()),
+      farmer: users.find(it => it.id.toString() === values.farmer.toString()),
     };
 
     if (isNew) {
@@ -238,8 +238,8 @@ export const RemittanceDetailsUpdate = (props: RouteComponentProps<{ id: string 
                 type="select"
               >
                 <option value="" key="0" />
-                {actors
-                  ? actors.map(otherEntity => (
+                {users
+                  ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

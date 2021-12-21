@@ -30,7 +30,7 @@ public class BidsDTO implements Serializable {
 
     private BiddingDetailsDTO biddingDetails;
 
-    private ActorDTO buyer;
+    private UserDTO buyer;
 
     public Long getId() {
         return id;
@@ -112,11 +112,11 @@ public class BidsDTO implements Serializable {
         this.biddingDetails = biddingDetails;
     }
 
-    public ActorDTO getBuyer() {
+    public UserDTO getBuyer() {
         return buyer;
     }
 
-    public void setBuyer(ActorDTO buyer) {
+    public void setBuyer(UserDTO buyer) {
         this.buyer = buyer;
     }
 

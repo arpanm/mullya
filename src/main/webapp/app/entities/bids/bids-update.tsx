@@ -8,8 +8,8 @@ import { IAddress } from 'app/shared/model/address.model';
 import { getEntities as getAddresses } from 'app/entities/address/address.reducer';
 import { IBiddingDetails } from 'app/shared/model/bidding-details.model';
 import { getEntities as getBiddingDetails } from 'app/entities/bidding-details/bidding-details.reducer';
-import { IActor } from 'app/shared/model/actor.model';
-import { getEntities as getActors } from 'app/entities/actor/actor.reducer';
+import { IUser } from 'app/shared/model/user.model';
+import { getEntities as getUsers } from 'app/entities/user/user.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './bids.reducer';
 import { IBids } from 'app/shared/model/bids.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
@@ -24,7 +24,7 @@ export const BidsUpdate = (props: RouteComponentProps<{ id: string }>) => {
 
   const addresses = useAppSelector(state => state.address.entities);
   const biddingDetails = useAppSelector(state => state.biddingDetails.entities);
-  const actors = useAppSelector(state => state.actor.entities);
+  const users = useAppSelector(state => state.user.entities);
   const bidsEntity = useAppSelector(state => state.bids.entity);
   const loading = useAppSelector(state => state.bids.loading);
   const updating = useAppSelector(state => state.bids.updating);
@@ -41,7 +41,7 @@ export const BidsUpdate = (props: RouteComponentProps<{ id: string }>) => {
 
     dispatch(getAddresses({}));
     dispatch(getBiddingDetails({}));
-    dispatch(getActors({}));
+    dispatch(getUsers({}));
   }, []);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export const BidsUpdate = (props: RouteComponentProps<{ id: string }>) => {
       ...values,
       buyerAddress: addresses.find(it => it.id.toString() === values.buyerAddress.toString()),
       biddingDetails: biddingDetails.find(it => it.id.toString() === values.biddingDetails.toString()),
-      buyer: actors.find(it => it.id.toString() === values.buyer.toString()),
+      buyer: users.find(it => it.id.toString() === values.buyer.toString()),
     };
 
     if (isNew) {
@@ -191,8 +191,8 @@ export const BidsUpdate = (props: RouteComponentProps<{ id: string }>) => {
               </ValidatedField>
               <ValidatedField id="bids-buyer" name="buyer" data-cy="buyer" label={translate('mulyaaApp.bids.buyer')} type="select">
                 <option value="" key="0" />
-                {actors
-                  ? actors.map(otherEntity => (
+                {users
+                  ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

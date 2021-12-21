@@ -3,6 +3,7 @@ package com.mullya.app.domain;
 import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -42,8 +43,9 @@ public class Banner implements Serializable {
     @Column(name = "mobile_html")
     private String mobileHtml;
 
+    @NotNull
     @Column(name = "is_active")
-    private Boolean isActive;
+    private Boolean isActive = false;
 
     @Column(name = "start_date")
     private String startDate;
@@ -179,7 +181,9 @@ public class Banner implements Serializable {
     }
 
     public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
+        if (isActive != null) {
+            this.isActive = isActive;
+        }
     }
 
     public String getStartDate() {

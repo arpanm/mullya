@@ -7,7 +7,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link Stock} and its DTO {@link StockDTO}.
  */
-@Mapper(componentModel = "spring", uses = { AddressMapper.class, ActorMapper.class, CatalogueMapper.class })
+@Mapper(componentModel = "spring", uses = { AddressMapper.class, UserMapper.class, CatalogueMapper.class })
 public interface StockMapper extends EntityMapper<StockDTO, Stock> {
     @Mapping(target = "farmerAddress", source = "farmerAddress", qualifiedByName = "id")
     @Mapping(target = "farmer", source = "farmer", qualifiedByName = "id")

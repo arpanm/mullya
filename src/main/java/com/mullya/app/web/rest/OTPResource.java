@@ -1,6 +1,8 @@
 package com.mullya.app.web.rest;
 
+import com.mullya.app.domain.User;
 import com.mullya.app.repository.OTPRepository;
+import com.mullya.app.service.MailService;
 import com.mullya.app.service.OTPService;
 import com.mullya.app.service.dto.OTPDTO;
 import com.mullya.app.web.rest.errors.BadRequestAlertException;
@@ -41,9 +43,12 @@ public class OTPResource {
 
     private final OTPRepository oTPRepository;
 
-    public OTPResource(OTPService oTPService, OTPRepository oTPRepository) {
+    private final MailService mailService;
+
+    public OTPResource(OTPService oTPService, OTPRepository oTPRepository, MailService mailService) {
         this.oTPService = oTPService;
         this.oTPRepository = oTPRepository;
+        this.mailService = mailService;
     }
 
     /**
@@ -56,14 +61,17 @@ public class OTPResource {
     @PostMapping("/otps")
     public ResponseEntity<OTPDTO> createOTP(@RequestBody OTPDTO oTPDTO) throws URISyntaxException {
         log.debug("REST request to save OTP : {}", oTPDTO);
-        if (oTPDTO.getId() != null) {
+        if (oTPDTO.getId() != null && oTPDTO.getId() > 0) {
             throw new BadRequestAlertException("A new oTP cannot already have an ID", ENTITY_NAME, "idexists");
         }
+        oTPDTO.setId(null);
         OTPDTO result = oTPService.save(oTPDTO);
+        mailService.sendOTPMail(result);
+        oTPDTO.setId(result.getId());
         return ResponseEntity
             .created(new URI("/api/otps/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
-            .body(result);
+            .body(oTPDTO);
     }
 
     /**

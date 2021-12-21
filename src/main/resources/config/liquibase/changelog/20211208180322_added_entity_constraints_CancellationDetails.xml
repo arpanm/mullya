@@ -18,12 +18,12 @@
                                  baseTableName="cancellation_details"
                                  constraintName="fk_cancellation_details__approver_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="actor"/>
+                                 referencedTableName="jhi_user"/>
 
         <addForeignKeyConstraint baseColumnNames="initiator_id"
                                  baseTableName="cancellation_details"
                                  constraintName="fk_cancellation_details__initiator_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="actor"/>
+                                 referencedTableName="jhi_user"/>
     </changeSet>
 </databaseChangeLog>

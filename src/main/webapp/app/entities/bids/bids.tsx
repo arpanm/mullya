@@ -179,7 +179,7 @@ export const Bids = (props: RouteComponentProps<{ url: string }>) => {
                     <td>
                       {bids.biddingDetails ? <Link to={`bidding-details/${bids.biddingDetails.id}`}>{bids.biddingDetails.id}</Link> : ''}
                     </td>
-                    <td>{bids.buyer ? <Link to={`actor/${bids.buyer.id}`}>{bids.buyer.id}</Link> : ''}</td>
+                    <td>{bids.buyer ? <Link to={`user/${bids.buyer.id}`}>{bids.buyer.id}</Link> : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`${match.url}/${bids.id}`} color="info" size="sm" data-cy="entityDetailsButton">

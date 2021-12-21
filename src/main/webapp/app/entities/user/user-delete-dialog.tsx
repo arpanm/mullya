@@ -5,9 +5,9 @@ import { Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useAppDispatch, useAppSelector } from 'app/config/store';
-import { getEntity, deleteEntity } from './actor.reducer';
+import { getEntity, deleteEntity } from './user.reducer';
 
-export const ActorDeleteDialog = (props: RouteComponentProps<{ id: string }>) => {
+export const UserDeleteDialog = (props: RouteComponentProps<{ id: string }>) => {
   const [loadModal, setLoadModal] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -16,11 +16,11 @@ export const ActorDeleteDialog = (props: RouteComponentProps<{ id: string }>) =>
     setLoadModal(true);
   }, []);
 
-  const actorEntity = useAppSelector(state => state.actor.entity);
-  const updateSuccess = useAppSelector(state => state.actor.updateSuccess);
+  const userEntity = useAppSelector(state => state.user.entity);
+  const updateSuccess = useAppSelector(state => state.user.updateSuccess);
 
   const handleClose = () => {
-    props.history.push('/actor');
+    props.history.push('/user');
   };
 
   useEffect(() => {
@@ -31,17 +31,17 @@ export const ActorDeleteDialog = (props: RouteComponentProps<{ id: string }>) =>
   }, [updateSuccess]);
 
   const confirmDelete = () => {
-    dispatch(deleteEntity(actorEntity.id));
+    dispatch(deleteEntity(userEntity.id));
   };
 
   return (
     <Modal isOpen toggle={handleClose}>
-      <ModalHeader toggle={handleClose} data-cy="actorDeleteDialogHeading">
+      <ModalHeader toggle={handleClose} data-cy="userDeleteDialogHeading">
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
-      <ModalBody id="mulyaaApp.actor.delete.question">
-        <Translate contentKey="mulyaaApp.actor.delete.question" interpolate={{ id: actorEntity.id }}>
-          Are you sure you want to delete this Actor?
+      <ModalBody id="mulyaaApp.user.delete.question">
+        <Translate contentKey="mulyaaApp.user.delete.question" interpolate={{ id: userEntity.id }}>
+          Are you sure you want to delete this User?
         </Translate>
       </ModalBody>
       <ModalFooter>
@@ -50,7 +50,7 @@ export const ActorDeleteDialog = (props: RouteComponentProps<{ id: string }>) =>
           &nbsp;
           <Translate contentKey="entity.action.cancel">Cancel</Translate>
         </Button>
-        <Button id="jhi-confirm-delete-actor" data-cy="entityConfirmDeleteButton" color="danger" onClick={confirmDelete}>
+        <Button id="jhi-confirm-delete-user" data-cy="entityConfirmDeleteButton" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp;
           <Translate contentKey="entity.action.delete">Delete</Translate>
@@ -60,4 +60,4 @@ export const ActorDeleteDialog = (props: RouteComponentProps<{ id: string }>) =>
   );
 };
 
-export default ActorDeleteDialog;
+export default UserDeleteDialog;

@@ -3,7 +3,7 @@ import { IPaymentDetails } from 'app/shared/model/payment-details.model';
 import { IRemittanceDetails } from 'app/shared/model/remittance-details.model';
 import { IRequirement } from 'app/shared/model/requirement.model';
 import { IBids } from 'app/shared/model/bids.model';
-import { IActor } from 'app/shared/model/actor.model';
+import { IUser } from 'app/shared/model/user.model';
 import { IStock } from 'app/shared/model/stock.model';
 import { OrderStatus } from 'app/shared/model/enumerations/order-status.model';
 
@@ -23,7 +23,7 @@ export interface IOrder {
   remittances?: IRemittanceDetails[] | null;
   requirement?: IRequirement | null;
   bid?: IBids | null;
-  assignedAgent?: IActor | null;
+  assignedAgent?: IUser | null;
   stock?: IStock | null;
 }
 

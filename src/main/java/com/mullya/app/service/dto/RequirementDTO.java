@@ -34,7 +34,7 @@ public class RequirementDTO implements Serializable {
 
     private AddressDTO buyerAddress;
 
-    private ActorDTO buyerActor;
+    private UserDTO buyerUser;
 
     private CatalogueDTO category;
 
@@ -138,12 +138,12 @@ public class RequirementDTO implements Serializable {
         this.buyerAddress = buyerAddress;
     }
 
-    public ActorDTO getBuyerActor() {
-        return buyerActor;
+    public UserDTO getBuyerUser() {
+        return buyerUser;
     }
 
-    public void setBuyerActor(ActorDTO buyerActor) {
-        this.buyerActor = buyerActor;
+    public void setBuyerUser(UserDTO buyerUser) {
+        this.buyerUser = buyerUser;
     }
 
     public CatalogueDTO getCategory() {
@@ -207,7 +207,7 @@ public class RequirementDTO implements Serializable {
             ", updatedBy='" + getUpdatedBy() + "'" +
             ", status='" + getStatus() + "'" +
             ", buyerAddress=" + getBuyerAddress() +
-            ", buyerActor=" + getBuyerActor() +
+            ", buyerUser=" + getBuyerUser() +
             ", category=" + getCategory() +
             ", variant=" + getVariant() +
             ", subVariant=" + getSubVariant() +

@@ -35,9 +35,9 @@ public class CancellationDetailsDTO implements Serializable {
 
     private OrderDTO order;
 
-    private ActorDTO approver;
+    private UserDTO approver;
 
-    private ActorDTO initiator;
+    private UserDTO initiator;
 
     public Long getId() {
         return id;
@@ -135,19 +135,19 @@ public class CancellationDetailsDTO implements Serializable {
         this.order = order;
     }
 
-    public ActorDTO getApprover() {
+    public UserDTO getApprover() {
         return approver;
     }
 
-    public void setApprover(ActorDTO approver) {
+    public void setApprover(UserDTO approver) {
         this.approver = approver;
     }
 
-    public ActorDTO getInitiator() {
+    public UserDTO getInitiator() {
         return initiator;
     }
 
-    public void setInitiator(ActorDTO initiator) {
+    public void setInitiator(UserDTO initiator) {
         this.initiator = initiator;
     }
 

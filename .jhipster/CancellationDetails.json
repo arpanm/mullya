@@ -54,14 +54,14 @@
     },
     {
       "relationshipType": "one-to-one",
-      "otherEntityName": "actor",
+      "otherEntityName": "user",
       "otherEntityRelationshipName": "cancellationDetails",
       "relationshipName": "approver",
       "ownerSide": true
     },
     {
       "relationshipType": "one-to-one",
-      "otherEntityName": "actor",
+      "otherEntityName": "user",
       "otherEntityRelationshipName": "cancellationDetails",
       "relationshipName": "initiator",
       "ownerSide": true

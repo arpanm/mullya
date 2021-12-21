@@ -52,7 +52,7 @@
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "actor",
+      "otherEntityName": "user",
       "otherEntityRelationshipName": "bids",
       "relationshipName": "buyer"
     }

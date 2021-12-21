@@ -94,17 +94,17 @@ public class Catalogue implements Serializable {
 
     @OneToMany(mappedBy = "category")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "orders", "buyerAddress", "buyerActor", "category", "variant", "subVariant" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "orders", "buyerAddress", "buyerUser", "category", "variant", "subVariant" }, allowSetters = true)
     private Set<Requirement> categoryRequirements = new HashSet<>();
 
     @OneToMany(mappedBy = "variant")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "orders", "buyerAddress", "buyerActor", "category", "variant", "subVariant" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "orders", "buyerAddress", "buyerUser", "category", "variant", "subVariant" }, allowSetters = true)
     private Set<Requirement> variantRequirements = new HashSet<>();
 
     @OneToMany(mappedBy = "subVariant")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "orders", "buyerAddress", "buyerActor", "category", "variant", "subVariant" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "orders", "buyerAddress", "buyerUser", "category", "variant", "subVariant" }, allowSetters = true)
     private Set<Requirement> subVariantRequirements = new HashSet<>();
 
     @ManyToOne

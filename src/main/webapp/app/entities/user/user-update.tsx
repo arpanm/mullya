@@ -4,25 +4,25 @@ import { Button, Row, Col, FormText } from 'reactstrap';
 import { isNumber, Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { getEntity, updateEntity, createEntity, reset } from './actor.reducer';
-import { IActor } from 'app/shared/model/actor.model';
+import { getEntity, updateEntity, createEntity, reset } from './user.reducer';
+import { IUser } from 'app/shared/model/user.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { ActorType } from 'app/shared/model/enumerations/actor-type.model';
 
-export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
+export const UserUpdate = (props: RouteComponentProps<{ id: string }>) => {
   const dispatch = useAppDispatch();
 
   const [isNew] = useState(!props.match.params || !props.match.params.id);
 
-  const actorEntity = useAppSelector(state => state.actor.entity);
-  const loading = useAppSelector(state => state.actor.loading);
-  const updating = useAppSelector(state => state.actor.updating);
-  const updateSuccess = useAppSelector(state => state.actor.updateSuccess);
+  const userEntity = useAppSelector(state => state.user.entity);
+  const loading = useAppSelector(state => state.user.loading);
+  const updating = useAppSelector(state => state.user.updating);
+  const updateSuccess = useAppSelector(state => state.user.updateSuccess);
   const actorTypeValues = Object.keys(ActorType);
   const handleClose = () => {
-    props.history.push('/actor');
+    props.history.push('/user');
   };
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
 
   const saveEntity = values => {
     const entity = {
-      ...actorEntity,
+      ...userEntity,
       ...values,
     };
 
@@ -55,15 +55,15 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
       ? {}
       : {
           type: 'Buyer',
-          ...actorEntity,
+          ...userEntity,
         };
 
   return (
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="mulyaaApp.actor.home.createOrEditLabel" data-cy="ActorCreateUpdateHeading">
-            <Translate contentKey="mulyaaApp.actor.home.createOrEditLabel">Create or edit a Actor</Translate>
+          <h2 id="mulyaaApp.user.home.createOrEditLabel" data-cy="UserCreateUpdateHeading">
+            <Translate contentKey="mulyaaApp.user.home.createOrEditLabel">Create or edit a User</Translate>
           </h2>
         </Col>
       </Row>
@@ -78,14 +78,14 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
                   name="id"
                   required
                   readOnly
-                  id="actor-id"
+                  id="user-id"
                   label={translate('global.field.id')}
                   validate={{ required: true }}
                 />
               ) : null}
               <ValidatedField
-                label={translate('mulyaaApp.actor.email')}
-                id="actor-email"
+                label={translate('mulyaaApp.user.email')}
+                id="user-email"
                 name="email"
                 data-cy="email"
                 type="text"
@@ -97,8 +97,8 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 }}
               />
               <ValidatedField
-                label={translate('mulyaaApp.actor.phone')}
-                id="actor-phone"
+                label={translate('mulyaaApp.user.phone')}
+                id="user-phone"
                 name="phone"
                 data-cy="phone"
                 type="text"
@@ -109,37 +109,37 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 }}
               />
               <ValidatedField
-                label={translate('mulyaaApp.actor.isEmailVerified')}
-                id="actor-isEmailVerified"
+                label={translate('mulyaaApp.user.isEmailVerified')}
+                id="user-isEmailVerified"
                 name="isEmailVerified"
                 data-cy="isEmailVerified"
                 check
                 type="checkbox"
               />
               <ValidatedField
-                label={translate('mulyaaApp.actor.isPhoneVerified')}
-                id="actor-isPhoneVerified"
+                label={translate('mulyaaApp.user.isPhoneVerified')}
+                id="user-isPhoneVerified"
                 name="isPhoneVerified"
                 data-cy="isPhoneVerified"
                 check
                 type="checkbox"
               />
               <ValidatedField
-                label={translate('mulyaaApp.actor.isActive')}
-                id="actor-isActive"
+                label={translate('mulyaaApp.user.isActive')}
+                id="user-isActive"
                 name="isActive"
                 data-cy="isActive"
                 check
                 type="checkbox"
               />
               <ValidatedField
-                label={translate('mulyaaApp.actor.password')}
-                id="actor-password"
+                label={translate('mulyaaApp.user.password')}
+                id="user-password"
                 name="password"
                 data-cy="password"
                 type="text"
               />
-              <ValidatedField label={translate('mulyaaApp.actor.type')} id="actor-type" name="type" data-cy="type" type="select">
+              <ValidatedField label={translate('mulyaaApp.user.type')} id="user-type" name="type" data-cy="type" type="select">
                 {actorTypeValues.map(actorType => (
                   <option value={actorType} key={actorType}>
                     {translate('mulyaaApp.ActorType.' + actorType)}
@@ -147,34 +147,34 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mulyaaApp.actor.createdOn')}
-                id="actor-createdOn"
-                name="createdOn"
-                data-cy="createdOn"
+                label={translate('mulyaaApp.user.createdDate')}
+                id="user-createdDate"
+                name="createdDate"
+                data-cy="createdDate"
                 type="date"
               />
               <ValidatedField
-                label={translate('mulyaaApp.actor.createdBy')}
-                id="actor-createdBy"
+                label={translate('mulyaaApp.user.createdBy')}
+                id="user-createdBy"
                 name="createdBy"
                 data-cy="createdBy"
                 type="text"
               />
               <ValidatedField
-                label={translate('mulyaaApp.actor.updatedOn')}
-                id="actor-updatedOn"
-                name="updatedOn"
-                data-cy="updatedOn"
+                label={translate('mulyaaApp.user.lastModifiedDate')}
+                id="user-lastModifiedDate"
+                name="lastModifiedDate"
+                data-cy="lastModifiedDate"
                 type="date"
               />
               <ValidatedField
-                label={translate('mulyaaApp.actor.updatedBy')}
-                id="actor-updatedBy"
-                name="updatedBy"
-                data-cy="updatedBy"
+                label={translate('mulyaaApp.user.lastModifiedBy')}
+                id="user-lastModifiedBy"
+                name="lastModifiedBy"
+                data-cy="lastModifiedBy"
                 type="text"
               />
-              <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/actor" replace color="info">
+              <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/user" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
@@ -195,4 +195,4 @@ export const ActorUpdate = (props: RouteComponentProps<{ id: string }>) => {
   );
 };
 
-export default ActorUpdate;
+export default UserUpdate;

@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { IOrder } from 'app/shared/model/order.model';
 import { IAddress } from 'app/shared/model/address.model';
-import { IActor } from 'app/shared/model/actor.model';
+import { IUser } from 'app/shared/model/user.model';
 import { ICatalogue } from 'app/shared/model/catalogue.model';
 import { RequirementStatus } from 'app/shared/model/enumerations/requirement-status.model';
 
@@ -19,7 +19,7 @@ export interface IRequirement {
   status?: RequirementStatus | null;
   orders?: IOrder[] | null;
   buyerAddress?: IAddress | null;
-  buyerActor?: IActor | null;
+  buyerUser?: IUser | null;
   category?: ICatalogue | null;
   variant?: ICatalogue | null;
   subVariant?: ICatalogue | null;

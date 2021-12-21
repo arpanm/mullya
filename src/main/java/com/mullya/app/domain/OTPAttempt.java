@@ -23,7 +23,7 @@ public class OTPAttempt implements Serializable {
     private Long id;
 
     @Column(name = "otp_val")
-    private Integer otpVal;
+    private String otpVal;
 
     @Column(name = "email")
     private String email;
@@ -44,7 +44,7 @@ public class OTPAttempt implements Serializable {
     private String createdBy;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "oTPAttempts", "actor" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "oTPAttempts", "user" }, allowSetters = true)
     private OTP otp;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -62,16 +62,16 @@ public class OTPAttempt implements Serializable {
         this.id = id;
     }
 
-    public Integer getOtpVal() {
+    public String getOtpVal() {
         return this.otpVal;
     }
 
-    public OTPAttempt otpVal(Integer otpVal) {
+    public OTPAttempt otpVal(String otpVal) {
         this.setOtpVal(otpVal);
         return this;
     }
 
-    public void setOtpVal(Integer otpVal) {
+    public void setOtpVal(String otpVal) {
         this.otpVal = otpVal;
     }
 

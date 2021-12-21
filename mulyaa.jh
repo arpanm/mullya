@@ -19,20 +19,6 @@ application {
   service all with serviceImpl
 }
 
-entity Actor {
-  	email String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/),
-  	phone Long min(1000000000) max(9999999999),
-  	isEmailVerified Boolean,
-  	isPhoneVerified Boolean,
-  	isActive Boolean,
-  	password String,
-  	type ActorType
-  	createdOn LocalDate,
-  	createdBy String,
-  	updatedOn LocalDate,
-  	updatedBy String
-}
-
 enum ActorType {
 	Buyer,
     Farmer,
@@ -64,7 +50,7 @@ enum RequirementStatus {
 }
 
 relationship OneToMany {
-  	Actor to Requirement{buyerActor}
+  	User to Requirement{buyerUser}
 }
 
 entity OTP {
@@ -107,7 +93,7 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
-	Actor to OTP{actor}
+	User to OTP{user}
 }
 
 entity Address {
@@ -131,7 +117,7 @@ relationship ManyToOne {
 }
 
 relationship OneToMany {
-	Actor to Address{actor}
+	User to Address{user}
 }
 
 entity Stock {
@@ -157,7 +143,7 @@ enum StockStatus {
 }
 
 relationship OneToMany {
-	Actor to Stock{farmer}
+	User to Stock{farmer}
 }
 
 relationship ManyToOne {
@@ -218,7 +204,7 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
-	Actor to Bids{buyer}
+	User to Bids{buyer}
 }
 
 relationship ManyToOne {
@@ -259,7 +245,7 @@ relationship OneToMany {
 }
 
 relationship OneToMany {
-  	Actor to Order{assignedAgent}
+  	User to Order{assignedAgent}
 }
 
 relationship OneToMany {
@@ -350,11 +336,11 @@ relationship OneToMany {
 }
 
 relationship OneToOne {
-	CancellationDetails{approver} to Actor
+	CancellationDetails{approver} to User
 }
 
 relationship OneToOne {
-	CancellationDetails{initiator} to Actor
+	CancellationDetails{initiator} to User
 }
 
 entity PaymentDetails {
@@ -427,7 +413,7 @@ relationship ManyToMany {
 }
 
 relationship OneToMany {
-	Actor to RemittanceDetails{farmer}
+	User to RemittanceDetails{farmer}
 }
 
 entity Hub {

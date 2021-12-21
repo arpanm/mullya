@@ -202,7 +202,7 @@ export const Stock = (props: RouteComponentProps<{ url: string }>) => {
                     <td>{stock.updatedOn ? <TextFormat type="date" value={stock.updatedOn} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                     <td>{stock.updatedBy}</td>
                     <td>{stock.farmerAddress ? <Link to={`address/${stock.farmerAddress.id}`}>{stock.farmerAddress.id}</Link> : ''}</td>
-                    <td>{stock.farmer ? <Link to={`actor/${stock.farmer.id}`}>{stock.farmer.id}</Link> : ''}</td>
+                    <td>{stock.farmer ? <Link to={`user/${stock.farmer.id}`}>{stock.farmer.id}</Link> : ''}</td>
                     <td>{stock.category ? <Link to={`catalogue/${stock.category.id}`}>{stock.category.id}</Link> : ''}</td>
                     <td>{stock.variant ? <Link to={`catalogue/${stock.variant.id}`}>{stock.variant.id}</Link> : ''}</td>
                     <td>{stock.subVariant ? <Link to={`catalogue/${stock.subVariant.id}`}>{stock.subVariant.id}</Link> : ''}</td>

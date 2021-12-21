@@ -12,8 +12,8 @@ export const EntitiesMenu = props => (
     style={{ maxHeight: '80vh', overflow: 'auto' }}
   >
     <>{/* to avoid warnings when empty */}</>
-    <MenuItem icon="asterisk" to="/actor">
-      <Translate contentKey="global.menu.entities.actor" />
+    <MenuItem icon="asterisk" to="/user">
+      <Translate contentKey="global.menu.entities.user" />
     </MenuItem>
     <MenuItem icon="asterisk" to="/requirement">
       <Translate contentKey="global.menu.entities.requirement" />

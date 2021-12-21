@@ -1,6 +1,7 @@
 package com.mullya.app.web.rest;
 
 import com.mullya.app.repository.OTPAttemptRepository;
+import com.mullya.app.security.InvalidOTPException;
 import com.mullya.app.service.OTPAttemptService;
 import com.mullya.app.service.dto.OTPAttemptDTO;
 import com.mullya.app.web.rest.errors.BadRequestAlertException;
@@ -52,14 +53,36 @@ public class OTPAttemptResource {
      * @param oTPAttemptDTO the oTPAttemptDTO to create.
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new oTPAttemptDTO, or with status {@code 400 (Bad Request)} if the oTPAttempt has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
+     * @throws InvalidOTPException if invalid OTP data is supplied.
      */
     @PostMapping("/otp-attempts")
-    public ResponseEntity<OTPAttemptDTO> createOTPAttempt(@RequestBody OTPAttemptDTO oTPAttemptDTO) throws URISyntaxException {
+    public ResponseEntity<OTPAttemptDTO> createOTPAttempt(@RequestBody OTPAttemptDTO oTPAttemptDTO)
+        throws URISyntaxException, InvalidOTPException {
         log.debug("REST request to save OTPAttempt : {}", oTPAttemptDTO);
         if (oTPAttemptDTO.getId() != null) {
             throw new BadRequestAlertException("A new oTPAttempt cannot already have an ID", ENTITY_NAME, "idexists");
         }
         OTPAttemptDTO result = oTPAttemptService.save(oTPAttemptDTO);
+        return ResponseEntity
+            .created(new URI("/api/otp-attempts/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
+            .body(result);
+    }
+
+    /**
+     * {@code POST  /validateOtp} : Validate a new oTPAttempt.
+     *
+     * @param oTPAttemptDTO the oTPAttemptDTO to validate.
+     * @return the valid token with status {@code 201 (Created)} and with body the new oTPAttemptDTO, or with status {@code 400 (Bad Request)} if the oTPAttempt is invalid.
+     * @throws URISyntaxException if the Location URI syntax is incorrect.
+     */
+    @PostMapping("/validate-otp")
+    public ResponseEntity<OTPAttemptDTO> validateOtp(@RequestBody OTPAttemptDTO oTPAttemptDTO) throws URISyntaxException {
+        log.debug("REST request to validate OTPAttempt : {}", oTPAttemptDTO);
+        if (oTPAttemptDTO.getId() != null) {
+            throw new BadRequestAlertException("A new oTPAttempt cannot already have an ID", ENTITY_NAME, "idexists");
+        }
+        OTPAttemptDTO result = oTPAttemptService.saveAndValidate(oTPAttemptDTO);
         return ResponseEntity
             .created(new URI("/api/otp-attempts/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))

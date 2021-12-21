@@ -60,9 +60,9 @@
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "actor",
+      "otherEntityName": "user",
       "otherEntityRelationshipName": "address",
-      "relationshipName": "actor"
+      "relationshipName": "user"
     }
   ],
   "entityTableName": "address",

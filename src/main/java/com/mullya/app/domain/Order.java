@@ -54,7 +54,7 @@ public class Order implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private OrderStatus status;
+    private OrderStatus status = OrderStatus.New;
 
     @OneToMany(mappedBy = "order")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -72,7 +72,7 @@ public class Order implements Serializable {
     private Set<RemittanceDetails> remittances = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "orders", "buyerAddress", "buyerActor", "category", "variant", "subVariant" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "orders", "buyerAddress", "buyerUser", "category", "variant", "subVariant" }, allowSetters = true)
     private Requirement requirement;
 
     @ManyToOne
@@ -84,7 +84,7 @@ public class Order implements Serializable {
         value = { "requirements", "oTPS", "addresses", "stocks", "bids", "orders", "remittanceDetails" },
         allowSetters = true
     )
-    private Actor assignedAgent;
+    private User assignedAgent;
 
     @ManyToOne
     @JsonIgnoreProperties(
@@ -235,7 +235,9 @@ public class Order implements Serializable {
     }
 
     public void setStatus(OrderStatus status) {
-        this.status = status;
+        if (status != null) {
+            this.status = status;
+        }
     }
 
     public Set<PaymentDetails> getPaymentDetails() {
@@ -320,16 +322,16 @@ public class Order implements Serializable {
         return this;
     }
 
-    public Actor getAssignedAgent() {
+    public User getAssignedAgent() {
         return this.assignedAgent;
     }
 
-    public void setAssignedAgent(Actor actor) {
-        this.assignedAgent = actor;
+    public void setAssignedAgent(User user) {
+        this.assignedAgent = user;
     }
 
-    public Order assignedAgent(Actor actor) {
-        this.setAssignedAgent(actor);
+    public Order assignedAgent(User user) {
+        this.setAssignedAgent(user);
         return this;
     }
 

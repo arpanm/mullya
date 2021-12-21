@@ -67,6 +67,7 @@ public class UserResource {
             "firstName",
             "lastName",
             "email",
+            "phone",
             "activated",
             "langKey",
             "createdBy",

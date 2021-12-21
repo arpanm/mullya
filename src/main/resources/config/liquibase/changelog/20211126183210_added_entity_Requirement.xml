@@ -47,7 +47,7 @@
             <column name="buyer_address_id" type="bigint">
                 <constraints nullable="true" />
             </column>
-            <column name="buyer_actor_id" type="bigint">
+            <column name="buyer_user_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="category_id" type="bigint">

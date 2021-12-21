@@ -156,7 +156,7 @@ export const OTP = (props: RouteComponentProps<{ url: string }>) => {
                     <Translate contentKey="mulyaaApp.oTP.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mulyaaApp.oTP.actor">Actor</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.oTP.user">User</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -183,7 +183,7 @@ export const OTP = (props: RouteComponentProps<{ url: string }>) => {
                     <td>{oTP.createdBy}</td>
                     <td>{oTP.updatedOn ? <TextFormat type="date" value={oTP.updatedOn} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                     <td>{oTP.updatedBy}</td>
-                    <td>{oTP.actor ? <Link to={`actor/${oTP.actor.id}`}>{oTP.actor.id}</Link> : ''}</td>
+                    <td>{oTP.user ? <Link to={`user/${oTP.user.id}`}>{oTP.user.id}</Link> : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`${match.url}/${oTP.id}`} color="info" size="sm" data-cy="entityDetailsButton">

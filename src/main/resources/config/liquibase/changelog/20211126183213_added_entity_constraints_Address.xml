@@ -14,10 +14,10 @@
                                  referencedColumnNames="id"
                                  referencedTableName="hub"/>
 
-        <addForeignKeyConstraint baseColumnNames="actor_id"
+        <addForeignKeyConstraint baseColumnNames="user_id"
                                  baseTableName="address"
-                                 constraintName="fk_address__actor_id"
+                                 constraintName="fk_address__user_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="actor"/>
+                                 referencedTableName="jhi_user"/>
     </changeSet>
 </databaseChangeLog>

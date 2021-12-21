@@ -53,7 +53,7 @@
             <column name="hub_id" type="bigint">
                 <constraints nullable="true" unique="true" uniqueConstraintName="ux_address__hub_id" />
             </column>
-            <column name="actor_id" type="bigint">
+            <column name="user_id" type="bigint">
                 <constraints nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->

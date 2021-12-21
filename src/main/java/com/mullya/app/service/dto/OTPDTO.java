@@ -4,6 +4,7 @@ import com.mullya.app.domain.enumeration.OtpStatus;
 import com.mullya.app.domain.enumeration.OtpType;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -13,27 +14,29 @@ public class OTPDTO implements Serializable {
 
     private Long id;
 
-    private Integer otpVal;
+    private String otpVal;
 
     private String email;
 
-    private Integer phone;
+    private Long phone;
 
     private OtpType type;
 
-    private LocalDate expiryTime;
+    private LocalDateTime expiryTime;
 
     private OtpStatus status;
 
-    private LocalDate createdOn;
+    private LocalDateTime createdOn;
 
     private String createdBy;
 
-    private LocalDate updatedOn;
+    private LocalDateTime updatedOn;
 
     private String updatedBy;
 
-    private ActorDTO actor;
+    private UserDTO user;
+
+    private boolean isActive = true;
 
     public Long getId() {
         return id;
@@ -43,11 +46,11 @@ public class OTPDTO implements Serializable {
         this.id = id;
     }
 
-    public Integer getOtpVal() {
+    public String getOtpVal() {
         return otpVal;
     }
 
-    public void setOtpVal(Integer otpVal) {
+    public void setOtpVal(String otpVal) {
         this.otpVal = otpVal;
     }
 
@@ -59,11 +62,11 @@ public class OTPDTO implements Serializable {
         this.email = email;
     }
 
-    public Integer getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
@@ -75,11 +78,11 @@ public class OTPDTO implements Serializable {
         this.type = type;
     }
 
-    public LocalDate getExpiryTime() {
+    public LocalDateTime getExpiryTime() {
         return expiryTime;
     }
 
-    public void setExpiryTime(LocalDate expiryTime) {
+    public void setExpiryTime(LocalDateTime expiryTime) {
         this.expiryTime = expiryTime;
     }
 
@@ -91,11 +94,11 @@ public class OTPDTO implements Serializable {
         this.status = status;
     }
 
-    public LocalDate getCreatedOn() {
+    public LocalDateTime getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(LocalDate createdOn) {
+    public void setCreatedOn(LocalDateTime createdOn) {
         this.createdOn = createdOn;
     }
 
@@ -107,11 +110,11 @@ public class OTPDTO implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public LocalDate getUpdatedOn() {
+    public LocalDateTime getUpdatedOn() {
         return updatedOn;
     }
 
-    public void setUpdatedOn(LocalDate updatedOn) {
+    public void setUpdatedOn(LocalDateTime updatedOn) {
         this.updatedOn = updatedOn;
     }
 
@@ -123,12 +126,20 @@ public class OTPDTO implements Serializable {
         this.updatedBy = updatedBy;
     }
 
-    public ActorDTO getActor() {
-        return actor;
+    public UserDTO getUser() {
+        return user;
     }
 
-    public void setActor(ActorDTO actor) {
-        this.actor = actor;
+    public void setUser(UserDTO user) {
+        this.user = user;
+    }
+
+    public boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
 
     @Override
@@ -167,7 +178,8 @@ public class OTPDTO implements Serializable {
             ", createdBy='" + getCreatedBy() + "'" +
             ", updatedOn='" + getUpdatedOn() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +
-            ", actor=" + getActor() +
+            ", user=" + getUser() +
+            ", isActive=" + getIsActive() +
             "}";
     }
 }

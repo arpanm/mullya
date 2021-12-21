@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import { IBiddingDetails } from 'app/shared/model/bidding-details.model';
 import { IOrder } from 'app/shared/model/order.model';
 import { IAddress } from 'app/shared/model/address.model';
-import { IActor } from 'app/shared/model/actor.model';
+import { IUser } from 'app/shared/model/user.model';
 import { ICatalogue } from 'app/shared/model/catalogue.model';
 import { StockStatus } from 'app/shared/model/enumerations/stock-status.model';
 
@@ -23,7 +23,7 @@ export interface IStock {
   biddingDetails?: IBiddingDetails[] | null;
   orders?: IOrder[] | null;
   farmerAddress?: IAddress | null;
-  farmer?: IActor | null;
+  farmer?: IUser | null;
   category?: ICatalogue | null;
   variant?: ICatalogue | null;
   subVariant?: ICatalogue | null;

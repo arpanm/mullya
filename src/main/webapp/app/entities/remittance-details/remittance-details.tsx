@@ -236,7 +236,7 @@ export const RemittanceDetails = (props: RouteComponentProps<{ url: string }>) =
                     <td>{remittanceDetails.updatedBy}</td>
                     <td>
                       {remittanceDetails.farmer ? (
-                        <Link to={`actor/${remittanceDetails.farmer.id}`}>{remittanceDetails.farmer.id}</Link>
+                        <Link to={`user/${remittanceDetails.farmer.id}`}>{remittanceDetails.farmer.id}</Link>
                       ) : (
                         ''
                       )}

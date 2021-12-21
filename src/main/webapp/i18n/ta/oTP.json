@@ -29,7 +29,7 @@
       "updatedOn": "Updated On",
       "updatedBy": "Updated By",
       "oTPAttempt": "O TP Attempt",
-      "actor": "Actor"
+      "user": "User"
     }
   }
 }

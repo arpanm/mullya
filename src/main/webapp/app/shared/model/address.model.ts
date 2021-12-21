@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { IHub } from 'app/shared/model/hub.model';
-import { IActor } from 'app/shared/model/actor.model';
+import { IUser } from 'app/shared/model/user.model';
 
 export interface IAddress {
   id?: number;
@@ -17,7 +17,7 @@ export interface IAddress {
   updatedOn?: string | null;
   updatedBy?: string | null;
   hub?: IHub | null;
-  actor?: IActor | null;
+  user?: IUser | null;
 }
 
 export const defaultValue: Readonly<IAddress> = {};

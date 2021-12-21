@@ -102,9 +102,9 @@ export const RequirementDetail = (props: RouteComponentProps<{ id: string }>) =>
           </dt>
           <dd>{requirementEntity.buyerAddress ? requirementEntity.buyerAddress.id : ''}</dd>
           <dt>
-            <Translate contentKey="mulyaaApp.requirement.buyerActor">Buyer Actor</Translate>
+            <Translate contentKey="mulyaaApp.requirement.buyerUser">Buyer User</Translate>
           </dt>
-          <dd>{requirementEntity.buyerActor ? requirementEntity.buyerActor.id : ''}</dd>
+          <dd>{requirementEntity.buyerUser ? requirementEntity.buyerUser.id : ''}</dd>
           <dt>
             <Translate contentKey="mulyaaApp.requirement.category">Category</Translate>
           </dt>

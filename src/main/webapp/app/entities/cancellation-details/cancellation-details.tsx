@@ -215,14 +215,14 @@ export const CancellationDetails = (props: RouteComponentProps<{ url: string }>)
                     </td>
                     <td>
                       {cancellationDetails.approver ? (
-                        <Link to={`actor/${cancellationDetails.approver.id}`}>{cancellationDetails.approver.id}</Link>
+                        <Link to={`user/${cancellationDetails.approver.id}`}>{cancellationDetails.approver.id}</Link>
                       ) : (
                         ''
                       )}
                     </td>
                     <td>
                       {cancellationDetails.initiator ? (
-                        <Link to={`actor/${cancellationDetails.initiator.id}`}>{cancellationDetails.initiator.id}</Link>
+                        <Link to={`user/${cancellationDetails.initiator.id}`}>{cancellationDetails.initiator.id}</Link>
                       ) : (
                         ''
                       )}

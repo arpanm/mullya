@@ -4,9 +4,9 @@ import { loadMoreDataWhenScrolled, parseHeaderForLinks } from 'react-jhipster';
 
 import { cleanEntity } from 'app/shared/util/entity-utils';
 import { IQueryParams, createEntitySlice, EntityState, serializeAxiosError } from 'app/shared/reducers/reducer.utils';
-import { IActor, defaultValue } from 'app/shared/model/actor.model';
+import { IUser, defaultValue } from 'app/shared/model/user.model';
 
-const initialState: EntityState<IActor> = {
+const initialState: EntityState<IUser> = {
   loading: false,
   errorMessage: null,
   entities: [],
@@ -17,61 +17,61 @@ const initialState: EntityState<IActor> = {
   updateSuccess: false,
 };
 
-const apiUrl = 'api/actors';
+const apiUrl = 'api/users';
 
 // Actions
 
-export const getEntities = createAsyncThunk('actor/fetch_entity_list', async ({ page, size, sort }: IQueryParams) => {
+export const getEntities = createAsyncThunk('user/fetch_entity_list', async ({ page, size, sort }: IQueryParams) => {
   const requestUrl = `${apiUrl}${sort ? `?page=${page}&size=${size}&sort=${sort}&` : '?'}cacheBuster=${new Date().getTime()}`;
-  return axios.get<IActor[]>(requestUrl);
+  return axios.get<IUser[]>(requestUrl);
 });
 
 export const getEntity = createAsyncThunk(
-  'actor/fetch_entity',
+  'user/fetch_entity',
   async (id: string | number) => {
     const requestUrl = `${apiUrl}/${id}`;
-    return axios.get<IActor>(requestUrl);
+    return axios.get<IUser>(requestUrl);
   },
   { serializeError: serializeAxiosError }
 );
 
 export const createEntity = createAsyncThunk(
-  'actor/create_entity',
-  async (entity: IActor, thunkAPI) => {
-    return axios.post<IActor>(apiUrl, cleanEntity(entity));
+  'user/create_entity',
+  async (entity: IUser, thunkAPI) => {
+    return axios.post<IUser>(apiUrl, cleanEntity(entity));
   },
   { serializeError: serializeAxiosError }
 );
 
 export const updateEntity = createAsyncThunk(
-  'actor/update_entity',
-  async (entity: IActor, thunkAPI) => {
-    return axios.put<IActor>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
+  'user/update_entity',
+  async (entity: IUser, thunkAPI) => {
+    return axios.put<IUser>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
   },
   { serializeError: serializeAxiosError }
 );
 
 export const partialUpdateEntity = createAsyncThunk(
-  'actor/partial_update_entity',
-  async (entity: IActor, thunkAPI) => {
-    return axios.patch<IActor>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
+  'user/partial_update_entity',
+  async (entity: IUser, thunkAPI) => {
+    return axios.patch<IUser>(`${apiUrl}/${entity.id}`, cleanEntity(entity));
   },
   { serializeError: serializeAxiosError }
 );
 
 export const deleteEntity = createAsyncThunk(
-  'actor/delete_entity',
+  'user/delete_entity',
   async (id: string | number, thunkAPI) => {
     const requestUrl = `${apiUrl}/${id}`;
-    return await axios.delete<IActor>(requestUrl);
+    return await axios.delete<IUser>(requestUrl);
   },
   { serializeError: serializeAxiosError }
 );
 
 // slice
 
-export const ActorSlice = createEntitySlice({
-  name: 'actor',
+export const UserSlice = createEntitySlice({
+  name: 'user',
   initialState,
   extraReducers(builder) {
     builder
@@ -114,7 +114,7 @@ export const ActorSlice = createEntitySlice({
   },
 });
 
-export const { reset } = ActorSlice.actions;
+export const { reset } = UserSlice.actions;
 
 // Reducer
-export default ActorSlice.reducer;
+export default UserSlice.reducer;

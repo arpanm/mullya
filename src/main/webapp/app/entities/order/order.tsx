@@ -193,7 +193,7 @@ export const Order = (props: RouteComponentProps<{ url: string }>) => {
                     </td>
                     <td>{order.requirement ? <Link to={`requirement/${order.requirement.id}`}>{order.requirement.id}</Link> : ''}</td>
                     <td>{order.bid ? <Link to={`bids/${order.bid.id}`}>{order.bid.id}</Link> : ''}</td>
-                    <td>{order.assignedAgent ? <Link to={`actor/${order.assignedAgent.id}`}>{order.assignedAgent.id}</Link> : ''}</td>
+                    <td>{order.assignedAgent ? <Link to={`user/${order.assignedAgent.id}`}>{order.assignedAgent.id}</Link> : ''}</td>
                     <td>{order.stock ? <Link to={`stock/${order.stock.id}`}>{order.stock.id}</Link> : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">

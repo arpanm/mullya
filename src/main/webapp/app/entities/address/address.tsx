@@ -165,7 +165,7 @@ export const Address = (props: RouteComponentProps<{ url: string }>) => {
                     <Translate contentKey="mulyaaApp.address.hub">Hub</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mulyaaApp.address.actor">Actor</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.address.user">User</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -195,7 +195,7 @@ export const Address = (props: RouteComponentProps<{ url: string }>) => {
                     </td>
                     <td>{address.updatedBy}</td>
                     <td>{address.hub ? <Link to={`hub/${address.hub.id}`}>{address.hub.id}</Link> : ''}</td>
-                    <td>{address.actor ? <Link to={`actor/${address.actor.id}`}>{address.actor.id}</Link> : ''}</td>
+                    <td>{address.user ? <Link to={`user/${address.user.id}`}>{address.user.id}</Link> : ''}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`${match.url}/${address.id}`} color="info" size="sm" data-cy="entityDetailsButton">

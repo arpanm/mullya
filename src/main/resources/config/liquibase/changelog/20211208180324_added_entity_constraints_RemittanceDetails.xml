@@ -12,6 +12,6 @@
                                  baseTableName="remittance_details"
                                  constraintName="fk_remittance_details__farmer_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="actor"/>
+                                 referencedTableName="jhi_user"/>
     </changeSet>
 </databaseChangeLog>

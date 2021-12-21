@@ -72,7 +72,7 @@
   "relationships": [
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "actor",
+      "otherEntityName": "user",
       "otherEntityRelationshipName": "remittanceDetails",
       "relationshipName": "farmer"
     },

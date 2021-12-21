@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IAddress } from 'app/shared/model/address.model';
 import { getEntities as getAddresses } from 'app/entities/address/address.reducer';
-import { IActor } from 'app/shared/model/actor.model';
-import { getEntities as getActors } from 'app/entities/actor/actor.reducer';
+import { IUser } from 'app/shared/model/user.model';
+import { getEntities as getUsers } from 'app/entities/user/user.reducer';
 import { ICatalogue } from 'app/shared/model/catalogue.model';
 import { getEntities as getCatalogues } from 'app/entities/catalogue/catalogue.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './stock.reducer';
@@ -23,7 +23,7 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
   const [isNew] = useState(!props.match.params || !props.match.params.id);
 
   const addresses = useAppSelector(state => state.address.entities);
-  const actors = useAppSelector(state => state.actor.entities);
+  const users = useAppSelector(state => state.user.entities);
   const catalogues = useAppSelector(state => state.catalogue.entities);
   const stockEntity = useAppSelector(state => state.stock.entity);
   const loading = useAppSelector(state => state.stock.loading);
@@ -40,7 +40,7 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
     }
 
     dispatch(getAddresses({}));
-    dispatch(getActors({}));
+    dispatch(getUsers({}));
     dispatch(getCatalogues({}));
   }, []);
 
@@ -55,7 +55,7 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
       ...stockEntity,
       ...values,
       farmerAddress: addresses.find(it => it.id.toString() === values.farmerAddress.toString()),
-      farmer: actors.find(it => it.id.toString() === values.farmer.toString()),
+      farmer: users.find(it => it.id.toString() === values.farmer.toString()),
       category: catalogues.find(it => it.id.toString() === values.category.toString()),
       variant: catalogues.find(it => it.id.toString() === values.variant.toString()),
       subVariant: catalogues.find(it => it.id.toString() === values.subVariant.toString()),
@@ -209,8 +209,8 @@ export const StockUpdate = (props: RouteComponentProps<{ id: string }>) => {
               </ValidatedField>
               <ValidatedField id="stock-farmer" name="farmer" data-cy="farmer" label={translate('mulyaaApp.stock.farmer')} type="select">
                 <option value="" key="0" />
-                {actors
-                  ? actors.map(otherEntity => (
+                {users
+                  ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

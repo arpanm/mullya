@@ -66,11 +66,11 @@ public class DeliveryDetails implements Serializable {
     private DeliveryStatus deliveryStatus;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "hub", "actor" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "hub", "user" }, allowSetters = true)
     private Address fromAddress;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "hub", "actor" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "hub", "user" }, allowSetters = true)
     private Address toAddress;
 
     @ManyToOne

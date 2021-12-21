@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IHub } from 'app/shared/model/hub.model';
 import { getEntities as getHubs } from 'app/entities/hub/hub.reducer';
-import { IActor } from 'app/shared/model/actor.model';
-import { getEntities as getActors } from 'app/entities/actor/actor.reducer';
+import { IUser } from 'app/shared/model/user.model';
+import { getEntities as getUsers } from 'app/entities/user/user.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './address.reducer';
 import { IAddress } from 'app/shared/model/address.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
@@ -20,7 +20,7 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
   const [isNew] = useState(!props.match.params || !props.match.params.id);
 
   const hubs = useAppSelector(state => state.hub.entities);
-  const actors = useAppSelector(state => state.actor.entities);
+  const users = useAppSelector(state => state.user.entities);
   const addressEntity = useAppSelector(state => state.address.entity);
   const loading = useAppSelector(state => state.address.loading);
   const updating = useAppSelector(state => state.address.updating);
@@ -35,7 +35,7 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
     }
 
     dispatch(getHubs({}));
-    dispatch(getActors({}));
+    dispatch(getUsers({}));
   }, []);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
       ...addressEntity,
       ...values,
       hub: hubs.find(it => it.id.toString() === values.hub.toString()),
-      actor: actors.find(it => it.id.toString() === values.actor.toString()),
+      user: users.find(it => it.id.toString() === values.user.toString()),
     };
 
     if (isNew) {
@@ -65,7 +65,7 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
       : {
           ...addressEntity,
           hub: addressEntity?.hub?.id,
-          actor: addressEntity?.actor?.id,
+          user: addressEntity?.user?.id,
         };
 
   return (
@@ -169,10 +169,10 @@ export const AddressUpdate = (props: RouteComponentProps<{ id: string }>) => {
                     ))
                   : null}
               </ValidatedField>
-              <ValidatedField id="address-actor" name="actor" data-cy="actor" label={translate('mulyaaApp.address.actor')} type="select">
+              <ValidatedField id="address-user" name="user" data-cy="user" label={translate('mulyaaApp.address.user')} type="select">
                 <option value="" key="0" />
-                {actors
-                  ? actors.map(otherEntity => (
+                {users
+                  ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

@@ -32,6 +32,21 @@
             <column name="lang_key" type="varchar(10)"/>
             <column name="activation_key" type="varchar(20)"/>
             <column name="reset_key" type="varchar(20)"/>
+            <column name="phone" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_email_verified" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_phone_verified" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="is_active" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="created_by" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>

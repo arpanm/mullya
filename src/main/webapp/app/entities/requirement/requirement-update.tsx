@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IAddress } from 'app/shared/model/address.model';
 import { getEntities as getAddresses } from 'app/entities/address/address.reducer';
-import { IActor } from 'app/shared/model/actor.model';
-import { getEntities as getActors } from 'app/entities/actor/actor.reducer';
+import { IUser } from 'app/shared/model/user.model';
+import { getEntities as getUsers } from 'app/entities/user/user.reducer';
 import { ICatalogue } from 'app/shared/model/catalogue.model';
 import { getEntities as getCatalogues } from 'app/entities/catalogue/catalogue.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './requirement.reducer';
@@ -23,7 +23,7 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
   const [isNew] = useState(!props.match.params || !props.match.params.id);
 
   const addresses = useAppSelector(state => state.address.entities);
-  const actors = useAppSelector(state => state.actor.entities);
+  const users = useAppSelector(state => state.user.entities);
   const catalogues = useAppSelector(state => state.catalogue.entities);
   const requirementEntity = useAppSelector(state => state.requirement.entity);
   const loading = useAppSelector(state => state.requirement.loading);
@@ -40,7 +40,7 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
     }
 
     dispatch(getAddresses({}));
-    dispatch(getActors({}));
+    dispatch(getUsers({}));
     dispatch(getCatalogues({}));
   }, []);
 
@@ -55,7 +55,7 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
       ...requirementEntity,
       ...values,
       buyerAddress: addresses.find(it => it.id.toString() === values.buyerAddress.toString()),
-      buyerActor: actors.find(it => it.id.toString() === values.buyerActor.toString()),
+      buyerUser: users.find(it => it.id.toString() === values.buyerUser.toString()),
       category: catalogues.find(it => it.id.toString() === values.category.toString()),
       variant: catalogues.find(it => it.id.toString() === values.variant.toString()),
       subVariant: catalogues.find(it => it.id.toString() === values.subVariant.toString()),
@@ -75,7 +75,7 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
           status: 'New',
           ...requirementEntity,
           buyerAddress: requirementEntity?.buyerAddress?.id,
-          buyerActor: requirementEntity?.buyerActor?.id,
+          buyerUser: requirementEntity?.buyerUser?.id,
           category: requirementEntity?.category?.id,
           variant: requirementEntity?.variant?.id,
           subVariant: requirementEntity?.subVariant?.id,
@@ -199,15 +199,15 @@ export const RequirementUpdate = (props: RouteComponentProps<{ id: string }>) =>
                   : null}
               </ValidatedField>
               <ValidatedField
-                id="requirement-buyerActor"
-                name="buyerActor"
-                data-cy="buyerActor"
-                label={translate('mulyaaApp.requirement.buyerActor')}
+                id="requirement-buyerUser"
+                name="buyerUser"
+                data-cy="buyerUser"
+                label={translate('mulyaaApp.requirement.buyerUser')}
                 type="select"
               >
                 <option value="" key="0" />
-                {actors
-                  ? actors.map(otherEntity => (
+                {users
+                  ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

@@ -1,5 +1,6 @@
 package com.mullya.app.service;
 
+import com.mullya.app.domain.OTP;
 import com.mullya.app.service.dto.OTPDTO;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,14 @@ public interface OTPService {
      * @return the persisted entity.
      */
     OTPDTO save(OTPDTO oTPDTO);
+
+    /**
+     * Expire a oTP.
+     *
+     * @param oTP the entity to save.
+     * @return the persisted entity.
+     */
+    OTPDTO expire(OTP oTP);
 
     /**
      * Partially updates a oTP.

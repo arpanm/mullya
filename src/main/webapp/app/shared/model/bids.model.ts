@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import { IOrder } from 'app/shared/model/order.model';
 import { IAddress } from 'app/shared/model/address.model';
 import { IBiddingDetails } from 'app/shared/model/bidding-details.model';
-import { IActor } from 'app/shared/model/actor.model';
+import { IUser } from 'app/shared/model/user.model';
 import { BidStatus } from 'app/shared/model/enumerations/bid-status.model';
 
 export interface IBids {
@@ -17,7 +17,7 @@ export interface IBids {
   orders?: IOrder[] | null;
   buyerAddress?: IAddress | null;
   biddingDetails?: IBiddingDetails | null;
-  buyer?: IActor | null;
+  buyer?: IUser | null;
 }
 
 export const defaultValue: Readonly<IBids> = {};

@@ -13,6 +13,7 @@ import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collectors;
+import liquibase.util.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
@@ -117,8 +118,14 @@ public class UserService {
         newUser.setPassword(encryptedPassword);
         newUser.setFirstName(userDTO.getFirstName());
         newUser.setLastName(userDTO.getLastName());
-        if (userDTO.getEmail() != null) {
+        if (StringUtil.isNotEmpty(userDTO.getEmail())) {
             newUser.setEmail(userDTO.getEmail().toLowerCase());
+        }
+        if (userDTO.getPhone() != null && userDTO.getPhone() > 0) {
+            newUser.setPhone(userDTO.getPhone());
+        }
+        if (userDTO.getType() != null) {
+            newUser.setType(userDTO.getType());
         }
         newUser.setImageUrl(userDTO.getImageUrl());
         newUser.setLangKey(userDTO.getLangKey());
@@ -237,7 +244,7 @@ public class UserService {
      * @param langKey   language key.
      * @param imageUrl  image URL of user.
      */
-    public void updateUser(String firstName, String lastName, String email, String langKey, String imageUrl) {
+    public void updateUser(String firstName, String lastName, String email, Long phone, String langKey, String imageUrl) {
         SecurityUtils
             .getCurrentUserLogin()
             .flatMap(userRepository::findOneByLogin)
@@ -246,6 +253,9 @@ public class UserService {
                 user.setLastName(lastName);
                 if (email != null) {
                     user.setEmail(email.toLowerCase());
+                }
+                if (phone != null && phone <= 0) {
+                    user.setPhone(phone);
                 }
                 user.setLangKey(langKey);
                 user.setImageUrl(imageUrl);

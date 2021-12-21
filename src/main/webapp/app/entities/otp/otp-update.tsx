@@ -4,8 +4,8 @@ import { Button, Row, Col, FormText } from 'reactstrap';
 import { isNumber, Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { IActor } from 'app/shared/model/actor.model';
-import { getEntities as getActors } from 'app/entities/actor/actor.reducer';
+import { IUser } from 'app/shared/model/user.model';
+import { getEntities as getUsers } from 'app/entities/user/user.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './otp.reducer';
 import { IOTP } from 'app/shared/model/otp.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
@@ -19,7 +19,7 @@ export const OTPUpdate = (props: RouteComponentProps<{ id: string }>) => {
 
   const [isNew] = useState(!props.match.params || !props.match.params.id);
 
-  const actors = useAppSelector(state => state.actor.entities);
+  const users = useAppSelector(state => state.user.entities);
   const oTPEntity = useAppSelector(state => state.oTP.entity);
   const loading = useAppSelector(state => state.oTP.loading);
   const updating = useAppSelector(state => state.oTP.updating);
@@ -35,7 +35,7 @@ export const OTPUpdate = (props: RouteComponentProps<{ id: string }>) => {
       dispatch(getEntity(props.match.params.id));
     }
 
-    dispatch(getActors({}));
+    dispatch(getUsers({}));
   }, []);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ export const OTPUpdate = (props: RouteComponentProps<{ id: string }>) => {
     const entity = {
       ...oTPEntity,
       ...values,
-      actor: actors.find(it => it.id.toString() === values.actor.toString()),
+      user: users.find(it => it.id.toString() === values.user.toString()),
     };
 
     if (isNew) {
@@ -65,7 +65,7 @@ export const OTPUpdate = (props: RouteComponentProps<{ id: string }>) => {
           type: 'Email',
           status: 'Init',
           ...oTPEntity,
-          actor: oTPEntity?.actor?.id,
+          user: oTPEntity?.user?.id,
         };
 
   return (
@@ -145,10 +145,10 @@ export const OTPUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 data-cy="updatedBy"
                 type="text"
               />
-              <ValidatedField id="otp-actor" name="actor" data-cy="actor" label={translate('mulyaaApp.oTP.actor')} type="select">
+              <ValidatedField id="otp-user" name="user" data-cy="user" label={translate('mulyaaApp.oTP.user')} type="select">
                 <option value="" key="0" />
-                {actors
-                  ? actors.map(otherEntity => (
+                {users
+                  ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

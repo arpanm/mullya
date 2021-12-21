@@ -13,6 +13,7 @@ import com.mullya.app.repository.OTPRepository;
 import com.mullya.app.service.dto.OTPDTO;
 import com.mullya.app.service.mapper.OTPMapper;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 import java.util.Random;
@@ -35,32 +36,32 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class OTPResourceIT {
 
-    private static final Integer DEFAULT_OTP_VAL = 1;
-    private static final Integer UPDATED_OTP_VAL = 2;
+    private static final String DEFAULT_OTP_VAL = "123456";
+    private static final String UPDATED_OTP_VAL = "234567";
 
-    private static final String DEFAULT_EMAIL = "AAAAAAAAAA";
-    private static final String UPDATED_EMAIL = "BBBBBBBBBB";
+    private static final String DEFAULT_EMAIL = "abc@mail.com";
+    private static final String UPDATED_EMAIL = "bcd@mail.com";
 
-    private static final Integer DEFAULT_PHONE = 1;
-    private static final Integer UPDATED_PHONE = 2;
+    private static final Long DEFAULT_PHONE = 1234567890l;
+    private static final Long UPDATED_PHONE = 1234567891l;
 
     private static final OtpType DEFAULT_TYPE = OtpType.Email;
     private static final OtpType UPDATED_TYPE = OtpType.Phone;
 
-    private static final LocalDate DEFAULT_EXPIRY_TIME = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_EXPIRY_TIME = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDateTime DEFAULT_EXPIRY_TIME = LocalDateTime.ofEpochSecond(0, 0, null);
+    private static final LocalDateTime UPDATED_EXPIRY_TIME = LocalDateTime.now();
 
     private static final OtpStatus DEFAULT_STATUS = OtpStatus.Init;
     private static final OtpStatus UPDATED_STATUS = OtpStatus.Verified;
 
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDateTime DEFAULT_CREATED_ON = LocalDateTime.ofEpochSecond(0, 0, null);
+    private static final LocalDateTime UPDATED_CREATED_ON = LocalDateTime.now();
 
     private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDateTime DEFAULT_UPDATED_ON = LocalDateTime.ofEpochSecond(0, 0, null);
+    private static final LocalDateTime UPDATED_UPDATED_ON = LocalDateTime.now();
 
     private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
     private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";

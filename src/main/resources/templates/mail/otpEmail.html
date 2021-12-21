@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:lang="${#locale.language}" lang="en">
+  <head>
+    <title th:text="#{email.otp.title}">Mulyaa OTP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" th:href="@{|${baseUrl}/favicon.ico|}" />
+  </head>
+  <body>
+    <p th:text="#{email.otp.text1}">Dear User,</p>
+    <p th:text="#{email.otp.text2}">For your Mulyaa account, OTP is:</p>
+    <p th:text="#{email.otp.text3(${otp})}"></p>
+    <p>
+      <span th:text="#{email.otp.text4}">Regards, </span>
+      <br />
+      <em th:text="#{email.signature}">Team Mulyaa.</em>
+    </p>
+  </body>
+</html>

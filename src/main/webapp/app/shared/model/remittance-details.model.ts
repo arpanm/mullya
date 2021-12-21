@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { IActor } from 'app/shared/model/actor.model';
+import { IUser } from 'app/shared/model/user.model';
 import { IOrder } from 'app/shared/model/order.model';
 import { PaymentType } from 'app/shared/model/enumerations/payment-type.model';
 import { PGType } from 'app/shared/model/enumerations/pg-type.model';
@@ -23,7 +23,7 @@ export interface IRemittanceDetails {
   createdBy?: string | null;
   updatedOn?: string | null;
   updatedBy?: string | null;
-  farmer?: IActor | null;
+  farmer?: IUser | null;
   orders?: IOrder[] | null;
 }
 

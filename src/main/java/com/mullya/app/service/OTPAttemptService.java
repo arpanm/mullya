@@ -1,5 +1,6 @@
 package com.mullya.app.service;
 
+import com.mullya.app.security.InvalidOTPException;
 import com.mullya.app.service.dto.OTPAttemptDTO;
 import java.util.Optional;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,14 @@ public interface OTPAttemptService {
      * @return the persisted entity.
      */
     OTPAttemptDTO save(OTPAttemptDTO oTPAttemptDTO);
+
+    /**
+     * Save a oTPAttempt.
+     *
+     * @param oTPAttemptDTO the entity to save.
+     * @return the persisted entity.
+     */
+    OTPAttemptDTO saveAndValidate(OTPAttemptDTO oTPAttemptDTO) throws InvalidOTPException;
 
     /**
      * Partially updates a oTPAttempt.

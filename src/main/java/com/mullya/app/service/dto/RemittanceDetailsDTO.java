@@ -46,7 +46,7 @@ public class RemittanceDetailsDTO implements Serializable {
 
     private String updatedBy;
 
-    private ActorDTO farmer;
+    private UserDTO farmer;
 
     public Long getId() {
         return id;
@@ -184,11 +184,11 @@ public class RemittanceDetailsDTO implements Serializable {
         this.updatedBy = updatedBy;
     }
 
-    public ActorDTO getFarmer() {
+    public UserDTO getFarmer() {
         return farmer;
     }
 
-    public void setFarmer(ActorDTO farmer) {
+    public void setFarmer(UserDTO farmer) {
         this.farmer = farmer;
     }
 

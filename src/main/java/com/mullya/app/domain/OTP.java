@@ -5,9 +5,11 @@ import com.mullya.app.domain.enumeration.OtpStatus;
 import com.mullya.app.domain.enumeration.OtpType;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -27,36 +29,43 @@ public class OTP implements Serializable {
     private Long id;
 
     @Column(name = "otp_val")
-    private Integer otpVal;
+    private String otpVal;
 
     @Column(name = "email")
     private String email;
 
     @Column(name = "phone")
-    private Integer phone;
+    private Long phone;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "type")
     private OtpType type;
 
+    @NotNull
     @Column(name = "expiry_time")
-    private LocalDate expiryTime;
+    private LocalDateTime expiryTime;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private OtpStatus status;
+    private OtpStatus status = OtpStatus.Init;
 
     @Column(name = "created_on")
-    private LocalDate createdOn;
+    private LocalDateTime createdOn;
 
     @Column(name = "created_by")
     private String createdBy;
 
     @Column(name = "updated_on")
-    private LocalDate updatedOn;
+    private LocalDateTime updatedOn;
 
     @Column(name = "updated_by")
     private String updatedBy;
+
+    @NotNull
+    @Column(name = "is_active")
+    private Boolean isActive = true;
 
     @OneToMany(mappedBy = "otp")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -68,7 +77,7 @@ public class OTP implements Serializable {
         value = { "requirements", "oTPS", "addresses", "stocks", "bids", "orders", "remittanceDetails" },
         allowSetters = true
     )
-    private Actor actor;
+    private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -85,16 +94,16 @@ public class OTP implements Serializable {
         this.id = id;
     }
 
-    public Integer getOtpVal() {
+    public String getOtpVal() {
         return this.otpVal;
     }
 
-    public OTP otpVal(Integer otpVal) {
+    public OTP otpVal(String otpVal) {
         this.setOtpVal(otpVal);
         return this;
     }
 
-    public void setOtpVal(Integer otpVal) {
+    public void setOtpVal(String otpVal) {
         this.otpVal = otpVal;
     }
 
@@ -111,16 +120,16 @@ public class OTP implements Serializable {
         this.email = email;
     }
 
-    public Integer getPhone() {
+    public Long getPhone() {
         return this.phone;
     }
 
-    public OTP phone(Integer phone) {
+    public OTP phone(Long phone) {
         this.setPhone(phone);
         return this;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
@@ -137,16 +146,16 @@ public class OTP implements Serializable {
         this.type = type;
     }
 
-    public LocalDate getExpiryTime() {
+    public LocalDateTime getExpiryTime() {
         return this.expiryTime;
     }
 
-    public OTP expiryTime(LocalDate expiryTime) {
+    public OTP expiryTime(LocalDateTime expiryTime) {
         this.setExpiryTime(expiryTime);
         return this;
     }
 
-    public void setExpiryTime(LocalDate expiryTime) {
+    public void setExpiryTime(LocalDateTime expiryTime) {
         this.expiryTime = expiryTime;
     }
 
@@ -160,19 +169,21 @@ public class OTP implements Serializable {
     }
 
     public void setStatus(OtpStatus status) {
-        this.status = status;
+        if (status != null) {
+            this.status = status;
+        }
     }
 
-    public LocalDate getCreatedOn() {
+    public LocalDateTime getCreatedOn() {
         return this.createdOn;
     }
 
-    public OTP createdOn(LocalDate createdOn) {
+    public OTP createdOn(LocalDateTime createdOn) {
         this.setCreatedOn(createdOn);
         return this;
     }
 
-    public void setCreatedOn(LocalDate createdOn) {
+    public void setCreatedOn(LocalDateTime createdOn) {
         this.createdOn = createdOn;
     }
 
@@ -189,16 +200,16 @@ public class OTP implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public LocalDate getUpdatedOn() {
+    public LocalDateTime getUpdatedOn() {
         return this.updatedOn;
     }
 
-    public OTP updatedOn(LocalDate updatedOn) {
+    public OTP updatedOn(LocalDateTime updatedOn) {
         this.setUpdatedOn(updatedOn);
         return this;
     }
 
-    public void setUpdatedOn(LocalDate updatedOn) {
+    public void setUpdatedOn(LocalDateTime updatedOn) {
         this.updatedOn = updatedOn;
     }
 
@@ -213,6 +224,21 @@ public class OTP implements Serializable {
 
     public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
+    }
+
+    public Boolean isActive() {
+        return this.isActive;
+    }
+
+    public OTP active(Boolean isActive) {
+        this.setActive(isActive);
+        return this;
+    }
+
+    public void setActive(Boolean isActive) {
+        if (isActive != null) {
+            this.isActive = isActive;
+        }
     }
 
     public Set<OTPAttempt> getOTPAttempts() {
@@ -246,16 +272,16 @@ public class OTP implements Serializable {
         return this;
     }
 
-    public Actor getActor() {
-        return this.actor;
+    public User getUser() {
+        return this.user;
     }
 
-    public void setActor(Actor actor) {
-        this.actor = actor;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public OTP actor(Actor actor) {
-        this.setActor(actor);
+    public OTP user(User user) {
+        this.setUser(user);
         return this;
     }
 

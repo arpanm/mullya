@@ -58,9 +58,9 @@
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "actor",
+      "otherEntityName": "user",
       "otherEntityRelationshipName": "requirement",
-      "relationshipName": "buyerActor"
+      "relationshipName": "buyerUser"
     },
     {
       "relationshipType": "many-to-one",

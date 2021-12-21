@@ -5,9 +5,9 @@ import thunk from 'redux-thunk';
 import sinon from 'sinon';
 import { parseHeaderForLinks } from 'react-jhipster';
 
-import reducer, { createEntity, deleteEntity, getEntities, getEntity, updateEntity, partialUpdateEntity, reset } from './actor.reducer';
+import reducer, { createEntity, deleteEntity, getEntities, getEntity, updateEntity, partialUpdateEntity, reset } from './user.reducer';
 import { EntityState } from 'app/shared/reducers/reducer.utils';
-import { IActor, defaultValue } from 'app/shared/model/actor.model';
+import { IUser, defaultValue } from 'app/shared/model/user.model';
 
 describe('Entities reducer tests', () => {
   function isEmpty(element): boolean {
@@ -18,7 +18,7 @@ describe('Entities reducer tests', () => {
     }
   }
 
-  const initialState: EntityState<IActor> = {
+  const initialState: EntityState<IUser> = {
     loading: false,
     errorMessage: null,
     entities: [],
@@ -186,7 +186,7 @@ describe('Entities reducer tests', () => {
       axios.delete = sinon.stub().returns(Promise.resolve(resolvedObject));
     });
 
-    it('dispatches FETCH_ACTOR_LIST actions', async () => {
+    it('dispatches FETCH_USER_LIST actions', async () => {
       const expectedActions = [
         {
           type: getEntities.pending.type,
@@ -201,7 +201,7 @@ describe('Entities reducer tests', () => {
       expect(store.getActions()[1]).toMatchObject(expectedActions[1]);
     });
 
-    it('dispatches FETCH_ACTOR actions', async () => {
+    it('dispatches FETCH_USER actions', async () => {
       const expectedActions = [
         {
           type: getEntity.pending.type,
@@ -216,7 +216,7 @@ describe('Entities reducer tests', () => {
       expect(store.getActions()[1]).toMatchObject(expectedActions[1]);
     });
 
-    it('dispatches CREATE_ACTOR actions', async () => {
+    it('dispatches CREATE_USER actions', async () => {
       const expectedActions = [
         {
           type: createEntity.pending.type,
@@ -231,7 +231,7 @@ describe('Entities reducer tests', () => {
       expect(store.getActions()[1]).toMatchObject(expectedActions[1]);
     });
 
-    it('dispatches UPDATE_ACTOR actions', async () => {
+    it('dispatches UPDATE_USER actions', async () => {
       const expectedActions = [
         {
           type: updateEntity.pending.type,
@@ -246,7 +246,7 @@ describe('Entities reducer tests', () => {
       expect(store.getActions()[1]).toMatchObject(expectedActions[1]);
     });
 
-    it('dispatches PARTIAL_UPDATE_ACTOR actions', async () => {
+    it('dispatches PARTIAL_UPDATE_USER actions', async () => {
       const expectedActions = [
         {
           type: partialUpdateEntity.pending.type,
@@ -261,7 +261,7 @@ describe('Entities reducer tests', () => {
       expect(store.getActions()[1]).toMatchObject(expectedActions[1]);
     });
 
-    it('dispatches DELETE_ACTOR actions', async () => {
+    it('dispatches DELETE_USER actions', async () => {
       const expectedActions = [
         {
           type: deleteEntity.pending.type,

@@ -38,7 +38,7 @@ public class StockDTO implements Serializable {
 
     private AddressDTO farmerAddress;
 
-    private ActorDTO farmer;
+    private UserDTO farmer;
 
     private CatalogueDTO category;
 
@@ -158,11 +158,11 @@ public class StockDTO implements Serializable {
         this.farmerAddress = farmerAddress;
     }
 
-    public ActorDTO getFarmer() {
+    public UserDTO getFarmer() {
         return farmer;
     }
 
-    public void setFarmer(ActorDTO farmer) {
+    public void setFarmer(UserDTO farmer) {
         this.farmer = farmer;
     }
 

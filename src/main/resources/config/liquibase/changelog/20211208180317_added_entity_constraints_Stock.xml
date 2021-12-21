@@ -18,7 +18,7 @@
                                  baseTableName="stock"
                                  constraintName="fk_stock__farmer_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="actor"/>
+                                 referencedTableName="jhi_user"/>
 
         <addForeignKeyConstraint baseColumnNames="category_id"
                                  baseTableName="stock"

@@ -7,7 +7,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link CancellationDetails} and its DTO {@link CancellationDetailsDTO}.
  */
-@Mapper(componentModel = "spring", uses = { OrderMapper.class, ActorMapper.class })
+@Mapper(componentModel = "spring", uses = { OrderMapper.class, UserMapper.class })
 public interface CancellationDetailsMapper extends EntityMapper<CancellationDetailsDTO, CancellationDetails> {
     @Mapping(target = "order", source = "order", qualifiedByName = "id")
     @Mapping(target = "approver", source = "approver", qualifiedByName = "id")

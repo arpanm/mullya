@@ -159,7 +159,7 @@ export const Requirement = (props: RouteComponentProps<{ url: string }>) => {
                     <Translate contentKey="mulyaaApp.requirement.buyerAddress">Buyer Address</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="mulyaaApp.requirement.buyerActor">Buyer Actor</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="mulyaaApp.requirement.buyerUser">Buyer User</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
                     <Translate contentKey="mulyaaApp.requirement.category">Category</Translate> <FontAwesomeIcon icon="sort" />
@@ -208,9 +208,7 @@ export const Requirement = (props: RouteComponentProps<{ url: string }>) => {
                         ''
                       )}
                     </td>
-                    <td>
-                      {requirement.buyerActor ? <Link to={`actor/${requirement.buyerActor.id}`}>{requirement.buyerActor.id}</Link> : ''}
-                    </td>
+                    <td>{requirement.buyerUser ? <Link to={`user/${requirement.buyerUser.id}`}>{requirement.buyerUser.id}</Link> : ''}</td>
                     <td>
                       {requirement.category ? <Link to={`catalogue/${requirement.category.id}`}>{requirement.category.id}</Link> : ''}
                     </td>

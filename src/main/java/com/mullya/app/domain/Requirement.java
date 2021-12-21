@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -52,9 +53,10 @@ public class Requirement implements Serializable {
     @Column(name = "updated_by")
     private String updatedBy;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
-    private RequirementStatus status;
+    private RequirementStatus status = RequirementStatus.New;
 
     @OneToMany(mappedBy = "requirement")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -62,7 +64,7 @@ public class Requirement implements Serializable {
     private Set<Order> orders = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "hub", "actor" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "hub", "user" }, allowSetters = true)
     private Address buyerAddress;
 
     @ManyToOne
@@ -70,7 +72,7 @@ public class Requirement implements Serializable {
         value = { "requirements", "oTPS", "addresses", "stocks", "bids", "orders", "remittanceDetails" },
         allowSetters = true
     )
-    private Actor buyerActor;
+    private User buyerUser;
 
     @ManyToOne
     @JsonIgnoreProperties(
@@ -262,7 +264,9 @@ public class Requirement implements Serializable {
     }
 
     public void setStatus(RequirementStatus status) {
-        this.status = status;
+        if (status != null) {
+            this.status = status;
+        }
     }
 
     public Set<Order> getOrders() {
@@ -309,16 +313,16 @@ public class Requirement implements Serializable {
         return this;
     }
 
-    public Actor getBuyerActor() {
-        return this.buyerActor;
+    public User getBuyerUser() {
+        return this.buyerUser;
     }
 
-    public void setBuyerActor(Actor actor) {
-        this.buyerActor = actor;
+    public void setBuyerUser(User user) {
+        this.buyerUser = user;
     }
 
-    public Requirement buyerActor(Actor actor) {
-        this.setBuyerActor(actor);
+    public Requirement buyerUser(User user) {
+        this.setBuyerUser(user);
         return this;
     }
 

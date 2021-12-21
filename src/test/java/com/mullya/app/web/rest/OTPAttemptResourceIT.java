@@ -33,8 +33,8 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class OTPAttemptResourceIT {
 
-    private static final Integer DEFAULT_OTP_VAL = 1;
-    private static final Integer UPDATED_OTP_VAL = 2;
+    private static final String DEFAULT_OTP_VAL = "1";
+    private static final String UPDATED_OTP_VAL = "2";
 
     private static final String DEFAULT_EMAIL = "AAAAAAAAAA";
     private static final String UPDATED_EMAIL = "BBBBBBBBBB";

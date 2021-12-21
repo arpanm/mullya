@@ -53,9 +53,9 @@
     },
     {
       "relationshipType": "many-to-one",
-      "otherEntityName": "actor",
+      "otherEntityName": "user",
       "otherEntityRelationshipName": "oTP",
-      "relationshipName": "actor"
+      "relationshipName": "user"
     }
   ],
   "entityTableName": "otp",

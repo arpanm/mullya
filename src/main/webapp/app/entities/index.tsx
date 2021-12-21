@@ -4,7 +4,7 @@ import { Switch } from 'react-router-dom';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 
-import Actor from './actor';
+import User from './user';
 import Requirement from './requirement';
 import OTP from './otp';
 import OTPAttempt from './otp-attempt';
@@ -26,7 +26,7 @@ const Routes = ({ match }) => (
   <div>
     <Switch>
       {/* prettier-ignore */}
-      <ErrorBoundaryRoute path={`${match.url}actor`} component={Actor} />
+      <ErrorBoundaryRoute path={`${match.url}user`} component={User} />
       <ErrorBoundaryRoute path={`${match.url}requirement`} component={Requirement} />
       <ErrorBoundaryRoute path={`${match.url}otp`} component={OTP} />
       <ErrorBoundaryRoute path={`${match.url}otp-attempt`} component={OTPAttempt} />

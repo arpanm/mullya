@@ -12,7 +12,7 @@ import password from 'app/modules/account/password/password.reducer';
 import settings from 'app/modules/account/settings/settings.reducer';
 import passwordReset from 'app/modules/account/password-reset/password-reset.reducer';
 // prettier-ignore
-import actor from 'app/entities/actor/actor.reducer';
+import user from 'app/entities/user/user.reducer';
 // prettier-ignore
 import requirement from 'app/entities/requirement/requirement.reducer';
 // prettier-ignore
@@ -56,7 +56,7 @@ const rootReducer = {
   passwordReset,
   password,
   settings,
-  actor,
+  user,
   requirement,
   oTP,
   oTPAttempt,

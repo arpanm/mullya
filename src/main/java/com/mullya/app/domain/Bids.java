@@ -53,7 +53,7 @@ public class Bids implements Serializable {
     private Set<Order> orders = new HashSet<>();
 
     @ManyToOne
-    @JsonIgnoreProperties(value = { "hub", "actor" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "hub", "user" }, allowSetters = true)
     private Address buyerAddress;
 
     @ManyToOne
@@ -65,7 +65,7 @@ public class Bids implements Serializable {
         value = { "requirements", "oTPS", "addresses", "stocks", "bids", "orders", "remittanceDetails" },
         allowSetters = true
     )
-    private Actor buyer;
+    private User buyer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -230,16 +230,16 @@ public class Bids implements Serializable {
         return this;
     }
 
-    public Actor getBuyer() {
+    public User getBuyer() {
         return this.buyer;
     }
 
-    public void setBuyer(Actor actor) {
-        this.buyer = actor;
+    public void setBuyer(User user) {
+        this.buyer = user;
     }
 
-    public Bids buyer(Actor actor) {
-        this.setBuyer(actor);
+    public Bids buyer(User user) {
+        this.setBuyer(user);
         return this;
     }
 

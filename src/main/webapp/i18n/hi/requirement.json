@@ -30,7 +30,7 @@
       "status": "Status",
       "order": "Order",
       "buyerAddress": "Buyer Address",
-      "buyerActor": "Buyer Actor",
+      "buyerUser": "Buyer User",
       "category": "Category",
       "variant": "Variant",
       "subVariant": "Sub Variant"

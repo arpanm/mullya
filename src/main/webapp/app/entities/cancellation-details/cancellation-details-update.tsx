@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IOrder } from 'app/shared/model/order.model';
 import { getEntities as getOrders } from 'app/entities/order/order.reducer';
-import { IActor } from 'app/shared/model/actor.model';
-import { getEntities as getActors } from 'app/entities/actor/actor.reducer';
+import { IUser } from 'app/shared/model/user.model';
+import { getEntities as getUsers } from 'app/entities/user/user.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './cancellation-details.reducer';
 import { ICancellationDetails } from 'app/shared/model/cancellation-details.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
@@ -22,7 +22,7 @@ export const CancellationDetailsUpdate = (props: RouteComponentProps<{ id: strin
   const [isNew] = useState(!props.match.params || !props.match.params.id);
 
   const orders = useAppSelector(state => state.order.entities);
-  const actors = useAppSelector(state => state.actor.entities);
+  const users = useAppSelector(state => state.user.entities);
   const cancellationDetailsEntity = useAppSelector(state => state.cancellationDetails.entity);
   const loading = useAppSelector(state => state.cancellationDetails.loading);
   const updating = useAppSelector(state => state.cancellationDetails.updating);
@@ -39,7 +39,7 @@ export const CancellationDetailsUpdate = (props: RouteComponentProps<{ id: strin
     }
 
     dispatch(getOrders({}));
-    dispatch(getActors({}));
+    dispatch(getUsers({}));
   }, []);
 
   useEffect(() => {
@@ -53,8 +53,8 @@ export const CancellationDetailsUpdate = (props: RouteComponentProps<{ id: strin
       ...cancellationDetailsEntity,
       ...values,
       order: orders.find(it => it.id.toString() === values.order.toString()),
-      approver: actors.find(it => it.id.toString() === values.approver.toString()),
-      initiator: actors.find(it => it.id.toString() === values.initiator.toString()),
+      approver: users.find(it => it.id.toString() === values.approver.toString()),
+      initiator: users.find(it => it.id.toString() === values.initiator.toString()),
     };
 
     if (isNew) {
@@ -207,8 +207,8 @@ export const CancellationDetailsUpdate = (props: RouteComponentProps<{ id: strin
                 type="select"
               >
                 <option value="" key="0" />
-                {actors
-                  ? actors.map(otherEntity => (
+                {users
+                  ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>
@@ -223,8 +223,8 @@ export const CancellationDetailsUpdate = (props: RouteComponentProps<{ id: strin
                 type="select"
               >
                 <option value="" key="0" />
-                {actors
-                  ? actors.map(otherEntity => (
+                {users
+                  ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.id}
                       </option>

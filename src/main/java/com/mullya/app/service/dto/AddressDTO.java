@@ -37,7 +37,7 @@ public class AddressDTO implements Serializable {
 
     private HubDTO hub;
 
-    private ActorDTO actor;
+    private UserDTO user;
 
     public Long getId() {
         return id;
@@ -151,12 +151,12 @@ public class AddressDTO implements Serializable {
         this.hub = hub;
     }
 
-    public ActorDTO getActor() {
-        return actor;
+    public UserDTO getUser() {
+        return user;
     }
 
-    public void setActor(ActorDTO actor) {
-        this.actor = actor;
+    public void setUser(UserDTO user) {
+        this.user = user;
     }
 
     @Override
@@ -198,7 +198,7 @@ public class AddressDTO implements Serializable {
             ", updatedOn='" + getUpdatedOn() + "'" +
             ", updatedBy='" + getUpdatedBy() + "'" +
             ", hub=" + getHub() +
-            ", actor=" + getActor() +
+            ", user=" + getUser() +
             "}";
     }
 }

@@ -40,7 +40,7 @@ public class OrderDTO implements Serializable {
 
     private BidsDTO bid;
 
-    private ActorDTO assignedAgent;
+    private UserDTO assignedAgent;
 
     private StockDTO stock;
 
@@ -156,11 +156,11 @@ public class OrderDTO implements Serializable {
         this.bid = bid;
     }
 
-    public ActorDTO getAssignedAgent() {
+    public UserDTO getAssignedAgent() {
         return assignedAgent;
     }
 
-    public void setAssignedAgent(ActorDTO assignedAgent) {
+    public void setAssignedAgent(UserDTO assignedAgent) {
         this.assignedAgent = assignedAgent;
     }
 

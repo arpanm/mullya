@@ -1,6 +1,7 @@
 package com.mullya.app.service;
 
 import com.mullya.app.domain.User;
+import com.mullya.app.service.dto.OTPDTO;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 import javax.mail.MessagingException;
@@ -28,6 +29,8 @@ public class MailService {
     private final Logger log = LoggerFactory.getLogger(MailService.class);
 
     private static final String USER = "user";
+
+    private static final String OTP = "otp";
 
     private static final String BASE_URL = "baseUrl";
 
@@ -108,5 +111,15 @@ public class MailService {
     public void sendPasswordResetMail(User user) {
         log.debug("Sending password reset email to '{}'", user.getEmail());
         sendEmailFromTemplate(user, "mail/passwordResetEmail", "email.reset.title");
+    }
+
+    @Async
+    public void sendOTPMail(OTPDTO otpDTO) {
+        log.debug("Sending password reset email to '{}'", otpDTO.getEmail());
+        Context context = new Context();
+        context.setVariable(OTP, otpDTO.getOtpVal());
+        context.setVariable(BASE_URL, jHipsterProperties.getMail().getBaseUrl());
+        String content = templateEngine.process("mail/otpEmail", context);
+        sendEmail(otpDTO.getEmail(), "Mulyaa OTP", content, false, true);
     }
 }

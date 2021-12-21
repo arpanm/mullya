@@ -20,7 +20,7 @@
             <column name="email" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="phone" type="integer">
+            <column name="phone" type="bigint">
                 <constraints nullable="true" />
             </column>
             <column name="ip" type="varchar(255)">
@@ -29,7 +29,7 @@
             <column name="coookie" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="created_on" type="date">
+            <column name="created_on" type="timestamp">
                 <constraints nullable="true" />
             </column>
             <column name="created_by" type="varchar(255)">
