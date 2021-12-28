@@ -3,7 +3,6 @@ package com.mullya.app.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.mullya.app.domain.enumeration.OrderStatus;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
@@ -16,7 +15,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "jhi_order")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Order implements Serializable {
+public class Order extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -39,18 +38,6 @@ public class Order implements Serializable {
 
     @Column(name = "accepted_delivery_date")
     private String acceptedDeliveryDate;
-
-    @Column(name = "created_on")
-    private LocalDate createdOn;
-
-    @Column(name = "created_by")
-    private String createdBy;
-
-    @Column(name = "updated_on")
-    private LocalDate updatedOn;
-
-    @Column(name = "updated_by")
-    private String updatedBy;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
@@ -171,58 +158,6 @@ public class Order implements Serializable {
 
     public void setAcceptedDeliveryDate(String acceptedDeliveryDate) {
         this.acceptedDeliveryDate = acceptedDeliveryDate;
-    }
-
-    public LocalDate getCreatedOn() {
-        return this.createdOn;
-    }
-
-    public Order createdOn(LocalDate createdOn) {
-        this.setCreatedOn(createdOn);
-        return this;
-    }
-
-    public void setCreatedOn(LocalDate createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public Order createdBy(String createdBy) {
-        this.setCreatedBy(createdBy);
-        return this;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDate getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    public Order updatedOn(LocalDate updatedOn) {
-        this.setUpdatedOn(updatedOn);
-        return this;
-    }
-
-    public void setUpdatedOn(LocalDate updatedOn) {
-        this.updatedOn = updatedOn;
-    }
-
-    public String getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    public Order updatedBy(String updatedBy) {
-        this.setUpdatedBy(updatedBy);
-        return this;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
     }
 
     public OrderStatus getStatus() {
@@ -377,10 +312,6 @@ public class Order implements Serializable {
             ", quantityKg=" + getQuantityKg() +
             ", neededBy='" + getNeededBy() + "'" +
             ", acceptedDeliveryDate='" + getAcceptedDeliveryDate() + "'" +
-            ", createdOn='" + getCreatedOn() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
-            ", updatedOn='" + getUpdatedOn() + "'" +
-            ", updatedBy='" + getUpdatedBy() + "'" +
             ", status='" + getStatus() + "'" +
             "}";
     }

@@ -6,7 +6,6 @@ import com.mullya.app.config.Constants;
 import com.mullya.app.domain.enumeration.ActorType;
 import java.io.Serializable;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -94,15 +93,15 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @NotNull
     @Column(name = "is_email_verified")
-    private Boolean isEmailVerified = false;
+    private boolean isEmailVerified = false;
 
     @NotNull
     @Column(name = "is_phone_verified")
-    private Boolean isPhoneVerified = false;
+    private boolean isPhoneVerified = false;
 
     @NotNull
     @Column(name = "is_active")
-    private Boolean isActive = true;
+    private boolean isActive = true;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type")
@@ -262,34 +261,28 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.phone = phone;
     }
 
-    public Boolean getIsEmailVerified() {
+    public boolean getIsEmailVerified() {
         return this.isEmailVerified;
     }
 
-    public void setIsEmailVerified(Boolean isEmailVerified) {
-        if (isEmailVerified != null) {
-            this.isEmailVerified = isEmailVerified;
-        }
+    public void setIsEmailVerified(boolean isEmailVerified) {
+        this.isEmailVerified = isEmailVerified;
     }
 
-    public Boolean getIsPhoneVerified() {
+    public boolean getIsPhoneVerified() {
         return this.isPhoneVerified;
     }
 
-    public void setIsPhoneVerified(Boolean isPhoneVerified) {
-        if (isPhoneVerified != null) {
-            this.isPhoneVerified = isPhoneVerified;
-        }
+    public void setIsPhoneVerified(boolean isPhoneVerified) {
+        this.isPhoneVerified = isPhoneVerified;
     }
 
-    public Boolean getIsActive() {
+    public boolean getIsActive() {
         return this.isActive;
     }
 
-    public void setIsActive(Boolean isActive) {
-        if (isActive != null) {
-            this.isActive = isActive;
-        }
+    public void setIsActive(boolean isActive) {
+        this.isActive = isActive;
     }
 
     public ActorType getType() {

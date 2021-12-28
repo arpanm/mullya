@@ -2,8 +2,13 @@ package com.mullya.app.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.time.LocalDate;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -13,7 +18,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "otp_attempt")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class OTPAttempt implements Serializable {
+public class OTPAttempt extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -36,12 +41,6 @@ public class OTPAttempt implements Serializable {
 
     @Column(name = "coookie")
     private String coookie;
-
-    @Column(name = "created_on")
-    private LocalDate createdOn;
-
-    @Column(name = "created_by")
-    private String createdBy;
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "oTPAttempts", "user" }, allowSetters = true)
@@ -127,32 +126,6 @@ public class OTPAttempt implements Serializable {
         this.coookie = coookie;
     }
 
-    public LocalDate getCreatedOn() {
-        return this.createdOn;
-    }
-
-    public OTPAttempt createdOn(LocalDate createdOn) {
-        this.setCreatedOn(createdOn);
-        return this;
-    }
-
-    public void setCreatedOn(LocalDate createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public OTPAttempt createdBy(String createdBy) {
-        this.setCreatedBy(createdBy);
-        return this;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
     public OTP getOtp() {
         return this.otp;
     }
@@ -195,8 +168,6 @@ public class OTPAttempt implements Serializable {
             ", phone=" + getPhone() +
             ", ip='" + getIp() + "'" +
             ", coookie='" + getCoookie() + "'" +
-            ", createdOn='" + getCreatedOn() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
             "}";
     }
 }

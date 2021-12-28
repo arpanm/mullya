@@ -3,10 +3,10 @@ package com.mullya.app.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.mullya.app.domain.enumeration.BiddingStatus;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -16,7 +16,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "bidding_details")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class BiddingDetails implements Serializable {
+public class BiddingDetails extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -47,20 +47,9 @@ public class BiddingDetails implements Serializable {
     @Column(name = "max_quantity_kg")
     private Float maxQuantityKg;
 
+    @NotNull
     @Column(name = "is_active")
-    private Boolean isActive;
-
-    @Column(name = "created_on")
-    private LocalDate createdOn;
-
-    @Column(name = "created_by")
-    private String createdBy;
-
-    @Column(name = "updated_on")
-    private LocalDate updatedOn;
-
-    @Column(name = "updated_by")
-    private String updatedBy;
+    private Boolean isActive = true;
 
     @OneToMany(mappedBy = "biddingDetails")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -193,58 +182,6 @@ public class BiddingDetails implements Serializable {
         this.isActive = isActive;
     }
 
-    public LocalDate getCreatedOn() {
-        return this.createdOn;
-    }
-
-    public BiddingDetails createdOn(LocalDate createdOn) {
-        this.setCreatedOn(createdOn);
-        return this;
-    }
-
-    public void setCreatedOn(LocalDate createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public BiddingDetails createdBy(String createdBy) {
-        this.setCreatedBy(createdBy);
-        return this;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDate getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    public BiddingDetails updatedOn(LocalDate updatedOn) {
-        this.setUpdatedOn(updatedOn);
-        return this;
-    }
-
-    public void setUpdatedOn(LocalDate updatedOn) {
-        this.updatedOn = updatedOn;
-    }
-
-    public String getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    public BiddingDetails updatedBy(String updatedBy) {
-        this.setUpdatedBy(updatedBy);
-        return this;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
     public Set<Bids> getBids() {
         return this.bids;
     }
@@ -321,10 +258,6 @@ public class BiddingDetails implements Serializable {
             ", minQuantityKg=" + getMinQuantityKg() +
             ", maxQuantityKg=" + getMaxQuantityKg() +
             ", isActive='" + getIsActive() + "'" +
-            ", createdOn='" + getCreatedOn() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
-            ", updatedOn='" + getUpdatedOn() + "'" +
-            ", updatedBy='" + getUpdatedBy() + "'" +
             "}";
     }
 }

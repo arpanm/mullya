@@ -13,7 +13,7 @@ import com.mullya.app.domain.enumeration.PaymentType;
 import com.mullya.app.repository.PaymentDetailsRepository;
 import com.mullya.app.service.dto.PaymentDetailsDTO;
 import com.mullya.app.service.mapper.PaymentDetailsMapper;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 import java.util.Random;
@@ -66,26 +66,14 @@ class PaymentDetailsResourceIT {
     private static final String DEFAULT_PAYMENT_DATE = "AAAAAAAAAA";
     private static final String UPDATED_PAYMENT_DATE = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_PAYMENT_INIT_TIME = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_PAYMENT_INIT_TIME = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDateTime DEFAULT_PAYMENT_INIT_TIME = LocalDateTime.ofEpochSecond(0, 0, null);
+    private static final LocalDateTime UPDATED_PAYMENT_INIT_TIME = LocalDateTime.now(ZoneId.systemDefault());
 
-    private static final LocalDate DEFAULT_PAYMENT_UPDATE_TIME = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_PAYMENT_UPDATE_TIME = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDateTime DEFAULT_PAYMENT_UPDATE_TIME = LocalDateTime.ofEpochSecond(0, 0, null);
+    private static final LocalDateTime UPDATED_PAYMENT_UPDATE_TIME = LocalDateTime.now(ZoneId.systemDefault());
 
     private static final PaymentStatus DEFAULT_PAYMENT_STATUS = PaymentStatus.Pending;
     private static final PaymentStatus UPDATED_PAYMENT_STATUS = PaymentStatus.Initiated;
-
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
 
     private static final String ENTITY_API_URL = "/api/payment-details";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -127,11 +115,7 @@ class PaymentDetailsResourceIT {
             .paymentDate(DEFAULT_PAYMENT_DATE)
             .paymentInitTime(DEFAULT_PAYMENT_INIT_TIME)
             .paymentUpdateTime(DEFAULT_PAYMENT_UPDATE_TIME)
-            .paymentStatus(DEFAULT_PAYMENT_STATUS)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY);
+            .paymentStatus(DEFAULT_PAYMENT_STATUS);
         return paymentDetails;
     }
 
@@ -155,11 +139,7 @@ class PaymentDetailsResourceIT {
             .paymentDate(UPDATED_PAYMENT_DATE)
             .paymentInitTime(UPDATED_PAYMENT_INIT_TIME)
             .paymentUpdateTime(UPDATED_PAYMENT_UPDATE_TIME)
-            .paymentStatus(UPDATED_PAYMENT_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .paymentStatus(UPDATED_PAYMENT_STATUS);
         return paymentDetails;
     }
 
@@ -197,10 +177,6 @@ class PaymentDetailsResourceIT {
         assertThat(testPaymentDetails.getPaymentInitTime()).isEqualTo(DEFAULT_PAYMENT_INIT_TIME);
         assertThat(testPaymentDetails.getPaymentUpdateTime()).isEqualTo(DEFAULT_PAYMENT_UPDATE_TIME);
         assertThat(testPaymentDetails.getPaymentStatus()).isEqualTo(DEFAULT_PAYMENT_STATUS);
-        assertThat(testPaymentDetails.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testPaymentDetails.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testPaymentDetails.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testPaymentDetails.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -248,11 +224,7 @@ class PaymentDetailsResourceIT {
             .andExpect(jsonPath("$.[*].paymentDate").value(hasItem(DEFAULT_PAYMENT_DATE)))
             .andExpect(jsonPath("$.[*].paymentInitTime").value(hasItem(DEFAULT_PAYMENT_INIT_TIME.toString())))
             .andExpect(jsonPath("$.[*].paymentUpdateTime").value(hasItem(DEFAULT_PAYMENT_UPDATE_TIME.toString())))
-            .andExpect(jsonPath("$.[*].paymentStatus").value(hasItem(DEFAULT_PAYMENT_STATUS.toString())))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
+            .andExpect(jsonPath("$.[*].paymentStatus").value(hasItem(DEFAULT_PAYMENT_STATUS.toString())));
     }
 
     @Test
@@ -279,11 +251,7 @@ class PaymentDetailsResourceIT {
             .andExpect(jsonPath("$.paymentDate").value(DEFAULT_PAYMENT_DATE))
             .andExpect(jsonPath("$.paymentInitTime").value(DEFAULT_PAYMENT_INIT_TIME.toString()))
             .andExpect(jsonPath("$.paymentUpdateTime").value(DEFAULT_PAYMENT_UPDATE_TIME.toString()))
-            .andExpect(jsonPath("$.paymentStatus").value(DEFAULT_PAYMENT_STATUS.toString()))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
+            .andExpect(jsonPath("$.paymentStatus").value(DEFAULT_PAYMENT_STATUS.toString()));
     }
 
     @Test
@@ -318,11 +286,7 @@ class PaymentDetailsResourceIT {
             .paymentDate(UPDATED_PAYMENT_DATE)
             .paymentInitTime(UPDATED_PAYMENT_INIT_TIME)
             .paymentUpdateTime(UPDATED_PAYMENT_UPDATE_TIME)
-            .paymentStatus(UPDATED_PAYMENT_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .paymentStatus(UPDATED_PAYMENT_STATUS);
         PaymentDetailsDTO paymentDetailsDTO = paymentDetailsMapper.toDto(updatedPaymentDetails);
 
         restPaymentDetailsMockMvc
@@ -350,10 +314,6 @@ class PaymentDetailsResourceIT {
         assertThat(testPaymentDetails.getPaymentInitTime()).isEqualTo(UPDATED_PAYMENT_INIT_TIME);
         assertThat(testPaymentDetails.getPaymentUpdateTime()).isEqualTo(UPDATED_PAYMENT_UPDATE_TIME);
         assertThat(testPaymentDetails.getPaymentStatus()).isEqualTo(UPDATED_PAYMENT_STATUS);
-        assertThat(testPaymentDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testPaymentDetails.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testPaymentDetails.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testPaymentDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -443,10 +403,7 @@ class PaymentDetailsResourceIT {
             .paymentDate(UPDATED_PAYMENT_DATE)
             .paymentInitTime(UPDATED_PAYMENT_INIT_TIME)
             .paymentUpdateTime(UPDATED_PAYMENT_UPDATE_TIME)
-            .paymentStatus(UPDATED_PAYMENT_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .paymentStatus(UPDATED_PAYMENT_STATUS);
 
         restPaymentDetailsMockMvc
             .perform(
@@ -473,10 +430,6 @@ class PaymentDetailsResourceIT {
         assertThat(testPaymentDetails.getPaymentInitTime()).isEqualTo(UPDATED_PAYMENT_INIT_TIME);
         assertThat(testPaymentDetails.getPaymentUpdateTime()).isEqualTo(UPDATED_PAYMENT_UPDATE_TIME);
         assertThat(testPaymentDetails.getPaymentStatus()).isEqualTo(UPDATED_PAYMENT_STATUS);
-        assertThat(testPaymentDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testPaymentDetails.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testPaymentDetails.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testPaymentDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -504,11 +457,7 @@ class PaymentDetailsResourceIT {
             .paymentDate(UPDATED_PAYMENT_DATE)
             .paymentInitTime(UPDATED_PAYMENT_INIT_TIME)
             .paymentUpdateTime(UPDATED_PAYMENT_UPDATE_TIME)
-            .paymentStatus(UPDATED_PAYMENT_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .paymentStatus(UPDATED_PAYMENT_STATUS);
 
         restPaymentDetailsMockMvc
             .perform(
@@ -535,10 +484,6 @@ class PaymentDetailsResourceIT {
         assertThat(testPaymentDetails.getPaymentInitTime()).isEqualTo(UPDATED_PAYMENT_INIT_TIME);
         assertThat(testPaymentDetails.getPaymentUpdateTime()).isEqualTo(UPDATED_PAYMENT_UPDATE_TIME);
         assertThat(testPaymentDetails.getPaymentStatus()).isEqualTo(UPDATED_PAYMENT_STATUS);
-        assertThat(testPaymentDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testPaymentDetails.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testPaymentDetails.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testPaymentDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test

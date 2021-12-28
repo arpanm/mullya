@@ -5,8 +5,16 @@ import com.mullya.app.domain.enumeration.PGType;
 import com.mullya.app.domain.enumeration.PaymentStatus;
 import com.mullya.app.domain.enumeration.PaymentType;
 import java.io.Serializable;
-import java.time.LocalDate;
-import javax.persistence.*;
+import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -16,7 +24,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "payment_details")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class PaymentDetails implements Serializable {
+public class PaymentDetails extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -58,26 +66,14 @@ public class PaymentDetails implements Serializable {
     private String paymentDate;
 
     @Column(name = "payment_init_time")
-    private LocalDate paymentInitTime;
+    private LocalDateTime paymentInitTime;
 
     @Column(name = "payment_update_time")
-    private LocalDate paymentUpdateTime;
+    private LocalDateTime paymentUpdateTime;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "payment_status")
     private PaymentStatus paymentStatus;
-
-    @Column(name = "created_on")
-    private LocalDate createdOn;
-
-    @Column(name = "created_by")
-    private String createdBy;
-
-    @Column(name = "updated_on")
-    private LocalDate updatedOn;
-
-    @Column(name = "updated_by")
-    private String updatedBy;
 
     @ManyToOne
     @JsonIgnoreProperties(value = { "paymentDetails", "remittances", "requirement", "bid", "assignedAgent", "stock" }, allowSetters = true)
@@ -228,29 +224,29 @@ public class PaymentDetails implements Serializable {
         this.paymentDate = paymentDate;
     }
 
-    public LocalDate getPaymentInitTime() {
+    public LocalDateTime getPaymentInitTime() {
         return this.paymentInitTime;
     }
 
-    public PaymentDetails paymentInitTime(LocalDate paymentInitTime) {
+    public PaymentDetails paymentInitTime(LocalDateTime paymentInitTime) {
         this.setPaymentInitTime(paymentInitTime);
         return this;
     }
 
-    public void setPaymentInitTime(LocalDate paymentInitTime) {
+    public void setPaymentInitTime(LocalDateTime paymentInitTime) {
         this.paymentInitTime = paymentInitTime;
     }
 
-    public LocalDate getPaymentUpdateTime() {
+    public LocalDateTime getPaymentUpdateTime() {
         return this.paymentUpdateTime;
     }
 
-    public PaymentDetails paymentUpdateTime(LocalDate paymentUpdateTime) {
+    public PaymentDetails paymentUpdateTime(LocalDateTime paymentUpdateTime) {
         this.setPaymentUpdateTime(paymentUpdateTime);
         return this;
     }
 
-    public void setPaymentUpdateTime(LocalDate paymentUpdateTime) {
+    public void setPaymentUpdateTime(LocalDateTime paymentUpdateTime) {
         this.paymentUpdateTime = paymentUpdateTime;
     }
 
@@ -265,58 +261,6 @@ public class PaymentDetails implements Serializable {
 
     public void setPaymentStatus(PaymentStatus paymentStatus) {
         this.paymentStatus = paymentStatus;
-    }
-
-    public LocalDate getCreatedOn() {
-        return this.createdOn;
-    }
-
-    public PaymentDetails createdOn(LocalDate createdOn) {
-        this.setCreatedOn(createdOn);
-        return this;
-    }
-
-    public void setCreatedOn(LocalDate createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public PaymentDetails createdBy(String createdBy) {
-        this.setCreatedBy(createdBy);
-        return this;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDate getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    public PaymentDetails updatedOn(LocalDate updatedOn) {
-        this.setUpdatedOn(updatedOn);
-        return this;
-    }
-
-    public void setUpdatedOn(LocalDate updatedOn) {
-        this.updatedOn = updatedOn;
-    }
-
-    public String getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    public PaymentDetails updatedBy(String updatedBy) {
-        this.setUpdatedBy(updatedBy);
-        return this;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
     }
 
     public Order getOrder() {
@@ -369,10 +313,6 @@ public class PaymentDetails implements Serializable {
             ", paymentInitTime='" + getPaymentInitTime() + "'" +
             ", paymentUpdateTime='" + getPaymentUpdateTime() + "'" +
             ", paymentStatus='" + getPaymentStatus() + "'" +
-            ", createdOn='" + getCreatedOn() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
-            ", updatedOn='" + getUpdatedOn() + "'" +
-            ", updatedBy='" + getUpdatedBy() + "'" +
             "}";
     }
 }

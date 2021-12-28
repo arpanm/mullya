@@ -3,7 +3,7 @@ package com.mullya.app.service.dto;
 import com.mullya.app.domain.enumeration.OtpStatus;
 import com.mullya.app.domain.enumeration.OtpType;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -26,11 +26,11 @@ public class OTPDTO implements Serializable {
 
     private OtpStatus status;
 
-    private LocalDateTime createdOn;
+    private Instant createdOn;
 
     private String createdBy;
 
-    private LocalDateTime updatedOn;
+    private Instant updatedOn;
 
     private String updatedBy;
 
@@ -94,11 +94,11 @@ public class OTPDTO implements Serializable {
         this.status = status;
     }
 
-    public LocalDateTime getCreatedOn() {
+    public Instant getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(LocalDateTime createdOn) {
+    public void setCreatedOn(Instant createdOn) {
         this.createdOn = createdOn;
     }
 
@@ -110,11 +110,11 @@ public class OTPDTO implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public LocalDateTime getUpdatedOn() {
+    public Instant getUpdatedOn() {
         return updatedOn;
     }
 
-    public void setUpdatedOn(LocalDateTime updatedOn) {
+    public void setUpdatedOn(Instant updatedOn) {
         this.updatedOn = updatedOn;
     }
 

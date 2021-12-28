@@ -12,9 +12,7 @@ import com.mullya.app.domain.enumeration.OtpType;
 import com.mullya.app.repository.OTPRepository;
 import com.mullya.app.service.dto.OTPDTO;
 import com.mullya.app.service.mapper.OTPMapper;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -54,18 +52,6 @@ class OTPResourceIT {
     private static final OtpStatus DEFAULT_STATUS = OtpStatus.Init;
     private static final OtpStatus UPDATED_STATUS = OtpStatus.Verified;
 
-    private static final LocalDateTime DEFAULT_CREATED_ON = LocalDateTime.ofEpochSecond(0, 0, null);
-    private static final LocalDateTime UPDATED_CREATED_ON = LocalDateTime.now();
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDateTime DEFAULT_UPDATED_ON = LocalDateTime.ofEpochSecond(0, 0, null);
-    private static final LocalDateTime UPDATED_UPDATED_ON = LocalDateTime.now();
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
-
     private static final String ENTITY_API_URL = "/api/otps";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -99,11 +85,7 @@ class OTPResourceIT {
             .phone(DEFAULT_PHONE)
             .type(DEFAULT_TYPE)
             .expiryTime(DEFAULT_EXPIRY_TIME)
-            .status(DEFAULT_STATUS)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY);
+            .status(DEFAULT_STATUS);
         return oTP;
     }
 
@@ -120,11 +102,7 @@ class OTPResourceIT {
             .phone(UPDATED_PHONE)
             .type(UPDATED_TYPE)
             .expiryTime(UPDATED_EXPIRY_TIME)
-            .status(UPDATED_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .status(UPDATED_STATUS);
         return oTP;
     }
 
@@ -153,10 +131,6 @@ class OTPResourceIT {
         assertThat(testOTP.getType()).isEqualTo(DEFAULT_TYPE);
         assertThat(testOTP.getExpiryTime()).isEqualTo(DEFAULT_EXPIRY_TIME);
         assertThat(testOTP.getStatus()).isEqualTo(DEFAULT_STATUS);
-        assertThat(testOTP.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testOTP.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testOTP.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testOTP.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -195,11 +169,7 @@ class OTPResourceIT {
             .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE)))
             .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
             .andExpect(jsonPath("$.[*].expiryTime").value(hasItem(DEFAULT_EXPIRY_TIME.toString())))
-            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
+            .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
 
     @Test
@@ -219,11 +189,7 @@ class OTPResourceIT {
             .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE))
             .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
             .andExpect(jsonPath("$.expiryTime").value(DEFAULT_EXPIRY_TIME.toString()))
-            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
+            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
 
     @Test
@@ -251,11 +217,7 @@ class OTPResourceIT {
             .phone(UPDATED_PHONE)
             .type(UPDATED_TYPE)
             .expiryTime(UPDATED_EXPIRY_TIME)
-            .status(UPDATED_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .status(UPDATED_STATUS);
         OTPDTO oTPDTO = oTPMapper.toDto(updatedOTP);
 
         restOTPMockMvc
@@ -276,10 +238,6 @@ class OTPResourceIT {
         assertThat(testOTP.getType()).isEqualTo(UPDATED_TYPE);
         assertThat(testOTP.getExpiryTime()).isEqualTo(UPDATED_EXPIRY_TIME);
         assertThat(testOTP.getStatus()).isEqualTo(UPDATED_STATUS);
-        assertThat(testOTP.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testOTP.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testOTP.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testOTP.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -359,7 +317,7 @@ class OTPResourceIT {
         OTP partialUpdatedOTP = new OTP();
         partialUpdatedOTP.setId(oTP.getId());
 
-        partialUpdatedOTP.phone(UPDATED_PHONE).type(UPDATED_TYPE).expiryTime(UPDATED_EXPIRY_TIME).updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedOTP.phone(UPDATED_PHONE).type(UPDATED_TYPE).expiryTime(UPDATED_EXPIRY_TIME);
 
         restOTPMockMvc
             .perform(
@@ -379,10 +337,6 @@ class OTPResourceIT {
         assertThat(testOTP.getType()).isEqualTo(UPDATED_TYPE);
         assertThat(testOTP.getExpiryTime()).isEqualTo(UPDATED_EXPIRY_TIME);
         assertThat(testOTP.getStatus()).isEqualTo(DEFAULT_STATUS);
-        assertThat(testOTP.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testOTP.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testOTP.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testOTP.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -403,11 +357,7 @@ class OTPResourceIT {
             .phone(UPDATED_PHONE)
             .type(UPDATED_TYPE)
             .expiryTime(UPDATED_EXPIRY_TIME)
-            .status(UPDATED_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .status(UPDATED_STATUS);
 
         restOTPMockMvc
             .perform(
@@ -427,10 +377,6 @@ class OTPResourceIT {
         assertThat(testOTP.getType()).isEqualTo(UPDATED_TYPE);
         assertThat(testOTP.getExpiryTime()).isEqualTo(UPDATED_EXPIRY_TIME);
         assertThat(testOTP.getStatus()).isEqualTo(UPDATED_STATUS);
-        assertThat(testOTP.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testOTP.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testOTP.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testOTP.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test

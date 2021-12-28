@@ -11,8 +11,6 @@ import com.mullya.app.domain.enumeration.StockStatus;
 import com.mullya.app.repository.StockRepository;
 import com.mullya.app.service.dto.StockDTO;
 import com.mullya.app.service.mapper.StockMapper;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -58,18 +56,6 @@ class StockResourceIT {
     private static final Boolean DEFAULT_IS_OPEN_FOR_BIDDING = false;
     private static final Boolean UPDATED_IS_OPEN_FOR_BIDDING = true;
 
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
-
     private static final String ENTITY_API_URL = "/api/stocks";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -105,11 +91,7 @@ class StockResourceIT {
             .avialableFrom(DEFAULT_AVIALABLE_FROM)
             .description(DEFAULT_DESCRIPTION)
             .stockStatus(DEFAULT_STOCK_STATUS)
-            .isOpenForBidding(DEFAULT_IS_OPEN_FOR_BIDDING)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY);
+            .isOpenForBidding(DEFAULT_IS_OPEN_FOR_BIDDING);
         return stock;
     }
 
@@ -128,11 +110,7 @@ class StockResourceIT {
             .avialableFrom(UPDATED_AVIALABLE_FROM)
             .description(UPDATED_DESCRIPTION)
             .stockStatus(UPDATED_STOCK_STATUS)
-            .isOpenForBidding(UPDATED_IS_OPEN_FOR_BIDDING)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .isOpenForBidding(UPDATED_IS_OPEN_FOR_BIDDING);
         return stock;
     }
 
@@ -163,10 +141,6 @@ class StockResourceIT {
         assertThat(testStock.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testStock.getStockStatus()).isEqualTo(DEFAULT_STOCK_STATUS);
         assertThat(testStock.getIsOpenForBidding()).isEqualTo(DEFAULT_IS_OPEN_FOR_BIDDING);
-        assertThat(testStock.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testStock.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testStock.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testStock.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -207,11 +181,7 @@ class StockResourceIT {
             .andExpect(jsonPath("$.[*].avialableFrom").value(hasItem(DEFAULT_AVIALABLE_FROM)))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
             .andExpect(jsonPath("$.[*].stockStatus").value(hasItem(DEFAULT_STOCK_STATUS.toString())))
-            .andExpect(jsonPath("$.[*].isOpenForBidding").value(hasItem(DEFAULT_IS_OPEN_FOR_BIDDING.booleanValue())))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
+            .andExpect(jsonPath("$.[*].isOpenForBidding").value(hasItem(DEFAULT_IS_OPEN_FOR_BIDDING.booleanValue())));
     }
 
     @Test
@@ -233,11 +203,7 @@ class StockResourceIT {
             .andExpect(jsonPath("$.avialableFrom").value(DEFAULT_AVIALABLE_FROM))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
             .andExpect(jsonPath("$.stockStatus").value(DEFAULT_STOCK_STATUS.toString()))
-            .andExpect(jsonPath("$.isOpenForBidding").value(DEFAULT_IS_OPEN_FOR_BIDDING.booleanValue()))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
+            .andExpect(jsonPath("$.isOpenForBidding").value(DEFAULT_IS_OPEN_FOR_BIDDING.booleanValue()));
     }
 
     @Test
@@ -267,11 +233,7 @@ class StockResourceIT {
             .avialableFrom(UPDATED_AVIALABLE_FROM)
             .description(UPDATED_DESCRIPTION)
             .stockStatus(UPDATED_STOCK_STATUS)
-            .isOpenForBidding(UPDATED_IS_OPEN_FOR_BIDDING)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .isOpenForBidding(UPDATED_IS_OPEN_FOR_BIDDING);
         StockDTO stockDTO = stockMapper.toDto(updatedStock);
 
         restStockMockMvc
@@ -294,10 +256,6 @@ class StockResourceIT {
         assertThat(testStock.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testStock.getStockStatus()).isEqualTo(UPDATED_STOCK_STATUS);
         assertThat(testStock.getIsOpenForBidding()).isEqualTo(UPDATED_IS_OPEN_FOR_BIDDING);
-        assertThat(testStock.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testStock.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testStock.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testStock.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -377,12 +335,7 @@ class StockResourceIT {
         Stock partialUpdatedStock = new Stock();
         partialUpdatedStock.setId(stock.getId());
 
-        partialUpdatedStock
-            .minPrice(UPDATED_MIN_PRICE)
-            .maxPrice(UPDATED_MAX_PRICE)
-            .stockStatus(UPDATED_STOCK_STATUS)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON);
+        partialUpdatedStock.minPrice(UPDATED_MIN_PRICE).maxPrice(UPDATED_MAX_PRICE).stockStatus(UPDATED_STOCK_STATUS);
 
         restStockMockMvc
             .perform(
@@ -404,10 +357,6 @@ class StockResourceIT {
         assertThat(testStock.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testStock.getStockStatus()).isEqualTo(UPDATED_STOCK_STATUS);
         assertThat(testStock.getIsOpenForBidding()).isEqualTo(DEFAULT_IS_OPEN_FOR_BIDDING);
-        assertThat(testStock.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testStock.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testStock.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testStock.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -430,11 +379,7 @@ class StockResourceIT {
             .avialableFrom(UPDATED_AVIALABLE_FROM)
             .description(UPDATED_DESCRIPTION)
             .stockStatus(UPDATED_STOCK_STATUS)
-            .isOpenForBidding(UPDATED_IS_OPEN_FOR_BIDDING)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .isOpenForBidding(UPDATED_IS_OPEN_FOR_BIDDING);
 
         restStockMockMvc
             .perform(
@@ -456,10 +401,6 @@ class StockResourceIT {
         assertThat(testStock.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testStock.getStockStatus()).isEqualTo(UPDATED_STOCK_STATUS);
         assertThat(testStock.getIsOpenForBidding()).isEqualTo(UPDATED_IS_OPEN_FOR_BIDDING);
-        assertThat(testStock.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testStock.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testStock.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testStock.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test

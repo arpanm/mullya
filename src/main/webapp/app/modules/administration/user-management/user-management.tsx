@@ -118,16 +118,16 @@ export const UserManagement = (props: RouteComponentProps<any>) => {
             <th>
               <Translate contentKey="userManagement.profiles">Profiles</Translate>
             </th>
-            <th className="hand" onClick={sort('createdDate')}>
-              <Translate contentKey="userManagement.createdDate">Created Date</Translate>
+            <th className="hand" onClick={sort('createdOn')}>
+              <Translate contentKey="userManagement.createdOn">Created Date</Translate>
               <FontAwesomeIcon icon="sort" />
             </th>
-            <th className="hand" onClick={sort('lastModifiedBy')}>
-              <Translate contentKey="userManagement.lastModifiedBy">Last Modified By</Translate>
+            <th className="hand" onClick={sort('updatedBy')}>
+              <Translate contentKey="userManagement.updatedBy">Last Modified By</Translate>
               <FontAwesomeIcon icon="sort" />
             </th>
-            <th id="modified-date-sort" className="hand" onClick={sort('lastModifiedDate')}>
-              <Translate contentKey="userManagement.lastModifiedDate">Last Modified Date</Translate>
+            <th id="modified-date-sort" className="hand" onClick={sort('updatedOn')}>
+              <Translate contentKey="userManagement.updatedOn">Last Modified Date</Translate>
               <FontAwesomeIcon icon="sort" />
             </th>
             <th />
@@ -164,15 +164,9 @@ export const UserManagement = (props: RouteComponentProps<any>) => {
                     ))
                   : null}
               </td>
-              <td>
-                {user.createdDate ? <TextFormat value={user.createdDate} type="date" format={APP_DATE_FORMAT} blankOnInvalid /> : null}
-              </td>
-              <td>{user.lastModifiedBy}</td>
-              <td>
-                {user.lastModifiedDate ? (
-                  <TextFormat value={user.lastModifiedDate} type="date" format={APP_DATE_FORMAT} blankOnInvalid />
-                ) : null}
-              </td>
+              <td>{user.createdOn ? <TextFormat value={user.createdOn} type="date" format={APP_DATE_FORMAT} blankOnInvalid /> : null}</td>
+              <td>{user.updatedBy}</td>
+              <td>{user.updatedOn ? <TextFormat value={user.updatedOn} type="date" format={APP_DATE_FORMAT} blankOnInvalid /> : null}</td>
               <td className="text-end">
                 <div className="btn-group flex-btn-group-container">
                   <Button tag={Link} to={`${match.url}/${user.login}`} color="info" size="sm">

@@ -2,8 +2,15 @@ package com.mullya.app.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
-import java.time.LocalDate;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -13,7 +20,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "address")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Address implements Serializable {
+public class Address extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -37,9 +44,6 @@ public class Address implements Serializable {
     @Column(name = "country")
     private String country;
 
-    @Column(name = "created_by")
-    private String createdBy;
-
     @Column(name = "lat")
     private Float lat;
 
@@ -48,15 +52,6 @@ public class Address implements Serializable {
 
     @Column(name = "map_location")
     private String mapLocation;
-
-    @Column(name = "created_on")
-    private LocalDate createdOn;
-
-    @Column(name = "updated_on")
-    private LocalDate updatedOn;
-
-    @Column(name = "updated_by")
-    private String updatedBy;
 
     @OneToOne
     @JoinColumn(unique = true)
@@ -149,19 +144,6 @@ public class Address implements Serializable {
         this.country = country;
     }
 
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public Address createdBy(String createdBy) {
-        this.setCreatedBy(createdBy);
-        return this;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
     public Float getLat() {
         return this.lat;
     }
@@ -199,45 +181,6 @@ public class Address implements Serializable {
 
     public void setMapLocation(String mapLocation) {
         this.mapLocation = mapLocation;
-    }
-
-    public LocalDate getCreatedOn() {
-        return this.createdOn;
-    }
-
-    public Address createdOn(LocalDate createdOn) {
-        this.setCreatedOn(createdOn);
-        return this;
-    }
-
-    public void setCreatedOn(LocalDate createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public LocalDate getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    public Address updatedOn(LocalDate updatedOn) {
-        this.setUpdatedOn(updatedOn);
-        return this;
-    }
-
-    public void setUpdatedOn(LocalDate updatedOn) {
-        this.updatedOn = updatedOn;
-    }
-
-    public String getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    public Address updatedBy(String updatedBy) {
-        this.setUpdatedBy(updatedBy);
-        return this;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
     }
 
     public Hub getHub() {
@@ -295,13 +238,9 @@ public class Address implements Serializable {
             ", city='" + getCity() + "'" +
             ", stateProvince='" + getStateProvince() + "'" +
             ", country='" + getCountry() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
             ", lat=" + getLat() +
             ", lon=" + getLon() +
             ", mapLocation='" + getMapLocation() + "'" +
-            ", createdOn='" + getCreatedOn() + "'" +
-            ", updatedOn='" + getUpdatedOn() + "'" +
-            ", updatedBy='" + getUpdatedBy() + "'" +
             "}";
     }
 }

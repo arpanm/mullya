@@ -4,7 +4,8 @@ import com.mullya.app.domain.enumeration.PGType;
 import com.mullya.app.domain.enumeration.PaymentStatus;
 import com.mullya.app.domain.enumeration.PaymentType;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -34,17 +35,17 @@ public class PaymentDetailsDTO implements Serializable {
 
     private String paymentDate;
 
-    private LocalDate paymentInitTime;
+    private LocalDateTime paymentInitTime;
 
-    private LocalDate paymentUpdateTime;
+    private LocalDateTime paymentUpdateTime;
 
     private PaymentStatus paymentStatus;
 
-    private LocalDate createdOn;
+    private Instant createdOn;
 
     private String createdBy;
 
-    private LocalDate updatedOn;
+    private Instant updatedOn;
 
     private String updatedBy;
 
@@ -138,19 +139,19 @@ public class PaymentDetailsDTO implements Serializable {
         this.paymentDate = paymentDate;
     }
 
-    public LocalDate getPaymentInitTime() {
+    public LocalDateTime getPaymentInitTime() {
         return paymentInitTime;
     }
 
-    public void setPaymentInitTime(LocalDate paymentInitTime) {
+    public void setPaymentInitTime(LocalDateTime paymentInitTime) {
         this.paymentInitTime = paymentInitTime;
     }
 
-    public LocalDate getPaymentUpdateTime() {
+    public LocalDateTime getPaymentUpdateTime() {
         return paymentUpdateTime;
     }
 
-    public void setPaymentUpdateTime(LocalDate paymentUpdateTime) {
+    public void setPaymentUpdateTime(LocalDateTime paymentUpdateTime) {
         this.paymentUpdateTime = paymentUpdateTime;
     }
 
@@ -162,11 +163,11 @@ public class PaymentDetailsDTO implements Serializable {
         this.paymentStatus = paymentStatus;
     }
 
-    public LocalDate getCreatedOn() {
+    public Instant getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(LocalDate createdOn) {
+    public void setCreatedOn(Instant createdOn) {
         this.createdOn = createdOn;
     }
 
@@ -178,11 +179,11 @@ public class PaymentDetailsDTO implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public LocalDate getUpdatedOn() {
+    public Instant getUpdatedOn() {
         return updatedOn;
     }
 
-    public void setUpdatedOn(LocalDate updatedOn) {
+    public void setUpdatedOn(Instant updatedOn) {
         this.updatedOn = updatedOn;
     }
 

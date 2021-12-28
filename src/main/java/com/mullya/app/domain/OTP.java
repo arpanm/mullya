@@ -4,11 +4,19 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.mullya.app.domain.enumeration.OtpStatus;
 import com.mullya.app.domain.enumeration.OtpType;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -19,7 +27,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "otp")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class OTP implements Serializable {
+public class OTP extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -50,18 +58,6 @@ public class OTP implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private OtpStatus status = OtpStatus.Init;
-
-    @Column(name = "created_on")
-    private LocalDateTime createdOn;
-
-    @Column(name = "created_by")
-    private String createdBy;
-
-    @Column(name = "updated_on")
-    private LocalDateTime updatedOn;
-
-    @Column(name = "updated_by")
-    private String updatedBy;
 
     @NotNull
     @Column(name = "is_active")
@@ -174,58 +170,6 @@ public class OTP implements Serializable {
         }
     }
 
-    public LocalDateTime getCreatedOn() {
-        return this.createdOn;
-    }
-
-    public OTP createdOn(LocalDateTime createdOn) {
-        this.setCreatedOn(createdOn);
-        return this;
-    }
-
-    public void setCreatedOn(LocalDateTime createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public OTP createdBy(String createdBy) {
-        this.setCreatedBy(createdBy);
-        return this;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDateTime getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    public OTP updatedOn(LocalDateTime updatedOn) {
-        this.setUpdatedOn(updatedOn);
-        return this;
-    }
-
-    public void setUpdatedOn(LocalDateTime updatedOn) {
-        this.updatedOn = updatedOn;
-    }
-
-    public String getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    public OTP updatedBy(String updatedBy) {
-        this.setUpdatedBy(updatedBy);
-        return this;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
     public Boolean isActive() {
         return this.isActive;
     }
@@ -315,10 +259,6 @@ public class OTP implements Serializable {
             ", type='" + getType() + "'" +
             ", expiryTime='" + getExpiryTime() + "'" +
             ", status='" + getStatus() + "'" +
-            ", createdOn='" + getCreatedOn() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
-            ", updatedOn='" + getUpdatedOn() + "'" +
-            ", updatedBy='" + getUpdatedBy() + "'" +
             "}";
     }
 }

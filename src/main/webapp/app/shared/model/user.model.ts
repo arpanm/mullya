@@ -17,9 +17,9 @@ export interface IUser {
   langKey?: string;
   authorities?: any[];
   createdBy?: string;
-  createdDate?: Date | null;
-  lastModifiedBy?: string;
-  lastModifiedDate?: Date | null;
+  createdOn?: Date | null;
+  updatedBy?: string;
+  updatedOn?: Date | null;
   password?: string;
   phone?: number | null;
   isEmailVerified?: boolean | null;
@@ -45,9 +45,9 @@ export const defaultValue: Readonly<IUser> = {
   langKey: '',
   authorities: [],
   createdBy: '',
-  createdDate: null,
-  lastModifiedBy: '',
-  lastModifiedDate: null,
+  createdOn: null,
+  updatedBy: '',
+  updatedOn: null,
   password: '',
   isEmailVerified: false,
   isPhoneVerified: false,

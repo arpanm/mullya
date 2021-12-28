@@ -73,12 +73,10 @@ export const UserDetail = (props: RouteComponentProps<{ id: string }>) => {
           <dd>{userEntity.type}</dd>
           <dt>
             <span id="createdOn">
-              <Translate contentKey="mulyaaApp.user.createdDate">Created Date</Translate>
+              <Translate contentKey="mulyaaApp.user.createdOn">Created On</Translate>
             </span>
           </dt>
-          <dd>
-            {userEntity.createdDate ? <TextFormat value={userEntity.createdDate} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}
-          </dd>
+          <dd>{userEntity.createdOn ? <TextFormat value={userEntity.createdOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="createdBy">
               <Translate contentKey="mulyaaApp.user.createdBy">Created By</Translate>
@@ -86,21 +84,17 @@ export const UserDetail = (props: RouteComponentProps<{ id: string }>) => {
           </dt>
           <dd>{userEntity.createdBy}</dd>
           <dt>
-            <span id="lastModifiedDate">
-              <Translate contentKey="mulyaaApp.user.lastModifiedDate">Last Modified Date</Translate>
+            <span id="updatedOn">
+              <Translate contentKey="mulyaaApp.user.updatedOn">Updated On</Translate>
             </span>
           </dt>
-          <dd>
-            {userEntity.lastModifiedDate ? (
-              <TextFormat value={userEntity.lastModifiedDate} type="date" format={APP_LOCAL_DATE_FORMAT} />
-            ) : null}
-          </dd>
+          <dd>{userEntity.updatedOn ? <TextFormat value={userEntity.updatedOn} type="date" format={APP_LOCAL_DATE_FORMAT} /> : null}</dd>
           <dt>
             <span id="lastModifiedBy">
-              <Translate contentKey="mulyaaApp.user.lastModifiedBy">Last Modified By</Translate>
+              <Translate contentKey="mulyaaApp.user.updatedBy">Updated By</Translate>
             </span>
           </dt>
-          <dd>{userEntity.lastModifiedBy}</dd>
+          <dd>{userEntity.updatedBy}</dd>
         </dl>
         <Button tag={Link} to="/user" replace color="info" data-cy="entityDetailsBackButton">
           <FontAwesomeIcon icon="arrow-left" />{' '}

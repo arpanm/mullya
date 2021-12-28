@@ -11,8 +11,6 @@ import com.mullya.app.domain.enumeration.BiddingStatus;
 import com.mullya.app.repository.BiddingDetailsRepository;
 import com.mullya.app.service.dto.BiddingDetailsDTO;
 import com.mullya.app.service.mapper.BiddingDetailsMapper;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -58,18 +56,6 @@ class BiddingDetailsResourceIT {
     private static final Boolean DEFAULT_IS_ACTIVE = false;
     private static final Boolean UPDATED_IS_ACTIVE = true;
 
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
-
     private static final String ENTITY_API_URL = "/api/bidding-details";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -105,11 +91,7 @@ class BiddingDetailsResourceIT {
             .maxPrice(DEFAULT_MAX_PRICE)
             .minQuantityKg(DEFAULT_MIN_QUANTITY_KG)
             .maxQuantityKg(DEFAULT_MAX_QUANTITY_KG)
-            .isActive(DEFAULT_IS_ACTIVE)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY);
+            .isActive(DEFAULT_IS_ACTIVE);
         return biddingDetails;
     }
 
@@ -128,11 +110,7 @@ class BiddingDetailsResourceIT {
             .maxPrice(UPDATED_MAX_PRICE)
             .minQuantityKg(UPDATED_MIN_QUANTITY_KG)
             .maxQuantityKg(UPDATED_MAX_QUANTITY_KG)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .isActive(UPDATED_IS_ACTIVE);
         return biddingDetails;
     }
 
@@ -165,10 +143,6 @@ class BiddingDetailsResourceIT {
         assertThat(testBiddingDetails.getMinQuantityKg()).isEqualTo(DEFAULT_MIN_QUANTITY_KG);
         assertThat(testBiddingDetails.getMaxQuantityKg()).isEqualTo(DEFAULT_MAX_QUANTITY_KG);
         assertThat(testBiddingDetails.getIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
-        assertThat(testBiddingDetails.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testBiddingDetails.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testBiddingDetails.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testBiddingDetails.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -211,11 +185,7 @@ class BiddingDetailsResourceIT {
             .andExpect(jsonPath("$.[*].maxPrice").value(hasItem(DEFAULT_MAX_PRICE.doubleValue())))
             .andExpect(jsonPath("$.[*].minQuantityKg").value(hasItem(DEFAULT_MIN_QUANTITY_KG.doubleValue())))
             .andExpect(jsonPath("$.[*].maxQuantityKg").value(hasItem(DEFAULT_MAX_QUANTITY_KG.doubleValue())))
-            .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE.booleanValue())))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
+            .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE.booleanValue())));
     }
 
     @Test
@@ -237,11 +207,7 @@ class BiddingDetailsResourceIT {
             .andExpect(jsonPath("$.maxPrice").value(DEFAULT_MAX_PRICE.doubleValue()))
             .andExpect(jsonPath("$.minQuantityKg").value(DEFAULT_MIN_QUANTITY_KG.doubleValue()))
             .andExpect(jsonPath("$.maxQuantityKg").value(DEFAULT_MAX_QUANTITY_KG.doubleValue()))
-            .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE.booleanValue()))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
+            .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE.booleanValue()));
     }
 
     @Test
@@ -271,11 +237,7 @@ class BiddingDetailsResourceIT {
             .maxPrice(UPDATED_MAX_PRICE)
             .minQuantityKg(UPDATED_MIN_QUANTITY_KG)
             .maxQuantityKg(UPDATED_MAX_QUANTITY_KG)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .isActive(UPDATED_IS_ACTIVE);
         BiddingDetailsDTO biddingDetailsDTO = biddingDetailsMapper.toDto(updatedBiddingDetails);
 
         restBiddingDetailsMockMvc
@@ -298,10 +260,6 @@ class BiddingDetailsResourceIT {
         assertThat(testBiddingDetails.getMinQuantityKg()).isEqualTo(UPDATED_MIN_QUANTITY_KG);
         assertThat(testBiddingDetails.getMaxQuantityKg()).isEqualTo(UPDATED_MAX_QUANTITY_KG);
         assertThat(testBiddingDetails.getIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
-        assertThat(testBiddingDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testBiddingDetails.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testBiddingDetails.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testBiddingDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -409,10 +367,6 @@ class BiddingDetailsResourceIT {
         assertThat(testBiddingDetails.getMinQuantityKg()).isEqualTo(DEFAULT_MIN_QUANTITY_KG);
         assertThat(testBiddingDetails.getMaxQuantityKg()).isEqualTo(UPDATED_MAX_QUANTITY_KG);
         assertThat(testBiddingDetails.getIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
-        assertThat(testBiddingDetails.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testBiddingDetails.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testBiddingDetails.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testBiddingDetails.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -435,11 +389,7 @@ class BiddingDetailsResourceIT {
             .maxPrice(UPDATED_MAX_PRICE)
             .minQuantityKg(UPDATED_MIN_QUANTITY_KG)
             .maxQuantityKg(UPDATED_MAX_QUANTITY_KG)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .isActive(UPDATED_IS_ACTIVE);
 
         restBiddingDetailsMockMvc
             .perform(
@@ -461,10 +411,6 @@ class BiddingDetailsResourceIT {
         assertThat(testBiddingDetails.getMinQuantityKg()).isEqualTo(UPDATED_MIN_QUANTITY_KG);
         assertThat(testBiddingDetails.getMaxQuantityKg()).isEqualTo(UPDATED_MAX_QUANTITY_KG);
         assertThat(testBiddingDetails.getIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
-        assertThat(testBiddingDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testBiddingDetails.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testBiddingDetails.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testBiddingDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test

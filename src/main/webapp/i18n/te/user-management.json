@@ -24,8 +24,8 @@
     "profiles": "ప్రొఫైల్స్",
     "langKey": "భాష",
     "createdBy": "సృష్టికర్త",
-    "createdDate": "సృష్టించబడిన తేదీ",
-    "lastModifiedBy": "సవరించినది",
-    "lastModifiedDate": "చివరి మార్పు తేదీ"
+    "createdOn": "సృష్టించబడిన తేదీ",
+    "updatedBy": "సవరించినది",
+    "updatedOn": "చివరి మార్పు తేదీ"
   }
 }

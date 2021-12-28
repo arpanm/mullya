@@ -2,7 +2,7 @@ package com.mullya.app.service.dto;
 
 import com.mullya.app.domain.enumeration.RequirementStatus;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.Instant;
 import java.util.Objects;
 
 /**
@@ -22,11 +22,11 @@ public class RequirementDTO implements Serializable {
 
     private String description;
 
-    private LocalDate createdOn;
+    private Instant createdOn;
 
     private String createdBy;
 
-    private LocalDate updatedOn;
+    private Instant updatedOn;
 
     private String updatedBy;
 
@@ -90,11 +90,11 @@ public class RequirementDTO implements Serializable {
         this.description = description;
     }
 
-    public LocalDate getCreatedOn() {
+    public Instant getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(LocalDate createdOn) {
+    public void setCreatedOn(Instant createdOn) {
         this.createdOn = createdOn;
     }
 
@@ -106,11 +106,11 @@ public class RequirementDTO implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public LocalDate getUpdatedOn() {
+    public Instant getUpdatedOn() {
         return updatedOn;
     }
 
-    public void setUpdatedOn(LocalDate updatedOn) {
+    public void setUpdatedOn(Instant updatedOn) {
         this.updatedOn = updatedOn;
     }
 

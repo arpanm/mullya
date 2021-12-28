@@ -61,21 +61,17 @@ export const UserManagementDetail = (props: RouteComponentProps<{ login: string 
           </dt>
           <dd>{user.createdBy}</dd>
           <dt>
-            <Translate contentKey="userManagement.createdDate">Created Date</Translate>
+            <Translate contentKey="userManagement.createdDate">Created On</Translate>
           </dt>
-          <dd>{user.createdDate ? <TextFormat value={user.createdDate} type="date" format={APP_DATE_FORMAT} blankOnInvalid /> : null}</dd>
+          <dd>{user.createdOn ? <TextFormat value={user.createdOn} type="date" format={APP_DATE_FORMAT} blankOnInvalid /> : null}</dd>
           <dt>
-            <Translate contentKey="userManagement.lastModifiedBy">Last Modified By</Translate>
+            <Translate contentKey="userManagement.updatedBy">Updated By</Translate>
           </dt>
-          <dd>{user.lastModifiedBy}</dd>
+          <dd>{user.updatedBy}</dd>
           <dt>
-            <Translate contentKey="userManagement.lastModifiedDate">Last Modified Date</Translate>
+            <Translate contentKey="userManagement.updatedOn">Updated On</Translate>
           </dt>
-          <dd>
-            {user.lastModifiedDate ? (
-              <TextFormat value={user.lastModifiedDate} type="date" format={APP_DATE_FORMAT} blankOnInvalid />
-            ) : null}
-          </dd>
+          <dd>{user.updatedOn ? <TextFormat value={user.updatedOn} type="date" format={APP_DATE_FORMAT} blankOnInvalid /> : null}</dd>
           <dt>
             <Translate contentKey="userManagement.profiles">Profiles</Translate>
           </dt>

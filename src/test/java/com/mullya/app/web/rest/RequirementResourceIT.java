@@ -11,8 +11,6 @@ import com.mullya.app.domain.enumeration.RequirementStatus;
 import com.mullya.app.repository.RequirementRepository;
 import com.mullya.app.service.dto.RequirementDTO;
 import com.mullya.app.service.mapper.RequirementMapper;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -48,18 +46,6 @@ class RequirementResourceIT {
 
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
 
     private static final RequirementStatus DEFAULT_STATUS = RequirementStatus.New;
     private static final RequirementStatus UPDATED_STATUS = RequirementStatus.Accepted;
@@ -97,10 +83,6 @@ class RequirementResourceIT {
             .quantityKg(DEFAULT_QUANTITY_KG)
             .neededBy(DEFAULT_NEEDED_BY)
             .description(DEFAULT_DESCRIPTION)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY)
             .status(DEFAULT_STATUS);
         return requirement;
     }
@@ -118,10 +100,6 @@ class RequirementResourceIT {
             .quantityKg(UPDATED_QUANTITY_KG)
             .neededBy(UPDATED_NEEDED_BY)
             .description(UPDATED_DESCRIPTION)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY)
             .status(UPDATED_STATUS);
         return requirement;
     }
@@ -152,10 +130,6 @@ class RequirementResourceIT {
         assertThat(testRequirement.getQuantityKg()).isEqualTo(DEFAULT_QUANTITY_KG);
         assertThat(testRequirement.getNeededBy()).isEqualTo(DEFAULT_NEEDED_BY);
         assertThat(testRequirement.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
-        assertThat(testRequirement.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testRequirement.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testRequirement.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testRequirement.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
         assertThat(testRequirement.getStatus()).isEqualTo(DEFAULT_STATUS);
     }
 
@@ -197,10 +171,6 @@ class RequirementResourceIT {
             .andExpect(jsonPath("$.[*].quantityKg").value(hasItem(DEFAULT_QUANTITY_KG.doubleValue())))
             .andExpect(jsonPath("$.[*].neededBy").value(hasItem(DEFAULT_NEEDED_BY)))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
 
@@ -221,10 +191,6 @@ class RequirementResourceIT {
             .andExpect(jsonPath("$.quantityKg").value(DEFAULT_QUANTITY_KG.doubleValue()))
             .andExpect(jsonPath("$.neededBy").value(DEFAULT_NEEDED_BY))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
 
@@ -253,10 +219,6 @@ class RequirementResourceIT {
             .quantityKg(UPDATED_QUANTITY_KG)
             .neededBy(UPDATED_NEEDED_BY)
             .description(UPDATED_DESCRIPTION)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY)
             .status(UPDATED_STATUS);
         RequirementDTO requirementDTO = requirementMapper.toDto(updatedRequirement);
 
@@ -277,10 +239,6 @@ class RequirementResourceIT {
         assertThat(testRequirement.getQuantityKg()).isEqualTo(UPDATED_QUANTITY_KG);
         assertThat(testRequirement.getNeededBy()).isEqualTo(UPDATED_NEEDED_BY);
         assertThat(testRequirement.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
-        assertThat(testRequirement.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testRequirement.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testRequirement.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testRequirement.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
         assertThat(testRequirement.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 
@@ -361,11 +319,7 @@ class RequirementResourceIT {
         Requirement partialUpdatedRequirement = new Requirement();
         partialUpdatedRequirement.setId(requirement.getId());
 
-        partialUpdatedRequirement
-            .quantityKg(UPDATED_QUANTITY_KG)
-            .description(UPDATED_DESCRIPTION)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedRequirement.quantityKg(UPDATED_QUANTITY_KG).description(UPDATED_DESCRIPTION);
 
         restRequirementMockMvc
             .perform(
@@ -384,10 +338,6 @@ class RequirementResourceIT {
         assertThat(testRequirement.getQuantityKg()).isEqualTo(UPDATED_QUANTITY_KG);
         assertThat(testRequirement.getNeededBy()).isEqualTo(DEFAULT_NEEDED_BY);
         assertThat(testRequirement.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
-        assertThat(testRequirement.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testRequirement.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testRequirement.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testRequirement.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
         assertThat(testRequirement.getStatus()).isEqualTo(DEFAULT_STATUS);
     }
 
@@ -409,10 +359,6 @@ class RequirementResourceIT {
             .quantityKg(UPDATED_QUANTITY_KG)
             .neededBy(UPDATED_NEEDED_BY)
             .description(UPDATED_DESCRIPTION)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY)
             .status(UPDATED_STATUS);
 
         restRequirementMockMvc
@@ -432,10 +378,6 @@ class RequirementResourceIT {
         assertThat(testRequirement.getQuantityKg()).isEqualTo(UPDATED_QUANTITY_KG);
         assertThat(testRequirement.getNeededBy()).isEqualTo(UPDATED_NEEDED_BY);
         assertThat(testRequirement.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
-        assertThat(testRequirement.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testRequirement.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testRequirement.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testRequirement.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
         assertThat(testRequirement.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 

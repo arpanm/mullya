@@ -11,8 +11,6 @@ import com.mullya.app.domain.enumeration.BidStatus;
 import com.mullya.app.repository.BidsRepository;
 import com.mullya.app.service.dto.BidsDTO;
 import com.mullya.app.service.mapper.BidsMapper;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -43,18 +41,6 @@ class BidsResourceIT {
     private static final BidStatus DEFAULT_BID_STATUS = BidStatus.New;
     private static final BidStatus UPDATED_BID_STATUS = BidStatus.Won;
 
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
-
     private static final String ENTITY_API_URL = "/api/bids";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -82,14 +68,7 @@ class BidsResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Bids createEntity(EntityManager em) {
-        Bids bids = new Bids()
-            .bidPrice(DEFAULT_BID_PRICE)
-            .quantityKg(DEFAULT_QUANTITY_KG)
-            .bidStatus(DEFAULT_BID_STATUS)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY);
+        Bids bids = new Bids().bidPrice(DEFAULT_BID_PRICE).quantityKg(DEFAULT_QUANTITY_KG).bidStatus(DEFAULT_BID_STATUS);
         return bids;
     }
 
@@ -100,14 +79,7 @@ class BidsResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Bids createUpdatedEntity(EntityManager em) {
-        Bids bids = new Bids()
-            .bidPrice(UPDATED_BID_PRICE)
-            .quantityKg(UPDATED_QUANTITY_KG)
-            .bidStatus(UPDATED_BID_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+        Bids bids = new Bids().bidPrice(UPDATED_BID_PRICE).quantityKg(UPDATED_QUANTITY_KG).bidStatus(UPDATED_BID_STATUS);
         return bids;
     }
 
@@ -133,10 +105,6 @@ class BidsResourceIT {
         assertThat(testBids.getBidPrice()).isEqualTo(DEFAULT_BID_PRICE);
         assertThat(testBids.getQuantityKg()).isEqualTo(DEFAULT_QUANTITY_KG);
         assertThat(testBids.getBidStatus()).isEqualTo(DEFAULT_BID_STATUS);
-        assertThat(testBids.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testBids.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testBids.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testBids.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -172,11 +140,7 @@ class BidsResourceIT {
             .andExpect(jsonPath("$.[*].id").value(hasItem(bids.getId().intValue())))
             .andExpect(jsonPath("$.[*].bidPrice").value(hasItem(DEFAULT_BID_PRICE.doubleValue())))
             .andExpect(jsonPath("$.[*].quantityKg").value(hasItem(DEFAULT_QUANTITY_KG.doubleValue())))
-            .andExpect(jsonPath("$.[*].bidStatus").value(hasItem(DEFAULT_BID_STATUS.toString())))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
+            .andExpect(jsonPath("$.[*].bidStatus").value(hasItem(DEFAULT_BID_STATUS.toString())));
     }
 
     @Test
@@ -193,11 +157,7 @@ class BidsResourceIT {
             .andExpect(jsonPath("$.id").value(bids.getId().intValue()))
             .andExpect(jsonPath("$.bidPrice").value(DEFAULT_BID_PRICE.doubleValue()))
             .andExpect(jsonPath("$.quantityKg").value(DEFAULT_QUANTITY_KG.doubleValue()))
-            .andExpect(jsonPath("$.bidStatus").value(DEFAULT_BID_STATUS.toString()))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
+            .andExpect(jsonPath("$.bidStatus").value(DEFAULT_BID_STATUS.toString()));
     }
 
     @Test
@@ -219,14 +179,7 @@ class BidsResourceIT {
         Bids updatedBids = bidsRepository.findById(bids.getId()).get();
         // Disconnect from session so that the updates on updatedBids are not directly saved in db
         em.detach(updatedBids);
-        updatedBids
-            .bidPrice(UPDATED_BID_PRICE)
-            .quantityKg(UPDATED_QUANTITY_KG)
-            .bidStatus(UPDATED_BID_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+        updatedBids.bidPrice(UPDATED_BID_PRICE).quantityKg(UPDATED_QUANTITY_KG).bidStatus(UPDATED_BID_STATUS);
         BidsDTO bidsDTO = bidsMapper.toDto(updatedBids);
 
         restBidsMockMvc
@@ -244,10 +197,6 @@ class BidsResourceIT {
         assertThat(testBids.getBidPrice()).isEqualTo(UPDATED_BID_PRICE);
         assertThat(testBids.getQuantityKg()).isEqualTo(UPDATED_QUANTITY_KG);
         assertThat(testBids.getBidStatus()).isEqualTo(UPDATED_BID_STATUS);
-        assertThat(testBids.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testBids.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testBids.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testBids.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -327,7 +276,7 @@ class BidsResourceIT {
         Bids partialUpdatedBids = new Bids();
         partialUpdatedBids.setId(bids.getId());
 
-        partialUpdatedBids.bidPrice(UPDATED_BID_PRICE).createdOn(UPDATED_CREATED_ON).createdBy(UPDATED_CREATED_BY);
+        partialUpdatedBids.bidPrice(UPDATED_BID_PRICE);
 
         restBidsMockMvc
             .perform(
@@ -344,10 +293,6 @@ class BidsResourceIT {
         assertThat(testBids.getBidPrice()).isEqualTo(UPDATED_BID_PRICE);
         assertThat(testBids.getQuantityKg()).isEqualTo(DEFAULT_QUANTITY_KG);
         assertThat(testBids.getBidStatus()).isEqualTo(DEFAULT_BID_STATUS);
-        assertThat(testBids.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testBids.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testBids.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testBids.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -362,14 +307,7 @@ class BidsResourceIT {
         Bids partialUpdatedBids = new Bids();
         partialUpdatedBids.setId(bids.getId());
 
-        partialUpdatedBids
-            .bidPrice(UPDATED_BID_PRICE)
-            .quantityKg(UPDATED_QUANTITY_KG)
-            .bidStatus(UPDATED_BID_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedBids.bidPrice(UPDATED_BID_PRICE).quantityKg(UPDATED_QUANTITY_KG).bidStatus(UPDATED_BID_STATUS);
 
         restBidsMockMvc
             .perform(
@@ -386,10 +324,6 @@ class BidsResourceIT {
         assertThat(testBids.getBidPrice()).isEqualTo(UPDATED_BID_PRICE);
         assertThat(testBids.getQuantityKg()).isEqualTo(UPDATED_QUANTITY_KG);
         assertThat(testBids.getBidStatus()).isEqualTo(UPDATED_BID_STATUS);
-        assertThat(testBids.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testBids.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testBids.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testBids.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test

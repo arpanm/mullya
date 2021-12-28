@@ -10,8 +10,6 @@ import com.mullya.app.domain.Hub;
 import com.mullya.app.repository.HubRepository;
 import com.mullya.app.service.dto.HubDTO;
 import com.mullya.app.service.mapper.HubMapper;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -38,18 +36,6 @@ class HubResourceIT {
 
     private static final Boolean DEFAULT_IS_ACTIVE = false;
     private static final Boolean UPDATED_IS_ACTIVE = true;
-
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
 
     private static final String ENTITY_API_URL = "/api/hubs";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -78,13 +64,7 @@ class HubResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Hub createEntity(EntityManager em) {
-        Hub hub = new Hub()
-            .tag(DEFAULT_TAG)
-            .isActive(DEFAULT_IS_ACTIVE)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY);
+        Hub hub = new Hub().tag(DEFAULT_TAG).isActive(DEFAULT_IS_ACTIVE);
         return hub;
     }
 
@@ -95,13 +75,7 @@ class HubResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Hub createUpdatedEntity(EntityManager em) {
-        Hub hub = new Hub()
-            .tag(UPDATED_TAG)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+        Hub hub = new Hub().tag(UPDATED_TAG).isActive(UPDATED_IS_ACTIVE);
         return hub;
     }
 
@@ -126,10 +100,6 @@ class HubResourceIT {
         Hub testHub = hubList.get(hubList.size() - 1);
         assertThat(testHub.getTag()).isEqualTo(DEFAULT_TAG);
         assertThat(testHub.getIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
-        assertThat(testHub.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testHub.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testHub.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testHub.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -164,11 +134,7 @@ class HubResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(hub.getId().intValue())))
             .andExpect(jsonPath("$.[*].tag").value(hasItem(DEFAULT_TAG)))
-            .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE.booleanValue())))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
+            .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE.booleanValue())));
     }
 
     @Test
@@ -184,11 +150,7 @@ class HubResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(hub.getId().intValue()))
             .andExpect(jsonPath("$.tag").value(DEFAULT_TAG))
-            .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE.booleanValue()))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
+            .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE.booleanValue()));
     }
 
     @Test
@@ -210,13 +172,7 @@ class HubResourceIT {
         Hub updatedHub = hubRepository.findById(hub.getId()).get();
         // Disconnect from session so that the updates on updatedHub are not directly saved in db
         em.detach(updatedHub);
-        updatedHub
-            .tag(UPDATED_TAG)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+        updatedHub.tag(UPDATED_TAG).isActive(UPDATED_IS_ACTIVE);
         HubDTO hubDTO = hubMapper.toDto(updatedHub);
 
         restHubMockMvc
@@ -233,10 +189,6 @@ class HubResourceIT {
         Hub testHub = hubList.get(hubList.size() - 1);
         assertThat(testHub.getTag()).isEqualTo(UPDATED_TAG);
         assertThat(testHub.getIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
-        assertThat(testHub.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testHub.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testHub.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testHub.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -316,7 +268,7 @@ class HubResourceIT {
         Hub partialUpdatedHub = new Hub();
         partialUpdatedHub.setId(hub.getId());
 
-        partialUpdatedHub.isActive(UPDATED_IS_ACTIVE).createdOn(UPDATED_CREATED_ON).createdBy(UPDATED_CREATED_BY);
+        partialUpdatedHub.isActive(UPDATED_IS_ACTIVE);
 
         restHubMockMvc
             .perform(
@@ -332,10 +284,6 @@ class HubResourceIT {
         Hub testHub = hubList.get(hubList.size() - 1);
         assertThat(testHub.getTag()).isEqualTo(DEFAULT_TAG);
         assertThat(testHub.getIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
-        assertThat(testHub.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testHub.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testHub.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testHub.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -350,13 +298,7 @@ class HubResourceIT {
         Hub partialUpdatedHub = new Hub();
         partialUpdatedHub.setId(hub.getId());
 
-        partialUpdatedHub
-            .tag(UPDATED_TAG)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedHub.tag(UPDATED_TAG).isActive(UPDATED_IS_ACTIVE);
 
         restHubMockMvc
             .perform(
@@ -372,10 +314,6 @@ class HubResourceIT {
         Hub testHub = hubList.get(hubList.size() - 1);
         assertThat(testHub.getTag()).isEqualTo(UPDATED_TAG);
         assertThat(testHub.getIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
-        assertThat(testHub.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testHub.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testHub.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testHub.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test

@@ -53,18 +53,6 @@ class CancellationDetailsResourceIT {
     private static final CancellationStatus DEFAULT_CANCELLATION_STATUS = CancellationStatus.Init;
     private static final CancellationStatus UPDATED_CANCELLATION_STATUS = CancellationStatus.Approved;
 
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
-
     private static final String ENTITY_API_URL = "/api/cancellation-details";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -98,11 +86,7 @@ class CancellationDetailsResourceIT {
             .cancellationDate(DEFAULT_CANCELLATION_DATE)
             .cancellationTime(DEFAULT_CANCELLATION_TIME)
             .refundId(DEFAULT_REFUND_ID)
-            .cancellationStatus(DEFAULT_CANCELLATION_STATUS)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY);
+            .cancellationStatus(DEFAULT_CANCELLATION_STATUS);
         return cancellationDetails;
     }
 
@@ -119,11 +103,7 @@ class CancellationDetailsResourceIT {
             .cancellationDate(UPDATED_CANCELLATION_DATE)
             .cancellationTime(UPDATED_CANCELLATION_TIME)
             .refundId(UPDATED_REFUND_ID)
-            .cancellationStatus(UPDATED_CANCELLATION_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .cancellationStatus(UPDATED_CANCELLATION_STATUS);
         return cancellationDetails;
     }
 
@@ -156,10 +136,6 @@ class CancellationDetailsResourceIT {
         assertThat(testCancellationDetails.getCancellationTime()).isEqualTo(DEFAULT_CANCELLATION_TIME);
         assertThat(testCancellationDetails.getRefundId()).isEqualTo(DEFAULT_REFUND_ID);
         assertThat(testCancellationDetails.getCancellationStatus()).isEqualTo(DEFAULT_CANCELLATION_STATUS);
-        assertThat(testCancellationDetails.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testCancellationDetails.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testCancellationDetails.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testCancellationDetails.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -202,11 +178,7 @@ class CancellationDetailsResourceIT {
             .andExpect(jsonPath("$.[*].cancellationDate").value(hasItem(DEFAULT_CANCELLATION_DATE)))
             .andExpect(jsonPath("$.[*].cancellationTime").value(hasItem(DEFAULT_CANCELLATION_TIME.toString())))
             .andExpect(jsonPath("$.[*].refundId").value(hasItem(DEFAULT_REFUND_ID)))
-            .andExpect(jsonPath("$.[*].cancellationStatus").value(hasItem(DEFAULT_CANCELLATION_STATUS.toString())))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
+            .andExpect(jsonPath("$.[*].cancellationStatus").value(hasItem(DEFAULT_CANCELLATION_STATUS.toString())));
     }
 
     @Test
@@ -226,11 +198,7 @@ class CancellationDetailsResourceIT {
             .andExpect(jsonPath("$.cancellationDate").value(DEFAULT_CANCELLATION_DATE))
             .andExpect(jsonPath("$.cancellationTime").value(DEFAULT_CANCELLATION_TIME.toString()))
             .andExpect(jsonPath("$.refundId").value(DEFAULT_REFUND_ID))
-            .andExpect(jsonPath("$.cancellationStatus").value(DEFAULT_CANCELLATION_STATUS.toString()))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
+            .andExpect(jsonPath("$.cancellationStatus").value(DEFAULT_CANCELLATION_STATUS.toString()));
     }
 
     @Test
@@ -258,11 +226,7 @@ class CancellationDetailsResourceIT {
             .cancellationDate(UPDATED_CANCELLATION_DATE)
             .cancellationTime(UPDATED_CANCELLATION_TIME)
             .refundId(UPDATED_REFUND_ID)
-            .cancellationStatus(UPDATED_CANCELLATION_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .cancellationStatus(UPDATED_CANCELLATION_STATUS);
         CancellationDetailsDTO cancellationDetailsDTO = cancellationDetailsMapper.toDto(updatedCancellationDetails);
 
         restCancellationDetailsMockMvc
@@ -283,10 +247,6 @@ class CancellationDetailsResourceIT {
         assertThat(testCancellationDetails.getCancellationTime()).isEqualTo(UPDATED_CANCELLATION_TIME);
         assertThat(testCancellationDetails.getRefundId()).isEqualTo(UPDATED_REFUND_ID);
         assertThat(testCancellationDetails.getCancellationStatus()).isEqualTo(UPDATED_CANCELLATION_STATUS);
-        assertThat(testCancellationDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testCancellationDetails.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testCancellationDetails.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testCancellationDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -370,11 +330,7 @@ class CancellationDetailsResourceIT {
         CancellationDetails partialUpdatedCancellationDetails = new CancellationDetails();
         partialUpdatedCancellationDetails.setId(cancellationDetails.getId());
 
-        partialUpdatedCancellationDetails
-            .refundId(UPDATED_REFUND_ID)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedCancellationDetails.refundId(UPDATED_REFUND_ID);
 
         restCancellationDetailsMockMvc
             .perform(
@@ -394,10 +350,6 @@ class CancellationDetailsResourceIT {
         assertThat(testCancellationDetails.getCancellationTime()).isEqualTo(DEFAULT_CANCELLATION_TIME);
         assertThat(testCancellationDetails.getRefundId()).isEqualTo(UPDATED_REFUND_ID);
         assertThat(testCancellationDetails.getCancellationStatus()).isEqualTo(DEFAULT_CANCELLATION_STATUS);
-        assertThat(testCancellationDetails.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testCancellationDetails.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testCancellationDetails.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testCancellationDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -418,11 +370,7 @@ class CancellationDetailsResourceIT {
             .cancellationDate(UPDATED_CANCELLATION_DATE)
             .cancellationTime(UPDATED_CANCELLATION_TIME)
             .refundId(UPDATED_REFUND_ID)
-            .cancellationStatus(UPDATED_CANCELLATION_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .cancellationStatus(UPDATED_CANCELLATION_STATUS);
 
         restCancellationDetailsMockMvc
             .perform(
@@ -442,10 +390,6 @@ class CancellationDetailsResourceIT {
         assertThat(testCancellationDetails.getCancellationTime()).isEqualTo(UPDATED_CANCELLATION_TIME);
         assertThat(testCancellationDetails.getRefundId()).isEqualTo(UPDATED_REFUND_ID);
         assertThat(testCancellationDetails.getCancellationStatus()).isEqualTo(UPDATED_CANCELLATION_STATUS);
-        assertThat(testCancellationDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testCancellationDetails.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testCancellationDetails.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testCancellationDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test

@@ -14,7 +14,6 @@ import com.mullya.app.security.AuthoritiesConstants;
 import com.mullya.app.service.UserService;
 import com.mullya.app.service.dto.AdminUserDTO;
 import com.mullya.app.service.dto.PasswordChangeDTO;
-import com.mullya.app.service.dto.UserDTO;
 import com.mullya.app.web.rest.vm.KeyAndPasswordVM;
 import com.mullya.app.web.rest.vm.ManagedUserVM;
 import java.time.Instant;
@@ -246,9 +245,9 @@ class AccountResourceIT {
         secondUser.setImageUrl(firstUser.getImageUrl());
         secondUser.setLangKey(firstUser.getLangKey());
         secondUser.setCreatedBy(firstUser.getCreatedBy());
-        secondUser.setCreatedDate(firstUser.getCreatedDate());
-        secondUser.setLastModifiedBy(firstUser.getLastModifiedBy());
-        secondUser.setLastModifiedDate(firstUser.getLastModifiedDate());
+        secondUser.setCreatedOn(firstUser.getCreatedOn());
+        secondUser.setUpdatedBy(firstUser.getUpdatedBy());
+        secondUser.setUpdatedOn(firstUser.getUpdatedOn());
         secondUser.setAuthorities(new HashSet<>(firstUser.getAuthorities()));
 
         // First user

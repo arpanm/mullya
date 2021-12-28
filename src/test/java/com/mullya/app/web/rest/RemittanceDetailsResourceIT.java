@@ -72,18 +72,6 @@ class RemittanceDetailsResourceIT {
     private static final PaymentStatus DEFAULT_PAYMENT_STATUS = PaymentStatus.Pending;
     private static final PaymentStatus UPDATED_PAYMENT_STATUS = PaymentStatus.Initiated;
 
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
-
     private static final String ENTITY_API_URL = "/api/remittance-details";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -123,11 +111,7 @@ class RemittanceDetailsResourceIT {
             .remittanceDate(DEFAULT_REMITTANCE_DATE)
             .remittanceInitTime(DEFAULT_REMITTANCE_INIT_TIME)
             .remittanceUpdateTime(DEFAULT_REMITTANCE_UPDATE_TIME)
-            .paymentStatus(DEFAULT_PAYMENT_STATUS)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY);
+            .paymentStatus(DEFAULT_PAYMENT_STATUS);
         return remittanceDetails;
     }
 
@@ -150,11 +134,7 @@ class RemittanceDetailsResourceIT {
             .remittanceDate(UPDATED_REMITTANCE_DATE)
             .remittanceInitTime(UPDATED_REMITTANCE_INIT_TIME)
             .remittanceUpdateTime(UPDATED_REMITTANCE_UPDATE_TIME)
-            .paymentStatus(UPDATED_PAYMENT_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .paymentStatus(UPDATED_PAYMENT_STATUS);
         return remittanceDetails;
     }
 
@@ -193,10 +173,6 @@ class RemittanceDetailsResourceIT {
         assertThat(testRemittanceDetails.getRemittanceInitTime()).isEqualTo(DEFAULT_REMITTANCE_INIT_TIME);
         assertThat(testRemittanceDetails.getRemittanceUpdateTime()).isEqualTo(DEFAULT_REMITTANCE_UPDATE_TIME);
         assertThat(testRemittanceDetails.getPaymentStatus()).isEqualTo(DEFAULT_PAYMENT_STATUS);
-        assertThat(testRemittanceDetails.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testRemittanceDetails.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testRemittanceDetails.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testRemittanceDetails.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -245,11 +221,7 @@ class RemittanceDetailsResourceIT {
             .andExpect(jsonPath("$.[*].remittanceDate").value(hasItem(DEFAULT_REMITTANCE_DATE)))
             .andExpect(jsonPath("$.[*].remittanceInitTime").value(hasItem(DEFAULT_REMITTANCE_INIT_TIME.toString())))
             .andExpect(jsonPath("$.[*].remittanceUpdateTime").value(hasItem(DEFAULT_REMITTANCE_UPDATE_TIME.toString())))
-            .andExpect(jsonPath("$.[*].paymentStatus").value(hasItem(DEFAULT_PAYMENT_STATUS.toString())))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
+            .andExpect(jsonPath("$.[*].paymentStatus").value(hasItem(DEFAULT_PAYMENT_STATUS.toString())));
     }
 
     @Test
@@ -275,11 +247,7 @@ class RemittanceDetailsResourceIT {
             .andExpect(jsonPath("$.remittanceDate").value(DEFAULT_REMITTANCE_DATE))
             .andExpect(jsonPath("$.remittanceInitTime").value(DEFAULT_REMITTANCE_INIT_TIME.toString()))
             .andExpect(jsonPath("$.remittanceUpdateTime").value(DEFAULT_REMITTANCE_UPDATE_TIME.toString()))
-            .andExpect(jsonPath("$.paymentStatus").value(DEFAULT_PAYMENT_STATUS.toString()))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
+            .andExpect(jsonPath("$.paymentStatus").value(DEFAULT_PAYMENT_STATUS.toString()));
     }
 
     @Test
@@ -313,11 +281,7 @@ class RemittanceDetailsResourceIT {
             .remittanceDate(UPDATED_REMITTANCE_DATE)
             .remittanceInitTime(UPDATED_REMITTANCE_INIT_TIME)
             .remittanceUpdateTime(UPDATED_REMITTANCE_UPDATE_TIME)
-            .paymentStatus(UPDATED_PAYMENT_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .paymentStatus(UPDATED_PAYMENT_STATUS);
         RemittanceDetailsDTO remittanceDetailsDTO = remittanceDetailsMapper.toDto(updatedRemittanceDetails);
 
         restRemittanceDetailsMockMvc
@@ -344,10 +308,6 @@ class RemittanceDetailsResourceIT {
         assertThat(testRemittanceDetails.getRemittanceInitTime()).isEqualTo(UPDATED_REMITTANCE_INIT_TIME);
         assertThat(testRemittanceDetails.getRemittanceUpdateTime()).isEqualTo(UPDATED_REMITTANCE_UPDATE_TIME);
         assertThat(testRemittanceDetails.getPaymentStatus()).isEqualTo(UPDATED_PAYMENT_STATUS);
-        assertThat(testRemittanceDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testRemittanceDetails.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testRemittanceDetails.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testRemittanceDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -435,10 +395,7 @@ class RemittanceDetailsResourceIT {
             .offlineTxnDetails(UPDATED_OFFLINE_TXN_DETAILS)
             .offlineTxnGivenBy(UPDATED_OFFLINE_TXN_GIVEN_BY)
             .remittanceDate(UPDATED_REMITTANCE_DATE)
-            .remittanceUpdateTime(UPDATED_REMITTANCE_UPDATE_TIME)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .remittanceUpdateTime(UPDATED_REMITTANCE_UPDATE_TIME);
 
         restRemittanceDetailsMockMvc
             .perform(
@@ -464,10 +421,6 @@ class RemittanceDetailsResourceIT {
         assertThat(testRemittanceDetails.getRemittanceInitTime()).isEqualTo(DEFAULT_REMITTANCE_INIT_TIME);
         assertThat(testRemittanceDetails.getRemittanceUpdateTime()).isEqualTo(UPDATED_REMITTANCE_UPDATE_TIME);
         assertThat(testRemittanceDetails.getPaymentStatus()).isEqualTo(DEFAULT_PAYMENT_STATUS);
-        assertThat(testRemittanceDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testRemittanceDetails.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testRemittanceDetails.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testRemittanceDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -494,11 +447,7 @@ class RemittanceDetailsResourceIT {
             .remittanceDate(UPDATED_REMITTANCE_DATE)
             .remittanceInitTime(UPDATED_REMITTANCE_INIT_TIME)
             .remittanceUpdateTime(UPDATED_REMITTANCE_UPDATE_TIME)
-            .paymentStatus(UPDATED_PAYMENT_STATUS)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .paymentStatus(UPDATED_PAYMENT_STATUS);
 
         restRemittanceDetailsMockMvc
             .perform(
@@ -524,10 +473,6 @@ class RemittanceDetailsResourceIT {
         assertThat(testRemittanceDetails.getRemittanceInitTime()).isEqualTo(UPDATED_REMITTANCE_INIT_TIME);
         assertThat(testRemittanceDetails.getRemittanceUpdateTime()).isEqualTo(UPDATED_REMITTANCE_UPDATE_TIME);
         assertThat(testRemittanceDetails.getPaymentStatus()).isEqualTo(UPDATED_PAYMENT_STATUS);
-        assertThat(testRemittanceDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testRemittanceDetails.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testRemittanceDetails.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testRemittanceDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test

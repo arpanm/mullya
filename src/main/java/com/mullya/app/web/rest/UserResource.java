@@ -71,9 +71,9 @@ public class UserResource {
             "activated",
             "langKey",
             "createdBy",
-            "createdDate",
-            "lastModifiedBy",
-            "lastModifiedDate"
+            "createdOn",
+            "updatedBy",
+            "updatedOn"
         )
     );
 

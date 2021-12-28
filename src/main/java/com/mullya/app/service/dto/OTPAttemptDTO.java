@@ -1,7 +1,7 @@
 package com.mullya.app.service.dto;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.Instant;
 import java.util.Objects;
 
 /**
@@ -21,7 +21,7 @@ public class OTPAttemptDTO implements Serializable {
 
     private String coookie;
 
-    private LocalDate createdOn;
+    private Instant createdOn;
 
     private String createdBy;
 
@@ -75,11 +75,11 @@ public class OTPAttemptDTO implements Serializable {
         this.coookie = coookie;
     }
 
-    public LocalDate getCreatedOn() {
+    public Instant getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(LocalDate createdOn) {
+    public void setCreatedOn(Instant createdOn) {
         this.createdOn = createdOn;
     }
 

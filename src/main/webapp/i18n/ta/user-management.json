@@ -24,8 +24,8 @@
     "profiles": "சுயவிவரம்",
     "langKey": "மொழி",
     "createdBy": "உருவாக்கியர்",
-    "createdDate": "உருவாக்கிய தேதி",
-    "lastModifiedBy": "மாற்றியவர்",
-    "lastModifiedDate": "மாற்றிய தேதி"
+    "createdOn": "உருவாக்கிய தேதி",
+    "updatedBy": "மாற்றியவர்",
+    "updatedOn": "மாற்றிய தேதி"
   }
 }

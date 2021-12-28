@@ -10,8 +10,6 @@ import com.mullya.app.domain.Address;
 import com.mullya.app.repository.AddressRepository;
 import com.mullya.app.service.dto.AddressDTO;
 import com.mullya.app.service.mapper.AddressMapper;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -48,9 +46,6 @@ class AddressResourceIT {
     private static final String DEFAULT_COUNTRY = "AAAAAAAAAA";
     private static final String UPDATED_COUNTRY = "BBBBBBBBBB";
 
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
     private static final Float DEFAULT_LAT = 1F;
     private static final Float UPDATED_LAT = 2F;
 
@@ -59,15 +54,6 @@ class AddressResourceIT {
 
     private static final String DEFAULT_MAP_LOCATION = "AAAAAAAAAA";
     private static final String UPDATED_MAP_LOCATION = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
 
     private static final String ENTITY_API_URL = "/api/addresses";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -102,13 +88,9 @@ class AddressResourceIT {
             .city(DEFAULT_CITY)
             .stateProvince(DEFAULT_STATE_PROVINCE)
             .country(DEFAULT_COUNTRY)
-            .createdBy(DEFAULT_CREATED_BY)
             .lat(DEFAULT_LAT)
             .lon(DEFAULT_LON)
-            .mapLocation(DEFAULT_MAP_LOCATION)
-            .createdOn(DEFAULT_CREATED_ON)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY);
+            .mapLocation(DEFAULT_MAP_LOCATION);
         return address;
     }
 
@@ -125,13 +107,9 @@ class AddressResourceIT {
             .city(UPDATED_CITY)
             .stateProvince(UPDATED_STATE_PROVINCE)
             .country(UPDATED_COUNTRY)
-            .createdBy(UPDATED_CREATED_BY)
             .lat(UPDATED_LAT)
             .lon(UPDATED_LON)
-            .mapLocation(UPDATED_MAP_LOCATION)
-            .createdOn(UPDATED_CREATED_ON)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .mapLocation(UPDATED_MAP_LOCATION);
         return address;
     }
 
@@ -159,13 +137,9 @@ class AddressResourceIT {
         assertThat(testAddress.getCity()).isEqualTo(DEFAULT_CITY);
         assertThat(testAddress.getStateProvince()).isEqualTo(DEFAULT_STATE_PROVINCE);
         assertThat(testAddress.getCountry()).isEqualTo(DEFAULT_COUNTRY);
-        assertThat(testAddress.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
         assertThat(testAddress.getLat()).isEqualTo(DEFAULT_LAT);
         assertThat(testAddress.getLon()).isEqualTo(DEFAULT_LON);
         assertThat(testAddress.getMapLocation()).isEqualTo(DEFAULT_MAP_LOCATION);
-        assertThat(testAddress.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testAddress.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testAddress.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -204,13 +178,9 @@ class AddressResourceIT {
             .andExpect(jsonPath("$.[*].city").value(hasItem(DEFAULT_CITY)))
             .andExpect(jsonPath("$.[*].stateProvince").value(hasItem(DEFAULT_STATE_PROVINCE)))
             .andExpect(jsonPath("$.[*].country").value(hasItem(DEFAULT_COUNTRY)))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
             .andExpect(jsonPath("$.[*].lat").value(hasItem(DEFAULT_LAT.doubleValue())))
             .andExpect(jsonPath("$.[*].lon").value(hasItem(DEFAULT_LON.doubleValue())))
-            .andExpect(jsonPath("$.[*].mapLocation").value(hasItem(DEFAULT_MAP_LOCATION)))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
+            .andExpect(jsonPath("$.[*].mapLocation").value(hasItem(DEFAULT_MAP_LOCATION)));
     }
 
     @Test
@@ -230,13 +200,9 @@ class AddressResourceIT {
             .andExpect(jsonPath("$.city").value(DEFAULT_CITY))
             .andExpect(jsonPath("$.stateProvince").value(DEFAULT_STATE_PROVINCE))
             .andExpect(jsonPath("$.country").value(DEFAULT_COUNTRY))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
             .andExpect(jsonPath("$.lat").value(DEFAULT_LAT.doubleValue()))
             .andExpect(jsonPath("$.lon").value(DEFAULT_LON.doubleValue()))
-            .andExpect(jsonPath("$.mapLocation").value(DEFAULT_MAP_LOCATION))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
+            .andExpect(jsonPath("$.mapLocation").value(DEFAULT_MAP_LOCATION));
     }
 
     @Test
@@ -264,13 +230,9 @@ class AddressResourceIT {
             .city(UPDATED_CITY)
             .stateProvince(UPDATED_STATE_PROVINCE)
             .country(UPDATED_COUNTRY)
-            .createdBy(UPDATED_CREATED_BY)
             .lat(UPDATED_LAT)
             .lon(UPDATED_LON)
-            .mapLocation(UPDATED_MAP_LOCATION)
-            .createdOn(UPDATED_CREATED_ON)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .mapLocation(UPDATED_MAP_LOCATION);
         AddressDTO addressDTO = addressMapper.toDto(updatedAddress);
 
         restAddressMockMvc
@@ -290,13 +252,9 @@ class AddressResourceIT {
         assertThat(testAddress.getCity()).isEqualTo(UPDATED_CITY);
         assertThat(testAddress.getStateProvince()).isEqualTo(UPDATED_STATE_PROVINCE);
         assertThat(testAddress.getCountry()).isEqualTo(UPDATED_COUNTRY);
-        assertThat(testAddress.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
         assertThat(testAddress.getLat()).isEqualTo(UPDATED_LAT);
         assertThat(testAddress.getLon()).isEqualTo(UPDATED_LON);
         assertThat(testAddress.getMapLocation()).isEqualTo(UPDATED_MAP_LOCATION);
-        assertThat(testAddress.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testAddress.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testAddress.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -382,8 +340,7 @@ class AddressResourceIT {
             .stateProvince(UPDATED_STATE_PROVINCE)
             .country(UPDATED_COUNTRY)
             .lat(UPDATED_LAT)
-            .lon(UPDATED_LON)
-            .updatedOn(UPDATED_UPDATED_ON);
+            .lon(UPDATED_LON);
 
         restAddressMockMvc
             .perform(
@@ -402,13 +359,9 @@ class AddressResourceIT {
         assertThat(testAddress.getCity()).isEqualTo(UPDATED_CITY);
         assertThat(testAddress.getStateProvince()).isEqualTo(UPDATED_STATE_PROVINCE);
         assertThat(testAddress.getCountry()).isEqualTo(UPDATED_COUNTRY);
-        assertThat(testAddress.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
         assertThat(testAddress.getLat()).isEqualTo(UPDATED_LAT);
         assertThat(testAddress.getLon()).isEqualTo(UPDATED_LON);
         assertThat(testAddress.getMapLocation()).isEqualTo(DEFAULT_MAP_LOCATION);
-        assertThat(testAddress.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testAddress.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testAddress.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -429,13 +382,9 @@ class AddressResourceIT {
             .city(UPDATED_CITY)
             .stateProvince(UPDATED_STATE_PROVINCE)
             .country(UPDATED_COUNTRY)
-            .createdBy(UPDATED_CREATED_BY)
             .lat(UPDATED_LAT)
             .lon(UPDATED_LON)
-            .mapLocation(UPDATED_MAP_LOCATION)
-            .createdOn(UPDATED_CREATED_ON)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .mapLocation(UPDATED_MAP_LOCATION);
 
         restAddressMockMvc
             .perform(
@@ -454,13 +403,9 @@ class AddressResourceIT {
         assertThat(testAddress.getCity()).isEqualTo(UPDATED_CITY);
         assertThat(testAddress.getStateProvince()).isEqualTo(UPDATED_STATE_PROVINCE);
         assertThat(testAddress.getCountry()).isEqualTo(UPDATED_COUNTRY);
-        assertThat(testAddress.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
         assertThat(testAddress.getLat()).isEqualTo(UPDATED_LAT);
         assertThat(testAddress.getLon()).isEqualTo(UPDATED_LON);
         assertThat(testAddress.getMapLocation()).isEqualTo(UPDATED_MAP_LOCATION);
-        assertThat(testAddress.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testAddress.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testAddress.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test

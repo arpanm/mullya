@@ -147,10 +147,10 @@ export const UserUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 ))}
               </ValidatedField>
               <ValidatedField
-                label={translate('mulyaaApp.user.createdDate')}
-                id="user-createdDate"
-                name="createdDate"
-                data-cy="createdDate"
+                label={translate('mulyaaApp.user.createdOn')}
+                id="user-createdOn"
+                name="createdOn"
+                data-cy="createdOn"
                 type="date"
               />
               <ValidatedField
@@ -161,17 +161,17 @@ export const UserUpdate = (props: RouteComponentProps<{ id: string }>) => {
                 type="text"
               />
               <ValidatedField
-                label={translate('mulyaaApp.user.lastModifiedDate')}
-                id="user-lastModifiedDate"
-                name="lastModifiedDate"
-                data-cy="lastModifiedDate"
+                label={translate('mulyaaApp.user.updatedOn')}
+                id="user-updatedOn"
+                name="updatedOn"
+                data-cy="updatedOn"
                 type="date"
               />
               <ValidatedField
-                label={translate('mulyaaApp.user.lastModifiedBy')}
-                id="user-lastModifiedBy"
-                name="lastModifiedBy"
-                data-cy="lastModifiedBy"
+                label={translate('mulyaaApp.user.updatedBy')}
+                id="user-updatedBy"
+                name="updatedBy"
+                data-cy="updatedBy"
                 type="text"
               />
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/user" replace color="info">

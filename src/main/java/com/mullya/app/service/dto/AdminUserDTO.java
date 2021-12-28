@@ -1,12 +1,10 @@
 package com.mullya.app.service.dto;
 
 import com.mullya.app.config.Constants;
-import com.mullya.app.domain.Address;
 import com.mullya.app.domain.Authority;
 import com.mullya.app.domain.User;
 import com.mullya.app.domain.enumeration.ActorType;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.Set;
 import java.util.stream.Collectors;
 import javax.validation.constraints.*;
@@ -44,11 +42,11 @@ public class AdminUserDTO {
 
     private String createdBy;
 
-    private Instant createdDate;
+    private Instant createdOn;
 
-    private String lastModifiedBy;
+    private String updatedBy;
 
-    private Instant lastModifiedDate;
+    private Instant updatedOn;
 
     private Set<String> authorities;
 
@@ -56,11 +54,11 @@ public class AdminUserDTO {
     @Max(value = 9999999999L)
     private Long phone;
 
-    private Boolean isEmailVerified;
+    private boolean isEmailVerified;
 
-    private Boolean isPhoneVerified;
+    private boolean isPhoneVerified;
 
-    private Boolean isActive;
+    private boolean isActive;
 
     private ActorType type;
 
@@ -83,9 +81,9 @@ public class AdminUserDTO {
         this.isActive = user.getIsActive();
         this.type = user.getType();
         this.createdBy = user.getCreatedBy();
-        this.createdDate = user.getCreatedDate();
-        this.lastModifiedBy = user.getLastModifiedBy();
-        this.lastModifiedDate = user.getLastModifiedDate();
+        this.createdOn = user.getCreatedOn();
+        this.updatedBy = user.getUpdatedBy();
+        this.updatedOn = user.getUpdatedOn();
         this.authorities = user.getAuthorities().stream().map(Authority::getName).collect(Collectors.toSet());
     }
 
@@ -161,28 +159,28 @@ public class AdminUserDTO {
         this.createdBy = createdBy;
     }
 
-    public Instant getCreatedDate() {
-        return createdDate;
+    public Instant getCreatedOn() {
+        return createdOn;
     }
 
-    public void setCreatedDate(Instant createdDate) {
-        this.createdDate = createdDate;
+    public void setCreatedOn(Instant createdOn) {
+        this.createdOn = createdOn;
     }
 
-    public String getLastModifiedBy() {
-        return lastModifiedBy;
+    public String getUpdatedBy() {
+        return updatedBy;
     }
 
-    public void setLastModifiedBy(String lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
     }
 
-    public Instant getLastModifiedDate() {
-        return lastModifiedDate;
+    public Instant getUpdatedOn() {
+        return updatedOn;
     }
 
-    public void setLastModifiedDate(Instant lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
+    public void setUpdatedOn(Instant updatedOn) {
+        this.updatedOn = updatedOn;
     }
 
     public Set<String> getAuthorities() {
@@ -201,27 +199,27 @@ public class AdminUserDTO {
         this.phone = phone;
     }
 
-    public Boolean getIsEmailVerified() {
+    public boolean getIsEmailVerified() {
         return isEmailVerified;
     }
 
-    public void setIsEmailVerified(Boolean isEmailVerified) {
+    public void setIsEmailVerified(boolean isEmailVerified) {
         this.isEmailVerified = isEmailVerified;
     }
 
-    public Boolean getIsPhoneVerified() {
+    public boolean getIsPhoneVerified() {
         return isPhoneVerified;
     }
 
-    public void setIsPhoneVerified(Boolean isPhoneVerified) {
+    public void setIsPhoneVerified(boolean isPhoneVerified) {
         this.isPhoneVerified = isPhoneVerified;
     }
 
-    public Boolean getIsActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public void setIsActive(Boolean isActive) {
+    public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
 
@@ -250,9 +248,9 @@ public class AdminUserDTO {
             ", isActive='" + getIsActive() + "'" +
             ", type='" + getType() + "'" +
             ", createdBy=" + createdBy +
-            ", createdDate=" + createdDate +
-            ", lastModifiedBy='" + lastModifiedBy + '\'' +
-            ", lastModifiedDate=" + lastModifiedDate +
+            ", createdOn=" + createdOn +
+            ", updatedBy='" + updatedBy + '\'' +
+            ", updatedOn=" + updatedOn +
             ", authorities=" + authorities +
             "}";
     }

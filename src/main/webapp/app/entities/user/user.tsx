@@ -146,17 +146,17 @@ export const User = (props: RouteComponentProps<{ url: string }>) => {
                   <th className="hand" onClick={sort('type')}>
                     <Translate contentKey="mulyaaApp.user.type">Type</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={sort('createdDate')}>
-                    <Translate contentKey="mulyaaApp.user.createdDate">Created Date</Translate> <FontAwesomeIcon icon="sort" />
+                  <th className="hand" onClick={sort('createdOn')}>
+                    <Translate contentKey="mulyaaApp.user.createdOn">Created On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createdBy')}>
                     <Translate contentKey="mulyaaApp.user.createdBy">Created By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={sort('lastModifiedDate')}>
-                    <Translate contentKey="mulyaaApp.user.lastModifiedDate">Last Modified Date</Translate> <FontAwesomeIcon icon="sort" />
+                  <th className="hand" onClick={sort('updatedOn')}>
+                    <Translate contentKey="mulyaaApp.user.updatedOn">Updated On</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
-                  <th className="hand" onClick={sort('lastModifiedBy')}>
-                    <Translate contentKey="mulyaaApp.user.lastModifiedBy">Last Modified By</Translate> <FontAwesomeIcon icon="sort" />
+                  <th className="hand" onClick={sort('updatedBy')}>
+                    <Translate contentKey="mulyaaApp.user.updatedBy">Updated By</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
@@ -178,14 +178,10 @@ export const User = (props: RouteComponentProps<{ url: string }>) => {
                     <td>
                       <Translate contentKey={`mulyaaApp.ActorType.${user.type}`} />
                     </td>
-                    <td>{user.createdDate ? <TextFormat type="date" value={user.createdDate} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
+                    <td>{user.createdOn ? <TextFormat type="date" value={user.createdOn} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
                     <td>{user.createdBy}</td>
-                    <td>
-                      {user.lastModifiedDate ? (
-                        <TextFormat type="date" value={user.lastModifiedDate} format={APP_LOCAL_DATE_FORMAT} />
-                      ) : null}
-                    </td>
-                    <td>{user.lastModifiedBy}</td>
+                    <td>{user.updatedOn ? <TextFormat type="date" value={user.updatedOn} format={APP_LOCAL_DATE_FORMAT} /> : null}</td>
+                    <td>{user.updatedBy}</td>
                     <td className="text-end">
                       <div className="btn-group flex-btn-group-container">
                         <Button tag={Link} to={`${match.url}/${user.id}`} color="info" size="sm" data-cy="entityDetailsButton">

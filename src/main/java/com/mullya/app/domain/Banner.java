@@ -1,7 +1,6 @@
 package com.mullya.app.domain;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import org.hibernate.annotations.Cache;
@@ -13,7 +12,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "banner")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Banner implements Serializable {
+public class Banner extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -52,18 +51,6 @@ public class Banner implements Serializable {
 
     @Column(name = "end_date")
     private String endDate;
-
-    @Column(name = "created_on")
-    private LocalDate createdOn;
-
-    @Column(name = "created_by")
-    private String createdBy;
-
-    @Column(name = "updated_on")
-    private LocalDate updatedOn;
-
-    @Column(name = "updated_by")
-    private String updatedBy;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -212,58 +199,6 @@ public class Banner implements Serializable {
         this.endDate = endDate;
     }
 
-    public LocalDate getCreatedOn() {
-        return this.createdOn;
-    }
-
-    public Banner createdOn(LocalDate createdOn) {
-        this.setCreatedOn(createdOn);
-        return this;
-    }
-
-    public void setCreatedOn(LocalDate createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public Banner createdBy(String createdBy) {
-        this.setCreatedBy(createdBy);
-        return this;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDate getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    public Banner updatedOn(LocalDate updatedOn) {
-        this.setUpdatedOn(updatedOn);
-        return this;
-    }
-
-    public void setUpdatedOn(LocalDate updatedOn) {
-        this.updatedOn = updatedOn;
-    }
-
-    public String getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    public Banner updatedBy(String updatedBy) {
-        this.setUpdatedBy(updatedBy);
-        return this;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -298,10 +233,6 @@ public class Banner implements Serializable {
             ", isActive='" + getIsActive() + "'" +
             ", startDate='" + getStartDate() + "'" +
             ", endDate='" + getEndDate() + "'" +
-            ", createdOn='" + getCreatedOn() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
-            ", updatedOn='" + getUpdatedOn() + "'" +
-            ", updatedBy='" + getUpdatedBy() + "'" +
             "}";
     }
 }

@@ -17,7 +17,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "cancellation_details")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class CancellationDetails implements Serializable {
+public class CancellationDetails extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -45,18 +45,6 @@ public class CancellationDetails implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(name = "cancellation_status")
     private CancellationStatus cancellationStatus;
-
-    @Column(name = "created_on")
-    private LocalDate createdOn;
-
-    @Column(name = "created_by")
-    private String createdBy;
-
-    @Column(name = "updated_on")
-    private LocalDate updatedOn;
-
-    @Column(name = "updated_by")
-    private String updatedBy;
 
     @JsonIgnoreProperties(value = { "paymentDetails", "remittances", "requirement", "bid", "assignedAgent", "stock" }, allowSetters = true)
     @OneToOne
@@ -177,58 +165,6 @@ public class CancellationDetails implements Serializable {
         this.cancellationStatus = cancellationStatus;
     }
 
-    public LocalDate getCreatedOn() {
-        return this.createdOn;
-    }
-
-    public CancellationDetails createdOn(LocalDate createdOn) {
-        this.setCreatedOn(createdOn);
-        return this;
-    }
-
-    public void setCreatedOn(LocalDate createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public CancellationDetails createdBy(String createdBy) {
-        this.setCreatedBy(createdBy);
-        return this;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDate getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    public CancellationDetails updatedOn(LocalDate updatedOn) {
-        this.setUpdatedOn(updatedOn);
-        return this;
-    }
-
-    public void setUpdatedOn(LocalDate updatedOn) {
-        this.updatedOn = updatedOn;
-    }
-
-    public String getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    public CancellationDetails updatedBy(String updatedBy) {
-        this.setUpdatedBy(updatedBy);
-        return this;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
     public Order getOrder() {
         return this.order;
     }
@@ -329,10 +265,6 @@ public class CancellationDetails implements Serializable {
             ", cancellationTime='" + getCancellationTime() + "'" +
             ", refundId='" + getRefundId() + "'" +
             ", cancellationStatus='" + getCancellationStatus() + "'" +
-            ", createdOn='" + getCreatedOn() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
-            ", updatedOn='" + getUpdatedOn() + "'" +
-            ", updatedBy='" + getUpdatedBy() + "'" +
             "}";
     }
 }

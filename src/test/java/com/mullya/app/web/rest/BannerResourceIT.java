@@ -10,8 +10,6 @@ import com.mullya.app.domain.Banner;
 import com.mullya.app.repository.BannerRepository;
 import com.mullya.app.service.dto.BannerDTO;
 import com.mullya.app.service.mapper.BannerMapper;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -63,18 +61,6 @@ class BannerResourceIT {
     private static final String DEFAULT_END_DATE = "AAAAAAAAAA";
     private static final String UPDATED_END_DATE = "BBBBBBBBBB";
 
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
-
     private static final String ENTITY_API_URL = "/api/banners";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -112,11 +98,7 @@ class BannerResourceIT {
             .mobileHtml(DEFAULT_MOBILE_HTML)
             .isActive(DEFAULT_IS_ACTIVE)
             .startDate(DEFAULT_START_DATE)
-            .endDate(DEFAULT_END_DATE)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY);
+            .endDate(DEFAULT_END_DATE);
         return banner;
     }
 
@@ -137,11 +119,7 @@ class BannerResourceIT {
             .mobileHtml(UPDATED_MOBILE_HTML)
             .isActive(UPDATED_IS_ACTIVE)
             .startDate(UPDATED_START_DATE)
-            .endDate(UPDATED_END_DATE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .endDate(UPDATED_END_DATE);
         return banner;
     }
 
@@ -174,10 +152,6 @@ class BannerResourceIT {
         assertThat(testBanner.getIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
         assertThat(testBanner.getStartDate()).isEqualTo(DEFAULT_START_DATE);
         assertThat(testBanner.getEndDate()).isEqualTo(DEFAULT_END_DATE);
-        assertThat(testBanner.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testBanner.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testBanner.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testBanner.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -220,11 +194,7 @@ class BannerResourceIT {
             .andExpect(jsonPath("$.[*].mobileHtml").value(hasItem(DEFAULT_MOBILE_HTML)))
             .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE.booleanValue())))
             .andExpect(jsonPath("$.[*].startDate").value(hasItem(DEFAULT_START_DATE)))
-            .andExpect(jsonPath("$.[*].endDate").value(hasItem(DEFAULT_END_DATE)))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
+            .andExpect(jsonPath("$.[*].endDate").value(hasItem(DEFAULT_END_DATE)));
     }
 
     @Test
@@ -248,11 +218,7 @@ class BannerResourceIT {
             .andExpect(jsonPath("$.mobileHtml").value(DEFAULT_MOBILE_HTML))
             .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE.booleanValue()))
             .andExpect(jsonPath("$.startDate").value(DEFAULT_START_DATE))
-            .andExpect(jsonPath("$.endDate").value(DEFAULT_END_DATE))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
+            .andExpect(jsonPath("$.endDate").value(DEFAULT_END_DATE));
     }
 
     @Test
@@ -284,11 +250,7 @@ class BannerResourceIT {
             .mobileHtml(UPDATED_MOBILE_HTML)
             .isActive(UPDATED_IS_ACTIVE)
             .startDate(UPDATED_START_DATE)
-            .endDate(UPDATED_END_DATE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .endDate(UPDATED_END_DATE);
         BannerDTO bannerDTO = bannerMapper.toDto(updatedBanner);
 
         restBannerMockMvc
@@ -313,10 +275,6 @@ class BannerResourceIT {
         assertThat(testBanner.getIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
         assertThat(testBanner.getStartDate()).isEqualTo(UPDATED_START_DATE);
         assertThat(testBanner.getEndDate()).isEqualTo(UPDATED_END_DATE);
-        assertThat(testBanner.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testBanner.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testBanner.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testBanner.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -402,8 +360,7 @@ class BannerResourceIT {
             .mobileImageUrl(UPDATED_MOBILE_IMAGE_URL)
             .landingUrl(UPDATED_LANDING_URL)
             .mobileHtml(UPDATED_MOBILE_HTML)
-            .endDate(UPDATED_END_DATE)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .endDate(UPDATED_END_DATE);
 
         restBannerMockMvc
             .perform(
@@ -427,10 +384,6 @@ class BannerResourceIT {
         assertThat(testBanner.getIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
         assertThat(testBanner.getStartDate()).isEqualTo(DEFAULT_START_DATE);
         assertThat(testBanner.getEndDate()).isEqualTo(UPDATED_END_DATE);
-        assertThat(testBanner.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testBanner.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testBanner.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testBanner.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -455,11 +408,7 @@ class BannerResourceIT {
             .mobileHtml(UPDATED_MOBILE_HTML)
             .isActive(UPDATED_IS_ACTIVE)
             .startDate(UPDATED_START_DATE)
-            .endDate(UPDATED_END_DATE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .endDate(UPDATED_END_DATE);
 
         restBannerMockMvc
             .perform(
@@ -483,10 +432,6 @@ class BannerResourceIT {
         assertThat(testBanner.getIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
         assertThat(testBanner.getStartDate()).isEqualTo(UPDATED_START_DATE);
         assertThat(testBanner.getEndDate()).isEqualTo(UPDATED_END_DATE);
-        assertThat(testBanner.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testBanner.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testBanner.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testBanner.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test

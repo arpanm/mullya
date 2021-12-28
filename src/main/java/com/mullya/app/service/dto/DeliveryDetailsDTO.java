@@ -3,9 +3,11 @@ package com.mullya.app.service.dto;
 import com.mullya.app.domain.enumeration.DeliveryStatus;
 import com.mullya.app.domain.enumeration.DeliveryType;
 import java.io.Serializable;
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.Objects;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 /**
  * A DTO for the {@link com.mullya.app.domain.DeliveryDetails} entity.
@@ -30,11 +32,11 @@ public class DeliveryDetailsDTO implements Serializable {
 
     private LocalDate deliveryTime;
 
-    private LocalDate createdOn;
+    private Instant createdOn;
 
     private String createdBy;
 
-    private LocalDate updatedOn;
+    private Instant updatedOn;
 
     private String updatedBy;
 
@@ -112,11 +114,11 @@ public class DeliveryDetailsDTO implements Serializable {
         this.deliveryTime = deliveryTime;
     }
 
-    public LocalDate getCreatedOn() {
+    public Instant getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(LocalDate createdOn) {
+    public void setCreatedOn(Instant createdOn) {
         this.createdOn = createdOn;
     }
 
@@ -128,11 +130,11 @@ public class DeliveryDetailsDTO implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public LocalDate getUpdatedOn() {
+    public Instant getUpdatedOn() {
         return updatedOn;
     }
 
-    public void setUpdatedOn(LocalDate updatedOn) {
+    public void setUpdatedOn(Instant updatedOn) {
         this.updatedOn = updatedOn;
     }
 

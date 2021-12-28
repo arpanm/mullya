@@ -16,7 +16,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Entity
 @Table(name = "delivery_details")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class DeliveryDetails implements Serializable {
+public class DeliveryDetails extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -48,18 +48,6 @@ public class DeliveryDetails implements Serializable {
 
     @Column(name = "delivery_time")
     private LocalDate deliveryTime;
-
-    @Column(name = "created_on")
-    private LocalDate createdOn;
-
-    @Column(name = "created_by")
-    private String createdBy;
-
-    @Column(name = "updated_on")
-    private LocalDate updatedOn;
-
-    @Column(name = "updated_by")
-    private String updatedBy;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "delivery_status")
@@ -187,58 +175,6 @@ public class DeliveryDetails implements Serializable {
         this.deliveryTime = deliveryTime;
     }
 
-    public LocalDate getCreatedOn() {
-        return this.createdOn;
-    }
-
-    public DeliveryDetails createdOn(LocalDate createdOn) {
-        this.setCreatedOn(createdOn);
-        return this;
-    }
-
-    public void setCreatedOn(LocalDate createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public String getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public DeliveryDetails createdBy(String createdBy) {
-        this.setCreatedBy(createdBy);
-        return this;
-    }
-
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public LocalDate getUpdatedOn() {
-        return this.updatedOn;
-    }
-
-    public DeliveryDetails updatedOn(LocalDate updatedOn) {
-        this.setUpdatedOn(updatedOn);
-        return this;
-    }
-
-    public void setUpdatedOn(LocalDate updatedOn) {
-        this.updatedOn = updatedOn;
-    }
-
-    public String getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    public DeliveryDetails updatedBy(String updatedBy) {
-        this.setUpdatedBy(updatedBy);
-        return this;
-    }
-
-    public void setUpdatedBy(String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
     public DeliveryStatus getDeliveryStatus() {
         return this.deliveryStatus;
     }
@@ -335,10 +271,6 @@ public class DeliveryDetails implements Serializable {
             ", deliveryAgentPhone=" + getDeliveryAgentPhone() +
             ", pickupTime='" + getPickupTime() + "'" +
             ", deliveryTime='" + getDeliveryTime() + "'" +
-            ", createdOn='" + getCreatedOn() + "'" +
-            ", createdBy='" + getCreatedBy() + "'" +
-            ", updatedOn='" + getUpdatedOn() + "'" +
-            ", updatedBy='" + getUpdatedBy() + "'" +
             ", deliveryStatus='" + getDeliveryStatus() + "'" +
             "}";
     }

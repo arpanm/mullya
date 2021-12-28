@@ -10,8 +10,6 @@ import com.mullya.app.domain.Catalogue;
 import com.mullya.app.repository.CatalogueRepository;
 import com.mullya.app.service.dto.CatalogueDTO;
 import com.mullya.app.service.mapper.CatalogueMapper;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicLong;
@@ -48,18 +46,6 @@ class CatalogueResourceIT {
     private static final Boolean DEFAULT_IS_ACTIVE = false;
     private static final Boolean UPDATED_IS_ACTIVE = true;
 
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
-
     private static final String ENTITY_API_URL = "/api/catalogues";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -92,11 +78,7 @@ class CatalogueResourceIT {
             .stockImageUrl(DEFAULT_STOCK_IMAGE_URL)
             .landingUrl(DEFAULT_LANDING_URL)
             .description(DEFAULT_DESCRIPTION)
-            .isActive(DEFAULT_IS_ACTIVE)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY);
+            .isActive(DEFAULT_IS_ACTIVE);
         return catalogue;
     }
 
@@ -112,11 +94,7 @@ class CatalogueResourceIT {
             .stockImageUrl(UPDATED_STOCK_IMAGE_URL)
             .landingUrl(UPDATED_LANDING_URL)
             .description(UPDATED_DESCRIPTION)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .isActive(UPDATED_IS_ACTIVE);
         return catalogue;
     }
 
@@ -144,10 +122,6 @@ class CatalogueResourceIT {
         assertThat(testCatalogue.getLandingUrl()).isEqualTo(DEFAULT_LANDING_URL);
         assertThat(testCatalogue.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testCatalogue.getIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
-        assertThat(testCatalogue.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testCatalogue.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testCatalogue.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testCatalogue.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
     }
 
     @Test
@@ -185,11 +159,7 @@ class CatalogueResourceIT {
             .andExpect(jsonPath("$.[*].stockImageUrl").value(hasItem(DEFAULT_STOCK_IMAGE_URL)))
             .andExpect(jsonPath("$.[*].landingUrl").value(hasItem(DEFAULT_LANDING_URL)))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
-            .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE.booleanValue())))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)));
+            .andExpect(jsonPath("$.[*].isActive").value(hasItem(DEFAULT_IS_ACTIVE.booleanValue())));
     }
 
     @Test
@@ -208,11 +178,7 @@ class CatalogueResourceIT {
             .andExpect(jsonPath("$.stockImageUrl").value(DEFAULT_STOCK_IMAGE_URL))
             .andExpect(jsonPath("$.landingUrl").value(DEFAULT_LANDING_URL))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
-            .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE.booleanValue()))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY));
+            .andExpect(jsonPath("$.isActive").value(DEFAULT_IS_ACTIVE.booleanValue()));
     }
 
     @Test
@@ -239,11 +205,7 @@ class CatalogueResourceIT {
             .stockImageUrl(UPDATED_STOCK_IMAGE_URL)
             .landingUrl(UPDATED_LANDING_URL)
             .description(UPDATED_DESCRIPTION)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .isActive(UPDATED_IS_ACTIVE);
         CatalogueDTO catalogueDTO = catalogueMapper.toDto(updatedCatalogue);
 
         restCatalogueMockMvc
@@ -263,10 +225,6 @@ class CatalogueResourceIT {
         assertThat(testCatalogue.getLandingUrl()).isEqualTo(UPDATED_LANDING_URL);
         assertThat(testCatalogue.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testCatalogue.getIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
-        assertThat(testCatalogue.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testCatalogue.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testCatalogue.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testCatalogue.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -346,12 +304,7 @@ class CatalogueResourceIT {
         Catalogue partialUpdatedCatalogue = new Catalogue();
         partialUpdatedCatalogue.setId(catalogue.getId());
 
-        partialUpdatedCatalogue
-            .name(UPDATED_NAME)
-            .description(UPDATED_DESCRIPTION)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedBy(UPDATED_UPDATED_BY);
+        partialUpdatedCatalogue.name(UPDATED_NAME).description(UPDATED_DESCRIPTION);
 
         restCatalogueMockMvc
             .perform(
@@ -370,10 +323,6 @@ class CatalogueResourceIT {
         assertThat(testCatalogue.getLandingUrl()).isEqualTo(DEFAULT_LANDING_URL);
         assertThat(testCatalogue.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testCatalogue.getIsActive()).isEqualTo(DEFAULT_IS_ACTIVE);
-        assertThat(testCatalogue.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testCatalogue.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testCatalogue.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testCatalogue.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test
@@ -393,11 +342,7 @@ class CatalogueResourceIT {
             .stockImageUrl(UPDATED_STOCK_IMAGE_URL)
             .landingUrl(UPDATED_LANDING_URL)
             .description(UPDATED_DESCRIPTION)
-            .isActive(UPDATED_IS_ACTIVE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY);
+            .isActive(UPDATED_IS_ACTIVE);
 
         restCatalogueMockMvc
             .perform(
@@ -416,10 +361,6 @@ class CatalogueResourceIT {
         assertThat(testCatalogue.getLandingUrl()).isEqualTo(UPDATED_LANDING_URL);
         assertThat(testCatalogue.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testCatalogue.getIsActive()).isEqualTo(UPDATED_IS_ACTIVE);
-        assertThat(testCatalogue.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testCatalogue.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testCatalogue.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testCatalogue.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
     }
 
     @Test

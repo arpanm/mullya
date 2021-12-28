@@ -2,7 +2,7 @@ package com.mullya.app.service.dto;
 
 import com.mullya.app.domain.enumeration.BidStatus;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.Instant;
 import java.util.Objects;
 
 /**
@@ -18,11 +18,11 @@ public class BidsDTO implements Serializable {
 
     private BidStatus bidStatus;
 
-    private LocalDate createdOn;
+    private Instant createdOn;
 
     private String createdBy;
 
-    private LocalDate updatedOn;
+    private Instant updatedOn;
 
     private String updatedBy;
 
@@ -64,11 +64,11 @@ public class BidsDTO implements Serializable {
         this.bidStatus = bidStatus;
     }
 
-    public LocalDate getCreatedOn() {
+    public Instant getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(LocalDate createdOn) {
+    public void setCreatedOn(Instant createdOn) {
         this.createdOn = createdOn;
     }
 
@@ -80,11 +80,11 @@ public class BidsDTO implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public LocalDate getUpdatedOn() {
+    public Instant getUpdatedOn() {
         return updatedOn;
     }
 
-    public void setUpdatedOn(LocalDate updatedOn) {
+    public void setUpdatedOn(Instant updatedOn) {
         this.updatedOn = updatedOn;
     }
 

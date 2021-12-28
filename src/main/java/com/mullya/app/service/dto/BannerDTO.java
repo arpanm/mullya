@@ -1,7 +1,7 @@
 package com.mullya.app.service.dto;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.Instant;
 import java.util.Objects;
 
 /**
@@ -25,17 +25,17 @@ public class BannerDTO implements Serializable {
 
     private String mobileHtml;
 
-    private Boolean isActive;
+    private boolean isActive;
 
     private String startDate;
 
     private String endDate;
 
-    private LocalDate createdOn;
+    private Instant createdOn;
 
     private String createdBy;
 
-    private LocalDate updatedOn;
+    private Instant updatedOn;
 
     private String updatedBy;
 
@@ -103,11 +103,11 @@ public class BannerDTO implements Serializable {
         this.mobileHtml = mobileHtml;
     }
 
-    public Boolean getIsActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public void setIsActive(Boolean isActive) {
+    public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
 
@@ -127,11 +127,11 @@ public class BannerDTO implements Serializable {
         this.endDate = endDate;
     }
 
-    public LocalDate getCreatedOn() {
+    public Instant getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(LocalDate createdOn) {
+    public void setCreatedOn(Instant createdOn) {
         this.createdOn = createdOn;
     }
 
@@ -143,11 +143,11 @@ public class BannerDTO implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public LocalDate getUpdatedOn() {
+    public Instant getUpdatedOn() {
         return updatedOn;
     }
 
-    public void setUpdatedOn(LocalDate updatedOn) {
+    public void setUpdatedOn(Instant updatedOn) {
         this.updatedOn = updatedOn;
     }
 

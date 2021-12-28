@@ -2,7 +2,6 @@ package com.mullya.app.web.rest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.hasItems;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -12,7 +11,6 @@ import com.mullya.app.domain.User;
 import com.mullya.app.repository.UserRepository;
 import com.mullya.app.security.AuthoritiesConstants;
 import com.mullya.app.service.dto.AdminUserDTO;
-import com.mullya.app.service.dto.UserDTO;
 import com.mullya.app.service.mapper.UserMapper;
 import com.mullya.app.web.rest.vm.ManagedUserVM;
 import java.time.Instant;
@@ -309,9 +307,9 @@ class UserResourceIT {
         managedUserVM.setImageUrl(UPDATED_IMAGEURL);
         managedUserVM.setLangKey(UPDATED_LANGKEY);
         managedUserVM.setCreatedBy(updatedUser.getCreatedBy());
-        managedUserVM.setCreatedDate(updatedUser.getCreatedDate());
-        managedUserVM.setLastModifiedBy(updatedUser.getLastModifiedBy());
-        managedUserVM.setLastModifiedDate(updatedUser.getLastModifiedDate());
+        managedUserVM.setCreatedOn(updatedUser.getCreatedOn());
+        managedUserVM.setUpdatedBy(updatedUser.getUpdatedBy());
+        managedUserVM.setUpdatedOn(updatedUser.getUpdatedOn());
         managedUserVM.setAuthorities(Collections.singleton(AuthoritiesConstants.USER));
 
         restUserMockMvc
@@ -353,9 +351,9 @@ class UserResourceIT {
         managedUserVM.setImageUrl(UPDATED_IMAGEURL);
         managedUserVM.setLangKey(UPDATED_LANGKEY);
         managedUserVM.setCreatedBy(updatedUser.getCreatedBy());
-        managedUserVM.setCreatedDate(updatedUser.getCreatedDate());
-        managedUserVM.setLastModifiedBy(updatedUser.getLastModifiedBy());
-        managedUserVM.setLastModifiedDate(updatedUser.getLastModifiedDate());
+        managedUserVM.setCreatedOn(updatedUser.getCreatedOn());
+        managedUserVM.setUpdatedBy(updatedUser.getUpdatedBy());
+        managedUserVM.setUpdatedOn(updatedUser.getUpdatedOn());
         managedUserVM.setAuthorities(Collections.singleton(AuthoritiesConstants.USER));
 
         restUserMockMvc
@@ -408,9 +406,9 @@ class UserResourceIT {
         managedUserVM.setImageUrl(updatedUser.getImageUrl());
         managedUserVM.setLangKey(updatedUser.getLangKey());
         managedUserVM.setCreatedBy(updatedUser.getCreatedBy());
-        managedUserVM.setCreatedDate(updatedUser.getCreatedDate());
-        managedUserVM.setLastModifiedBy(updatedUser.getLastModifiedBy());
-        managedUserVM.setLastModifiedDate(updatedUser.getLastModifiedDate());
+        managedUserVM.setCreatedOn(updatedUser.getCreatedOn());
+        managedUserVM.setUpdatedBy(updatedUser.getUpdatedBy());
+        managedUserVM.setUpdatedOn(updatedUser.getUpdatedOn());
         managedUserVM.setAuthorities(Collections.singleton(AuthoritiesConstants.USER));
 
         restUserMockMvc
@@ -451,9 +449,9 @@ class UserResourceIT {
         managedUserVM.setImageUrl(updatedUser.getImageUrl());
         managedUserVM.setLangKey(updatedUser.getLangKey());
         managedUserVM.setCreatedBy(updatedUser.getCreatedBy());
-        managedUserVM.setCreatedDate(updatedUser.getCreatedDate());
-        managedUserVM.setLastModifiedBy(updatedUser.getLastModifiedBy());
-        managedUserVM.setLastModifiedDate(updatedUser.getLastModifiedDate());
+        managedUserVM.setCreatedOn(updatedUser.getCreatedOn());
+        managedUserVM.setUpdatedBy(updatedUser.getUpdatedBy());
+        managedUserVM.setUpdatedOn(updatedUser.getUpdatedOn());
         managedUserVM.setAuthorities(Collections.singleton(AuthoritiesConstants.USER));
 
         restUserMockMvc
@@ -507,7 +505,7 @@ class UserResourceIT {
         userDTO.setImageUrl(DEFAULT_IMAGEURL);
         userDTO.setLangKey(DEFAULT_LANGKEY);
         userDTO.setCreatedBy(DEFAULT_LOGIN);
-        userDTO.setLastModifiedBy(DEFAULT_LOGIN);
+        userDTO.setUpdatedBy(DEFAULT_LOGIN);
         userDTO.setAuthorities(Collections.singleton(AuthoritiesConstants.USER));
 
         User user = userMapper.userDTOToUser(userDTO);
@@ -520,9 +518,9 @@ class UserResourceIT {
         assertThat(user.getImageUrl()).isEqualTo(DEFAULT_IMAGEURL);
         assertThat(user.getLangKey()).isEqualTo(DEFAULT_LANGKEY);
         assertThat(user.getCreatedBy()).isNull();
-        assertThat(user.getCreatedDate()).isNotNull();
-        assertThat(user.getLastModifiedBy()).isNull();
-        assertThat(user.getLastModifiedDate()).isNotNull();
+        assertThat(user.getCreatedOn()).isNotNull();
+        assertThat(user.getUpdatedBy()).isNull();
+        assertThat(user.getUpdatedOn()).isNotNull();
         assertThat(user.getAuthorities()).extracting("name").containsExactly(AuthoritiesConstants.USER);
     }
 
@@ -530,9 +528,9 @@ class UserResourceIT {
     void testUserToUserDTO() {
         user.setId(DEFAULT_ID);
         user.setCreatedBy(DEFAULT_LOGIN);
-        user.setCreatedDate(Instant.now());
-        user.setLastModifiedBy(DEFAULT_LOGIN);
-        user.setLastModifiedDate(Instant.now());
+        user.setCreatedOn(Instant.now());
+        user.setUpdatedBy(DEFAULT_LOGIN);
+        user.setUpdatedOn(Instant.now());
         Set<Authority> authorities = new HashSet<>();
         Authority authority = new Authority();
         authority.setName(AuthoritiesConstants.USER);
@@ -550,9 +548,9 @@ class UserResourceIT {
         assertThat(userDTO.getImageUrl()).isEqualTo(DEFAULT_IMAGEURL);
         assertThat(userDTO.getLangKey()).isEqualTo(DEFAULT_LANGKEY);
         assertThat(userDTO.getCreatedBy()).isEqualTo(DEFAULT_LOGIN);
-        assertThat(userDTO.getCreatedDate()).isEqualTo(user.getCreatedDate());
-        assertThat(userDTO.getLastModifiedBy()).isEqualTo(DEFAULT_LOGIN);
-        assertThat(userDTO.getLastModifiedDate()).isEqualTo(user.getLastModifiedDate());
+        assertThat(userDTO.getCreatedOn()).isEqualTo(user.getCreatedOn());
+        assertThat(userDTO.getUpdatedBy()).isEqualTo(DEFAULT_LOGIN);
+        assertThat(userDTO.getUpdatedOn()).isEqualTo(user.getUpdatedOn());
         assertThat(userDTO.getAuthorities()).containsExactly(AuthoritiesConstants.USER);
         assertThat(userDTO.toString()).isNotNull();
     }

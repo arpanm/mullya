@@ -32,18 +32,12 @@
             <column name="status" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            <column name="created_on" type="timestamp">
-                <constraints nullable="true" />
+            <column name="created_by" type="varchar(50)">
+                <constraints nullable="false"/>
             </column>
-            <column name="created_by" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
-            <column name="updated_on" type="timestamp">
-                <constraints nullable="true" />
-            </column>
-            <column name="updated_by" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
+            <column name="created_on" type="timestamp"/>
+            <column name="updated_by" type="varchar(50)"/>
+            <column name="updated_on" type="timestamp"/>
             <column name="user_id" type="bigint">
                 <constraints nullable="true" />
             </column>

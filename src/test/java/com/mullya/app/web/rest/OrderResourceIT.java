@@ -13,8 +13,6 @@ import com.mullya.app.repository.OrderRepository;
 import com.mullya.app.service.OrderService;
 import com.mullya.app.service.dto.OrderDTO;
 import com.mullya.app.service.mapper.OrderMapper;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -28,7 +26,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
@@ -57,18 +54,6 @@ class OrderResourceIT {
 
     private static final String DEFAULT_ACCEPTED_DELIVERY_DATE = "AAAAAAAAAA";
     private static final String UPDATED_ACCEPTED_DELIVERY_DATE = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
 
     private static final OrderStatus DEFAULT_STATUS = OrderStatus.New;
     private static final OrderStatus UPDATED_STATUS = OrderStatus.Paid;
@@ -112,10 +97,6 @@ class OrderResourceIT {
             .quantityKg(DEFAULT_QUANTITY_KG)
             .neededBy(DEFAULT_NEEDED_BY)
             .acceptedDeliveryDate(DEFAULT_ACCEPTED_DELIVERY_DATE)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY)
             .status(DEFAULT_STATUS);
         return order;
     }
@@ -133,10 +114,6 @@ class OrderResourceIT {
             .quantityKg(UPDATED_QUANTITY_KG)
             .neededBy(UPDATED_NEEDED_BY)
             .acceptedDeliveryDate(UPDATED_ACCEPTED_DELIVERY_DATE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY)
             .status(UPDATED_STATUS);
         return order;
     }
@@ -165,10 +142,6 @@ class OrderResourceIT {
         assertThat(testOrder.getQuantityKg()).isEqualTo(DEFAULT_QUANTITY_KG);
         assertThat(testOrder.getNeededBy()).isEqualTo(DEFAULT_NEEDED_BY);
         assertThat(testOrder.getAcceptedDeliveryDate()).isEqualTo(DEFAULT_ACCEPTED_DELIVERY_DATE);
-        assertThat(testOrder.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testOrder.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testOrder.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testOrder.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
         assertThat(testOrder.getStatus()).isEqualTo(DEFAULT_STATUS);
     }
 
@@ -208,10 +181,6 @@ class OrderResourceIT {
             .andExpect(jsonPath("$.[*].quantityKg").value(hasItem(DEFAULT_QUANTITY_KG.doubleValue())))
             .andExpect(jsonPath("$.[*].neededBy").value(hasItem(DEFAULT_NEEDED_BY)))
             .andExpect(jsonPath("$.[*].acceptedDeliveryDate").value(hasItem(DEFAULT_ACCEPTED_DELIVERY_DATE)))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
             .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())));
     }
 
@@ -250,10 +219,6 @@ class OrderResourceIT {
             .andExpect(jsonPath("$.quantityKg").value(DEFAULT_QUANTITY_KG.doubleValue()))
             .andExpect(jsonPath("$.neededBy").value(DEFAULT_NEEDED_BY))
             .andExpect(jsonPath("$.acceptedDeliveryDate").value(DEFAULT_ACCEPTED_DELIVERY_DATE))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
             .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()));
     }
 
@@ -282,10 +247,6 @@ class OrderResourceIT {
             .quantityKg(UPDATED_QUANTITY_KG)
             .neededBy(UPDATED_NEEDED_BY)
             .acceptedDeliveryDate(UPDATED_ACCEPTED_DELIVERY_DATE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY)
             .status(UPDATED_STATUS);
         OrderDTO orderDTO = orderMapper.toDto(updatedOrder);
 
@@ -306,10 +267,6 @@ class OrderResourceIT {
         assertThat(testOrder.getQuantityKg()).isEqualTo(UPDATED_QUANTITY_KG);
         assertThat(testOrder.getNeededBy()).isEqualTo(UPDATED_NEEDED_BY);
         assertThat(testOrder.getAcceptedDeliveryDate()).isEqualTo(UPDATED_ACCEPTED_DELIVERY_DATE);
-        assertThat(testOrder.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testOrder.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testOrder.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testOrder.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
         assertThat(testOrder.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 
@@ -395,10 +352,6 @@ class OrderResourceIT {
             .quantityKg(UPDATED_QUANTITY_KG)
             .neededBy(UPDATED_NEEDED_BY)
             .acceptedDeliveryDate(UPDATED_ACCEPTED_DELIVERY_DATE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY)
             .status(UPDATED_STATUS);
 
         restOrderMockMvc
@@ -418,10 +371,6 @@ class OrderResourceIT {
         assertThat(testOrder.getQuantityKg()).isEqualTo(UPDATED_QUANTITY_KG);
         assertThat(testOrder.getNeededBy()).isEqualTo(UPDATED_NEEDED_BY);
         assertThat(testOrder.getAcceptedDeliveryDate()).isEqualTo(UPDATED_ACCEPTED_DELIVERY_DATE);
-        assertThat(testOrder.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testOrder.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testOrder.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testOrder.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
         assertThat(testOrder.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 
@@ -443,10 +392,6 @@ class OrderResourceIT {
             .quantityKg(UPDATED_QUANTITY_KG)
             .neededBy(UPDATED_NEEDED_BY)
             .acceptedDeliveryDate(UPDATED_ACCEPTED_DELIVERY_DATE)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY)
             .status(UPDATED_STATUS);
 
         restOrderMockMvc
@@ -466,10 +411,6 @@ class OrderResourceIT {
         assertThat(testOrder.getQuantityKg()).isEqualTo(UPDATED_QUANTITY_KG);
         assertThat(testOrder.getNeededBy()).isEqualTo(UPDATED_NEEDED_BY);
         assertThat(testOrder.getAcceptedDeliveryDate()).isEqualTo(UPDATED_ACCEPTED_DELIVERY_DATE);
-        assertThat(testOrder.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testOrder.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testOrder.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testOrder.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
         assertThat(testOrder.getStatus()).isEqualTo(UPDATED_STATUS);
     }
 

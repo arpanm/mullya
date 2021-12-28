@@ -56,18 +56,6 @@ class DeliveryDetailsResourceIT {
     private static final LocalDate DEFAULT_DELIVERY_TIME = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DELIVERY_TIME = LocalDate.now(ZoneId.systemDefault());
 
-    private static final LocalDate DEFAULT_CREATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_CREATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_CREATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_CREATED_BY = "BBBBBBBBBB";
-
-    private static final LocalDate DEFAULT_UPDATED_ON = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_UPDATED_ON = LocalDate.now(ZoneId.systemDefault());
-
-    private static final String DEFAULT_UPDATED_BY = "AAAAAAAAAA";
-    private static final String UPDATED_UPDATED_BY = "BBBBBBBBBB";
-
     private static final DeliveryStatus DEFAULT_DELIVERY_STATUS = DeliveryStatus.PendingConfirmation;
     private static final DeliveryStatus UPDATED_DELIVERY_STATUS = DeliveryStatus.Accepted;
 
@@ -106,10 +94,6 @@ class DeliveryDetailsResourceIT {
             .deliveryAgentPhone(DEFAULT_DELIVERY_AGENT_PHONE)
             .pickupTime(DEFAULT_PICKUP_TIME)
             .deliveryTime(DEFAULT_DELIVERY_TIME)
-            .createdOn(DEFAULT_CREATED_ON)
-            .createdBy(DEFAULT_CREATED_BY)
-            .updatedOn(DEFAULT_UPDATED_ON)
-            .updatedBy(DEFAULT_UPDATED_BY)
             .deliveryStatus(DEFAULT_DELIVERY_STATUS);
         return deliveryDetails;
     }
@@ -129,10 +113,6 @@ class DeliveryDetailsResourceIT {
             .deliveryAgentPhone(UPDATED_DELIVERY_AGENT_PHONE)
             .pickupTime(UPDATED_PICKUP_TIME)
             .deliveryTime(UPDATED_DELIVERY_TIME)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY)
             .deliveryStatus(UPDATED_DELIVERY_STATUS);
         return deliveryDetails;
     }
@@ -165,10 +145,6 @@ class DeliveryDetailsResourceIT {
         assertThat(testDeliveryDetails.getDeliveryAgentPhone()).isEqualTo(DEFAULT_DELIVERY_AGENT_PHONE);
         assertThat(testDeliveryDetails.getPickupTime()).isEqualTo(DEFAULT_PICKUP_TIME);
         assertThat(testDeliveryDetails.getDeliveryTime()).isEqualTo(DEFAULT_DELIVERY_TIME);
-        assertThat(testDeliveryDetails.getCreatedOn()).isEqualTo(DEFAULT_CREATED_ON);
-        assertThat(testDeliveryDetails.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testDeliveryDetails.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testDeliveryDetails.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
         assertThat(testDeliveryDetails.getDeliveryStatus()).isEqualTo(DEFAULT_DELIVERY_STATUS);
     }
 
@@ -212,10 +188,6 @@ class DeliveryDetailsResourceIT {
             .andExpect(jsonPath("$.[*].deliveryAgentPhone").value(hasItem(DEFAULT_DELIVERY_AGENT_PHONE.intValue())))
             .andExpect(jsonPath("$.[*].pickupTime").value(hasItem(DEFAULT_PICKUP_TIME.toString())))
             .andExpect(jsonPath("$.[*].deliveryTime").value(hasItem(DEFAULT_DELIVERY_TIME.toString())))
-            .andExpect(jsonPath("$.[*].createdOn").value(hasItem(DEFAULT_CREATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].createdBy").value(hasItem(DEFAULT_CREATED_BY)))
-            .andExpect(jsonPath("$.[*].updatedOn").value(hasItem(DEFAULT_UPDATED_ON.toString())))
-            .andExpect(jsonPath("$.[*].updatedBy").value(hasItem(DEFAULT_UPDATED_BY)))
             .andExpect(jsonPath("$.[*].deliveryStatus").value(hasItem(DEFAULT_DELIVERY_STATUS.toString())));
     }
 
@@ -238,10 +210,6 @@ class DeliveryDetailsResourceIT {
             .andExpect(jsonPath("$.deliveryAgentPhone").value(DEFAULT_DELIVERY_AGENT_PHONE.intValue()))
             .andExpect(jsonPath("$.pickupTime").value(DEFAULT_PICKUP_TIME.toString()))
             .andExpect(jsonPath("$.deliveryTime").value(DEFAULT_DELIVERY_TIME.toString()))
-            .andExpect(jsonPath("$.createdOn").value(DEFAULT_CREATED_ON.toString()))
-            .andExpect(jsonPath("$.createdBy").value(DEFAULT_CREATED_BY))
-            .andExpect(jsonPath("$.updatedOn").value(DEFAULT_UPDATED_ON.toString()))
-            .andExpect(jsonPath("$.updatedBy").value(DEFAULT_UPDATED_BY))
             .andExpect(jsonPath("$.deliveryStatus").value(DEFAULT_DELIVERY_STATUS.toString()));
     }
 
@@ -272,10 +240,6 @@ class DeliveryDetailsResourceIT {
             .deliveryAgentPhone(UPDATED_DELIVERY_AGENT_PHONE)
             .pickupTime(UPDATED_PICKUP_TIME)
             .deliveryTime(UPDATED_DELIVERY_TIME)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY)
             .deliveryStatus(UPDATED_DELIVERY_STATUS);
         DeliveryDetailsDTO deliveryDetailsDTO = deliveryDetailsMapper.toDto(updatedDeliveryDetails);
 
@@ -298,10 +262,6 @@ class DeliveryDetailsResourceIT {
         assertThat(testDeliveryDetails.getDeliveryAgentPhone()).isEqualTo(UPDATED_DELIVERY_AGENT_PHONE);
         assertThat(testDeliveryDetails.getPickupTime()).isEqualTo(UPDATED_PICKUP_TIME);
         assertThat(testDeliveryDetails.getDeliveryTime()).isEqualTo(UPDATED_DELIVERY_TIME);
-        assertThat(testDeliveryDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testDeliveryDetails.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testDeliveryDetails.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testDeliveryDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
         assertThat(testDeliveryDetails.getDeliveryStatus()).isEqualTo(UPDATED_DELIVERY_STATUS);
     }
 
@@ -388,8 +348,7 @@ class DeliveryDetailsResourceIT {
             .pickupDate(UPDATED_PICKUP_DATE)
             .truckDetails(UPDATED_TRUCK_DETAILS)
             .deliveryAgentPhone(UPDATED_DELIVERY_AGENT_PHONE)
-            .deliveryTime(UPDATED_DELIVERY_TIME)
-            .createdOn(UPDATED_CREATED_ON);
+            .deliveryTime(UPDATED_DELIVERY_TIME);
 
         restDeliveryDetailsMockMvc
             .perform(
@@ -410,10 +369,6 @@ class DeliveryDetailsResourceIT {
         assertThat(testDeliveryDetails.getDeliveryAgentPhone()).isEqualTo(UPDATED_DELIVERY_AGENT_PHONE);
         assertThat(testDeliveryDetails.getPickupTime()).isEqualTo(DEFAULT_PICKUP_TIME);
         assertThat(testDeliveryDetails.getDeliveryTime()).isEqualTo(UPDATED_DELIVERY_TIME);
-        assertThat(testDeliveryDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testDeliveryDetails.getCreatedBy()).isEqualTo(DEFAULT_CREATED_BY);
-        assertThat(testDeliveryDetails.getUpdatedOn()).isEqualTo(DEFAULT_UPDATED_ON);
-        assertThat(testDeliveryDetails.getUpdatedBy()).isEqualTo(DEFAULT_UPDATED_BY);
         assertThat(testDeliveryDetails.getDeliveryStatus()).isEqualTo(DEFAULT_DELIVERY_STATUS);
     }
 
@@ -437,10 +392,6 @@ class DeliveryDetailsResourceIT {
             .deliveryAgentPhone(UPDATED_DELIVERY_AGENT_PHONE)
             .pickupTime(UPDATED_PICKUP_TIME)
             .deliveryTime(UPDATED_DELIVERY_TIME)
-            .createdOn(UPDATED_CREATED_ON)
-            .createdBy(UPDATED_CREATED_BY)
-            .updatedOn(UPDATED_UPDATED_ON)
-            .updatedBy(UPDATED_UPDATED_BY)
             .deliveryStatus(UPDATED_DELIVERY_STATUS);
 
         restDeliveryDetailsMockMvc
@@ -462,10 +413,6 @@ class DeliveryDetailsResourceIT {
         assertThat(testDeliveryDetails.getDeliveryAgentPhone()).isEqualTo(UPDATED_DELIVERY_AGENT_PHONE);
         assertThat(testDeliveryDetails.getPickupTime()).isEqualTo(UPDATED_PICKUP_TIME);
         assertThat(testDeliveryDetails.getDeliveryTime()).isEqualTo(UPDATED_DELIVERY_TIME);
-        assertThat(testDeliveryDetails.getCreatedOn()).isEqualTo(UPDATED_CREATED_ON);
-        assertThat(testDeliveryDetails.getCreatedBy()).isEqualTo(UPDATED_CREATED_BY);
-        assertThat(testDeliveryDetails.getUpdatedOn()).isEqualTo(UPDATED_UPDATED_ON);
-        assertThat(testDeliveryDetails.getUpdatedBy()).isEqualTo(UPDATED_UPDATED_BY);
         assertThat(testDeliveryDetails.getDeliveryStatus()).isEqualTo(UPDATED_DELIVERY_STATUS);
     }
 
