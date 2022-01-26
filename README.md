@@ -230,7 +230,17 @@ to skip test
 ./mvnw -Pdev,webapp clean verify -Dmaven.test.skip
 ```
 
+Install heroku cli:
+```
+brew tap heroku/brew && brew install heroku
+```
+
 To connect to heroku app from current git workspace:
 ```
 heroku git:remote -a mulyaa
+```
+
+Install java plugin to herok for jar ddeployment:
+```
+heroku plugins:install java
 ```
