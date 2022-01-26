@@ -37,8 +37,8 @@ class OTPAttemptResourceIT {
     private static final String DEFAULT_EMAIL = "AAAAAAAAAA";
     private static final String UPDATED_EMAIL = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_PHONE = 1;
-    private static final Integer UPDATED_PHONE = 2;
+    private static final Long DEFAULT_PHONE = 1l;
+    private static final Long UPDATED_PHONE = 2l;
 
     private static final String DEFAULT_IP = "AAAAAAAAAA";
     private static final String UPDATED_IP = "BBBBBBBBBB";

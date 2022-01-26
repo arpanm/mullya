@@ -34,7 +34,7 @@ public class OTPAttempt extends AbstractAuditingEntity implements Serializable {
     private String email;
 
     @Column(name = "phone")
-    private Integer phone;
+    private Long phone;
 
     @Column(name = "ip")
     private String ip;
@@ -87,16 +87,16 @@ public class OTPAttempt extends AbstractAuditingEntity implements Serializable {
         this.email = email;
     }
 
-    public Integer getPhone() {
+    public Long getPhone() {
         return this.phone;
     }
 
-    public OTPAttempt phone(Integer phone) {
+    public OTPAttempt phone(Long phone) {
         this.setPhone(phone);
         return this;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
