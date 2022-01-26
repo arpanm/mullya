@@ -1,7 +1,10 @@
 package com.mullya.app.repository;
 
 import com.mullya.app.domain.Catalogue;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -9,4 +12,9 @@ import org.springframework.stereotype.Repository;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface CatalogueRepository extends JpaRepository<Catalogue, Long> {}
+public interface CatalogueRepository extends JpaRepository<Catalogue, Long> {
+    @Query("select c from Catalogue c where c.parent =:parent")
+    Page<Catalogue> findAllByParent(Pageable pageable, @Param("parent") int parent);
+
+    Page<Catalogue> findAllByParentIsNull(Pageable pageable);
+}

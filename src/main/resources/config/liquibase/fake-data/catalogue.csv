@@ -1,11 +1,11 @@
-id;name;stock_image_url;landing_url;description;is_active;created_on;created_by;updated_on;updated_by
-1;line index Avon;Soap;Berkshire Cheese;Loan Product yellow;false;2021-12-08;mesh Account;2021-12-08;THX
-2;plum envisioneer;Practical;Silver feed Account;TCP Station Universal;true;2021-12-08;Shoes Steel;2021-12-08;payment
-3;Engineer Computers e-commerce;Implementation Networked;invoice Ridge;Lesotho payment;false;2021-12-08;Usability;2021-12-08;Account incentivize Morocco
-4;Small Peso attitude-oriented;proactive Health;Road online Assistant;matrix program;true;2021-12-08;programming lavender facilitate;2021-12-08;Profound
-5;Up-sized;bandwidth;Lempira Borders Associate;SMTP enterprise;false;2021-12-07;cross-platform Soft;2021-12-08;Cambridgeshire Principal
-6;JSON;deliver JBOD;Georgia;Markets Money;false;2021-12-07;PNG transition bypassing;2021-12-08;Proactive envisioneer
-7;Baby;Car Rupee navigating;clicks-and-mortar hack;Research Delaware;false;2021-12-08;bus Account;2021-12-07;Union
-8;bypassing;National;payment Virtual;Games Licensed;false;2021-12-08;Bedfordshire;2021-12-08;Account
-9;seize;virtual executive Interactions;Checking Gorgeous Arizona;efficient Investment;true;2021-12-08;maroon parsing;2021-12-08;bluetooth Berkshire
-10;Landing;Practical;interfaces;Balanced invoice online;true;2021-12-08;communities Borders;2021-12-08;Keyboard parsing Borders
+id;name;stock_image_url;landing_url;description;is_active;created_on;created_by;updated_on;updated_by;parent_id
+1;Food Grain;https://www.thedollarbusiness.com/assets/articles/2015/03/Food-Grains-The-Dollar-Business.jpg;/catalogue/1;Food Grain;TRUE;2021-12-08;admin;2021-12-08;admin;
+2;Rice;https://extension.usu.edu/preserve-the-harvest/images/white-rice.jpg;/catalogue/2;Rice;TRUE;2021-12-08;admin;2021-12-08;admin;1
+3;Wheat;https://5.imimg.com/data5/PI/VL/MY-66556936/royal-wheat-500x500.jpg;/catalogue/3;Wheat;TRUE;2021-12-08;admin;2021-12-08;admin;1
+4;Pulses;https://www.veganfirst.com/media/editorimages/PULSES.jpg;/catalogue/4;Pulses or dal;TRUE;2021-12-08;admin;2021-12-08;admin;1
+5;Masoor;https://5.imimg.com/data5/VY/YU/MY-33837411/masoor-dal-500x500.jpg;/catalogue/5;Masoor dal;TRUE;2021-12-08;admin;2021-12-08;admin;4
+6;Moong;https://5.imimg.com/data5/IV/KH/JU/SELLER-25903313/moong-dal-500x500.jpg;/catalogue/6;Moong dal;TRUE;2021-12-08;admin;2021-12-08;admin;4
+7;Spices;https://info.ehl.edu/hubfs/1440/1440x960-spices.jpg;/catalogue/7;Spices;TRUE;2021-12-08;admin;2021-12-08;admin;
+8;Clove;"https://assets.lybrate.com/q_auto:eco;f_auto;w_850/imgs/product/health-wiki/bpages/Benefits-Of-Cloves.jpg";/catalogue/8;Clove;TRUE;2021-12-08;admin;2021-12-08;admin;7
+9;Cumin;https://5.imimg.com/data5/AP/RS/MY-10613027/cumin-seeds-500x500.jpg;/catalogue/9;Cumin;TRUE;2021-12-08;admin;2021-12-08;admin;7
+10;Cinnemon;https://5.imimg.com/data5/KY/CX/ZJ/SELLER-2745394/cinnamon-500x500.jpg;/catalogue/10;Cinnemon;TRUE;2021-12-08;admin;2021-12-08;admin;7

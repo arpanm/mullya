@@ -47,4 +47,13 @@ public interface CatalogueService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    /**
+     * Get all the catalogues based on parent id. Top level: categories, otherwise variant or sub variant.
+     *
+     * @param pageable the pagination information.
+     * @param parent the parent id. -1 for top level catalogues or categories.
+     * @return the list of entities.
+     */
+    Page<CatalogueDTO> findAll(Pageable pageable, int parent);
 }

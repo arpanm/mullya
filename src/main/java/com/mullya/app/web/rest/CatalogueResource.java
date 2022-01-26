@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -143,9 +144,17 @@ public class CatalogueResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of catalogues in body.
      */
     @GetMapping("/catalogues")
-    public ResponseEntity<List<CatalogueDTO>> getAllCatalogues(Pageable pageable) {
+    public ResponseEntity<List<CatalogueDTO>> getAllCatalogues(
+        @RequestParam(required = false) Integer pid,
+        @PageableDefault(page = 0, size = 100) Pageable pageable
+    ) {
         log.debug("REST request to get a page of Catalogues");
-        Page<CatalogueDTO> page = catalogueService.findAll(pageable);
+        Page<CatalogueDTO> page;
+        if ((pid == null || pid < 0)) {
+            page = catalogueService.findAll(pageable);
+        } else {
+            page = catalogueService.findAll(pageable, pid);
+        }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
