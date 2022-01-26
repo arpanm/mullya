@@ -225,3 +225,12 @@ Run following commands:
 git push heroku main
 heroku deploy:jar target/*.jar --app mulyaa
 ```
+to skip test
+```
+./mvnw -Pdev,webapp clean verify -Dmaven.test.skip
+```
+
+To connect to heroku app from current git workspace:
+```
+heroku git:remote -a mulyaa
+```
