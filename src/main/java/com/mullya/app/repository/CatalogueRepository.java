@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface CatalogueRepository extends JpaRepository<Catalogue, Long> {
-    @Query("select c from Catalogue c where c.parent =:parent")
-    Page<Catalogue> findAllByParent(Pageable pageable, @Param("parent") int parent);
+    @Query("select c from Catalogue c where c.parent.id =:pid")
+    Page<Catalogue> findAllByParent(Pageable pageable, @Param("pid") Long parent);
 
     Page<Catalogue> findAllByParentIsNull(Pageable pageable);
 }

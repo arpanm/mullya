@@ -145,14 +145,15 @@ public class CatalogueResource {
      */
     @GetMapping("/catalogues")
     public ResponseEntity<List<CatalogueDTO>> getAllCatalogues(
-        @RequestParam(required = false) Integer pid,
+        @RequestParam(required = false) Long pid,
         @PageableDefault(page = 0, size = 100) Pageable pageable
     ) {
-        log.debug("REST request to get a page of Catalogues");
+        log.debug("REST request to get a page of Catalogues with pid {}", pid);
         Page<CatalogueDTO> page;
-        if ((pid == null || pid < 0)) {
+        if (pid == null || pid < 0) {
             page = catalogueService.findAll(pageable);
         } else {
+            log.debug("calling find all with pid {} ", pid);
             page = catalogueService.findAll(pageable, pid);
         }
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);

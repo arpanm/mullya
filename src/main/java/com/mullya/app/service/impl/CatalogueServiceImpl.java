@@ -63,11 +63,13 @@ public class CatalogueServiceImpl implements CatalogueService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<CatalogueDTO> findAll(Pageable pageable, int parent) {
-        log.debug("Request to get all Catalogues");
+    public Page<CatalogueDTO> findAll(Pageable pageable, Long parent) {
+        log.debug("Request to get all Catalogues with parent {}", parent);
         if (parent == 0) {
+            log.debug("calling findAllByParentIsNull");
             return catalogueRepository.findAllByParentIsNull(pageable).map(catalogueMapper::toDto);
         } else {
+            log.debug("calling findAllByParent");
             return catalogueRepository.findAllByParent(pageable, parent).map(catalogueMapper::toDto);
         }
     }

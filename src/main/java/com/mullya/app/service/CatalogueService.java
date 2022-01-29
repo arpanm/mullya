@@ -55,5 +55,5 @@ public interface CatalogueService {
      * @param parent the parent id. -1 for top level catalogues or categories.
      * @return the list of entities.
      */
-    Page<CatalogueDTO> findAll(Pageable pageable, int parent);
+    Page<CatalogueDTO> findAll(Pageable pageable, Long parent);
 }
