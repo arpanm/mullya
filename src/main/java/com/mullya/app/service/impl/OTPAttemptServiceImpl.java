@@ -72,7 +72,7 @@ public class OTPAttemptServiceImpl implements OTPAttemptService {
         } else if (oTPAttemptDTO.getOtp().getExpiryTime().isBefore(LocalDateTime.now())) {
             oTPService.expire(oTPAttempt.getOtp());
             throw new InvalidOTPException(InvalidOTPException.Expired);
-        } else if (oTPAttemptDTO.getOtp().getType().equals(OtpType.Email)) {
+        }/* else if (oTPAttemptDTO.getOtp().getType().equals(OtpType.Email)) {
             if (!oTPAttemptDTO.getOtp().getEmail().equals(oTPAttemptDTO.getEmail())) {
                 throw new InvalidOTPException(InvalidOTPException.IncorrectEmail);
             }
@@ -87,7 +87,7 @@ public class OTPAttemptServiceImpl implements OTPAttemptService {
             ) {
                 throw new InvalidOTPException(InvalidOTPException.IncorrectEmailOrPhone);
             }
-        }
+        }*/
 
         if (!oTPAttemptDTO.getOtp().getOtpVal().equals(oTPAttemptDTO.getOtpVal().trim())) {
             log.error("entered {} needed {}", oTPAttemptDTO.getOtpVal(), oTPAttemptDTO.getOtp().getOtpVal());
