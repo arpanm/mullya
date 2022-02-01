@@ -7,17 +7,24 @@ import com.mullya.app.service.MailService;
 import com.mullya.app.service.UserService;
 import com.mullya.app.service.dto.AdminUserDTO;
 import com.mullya.app.service.dto.PasswordChangeDTO;
+import com.mullya.app.service.mapper.AddressMapper;
+import com.mullya.app.service.mapper.UserMapper;
 import com.mullya.app.web.rest.errors.*;
 import com.mullya.app.web.rest.vm.KeyAndPasswordVM;
 import com.mullya.app.web.rest.vm.ManagedUserVM;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import tech.jhipster.web.util.HeaderUtil;
 
 /**
  * REST controller for managing the current user's account.
@@ -33,6 +40,11 @@ public class AccountResource {
         }
     }
 
+    private static final String ENTITY_NAME = "user";
+
+    @Value("${jhipster.clientApp.name}")
+    private String applicationName;
+
     private final Logger log = LoggerFactory.getLogger(AccountResource.class);
 
     private final UserRepository userRepository;
@@ -41,10 +53,13 @@ public class AccountResource {
 
     private final MailService mailService;
 
-    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService) {
+    private final UserMapper userMapper;
+
+    public AccountResource(UserRepository userRepository, UserService userService, MailService mailService, UserMapper userMapper) {
         this.userRepository = userRepository;
         this.userService = userService;
         this.mailService = mailService;
+        this.userMapper = userMapper;
     }
 
     /**
@@ -57,12 +72,16 @@ public class AccountResource {
      */
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public void registerAccount(@Valid @RequestBody ManagedUserVM managedUserVM) {
+    public ResponseEntity<AdminUserDTO> registerAccount(@Valid @RequestBody ManagedUserVM managedUserVM) throws URISyntaxException {
         if (isPasswordLengthInvalid(managedUserVM.getPassword())) {
             throw new InvalidPasswordException();
         }
         User user = userService.registerUser(managedUserVM, managedUserVM.getPassword());
         mailService.sendActivationEmail(user);
+        return ResponseEntity
+            .created(new URI("/api/user/" + user.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, user.getId().toString()))
+            .body(userMapper.userToAdminUserDTO(user));
     }
 
     /**

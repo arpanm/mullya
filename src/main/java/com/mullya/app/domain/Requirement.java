@@ -5,6 +5,7 @@ import com.mullya.app.domain.enumeration.RequirementStatus;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -59,7 +60,7 @@ public class Requirement extends AbstractAuditingEntity implements Serializable 
     @JsonIgnoreProperties(value = { "paymentDetails", "remittances", "requirement", "bid", "assignedAgent", "stock" }, allowSetters = true)
     private Set<Order> orders = new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = { "hub", "user" }, allowSetters = true)
     private Address buyerAddress;
 
